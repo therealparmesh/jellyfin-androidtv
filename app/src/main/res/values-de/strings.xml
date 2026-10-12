@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="video_error_unknown_error">Fehler beim Laden des Videos</string>
     <string name="btn_cancel">Abbrechen</string>
@@ -43,8 +44,6 @@
     <string name="lbl_chapters">Kapitel</string>
     <string name="lbl_specials">Extras</string>
     <string name="lbl_trailers">Trailer</string>
-    <string name="lbl_items">Einträge</string>
-    <string name="lbl_item">Eintrag</string>
     <string name="lbl_seasons">Staffeln</string>
     <string name="lbl_upcoming">Als nächstes</string>
     <string name="lbl_sd">SD</string>
@@ -59,14 +58,12 @@
     <string name="lbl_none">Nichts</string>
     <string name="msg_video_playback_error">"Videowiedergabefehler - "</string>
     <string name="lbl_bracket_unknown">Unbekannt</string>
-    <string name="lbl_trailer">"Trailer "</string>
     <string name="lbl_play_trailers">Trailer abspielen</string>
     <string name="lbl_no">Nein</string>
     <string name="lbl_yes">Ja</string>
     <string name="lbl_enter_server_address">Server-Adresse eingeben</string>
     <string name="lbl_valid_server_address">Bitte die Server-Adresse eingeben (IP oder Domänen-/Rechnername)</string>
     <string name="lbl_ok">Ok</string>
-    <string name="lbl_born">"Geboren "</string>
     <string name="lbl_loading_elipses">Laden…</string>
     <string name="msg_playback_not_allowed">Wiedergabe derzeit nicht erlaubt</string>
     <string name="msg_playback_restricted">Der Administrator hat die Wiedergabe dieses Elements derzeit eingeschränkt</string>
@@ -76,8 +73,6 @@
     <string name="msg_cannot_play">Dieses Element kann nicht abgespielt werden</string>
     <string name="lbl_no_items">Keine Elemente</string>
     <string name="lbl_empty">Leer</string>
-    <string name="lbl_tv_queuing">Nächste Folge automatisch abspielen</string>
-    <string name="lbl_search_hint">Suchtext (für Tastatur auswählen)</string>
     <string name="lbl_play_first_unwatched">Erste ungesehene abspielen</string>
     <string name="lbl_mark_unplayed">Markiere als ungesehen</string>
     <string name="lbl_mark_played">Markiere als gesehen</string>
@@ -117,13 +112,9 @@
     <string name="lbl_critic_rating">Kritikerbewertung</string>
     <string name="lbl_rating">Bewertung</string>
     <string name="lbl_starting_with">beginnend mit jenen, deren Namen beginnt mit</string>
-    <string name="lbl_display_preferences">Anzeigeeinstellungen</string>
     <string name="lbl__continuing">FORTGESETZT</string>
     <string name="lbl_ended">BEENDET</string>
     <string name="lbl_filters">Fernseh-Filter</string>
-    <string name="msg_subtitles_loading">Lade Untertitel…</string>
-    <string name="msg_unable_load_subs">Untertitel konnten nicht geladen werden</string>
-    <string name="msg_burn_sub_warning">Untertitel werden eingebrannt. Dies kann ein paar Sekunden dauern…</string>
     <string name="lbl_no_recordings">Keine Aufnahmen verfügbar</string>
     <string name="lbl_live_tv_guide">Aktuelles Fernsehprogramm</string>
     <string name="lbl_recorded_tv">Fernsehaufnahmen</string>
@@ -133,14 +124,9 @@
     <string name="lbl_programs">Programme</string>
     <string name="lbl_albums">Alben</string>
     <string name="lbl_artists">Künstler</string>
-    <string name="lbl_song">Lied</string>
     <string name="lbl_songs">Lieder</string>
-    <string name="lbl_album">Album</string>
     <string name="lbl_episodes">Episoden</string>
-    <string name="lbl_enable_cinema_mode">Kino-Modus</string>
-    <string name="sum_enable_cinema_mode">Spiele verfügbare Intros und Vorschauen vor dem Film ab</string>
     <string name="lbl_playlists">Wiedergabelisten</string>
-    <string name="msg_items_added">" Elemente hinzugefügt"</string>
     <string name="lbl_add_to_queue">Zur Warteschlange hinzufügen</string>
     <string name="lbl_open_artist">Zeige Künstler</string>
     <string name="lbl_open_album">Zeige Album</string>
@@ -152,11 +138,8 @@
     <string name="lbl_goto_now_playing">Zur aktuellen Wiedergabe gehen</string>
     <string name="lbl_instant_mix">Instant-Mix</string>
     <string name="lbl_delete">Löschen</string>
-    <string name="msg_item_added">" Element hinzugefügt"</string>
     <string name="desc_automatic_fav_songs">Automatische Wiedergabeliste aus Favoritenliedern</string>
-    <string name="lbl_new_premieres">Neue Premieren</string>
     <string name="lbl_bitstream_ac3">Dolby Digital Ton bitstreamen</string>
-    <string name="desc_bitstream_ac3">Benötigt fähige Hardware</string>
     <string name="lbl_zoom">Zoom</string>
     <string name="btn_got_it">Verstanden</string>
     <string name="lbl_clear_queue">Warteschlange leeren</string>
@@ -164,8 +147,6 @@
     <string name="lbl_open">Öffnen</string>
     <string name="lbl_show_backdrop">Hintergründe anzeigen</string>
     <string name="lbl_refresh_switching">Umschaltung der Bildwiederholfrequenz</string>
-    <string name="lbl_show_premieres">Staffel-Premieren zeigen</string>
-    <string name="desc_premieres">Zeige eine Reihe neuer Folgenpiloten für jede Serie, die du siehst</string>
     <string name="lbl_premiere">Premiere</string>
     <string name="lbl_song_title">Liedtitel</string>
     <string name="lbl_album_name">Albumname</string>
@@ -202,8 +183,6 @@
     <string name="lbl_watched">Angesehen</string>
     <string name="lbl_favorite">Favorit</string>
     <string name="lbl_series">Serien</string>
-    <string name="lbl_status">%1$s / %2$s</string>
-    <string name="pref_authentication_cat">Authentifizierung</string>
     <string name="loading">Laden…</string>
     <string name="lbl_at_any_time">Jederzeit</string>
     <string name="lbl_premieres">Premieren</string>
@@ -229,18 +208,10 @@
     <string name="grid_direction_horizontal">Horizontal</string>
     <string name="grid_direction">Rasterausrichtung</string>
     <string name="pref_device_model">Gerätemodell</string>
-    <string name="lbl_Reset">Zurücksetzen</string>
-    <string name="pref_button_remapping_description">Drücke eine Taste auf der Fernbedienung, um sie zu belegen</string>
-    <string name="pref_subtitle_track_button">Untertiteltaste</string>
-    <string name="pref_audio_track_button">Audiospurtaste</string>
-    <string name="lbl_unknown_key">Unbekannt (%1s)</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/s</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
     <string name="just_one">Nur dieses eine</string>
-    <string name="turn_off">Diese Option ausschalten</string>
-    <string name="audio_error">Audio %1$s kann nicht abgespielt werden</string>
     <string name="msg_no_items">Keine Elemente zur Wiedergabe</string>
-    <string name="subtitle_error">Untertitel können nicht ausgewählt werden</string>
     <string name="too_many_errors">Zu viele Fehler. Gebe auf</string>
     <string name="player_error">Player-Fehler aufgetreten. Erneut versuchen…</string>
     <string name="seek_error">Kann nicht suchen</string>
@@ -251,9 +222,6 @@
     <string name="episode_missing_message">Diese Folge fehlt in deiner Bibliothek. Möchtest du sie überspringen und mit der nächsten fortfahren?</string>
     <string name="episode_missing">Folge fehlt</string>
     <string name="no_player_message">Scheinbar hast du keine videofähige App installiert. Diese Option erfordert die Installation einer Drittanbieteranwendung zur Wiedergabe von Videoinhalten.</string>
-    <string name="no_player">Kein Player</string>
-    <string name="mark_watched_message">Das Element schien nicht so lange zu spielen wie seine Laufzeit. Als gesehen markieren?</string>
-    <string name="mark_watched">Als gesehen markieren</string>
     <string name="lbl_tv_filter_status">für die nächsten %1$d Stunden</string>
     <string name="lbl_tv_channel_status">%1$d von %2$d Kanälen</string>
     <string name="lbl_subtitle_track">Untertitelspur auswählen</string>
@@ -261,7 +229,6 @@
     <string name="lbl_pause">Pause</string>
     <string name="lbl_playback_control_ends">Endet um %1$s</string>
     <string name="lbl_sign_in">Bitte anmelden</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="pref_clock_display_playback">Während der Wiedergabe</string>
     <string name="pref_clock_display_browsing">Während dem Durchstöbern</string>
     <string name="lbl_always">Immer</string>
@@ -278,8 +245,6 @@
     <string name="connect_manually_by_address">Server-Adresse eingeben</string>
     <string name="discovered_servers_empty">Es wurden keine Server im lokalen Netzwerk gefunden.</string>
     <string name="discovered_servers_title">Gefundene Server</string>
-    <string name="lbl_hidden">Versteckt</string>
-    <string name="pref_developer_link_description">Erweiterte und experimentelle Funktionen</string>
     <string name="pref_developer_link">Entwickleroptionen</string>
     <string name="image_size_large">Groß</string>
     <string name="image_size_medium">Mittel</string>
@@ -291,7 +256,6 @@
     <string name="lbl_sign_out">Abmelden</string>
     <string name="lbl_remove">Entfernen</string>
     <string name="lbl_server">Server</string>
-    <string name="lbl_user_server">%1$s auf %2$s</string>
     <string name="lbl_user_last_used">Zuletzt verwendet am %1$s um %2$s</string>
     <string name="lbl_remove_server">Server entfernen</string>
     <string name="lbl_sign_out_content">Erfordert Anmeldung bei nächster Verwendung</string>
@@ -354,7 +318,6 @@
     <string name="license_artifact">Artefakt</string>
     <string name="license_version">Version</string>
     <string name="license_description">Beschreibung</string>
-    <string name="licenses_link_description">Lizenzen der von der Jellyfin-App verwendeten Bibliotheken anzeigen</string>
     <string name="licenses_link">Lizenzen</string>
     <string name="searchable_settings_description">Medien</string>
     <string name="searchable_hint">Jellyfin durchsuchen</string>
@@ -368,26 +331,15 @@
     <string name="home_section_library_small">Meine Medien (klein)</string>
     <string name="home_section_library">Meine Medien</string>
     <string name="home_section_latest_media">Kürzlich hinzugefügte Medien</string>
-    <string name="home_sections">Startseitenabschnitte</string>
     <string name="home_prefs">Startseite</string>
     <string name="pref_subtitles_size">Textgröße</string>
-    <string name="pref_subtitles_background_summary">Schwarzen Hintergrund hinter den Untertiteln anzeigen</string>
-    <string name="pref_subtitles_background_title">Hintergrund aktivieren</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
-    <string name="pref_home_description">Konfigurieren der angezeigten Abschnitte</string>
-    <string name="pref_direct_stream_live_off">Transkodierung wird bei Bedarf verwendet</string>
     <string name="pref_audio">Audio</string>
     <string name="pref_subtitles">Untertitel</string>
     <string name="pref_video">Video</string>
-    <string name="pref_playback_description">Video, Untertitel, Live-TV, als Nächstes</string>
-    <string name="pref_customization_description">Theme, Startseite, Neuzuordnung</string>
-    <string name="pref_login_description">Server, Konten, automatische Anmeldung</string>
     <string name="pref_login">Anmeldung</string>
-    <string name="pref_libraries_description">Ändern der Anzeige von Bibliotheken</string>
     <string name="pref_libraries">Bibliotheken</string>
-    <string name="pref_theme">Theme</string>
     <string name="pref_browsing">Durchsuchen</string>
-    <string name="pref_behavior">Verhalten</string>
     <string name="pref_accounts">Konten</string>
     <string name="sort_accounts_by">Konten sortieren nach</string>
     <string name="pref_customization">Personalisierung</string>
@@ -399,7 +351,6 @@
     <string name="server_issue_invalid_product">Serversoftware ist nicht kompatibel</string>
     <string name="server_issue_unable_to_connect">Keine Verbindung möglich</string>
     <string name="lbl_playback_speed">Wiedergabegeschwindigkeit</string>
-    <string name="pref_direct_stream_live_on">Transkodierung ist deaktiviert</string>
     <string name="server_connection_failed_candidates">Verbindung zum Server nicht möglich, folgende Adressen ausprobiert: %1$s</string>
     <string name="home_section_resume_book">Weiterlesen</string>
     <string name="lbl_shuffle_queue">Mischen umschalten</string>
@@ -417,8 +368,6 @@
     <string name="action_use_password">Passwort verwenden</string>
     <string name="action_login">Anmelden</string>
     <string name="state_disabled">Deaktiviert</string>
-    <string name="lbl_subtitle_delay">Untertitelverzögerung</string>
-    <string name="live_tv_preferences">Fernseh-Optionen</string>
     <string name="pref_telemetry_category">Absturzbericht</string>
     <string name="server_unsupported_notification">Dieser Server verwendet Jellyfin-Version %1$s, die nicht unterstützt wird. Bitte aktualisiere auf Jellyfin %2$s oder neuer, um die App weiter nutzen zu können.</string>
     <string name="app_notification_uimode_invalid">Diese App ist für Fernsehgeräte optimiert. Wir empfehlen die Verwendung unserer mobilen App auf anderen Geräten.</string>
@@ -434,26 +383,17 @@
     <string name="pref_crash_report_logs">Logs einschließen</string>
     <string name="pref_crash_reports_disabled">Absturzberichte werden nicht gesendet</string>
     <string name="pref_crash_reports">Absturzberichte an Server senden</string>
-    <string name="pref_telemetry_description">Absturzberichte senden, Logs einschließen</string>
     <string name="lbl_additional_parts">Zusätzliche Inhalte</string>
     <string name="lbl_quality_profile">Qualitätsprofil</string>
-    <string name="desc_audio_night_mode">Passt die Audiolautstärke automatisch an</string>
     <string name="pref_audio_night_mode">Audio-Nachtmodus (experimentell)</string>
     <string name="app_notification_beta">App auf %1$s aktualisiert
 \nVielen Dank für die Teilnahme am Jellyfin-Beta-Programm.</string>
-    <string name="color_white">Weiß</string>
-    <string name="color_black">Schwarz</string>
-    <string name="color_darkgrey">Dunkelgrau</string>
     <string name="color_red">Rot</string>
     <string name="color_green">Grün</string>
     <string name="color_blue">Blau</string>
-    <string name="color_yellow">Gelb</string>
-    <string name="color_pink">Rosa</string>
-    <string name="color_cyan">Türkis</string>
     <string name="item_delete_confirm_title">Element löschen</string>
     <string name="item_delete_confirm_message">Bist du sicher, dass du dieses Element vom Server löschen möchtest? Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="item_deletion_failed">%1$s kann nicht gelöscht werden</string>
-    <string name="pref_enable_media_management">Medien-Management aktivieren</string>
     <string name="item_deleted">%1$s gelöscht</string>
     <string name="pref_screensaver">Bildschirmschoner</string>
     <string name="pref_screensaver_inapp_enabled">In-App-Bildschirmschoner verwenden</string>
@@ -465,7 +405,6 @@
         <item quantity="one">%1$s Stunde</item>
         <item quantity="other">%1$s Stunden</item>
     </plurals>
-    <string name="pref_enable_media_management_description">Option zum Verwalten von Medien während dem Durchsuchen anzeigen</string>
     <plurals name="tracks">
         <item quantity="one">%1$s Titel</item>
         <item quantity="other">%1$s Titel</item>
@@ -481,9 +420,7 @@
         <item quantity="one">%1$s Folge</item>
         <item quantity="other">%1$s Folgen</item>
     </plurals>
-    <string name="not_set">Nicht gesetzt</string>
     <string name="lbl_album_artists">Albuminterpreten</string>
-    <string name="enable_reactive_homepage">Reaktive Homepage aktivieren</string>
     <string name="disable_ui_mode_warning">Warnung für Gerätetyp deaktivieren</string>
     <string name="because_you_watched">Weil du %1$s angesehen hast</string>
     <string name="channels">Kanäle</string>
@@ -496,14 +433,6 @@
     <plurals name="items">
         <item quantity="one">%1$s Element</item>
         <item quantity="other">%1$s Elemente</item>
-    </plurals>
-    <plurals name="movies">
-        <item quantity="one">%1$s Film</item>
-        <item quantity="other">%1$s Filme</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s Fernsehserie</item>
-        <item quantity="other">%1$s Fernsehserien</item>
     </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s Lied</item>
@@ -531,12 +460,10 @@
     <string name="pref_screensaver_ageratingmax_unlimited">Maximum deaktivieren</string>
     <string name="pref_screensaver_ageratingrequired_title">Altersfreigabe erforderlich</string>
     <string name="pref_screensaver_ageratingmax_zero">Jedes Alter</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Zeige alle Elemente</string>
     <string name="pref_screensaver_ageratingmax_entry">Bis %1$d Jahre</string>
     <string name="current_queue">aktuelle Warteschlange</string>
     <string name="app_notification_update_soon">Aktualisiere deinen Server von %1$s auf mindestens %2$s, um die Anwendung nach dem nächsten Update weiter nutzen zu können.</string>
     <string name="all_channels">Alle Kanäle</string>
-    <string name="pref_external_player">Externen Player verwenden</string>
     <string name="past_week">Letzte Woche</string>
     <string name="scheduled_in_next_24_hours">Geplant in den nächsten 24 Stunden</string>
     <string name="past_24_hours">Letzte 24 Stunden</string>
@@ -549,7 +476,6 @@
     <string name="video_start_delay">Video-Startverzögerung</string>
     <string name="default_video_zoom">Standard-Zoom-Modus</string>
     <string name="segment_action_ask_to_skip">Frage nach Überspringen</string>
-    <string name="pref_mediasegment_actions">Aktionen im Medienbereich</string>
     <string name="segment_action_nothing">Nichts unternehmen</string>
     <string name="segment_action_skip">Überspringen</string>
     <string name="segment_type_commercial">Werbespots</string>
@@ -558,11 +484,9 @@
     <string name="segment_type_outro">Outros</string>
     <string name="segment_type_recap">Rückblicke</string>
     <string name="segment_type_unknown">Unbekannte Segmente</string>
-    <string name="preference_enable_trickplay">Trickplay im Videoplayer aktivieren</string>
     <string name="skip_forward_length">Sprungweite vorwärts</string>
     <string name="runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="runtime_minutes">%1$dm</string>
-    <string name="pref_subtitles_background_opacity">Untertitel Hintergrund Deckkraft</string>
     <string name="pref_report_device_profile_title">Wiedergabefähigkeiten an Server melden</string>
     <string name="pref_report_device_profile_summary">Ein Troubleshooting Dokument mit Informationen über die Wiedergabefähigkeiten auf den Jellyfin Server hochladen</string>
     <string name="pref_troubleshooting">Fehlerbehebung</string>
@@ -575,10 +499,8 @@
     <string name="lbl_from_beginning">Von Anfang an spielen</string>
     <string name="speech_error_unavailable">Die Spracherkennung ist auf deinem Gerät nicht verfügbar.</string>
     <string name="speech_error_no_permission">Keine Berechtigung zur Verwendung des Mikrofons. Bitte aktiviere dies in den Systemeinstellungen.</string>
-    <string name="pref_subtitles_bold">fetter Text</string>
     <string name="preference_enable_pgs">PGS Untertitel direkt abspielen</string>
     <string name="lbl_exit">Verlassen</string>
-    <string name="pref_still_watching_behavior_title">Popup für Inaktivitäts-Timeout anzeigen</string>
     <string name="lbl_still_watching_default">3 Folgen oder 90 Minuten</string>
     <string name="lbl_still_watching_short">2 Folgen oder 60 Minuten</string>
     <string name="lbl_still_watching_long">5 Folgen oder 150 Minuten</string>

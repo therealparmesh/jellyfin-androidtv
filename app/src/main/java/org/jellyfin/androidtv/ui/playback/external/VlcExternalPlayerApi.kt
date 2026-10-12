@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback.external
 
 import android.content.Intent
@@ -20,11 +21,6 @@ class VlcExternalPlayerApi : ExternalPlayerApi {
 		private const val EXTRA_POSITION = "position"
 
 		private const val RESULT_CODE_OK = -1
-		private const val RESULT_CODE_CANCELED = 0
-		private const val RESULT_CODE_CONNECTION_FAILED = 2
-		private const val RESULT_CODE_PLAYBACK_ERROR = 3
-		private const val RESULT_CODE_HARDWARE_ACCELERATION_ERROR = 4
-		private const val RESULT_CODE_VIDEO_TRACK_LOST = 5
 
 		private const val RESULT_EXTRA_POSITION = "extra_position"
 	}

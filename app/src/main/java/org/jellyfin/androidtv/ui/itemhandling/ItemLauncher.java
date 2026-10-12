@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.itemhandling;
 
 import android.content.Context;
@@ -39,6 +40,7 @@ public class ItemLauncher {
     private final Lazy<PlaybackHelper> playbackHelper = KoinJavaComponent.<PlaybackHelper>inject(PlaybackHelper.class);
 
     public void launchUserView(@Nullable final BaseItemDto baseItem) {
+        if (baseItem == null) return;
         Timber.d("**** Collection type: %s", baseItem.getCollectionType());
 
         Destination destination = getUserViewDestination(baseItem);

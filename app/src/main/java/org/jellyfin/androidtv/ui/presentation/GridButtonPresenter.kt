@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.presentation
 
 import android.view.ViewGroup
@@ -28,6 +29,7 @@ import org.jellyfin.androidtv.ui.itemhandling.GridButtonBaseRowItem
 class GridButtonPresenter @JvmOverloads constructor(
 	private val width: Int = 110,
 	private val imageHeight: Int = 110,
+	private val captionSpace: Int = 0,
 ) : Presenter() {
 	private class ComposeViewWrapper(composeView: ComposeView) : FrameLayout(composeView.context) {
 		init {
@@ -58,8 +60,11 @@ class GridButtonPresenter @JvmOverloads constructor(
 					Image(
 						painter = painterResource(value.imageRes),
 						contentDescription = value.text,
-						contentScale = ContentScale.Crop,
-						modifier = Modifier.size(width.dp, imageHeight.dp)
+						contentScale = if (captionSpace > 0) ContentScale.Fit else ContentScale.Crop,
+						modifier = Modifier.size(width.dp, imageHeight.dp).then(
+							if (captionSpace > 0) Modifier.padding(start = 24.dp, top = 20.dp, end = 24.dp, bottom = captionSpace.dp)
+							else Modifier
+						),
 					)
 				}
 

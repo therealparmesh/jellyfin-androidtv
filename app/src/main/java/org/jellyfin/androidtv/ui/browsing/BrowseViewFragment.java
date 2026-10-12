@@ -1,4 +1,10 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing;
+
+import android.os.Bundle;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import androidx.leanback.widget.ArrayObjectAdapter;
 import androidx.leanback.widget.HeaderItem;
@@ -32,6 +38,24 @@ import timber.log.Timber;
 
 public class BrowseViewFragment extends EnhancedBrowseFragment {
     private boolean isLiveTvLibrary;
+    private ListRow automaticFoldersRow;
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        if (mFolder != null && AutomaticFolders.INSTANCE.itemType(mFolder) != null) {
+            if (automaticFoldersRow != null) mRowsAdapter.remove(automaticFoldersRow);
+            automaticFoldersRow = AutomaticFoldersKt.createAutomaticFoldersRow(this, mFolder, getViewLifecycleOwner());
+            mRowsAdapter.add(0, automaticFoldersRow);
+        }
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (automaticFoldersRow != null) mRowsAdapter.remove(automaticFoldersRow);
+        automaticFoldersRow = null;
+        super.onDestroyView();
+    }
 
     @Override
     protected void setupQueries(final RowLoader rowLoader) {

@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import kotlinx.coroutines.Dispatchers
@@ -14,13 +15,11 @@ class ByGenreFragment : BrowseFolderFragment() {
 	private val apiClient by inject<ApiClient>()
 
 	override suspend fun setupQueries(rowLoader: RowLoader) {
-		val childCount = folder?.childCount ?: 0
-		if (childCount <= 0) return
-
 		// Get all genres for this folder
 		val genresResponse = withContext(Dispatchers.IO) {
 			apiClient.genresApi.getGenres(
 				parentId = folder?.id,
+				includeItemTypes = includeType?.let(BaseItemKind::fromNameOrNull)?.let(::setOf),
 				sortBy = setOf(ItemSortBy.SORT_NAME),
 			).content
 		}
@@ -32,7 +31,7 @@ class ByGenreFragment : BrowseFolderFragment() {
 				includeItemTypes = includeType?.let(BaseItemKind::fromNameOrNull)?.let(::setOf),
 				genres = setOf(genre.name.orEmpty()),
 				recursive = true,
-				fields = ItemRepository.itemFields,
+				fields = ItemRepository.browseFields,
 			)
 			rows.add(BrowseRowDef(genre.name, itemsRequest, 40))
 		}

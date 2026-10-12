@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="lbl_albums">Albume</string>
     <string name="lbl_artists">Artiști</string>
-    <string name="lbl_song">Cântec</string>
     <string name="lbl_songs">Cântece</string>
-    <string name="lbl_album">Album</string>
     <string name="lbl_episodes">Episoade</string>
-    <string name="lbl_enable_cinema_mode">Activează modul Cinema</string>
-    <string name="sum_enable_cinema_mode">Redă intro-uri și previzualizări disponibile înainte de a începe filmul</string>
     <string name="lbl_playlists">Liste redare</string>
-    <string name="msg_items_added">" elemente adăugate"</string>
     <string name="lbl_add_to_queue">Adaugă în listă</string>
     <string name="lbl_open_artist">Deschide artistul</string>
     <string name="lbl_open_album">Deschide albumul</string>
@@ -21,9 +17,7 @@
     <string name="lbl_goto_now_playing">Mergi la redarea curentă</string>
     <string name="lbl_instant_mix">Mix instant</string>
     <string name="lbl_delete">Șterge</string>
-    <string name="msg_item_added">" element adăugat"</string>
     <string name="desc_automatic_fav_songs">Crearea automată a unei liste de redare din cântecele favorite</string>
-    <string name="lbl_trailer">"Trailer "</string>
     <string name="lbl_bracket_unknown">Necunoscut</string>
     <string name="msg_video_playback_error">"Eroare la redarea videoclipului "</string>
     <string name="lbl_none">Niciunul</string>
@@ -41,8 +35,6 @@
     <string name="lbl_upcoming">Viitoare</string>
     <string name="lbl_seasons">Sezoane</string>
     <string name="lbl_series">Seriale</string>
-    <string name="lbl_item">Articol</string>
-    <string name="lbl_items">Articole</string>
     <string name="lbl_trailers">Trailere</string>
     <string name="lbl_specials">Speciale</string>
     <string name="lbl_chapters">Capitole</string>
@@ -80,7 +72,6 @@
     <string name="lbl_continue_watching">Continuă vizionarea</string>
     <string name="lbl_settings">Preferințe</string>
     <string name="chapters">Capitole</string>
-    <string name="pref_authentication_cat">Autentificare</string>
     <string name="settings_title">Preferințe</string>
     <string name="pref_max_bitrate_title">Bitrate maxim al streamului</string>
     <string name="pref_playback">Redare</string>
@@ -133,8 +124,6 @@
     <string name="lbl_just_this_once">Doar de data aceasta</string>
     <string name="lbl_select_date">Selectează data</string>
     <string name="lbl_in_x_days">În %d zile</string>
-    <string name="desc_premieres">Afișează un rând de episoade pilot noi pentru orice serie vizionată</string>
-    <string name="lbl_show_premieres">Afișează premierele sezonului</string>
     <string name="lbl_refresh_switching">Schimbare rată de reîmprospătare</string>
     <string name="lbl_show_backdrop">Afișează fundaluri</string>
     <string name="lbl_open">Deschide</string>
@@ -142,9 +131,7 @@
     <string name="lbl_clear_queue">Golește lista de redare</string>
     <string name="btn_got_it">Am înțeles</string>
     <string name="lbl_zoom">Zoom</string>
-    <string name="desc_bitstream_ac3">Necesită un hardware capabil</string>
     <string name="lbl_bitstream_ac3">Stream audio Dolby Digital</string>
-    <string name="lbl_new_premieres">În premieră</string>
     <string name="lbl_programs">Programe</string>
     <string name="lbl_direct_stream_live">Transmite TV în direct</string>
     <string name="msg_error_live_stream">A apărut o eroare în transmisia TV în direct. Se va reîncerca…</string>
@@ -152,13 +139,9 @@
     <string name="lbl_recorded_tv">Înregistrări TV</string>
     <string name="lbl_live_tv_guide">Ghid TV Live</string>
     <string name="lbl_no_recordings">Nu există înregistrări disponibile</string>
-    <string name="msg_burn_sub_warning">Subtitrările se încorporează în video. Poate dura câteva secunde…</string>
-    <string name="msg_unable_load_subs">Nu s-a putut încărca subtitrarea</string>
-    <string name="msg_subtitles_loading">Se încarcă subtitrările…</string>
     <string name="lbl_filters">Filtre TV live</string>
     <string name="lbl_ended">ÎNCHEIAT</string>
     <string name="lbl__continuing">CONTINUÂ</string>
-    <string name="lbl_display_preferences">Preferințe afișare</string>
     <string name="lbl_starting_with">începând cu cei al căror nume începe cu</string>
     <string name="lbl_critic_rating">Evaluarea criticilor</string>
     <string name="lbl_premier_date">Data lansării</string>
@@ -198,8 +181,6 @@
     <string name="lbl_mark_played">Marchează ca redat</string>
     <string name="lbl_mark_unplayed">Marchează ca nevizionat</string>
     <string name="lbl_play_first_unwatched">Redă primul nevizionat</string>
-    <string name="lbl_search_hint">Căută text (selectează pentru tastatură)</string>
-    <string name="lbl_tv_queuing">Redare automată a episodului următor</string>
     <string name="lbl_empty">Gol</string>
     <string name="lbl_no_items">Fără articole</string>
     <string name="msg_cannot_play">Acest element nu poate fi redat</string>
@@ -209,14 +190,12 @@
     <string name="msg_playback_restricted">Administratorul a restricționat redarea acestui articol în acest moment</string>
     <string name="msg_playback_not_allowed">Redarea nu este permisă în acest moment</string>
     <string name="lbl_loading_elipses">Se încarcă…</string>
-    <string name="lbl_born">"Născut "</string>
     <string name="lbl_ok">Ok</string>
     <string name="lbl_valid_server_address">Vă rugăm să introduceți adresa serverului (IP sau nume de domeniu / mașină)</string>
     <string name="lbl_enter_server_address">Introduceți adresa serverului</string>
     <string name="lbl_yes">Da</string>
     <string name="lbl_no">Nu</string>
     <string name="lbl_play_trailers">Redă trailer(e)</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_my_media">Media mea</string>
     <string name="pref_about_title">Despre</string>
     <string name="watch_now">Vizionează acum</string>
@@ -229,15 +208,9 @@
     <string name="grid_direction_horizontal">Orizontală</string>
     <string name="grid_direction">Direcţie grilă</string>
     <string name="pref_device_model">Model dispozitiv</string>
-    <string name="lbl_Reset">Resetează</string>
-    <string name="pref_button_remapping_description">Apasă orice buton de pe telecomandă TV pentru alocarea acestuia</string>
-    <string name="pref_subtitle_track_button">Buton pentru subtitrare</string>
-    <string name="pref_audio_track_button">Buton pentru pistă audio</string>
-    <string name="lbl_unknown_key">Necunoscut (%1s)</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/s</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
     <string name="msg_no_items">Nu există articole de redat</string>
-    <string name="subtitle_error">Nu se poate selecta subtitrarea</string>
     <string name="too_many_errors">Prea multe erori. Renunț</string>
     <string name="player_error">Eroare la redare întâlnită. Se va reîncerca…</string>
     <string name="seek_error">Nu se poate derula</string>
@@ -248,20 +221,14 @@
     <string name="episode_missing_message">Acest episod lipsește din colecție. Vrei să-l sari și să continui cu următorul?</string>
     <string name="episode_missing">Episod lipsă</string>
     <string name="no_player_message">Se pare că nu ai instalată o aplicație capabilă de redare video. Această opțiune necesită instalarea unei aplicații terță parte pentru redarea conținutului video.</string>
-    <string name="no_player">Fără aplicație de redare</string>
-    <string name="mark_watched_message">Se pare că elementul nu a fost redat integral. Marchează ca vizionat?</string>
-    <string name="mark_watched">Marchează ca vizionat</string>
     <string name="lbl_tv_filter_status">pentru următoarele %1$d ore</string>
     <string name="lbl_tv_channel_status">%1$d din %2$d canale</string>
     <string name="lbl_subtitle_track">Selectează pista subtitrare</string>
     <string name="lbl_audio_track">Selectează pista audio</string>
     <string name="lbl_pause">Pauză</string>
-    <string name="audio_error">Imposibil de redat audio %1$s</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_playback_control_ends">Se termină la %1$s</string>
     <string name="lbl_sign_in">Te rugăm să te autentifici</string>
     <string name="just_one">Doar pe aceasta</string>
-    <string name="turn_off">Dezactivează opțiunea asta</string>
     <string name="login_username_field_empty">Numele de utilizator nu poate fi vid</string>
     <string name="login_server_unavailable">Nu s-a putut conecta la server</string>
     <string name="login_invalid_credentials">Nume de utilizator și/sau parolă greșite</string>
@@ -287,8 +254,6 @@
     <string name="connect_manually_by_address">Introduceți adresa serverului</string>
     <string name="discovered_servers_empty">Nu s-au găsit servere în network-ul locală.</string>
     <string name="discovered_servers_title">Servere descoperite</string>
-    <string name="lbl_hidden">Ascuns</string>
-    <string name="pref_developer_link_description">Caracteristici avansate și experimentale</string>
     <string name="pref_developer_link">Opțiuni pentru dezvoltatori</string>
     <string name="image_size_large">Mare</string>
     <string name="image_size_medium">Mediu</string>
@@ -300,7 +265,6 @@
     <string name="lbl_sign_out">Delogare</string>
     <string name="lbl_remove">Elimină</string>
     <string name="lbl_server">Server</string>
-    <string name="lbl_user_server">%1$s pe %2$s</string>
     <string name="lbl_user_last_used">Ultima utilizare pe %1$s la %2$s</string>
     <string name="lbl_remove_server">Ștergeți serverul</string>
     <string name="lbl_sign_out_content">Necesită autentificare la următoarea utilizare</string>
@@ -329,21 +293,12 @@
     <string name="lbl_stretch">Întinde</string>
     <string name="lbl_auto_crop">Decupare automată</string>
     <string name="lbl_community_rating">Evaluarea comunității</string>
-    <string name="pref_direct_stream_live_on">Transcodarea este dezactivată</string>
-    <string name="pref_direct_stream_live_off">Transcodarea este utilizată atunci când este necesar</string>
     <string name="pref_audio">Audio</string>
     <string name="pref_subtitles">Subtitrări</string>
     <string name="pref_video">Video</string>
-    <string name="pref_playback_description">Video, subtitrări, TV live, urmează</string>
-    <string name="pref_customization_description">Temă, acasă, remapare</string>
-    <string name="pref_login_description">Servere, conturi, autentificare automată</string>
     <string name="pref_login">Autentificare</string>
-    <string name="pref_libraries_description">Configurează modul în care sunt afișate colecțiile</string>
     <string name="pref_libraries">Colecții</string>
-    <string name="pref_home_description">Configurează secțiunile afișate</string>
-    <string name="pref_theme">Temă</string>
     <string name="pref_browsing">Navigare</string>
-    <string name="pref_behavior">Comportament</string>
     <string name="pref_accounts">Conturi</string>
     <string name="sort_accounts_by">Sorteaza conturi după</string>
     <string name="pref_customization">Personalizare</string>
@@ -355,8 +310,6 @@
     <string name="server_issue_invalid_product">Software-ul serverului este incompatibil</string>
     <string name="server_issue_unable_to_connect">Nu se poate conecta</string>
     <string name="pref_subtitles_size">Mărimea textului</string>
-    <string name="pref_subtitles_background_summary">Afișează un fundal negru în spatele subtitrărilor</string>
-    <string name="pref_subtitles_background_title">Activează fundal</string>
     <string name="searchable_settings_description">Media</string>
     <string name="searchable_hint">Caută în Jellyfin</string>
     <string name="home_section_i">Secțiunea de acasă %1$d</string>
@@ -369,7 +322,6 @@
     <string name="home_section_library_small">Media mea (mici)</string>
     <string name="home_section_library">Media mea</string>
     <string name="home_section_latest_media">Media adăugată recent</string>
-    <string name="home_sections">Secțiuni de acasă</string>
     <string name="home_prefs">Acasă</string>
     <string name="license_license">Licență</string>
     <string name="license_author">Autor</string>
@@ -378,7 +330,6 @@
     <string name="license_artifact">Artefact</string>
     <string name="license_version">Versiunea</string>
     <string name="license_description">Descriere</string>
-    <string name="licenses_link_description">Vizualizează licențele bibliotecilor utilizate de aplicația Jellyfin</string>
     <string name="licenses_link">Liciențe</string>
     <string name="select_version">Versiunea</string>
     <string name="advanced_settings">Avansat</string>
@@ -408,10 +359,8 @@
     <string name="server_unsupported_notification">Acest server folosește versiunea Jellyfin %1$s care nu mai este suportata. Te rugăm să actualizezi la Jellyfin %2$s sau mai nouă pentru a continua utilizarea aplicației.</string>
     <string name="pref_crash_reports_enabled">Rapoartele de erori vor fi trimise către ultimul tău server folosit</string>
     <string name="action_use_password">Folosește o parolă</string>
-    <string name="color_white">Alb</string>
     <string name="login_connect_to">Conectare la %1$s</string>
     <string name="pref_telemetry_category">Raportare erori</string>
-    <string name="pref_telemetry_description">Trimite rapoarte de erori, log-uri</string>
     <string name="pref_crash_reports_disabled">Rapoartele de erori nu vor fi trimise</string>
     <string name="pref_crash_report_logs">Include log-urile</string>
     <string name="action_use_quickconnect">Folosește Quick Connect</string>
@@ -423,19 +372,13 @@
     <string name="pref_refresh_rate_scale_on_tv">Ajustează rata de refresh pe TV</string>
     <string name="action_connect">Conectare</string>
     <string name="color_red">Roșu</string>
-    <string name="color_black">Negru</string>
-    <string name="color_cyan">Turcoaz</string>
     <string name="input_username">Nume ultilizator</string>
-    <string name="color_darkgrey">Gri închis</string>
     <string name="color_green">Verde</string>
     <string name="login_quickconnect_step_3">3. Introduceți următorul cod:</string>
     <string name="color_blue">Albastru</string>
-    <string name="color_yellow">Galben</string>
-    <string name="color_pink">Roz</string>
     <string name="pref_crash_reports">Trimite rapoarte de erori către server</string>
     <string name="lbl_quality_profile">Profil de calitate</string>
     <string name="item_deletion_failed">Nu se poate șterge %1$s</string>
-    <string name="pref_enable_media_management">Activează gestionarea media</string>
     <string name="crash_report_toast">Ups! Ceva a mers prost, un raport de eroare a fost trimis către serverul tău Jellyfin.</string>
     <string name="app_notification_beta">Aplicație actualizată la %1$s
 \nMulțumim pentru participarea în programul Jellyfin beta.</string>
@@ -444,7 +387,6 @@
     <string name="episode_name_special">special</string>
     <string name="image_size_smallest">Cel mai mic</string>
     <string name="action_login">Conectare</string>
-    <string name="pref_enable_media_management_description">Afișează opțiunea de gestionare a media în timpul navigării</string>
     <string name="item_delete_confirm_title">Șterge elementul</string>
     <string name="item_delete_confirm_message">Sunteți sigur că doriți să ștergeți acest element de pe server\? Această acțiune nu poate fi anulată.</string>
     <string name="pref_screensaver">Screensaver</string>
@@ -466,8 +408,6 @@
     </plurals>
     <string name="image_type_poster">Afis</string>
     <string name="pref_crash_report_logs_enabled">Log-urile vor fi incluse în rapoartele de erori</string>
-    <string name="enable_reactive_homepage">Activează pagina de pornire reactivă</string>
-    <string name="live_tv_preferences">Opțiuni TV în direct</string>
     <string name="lbl_shuffle_queue">Comută redare aleatorie</string>
     <string name="pref_crash_report_logs_disabled">Log-urile nu vor fi incluse în rapoartele de erori</string>
     <string name="pref_screensaver_inapp_timeout">Pornește screensaver-ul după</string>
@@ -477,7 +417,6 @@
         <item quantity="other">%1$s de ore</item>
     </plurals>
     <string name="image_size_xlarge">Extra-Mare</string>
-    <string name="lbl_subtitle_delay">Întârziere subtitrări</string>
     <string name="home_section_resume_book">Continuă să citești</string>
     <string name="pref_screensaver_inapp_enabled">Folosește screensaver-ul din aplicație</string>
     <plurals name="minutes">
@@ -485,8 +424,6 @@
         <item quantity="few">%1$s minute</item>
         <item quantity="other">%1$s de minute</item>
     </plurals>
-    <string name="desc_audio_night_mode">Egalează automat volumul audio</string>
-    <string name="not_set">Nu este setat</string>
     <string name="lbl_album_artists">Album artisti</string>
     <string name="disable_ui_mode_warning">Dezactivează avertizarea tipului de dispozitiv</string>
     <string name="because_you_watched">Pentru că ai vizionat %1$s</string>
@@ -497,7 +434,6 @@
     <string name="lbl_subtitle_text_color">Culoare text</string>
     <string name="lbl_subtitle_background_color">Culoare fundal</string>
     <string name="lbl_subtitle_text_stroke_color">Culoare contur</string>
-    <string name="pref_external_player">Folosește player extern</string>
     <string name="runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="runtime_minutes">%1$dm</string>
     <string name="lbl_home">Acasă</string>
@@ -519,7 +455,6 @@
     <string name="app_notification_update_soon">Actualizează serverul de la %1$s la cel puțin %2$s pentru a continua să folosești aplicația după următoarea actualizare.</string>
     <string name="current_queue">Coada curentă</string>
     <string name="pref_screensaver_ageratingrequired_enabled">Se afișează doar elementele cu rating de vârstă</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Se afișează toate elementele</string>
     <string name="past_week">Ultima săptămână</string>
     <string name="scheduled_in_next_24_hours">Programat în următoarele 24 de ore</string>
     <string name="past_24_hours">Ultimele 24 ore</string>
@@ -529,7 +464,6 @@
     <string name="default_video_zoom">Mod zoom implicit</string>
     <string name="segment_type_outro">Încheieri</string>
     <string name="segment_action_ask_to_skip">Cere să sari peste</string>
-    <string name="pref_mediasegment_actions">Acțiuni segmente media</string>
     <string name="segment_action_nothing">Nu fă nimic</string>
     <string name="segment_action_skip">Omite</string>
     <string name="segment_type_intro">Introduceri</string>
@@ -538,28 +472,16 @@
     <string name="segment_type_recap">Rezumate</string>
     <string name="segment_type_unknown">Segmente necunoscute</string>
     <string name="skip_forward_length">Durată derulare înainte</string>
-    <string name="preference_enable_trickplay">Activează trickplay în playerul video</string>
     <plurals name="items">
         <item quantity="one">Un element</item>
         <item quantity="few">%1$s elemente</item>
         <item quantity="other">%1$s de elemente</item>
     </plurals>
     <string name="pref_report_device_profile_failure">Nu s-a reușit trimiterea documentului. Serverul tău Jellyfin ar putea interzice jurnalele clientului.</string>
-    <string name="pref_subtitles_background_opacity">Opacitate fundal subtitrare</string>
     <string name="pref_troubleshooting">Depanare</string>
     <string name="pref_report_device_profile_title">Raportează capabilitățile de redare la server</string>
     <string name="pref_report_device_profile_summary">Trimite un document de depanare pe serverul Jellyfin cu informații despre capabilitățile de redare</string>
     <string name="pref_report_device_profile_success">Document trimis ca %1$s</string>
-    <plurals name="movies">
-        <item quantity="one">Un film</item>
-        <item quantity="few">%1$s filme</item>
-        <item quantity="other">%1$s de filme</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">Un serial</item>
-        <item quantity="few">%1$s seriale</item>
-        <item quantity="other">%1$s de seriale</item>
-    </plurals>
     <plurals name="songs">
         <item quantity="one">O melodie</item>
         <item quantity="few">%1$s melodii</item>
@@ -582,14 +504,12 @@
     <string name="indicator_subtitles_hearing_impaired">Subtitrări pentru deficienți de auz</string>
     <string name="preference_enable_pgs">Redare subtitrări PGS</string>
     <string name="speech_error_unavailable">Recunoașterea vocală nu este disponibilă pe dispozitivul tău.</string>
-    <string name="pref_subtitles_bold">Text bold</string>
     <string name="still_watching_label">Încă te uiți?</string>
     <string name="lbl_still_watching_short">2 episoade sau 60 de minute</string>
     <string name="speech_error_no_permission">Nu ai permisiune să folosești microfonul. Activează-l din setările de sistem.</string>
     <string name="lbl_from_beginning">Redă de la început</string>
     <string name="speech_error_unknown">A apărut o eroare neașteptată în timpul recunoașterii vocale.</string>
     <string name="lbl_exit">Ieșire</string>
-    <string name="pref_still_watching_behavior_title">Afișează mesaj de inactivitate</string>
     <string name="lbl_still_watching_default">3 episoade sau 90 de minute</string>
     <string name="lbl_still_watching_long">5 episoade sau 150 de minute</string>
     <string name="lbl_still_watching_very_long">8 episoade sau 240 de minute</string>

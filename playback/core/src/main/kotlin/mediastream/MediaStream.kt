@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.playback.core.mediastream
 
 import org.jellyfin.playback.core.queue.QueueEntry
@@ -7,25 +8,6 @@ interface MediaStream {
 	val conversionMethod: MediaConversionMethod
 	val container: MediaStreamContainer
 	val tracks: Collection<MediaStreamTrack>
-}
-
-data class BasicMediaStream(
-	override val identifier: String,
-	override val conversionMethod: MediaConversionMethod,
-	override val container: MediaStreamContainer,
-	override val tracks: Collection<MediaStreamTrack>,
-) : MediaStream {
-	fun toPlayableMediaStream(
-		queueEntry: QueueEntry,
-		url: String,
-	) = PlayableMediaStream(
-		identifier = identifier,
-		conversionMethod = conversionMethod,
-		container = container,
-		tracks = tracks,
-		queueEntry = queueEntry,
-		url = url,
-	)
 }
 
 data class PlayableMediaStream(

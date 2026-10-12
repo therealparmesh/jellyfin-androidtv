@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_none">وجود ندارد</string>
     <string name="lbl_recordings">ضبط شده ها</string>
@@ -14,8 +15,6 @@
     <string name="lbl_upcoming">بعدی</string>
     <string name="lbl_seasons">فصل ها</string>
     <string name="lbl_series">سریال ها</string>
-    <string name="lbl_item">مورد</string>
-    <string name="lbl_items">موارد</string>
     <string name="lbl_trailers">پیش نمایش ها</string>
     <string name="lbl_specials">ویژه ها</string>
     <string name="lbl_chapters">فصل ها</string>
@@ -46,7 +45,6 @@
     <string name="msg_not_implemented">" اجرا نشده"</string>
     <string name="lbl_search">جست و جو</string>
     <string name="lbl_genres">ژانر ها</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_suggested">پیشنهادی</string>
     <string name="lbl_by_letter">براساس حروف</string>
     <string name="lbl_on_now">هم‌اکنون</string>
@@ -54,7 +52,6 @@
     <string name="lbl_continue_watching">ادامه تماشا</string>
     <string name="lbl_settings">تنظیمات</string>
     <string name="chapters">فصل ها</string>
-    <string name="pref_authentication_cat">احراز هویت</string>
     <string name="settings_title">تنظیمات</string>
     <string name="pref_max_bitrate_title">حداکثر نرخ بیت در حال Stream کردن</string>
     <string name="pref_playback">پخش</string>
@@ -72,8 +69,6 @@
     <string name="lbl_mark_played">علامت‌گذاری پخش شده</string>
     <string name="lbl_mark_unplayed">علامت‌گذاری پخش نشده</string>
     <string name="lbl_play_first_unwatched">پخش نخشتین تماشا نشده</string>
-    <string name="lbl_search_hint">جستجوی متن (برای صفحه کلید انتخاب را بزنید)</string>
-    <string name="lbl_tv_queuing">پخش قسمت بعد به صورت خودکار</string>
     <string name="lbl_empty">خالی</string>
     <string name="lbl_no_items">هیچ موردی یافت نشد</string>
     <string name="msg_cannot_play">این مورد قابل پخش نیست</string>
@@ -83,7 +78,6 @@
     <string name="msg_playback_restricted">در حال حاضر مدیر پخش این مورد را محدود کرده است</string>
     <string name="msg_playback_not_allowed">در حال حاضر پخش مجاز نیست</string>
     <string name="lbl_loading_elipses">در حال بارگیری…</string>
-    <string name="lbl_born">"تولد "</string>
     <string name="lbl_ok">تأیید</string>
     <string name="lbl_valid_server_address">لطفا آدرس سرور (IP یا دامنه/نام ماشین) را وارد کنید</string>
     <string name="lbl_enter_server_address">نشانی سرور را وارد کنید</string>
@@ -91,7 +85,6 @@
     <string name="lbl_no">خیر</string>
     <string name="lbl_runs">اجرا</string>
     <string name="lbl_play_trailers">پخش پیش‌پرده(ها)</string>
-    <string name="lbl_trailer">"پیش نمایش "</string>
     <string name="lbl_showing">درحال نمایش دادن</string>
     <string name="desc_debug">ارائه اطلاعات اضافی برای اشکال زدایی</string>
     <string name="lbl_enable_debug">گزینه های اشکال زدایی</string>
@@ -112,7 +105,6 @@
     <string name="lbl_load_channels">"بارگزاری کانال ها "</string>
     <string name="lbl_unwatched">تماشا نشده</string>
     <string name="msg_no_playable_items">هیچ موردی برای نمایش وجود ندارد</string>
-    <string name="msg_item_added">" مورد اضافه شد"</string>
     <string name="lbl_delete">حذف</string>
     <string name="lbl_goto_now_playing">برو به درحال پخش</string>
     <string name="lbl_remove_from_queue">حذف از صف</string>
@@ -123,14 +115,9 @@
     <string name="lbl_open_artist">بازکردن صفحه هنرمند</string>
     <string name="lbl_open_album">باز کردن صفحه آلبوم</string>
     <string name="lbl_add_to_queue">افزودن به صف</string>
-    <string name="msg_items_added">" مورد اضافه شد"</string>
     <string name="lbl_playlists">لیست های پخش</string>
-    <string name="sum_enable_cinema_mode">پخش مقدمه ها و پیش نمایش های موجود قبل از شروع فیلم</string>
-    <string name="lbl_enable_cinema_mode">حالت سینما</string>
     <string name="lbl_episodes">قسمت ها</string>
-    <string name="lbl_album">آلبوم</string>
     <string name="lbl_songs">آهنگ ها</string>
-    <string name="lbl_song">آهنگ</string>
     <string name="lbl_artists">هنرمندان</string>
     <string name="lbl_albums">آلبوم ها</string>
     <string name="lbl_programs">برنامه ها</string>
@@ -139,13 +126,9 @@
     <string name="pref_live_tv_cat">تلویزیون زنده</string>
     <string name="lbl_recorded_tv">برنامه های تلویزیونی ضبط شده</string>
     <string name="lbl_no_recordings">هیچ ضبطی در دسترس نمی‌باشد</string>
-    <string name="msg_burn_sub_warning">چسباندن زیرنویس میتوانید تا چند دقیقه به طول بیانجامد. لطفاً صبور باشید…</string>
-    <string name="msg_unable_load_subs">نمایش زیرنویس امکان پذیر نیست</string>
-    <string name="msg_subtitles_loading">درحال بارگذاری زیرنویس ها…</string>
     <string name="lbl_filters">فیلتر های پخش زنده</string>
     <string name="lbl_ended">پایان</string>
     <string name="lbl__continuing">ادامه دارد</string>
-    <string name="lbl_display_preferences">تنظیمات صفحه نمایش</string>
     <string name="lbl_starting_with">با کسانی شروع کن که نامشان با این متن آغاز میشوند</string>
     <string name="lbl_rating">رتبه بندی</string>
     <string name="lbl_community_rating">رتبه بندی مخاطبین</string>
@@ -157,7 +140,6 @@
     <string name="lbl_sorted_by">مرتب شده بر اساس</string>
     <string name="lbl_all_items">تمام موارد</string>
     <string name="lbl_bitstream_ac3">صوت دیجیتال جریان بیت دالبی</string>
-    <string name="lbl_new_premieres">نمایش های جدید</string>
     <string name="desc_automatic_fav_songs">لیست پخش خودکار از آهنگ های مورد علاقه</string>
     <string name="lbl_instant_mix">مخلوط فوری</string>
     <string name="lbl_live_tv_guide">راهنمای تلویزیون زنده</string>
@@ -170,7 +152,6 @@
     <string name="lbl_stretch">کش آمدن</string>
     <string name="lbl_auto_crop">برش خودکار</string>
     <string name="lbl_zoom">بزرگنمایی</string>
-    <string name="desc_bitstream_ac3">نیازمند سخت افزار سازگار</string>
     <string name="lbl_clear_queue">پاک کردن صف</string>
     <string name="btn_got_it">فهمیدم</string>
     <string name="lbl_refresh_switching">تعویض سرعت تازه سازی</string>
@@ -193,8 +174,6 @@
     <string name="lbl_just_this_once">فقط این بار</string>
     <string name="lbl_select_date">انتخاب تاریخ</string>
     <string name="lbl_in_x_days">در %d روز</string>
-    <string name="desc_premieres">نمایش یک ردیف از قسمت های آزمایشی برای تمام سریال هایی که تماشا میکنید</string>
-    <string name="lbl_show_premieres">نمایش اولین نمایش فصل</string>
     <string name="lbl_next_episode">قسمت بعدی</string>
     <string name="lbl_previous_episode">قسمت قبلی</string>
     <string name="lbl_more_like_this">بیشتر شبیه این</string>
@@ -212,21 +191,12 @@
     <string name="lbl_song_title">عنوان آهنگ</string>
     <string name="lbl_album_name">نام آلبوم</string>
     <string name="home_section_resume_book">ادامه خواندن</string>
-    <string name="pref_direct_stream_live_on">تغییر کدگذاری غیرفعال است</string>
-    <string name="pref_direct_stream_live_off">در صورت لزوم از تغییر کدگذاری استفاده می شود</string>
     <string name="pref_audio">صدا</string>
     <string name="pref_subtitles">زیرنویس ها</string>
     <string name="pref_video">ویدئو</string>
-    <string name="pref_playback_description">ویدئو، زیرنویس ها، تلویزیون زنده، بعدی</string>
-    <string name="pref_customization_description">قالب، خانه، چیدمان مجدد</string>
-    <string name="pref_login_description">سرور ها، حساب ها، ورود خودکار</string>
     <string name="pref_login">ورود</string>
-    <string name="pref_libraries_description">نحوه نمایش کتابخانه ها را تغییر دهید</string>
     <string name="pref_libraries">کتابخانه ها</string>
-    <string name="pref_home_description">پیکربندی بخش های نمایش داده شده</string>
-    <string name="pref_theme">قالب</string>
     <string name="pref_browsing">گشت و گذار</string>
-    <string name="pref_behavior">برخورد</string>
     <string name="pref_accounts">حساب ها</string>
     <string name="sort_accounts_by">مرتب سازی حساب ها بر اساس</string>
     <string name="pref_customization">سفارشی سازی</string>
@@ -238,8 +208,6 @@
     <string name="server_issue_invalid_product">نرم افزار سرور ناسازگار است</string>
     <string name="server_issue_unable_to_connect">امکان اتصال وجود ندارد</string>
     <string name="pref_subtitles_size">اندازه متن</string>
-    <string name="pref_subtitles_background_summary">نمایش یک پس زمینه سیاه پشت زیرنویس ها</string>
-    <string name="pref_subtitles_background_title">فعالسازی پس زمینه</string>
     <string name="searchable_settings_description">رسانه</string>
     <string name="searchable_hint">جستوجوی Jellyfin</string>
     <string name="home_section_i">بخش خانگی %1$d</string>
@@ -252,7 +220,6 @@
     <string name="home_section_library_small">رسانه من (کوچک)</string>
     <string name="home_section_library">رسانه من</string>
     <string name="home_section_latest_media">آخرین رسانه ها</string>
-    <string name="home_sections">پخش های خانگی</string>
     <string name="home_prefs">خانه</string>
     <string name="license_license">مجوز</string>
     <string name="license_author">نویسنده</string>
@@ -261,7 +228,6 @@
     <string name="license_artifact">مصنوعی</string>
     <string name="license_version">نسخه</string>
     <string name="license_description">شرح</string>
-    <string name="licenses_link_description">مشاهده مجوزهای کتابخانه های مورد استفاده توسط برنامه Jellyfin</string>
     <string name="licenses_link">مجوز ها</string>
     <string name="select_version">نسخه</string>
     <string name="advanced_settings">پیشرفته</string>
@@ -310,8 +276,6 @@
     <string name="connect_manually_by_address">آدرس سرور را وارد کنید</string>
     <string name="discovered_servers_empty">هیچ سروری در شبکه داخلی پیدا نشد.</string>
     <string name="discovered_servers_title">سرور های کشف شده</string>
-    <string name="lbl_hidden">پنهان</string>
-    <string name="pref_developer_link_description">امکانات پیشرفته و آزمایشی</string>
     <string name="pref_developer_link">گزینه های توسعه دهنده</string>
     <string name="image_size_large">بزرگ</string>
     <string name="image_size_medium">متوسط</string>
@@ -323,7 +287,6 @@
     <string name="lbl_sign_out">خروج</string>
     <string name="lbl_remove">حذف</string>
     <string name="lbl_server">سرور</string>
-    <string name="lbl_user_server">%1$s در %2$s</string>
     <string name="lbl_user_last_used">آخرین استفاده %1$s در %2$s</string>
     <string name="lbl_remove_server">حذف سرور</string>
     <string name="lbl_sign_out_content">ورود به سیستم در استفاده بعدی مورد نیاز است</string>
@@ -342,25 +305,15 @@
     <string name="pref_clock_display_browsing">حین گشتن</string>
     <string name="lbl_always">همیشه</string>
     <string name="pref_clock_display">نمایش ساعت</string>
-    <string name="watch_count_overflow">۹۹+</string>
     <string name="lbl_playback_control_ends">در %1$s به اتمام می‌رسد</string>
     <string name="lbl_sign_in">لطفاً وارد شوید</string>
     <string name="just_one">فقط اینبار</string>
-    <string name="turn_off">این گزینه را غیرفعال کن</string>
-    <string name="audio_error">پخش صدای %1$s امکان پذیر نیست</string>
     <string name="msg_no_items">هیچ موردی برای پخش وجود ندارد</string>
-    <string name="subtitle_error">امکان انتخاب زیرنویس وجود ندارد</string>
     <string name="too_many_errors">خطا خیلی زیاد بود. بیخیال شدیم</string>
     <string name="player_error">پخش کننده با خطا مواجه شد. دوباره تلاش خواهیم کرد…</string>
-    <string name="mark_watched">علامت گذاری به عنوان تماشا شده</string>
     <string name="bitrate_kbit">%1$,.0f کیلوبیت بر ثانیه</string>
     <string name="bitrate_mbit">%1$,.0f مگابیت بر ثانیه</string>
-    <string name="lbl_Reset">تنظیم مجدد</string>
-    <string name="pref_button_remapping_description">دکمه ای را از روی کنترل تلویزیون برای اختصاص دادن آن فشار دهید</string>
-    <string name="pref_subtitle_track_button">دکمه زیرنویس</string>
-    <string name="pref_audio_track_button">دکمه کلیپ صوتی</string>
     <string name="grid_direction">جهت شبکه</string>
-    <string name="lbl_unknown_key">ناشناخته (%1s)</string>
     <string name="grid_direction_vertical">عمودی (آزمایشی)</string>
     <string name="grid_direction_horizontal">افقی</string>
     <string name="pref_device_model">مدل دستگاه</string>
@@ -395,8 +348,6 @@
     <string name="episode_missing_message">این قسمت در کتابخانه شما موجود نیست. آیا می خواهید آن را رد کنید و به مورد بعدی ادامه دهید؟</string>
     <string name="episode_missing">قسمت گم شده</string>
     <string name="no_player_message">به نظر نمی‌رسد برنامه سازگار با ویدئو نصب شده باشد.این گزینه نیازمند نصب یک برنامه شخص ثالث برای پخش محتوای ویدئویی می‌باشد.</string>
-    <string name="no_player">بدون پخش کننده</string>
-    <string name="mark_watched_message">به نظر نمی رسید این مورد به اندازه مدت زمانش پخش شده باشد. علامت گذاری به عنوان تماشا شده؟</string>
     <string name="no_user_warning">نتوانستیم هیچ حسابی پیدا کنیم.
 \nبا زدن دکمه \"اضافه کردن حساب\" یک حساب جدید ایجاد کنید.</string>
     <string name="lbl_end_padding">پایان پر کردن</string>
@@ -404,33 +355,24 @@
     <string name="lbl_tune_to_channel">به کانال مورد نظر تنظیم کنید</string>
     <string name="state_disabled">ناتوان کردن</string>
     <string name="lbl_hide_watched_checkmark">هنگامی که اینجا قسمتی باقی‌مانده باشد</string>
-    <string name="live_tv_preferences">گزینه‌های پخش زنده تلویزیون</string>
     <string name="lbl_quality_profile">پروفایل کیفیت</string>
     <string name="input_username">نام‌کاربری</string>
     <string name="input_password">گذرواژه</string>
     <string name="pref_crash_report_logs">شامل سیاهه(لاگ)ها</string>
     <string name="pref_audio_night_mode">حالت‌شب صدا (آزمایشی)</string>
-    <string name="color_white">سپید</string>
     <string name="color_red">سرخ</string>
-    <string name="color_cyan">یشمی</string>
     <string name="image_size_xlarge">فرابزرگ</string>
-    <string name="color_black">سیاه</string>
-    <string name="color_darkgrey">خاکستری‌تیره</string>
     <string name="color_blue">آبی</string>
-    <string name="color_yellow">زرد</string>
-    <string name="color_pink">صورتی</string>
     <string name="action_login">ورود</string>
     <string name="server_unsupported_notification">این سرور از Jellyfin نسخه %1$s استفاده می‌کند که پشتیبانی نمی‌شود. لطفا برای ادامه استفاده از نرم‌افزار، Jellyfin را به نسخه %2$s یا بالاتر بروزرسانی کنید.</string>
     <string name="item_deletion_failed">امکان حذف %1$s وجود ندارد</string>
     <string name="pref_refresh_rate_scale_on_tv">بزرگ‌نمایی در تلویزیون</string>
     <string name="pref_refresh_rate_scale_on_device">بزرگنمایی در دستگاه</string>
     <string name="lbl_shuffle_queue">انتخاب تصادفی</string>
-    <string name="lbl_subtitle_delay">تأخیر زیرنویس</string>
     <string name="color_green">سبز</string>
     <string name="action_use_password">بکارگیری گذرواژه</string>
     <string name="action_use_quickconnect">بکارگیری اتصال‌سریع</string>
     <string name="app_notification_uimode_invalid">این برنامه برای تلویزیون بهینه‌سازی شده است. توصیه ما استفاده از نرم‌افزار موبایل ما در دستگاه‌های دیگر است.</string>
-    <string name="pref_enable_media_management_description">نمایش گزینه برای مدیریت رسانه هنگام مرور</string>
     <string name="item_delete_confirm_title">حذف مورد</string>
     <string name="image_type_poster">پوستر</string>
     <string name="image_size_smallest">کوچک‌ترین</string>
@@ -444,7 +386,6 @@
     <string name="app_notification_beta">نرم‌افزار به نسخه %1$s بروز شد
 \nاز شما بابت مشارکت در برنامه‌بتای Jellyfin متشکریم</string>
     <string name="item_deleted">%1$s حذف شد</string>
-    <string name="pref_enable_media_management">فعال‌سازی مدیریت رسانه</string>
     <string name="item_delete_confirm_message">آیا شما از بابت اینکه میخواهید این مورد را از سرور حذف کنید اطمینان دارید؟ این عمل غیرقابل بازگشت است.</string>
     <string name="lbl_latest_in">به تازگی در %1$s افزوده‌شده</string>
     <string name="episode_name_special">ویژه</string>
@@ -455,7 +396,6 @@
     <string name="lbl_runtime">زمان اجرا</string>
     <string name="runtime_hours_minutes">%1$d ساعت %2$d دقیقه</string>
     <string name="runtime_minutes">%1$d دقیقه</string>
-    <string name="desc_audio_night_mode">تنظیم خودکار صدا</string>
     <string name="lbl_subtitle_text_color">رنگ نوشته زیرنویس</string>
     <string name="lbl_subtitle_text_stroke_color">رنگ زیرنویس</string>
     <string name="lbl_subtitle_background_color">رنگ پشت صفحه زیرنویس</string>

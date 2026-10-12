@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="video_error_unknown_error">載入影片失敗</string>
     <string name="loading">載入緊…</string>
@@ -7,7 +8,6 @@
     <string name="pref_playback">播放</string>
     <string name="pref_max_bitrate_title">最高串流碼率</string>
     <string name="settings_title">偏好設定</string>
-    <string name="pref_authentication_cat">身份驗證</string>
     <string name="chapters">章節</string>
     <string name="state_disabled">已停用</string>
     <string name="lbl_settings">偏好設定</string>
@@ -19,7 +19,6 @@
     <string name="lbl_views">觀看數</string>
     <string name="lbl_by_letter">以字母排序</string>
     <string name="lbl_suggested">建議</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_genres">類型</string>
     <string name="lbl_search">搜尋</string>
     <string name="msg_not_implemented">" 尚未實作"</string>
@@ -54,8 +53,6 @@
     <string name="lbl_chapters">章節</string>
     <string name="lbl_specials">特輯</string>
     <string name="lbl_trailers">預告片</string>
-    <string name="lbl_items">項目</string>
-    <string name="lbl_item">項目</string>
     <string name="lbl_series">系列</string>
     <string name="lbl_seasons">季度</string>
     <string name="lbl_upcoming">即將上映</string>
@@ -76,14 +73,12 @@
     <string name="lbl_none">無</string>
     <string name="msg_video_playback_error">"影片播放出錯 - "</string>
     <string name="lbl_bracket_unknown">未知</string>
-    <string name="lbl_trailer">"預告片 "</string>
     <string name="lbl_play_trailers">播放預告片</string>
     <string name="lbl_no">否</string>
     <string name="lbl_yes">係</string>
     <string name="lbl_enter_server_address">輸入伺服器位址</string>
     <string name="lbl_valid_server_address">唔該輸入伺服器位址（IP 或網域／機器名稱）</string>
     <string name="lbl_ok">仲可以</string>
-    <string name="lbl_born">"牛一 "</string>
     <string name="lbl_loading_elipses">載入緊…</string>
     <string name="msg_playback_not_allowed">呢次唔畀播放</string>
     <string name="msg_playback_restricted">管理員目前經已限制播放此項目</string>
@@ -93,8 +88,6 @@
     <string name="msg_cannot_play">播放唔到呢個項目</string>
     <string name="lbl_no_items">冇嘢響度</string>
     <string name="lbl_empty">空白</string>
-    <string name="lbl_tv_queuing">自動播放下一集</string>
-    <string name="lbl_search_hint">搜尋內容（點選以開啟鍵盤）</string>
     <string name="lbl_play_first_unwatched">播放首個未睇項目</string>
     <string name="lbl_mark_unplayed">標記為未播過</string>
     <string name="lbl_mark_played">標記為已播過</string>
@@ -127,11 +120,9 @@
     <string name="lbl_rating">評分</string>
     <string name="lbl_premier_date">首映日期</string>
     <string name="lbl_starting_with">由名稱開頭為以下字元的項目開始</string>
-    <string name="lbl_display_preferences">顯示偏好設定</string>
     <string name="lbl__continuing">連載緊</string>
     <string name="lbl_ended">完結咗</string>
     <string name="lbl_filters">直播電視篩選</string>
-    <string name="msg_subtitles_loading">載入緊字幕…</string>
     <string name="lbl_end_padding">結束緩衝時間</string>
     <string name="lbl_similar_items_library">媒體櫃入面嘅相似項目</string>
     <string name="lbl_record_any_channel">喺任何頻道錄製</string>
@@ -143,8 +134,6 @@
     <string name="pref_audio_compat">混合成立體聲</string>
     <string name="pref_audio_night_mode">夜間音訊模式（實驗性）</string>
     <string name="lbl_audio_output">音訊輸出</string>
-    <string name="msg_unable_load_subs">載入唔到字幕</string>
-    <string name="msg_burn_sub_warning">燒錄緊字幕，可能要等幾秒…</string>
     <string name="lbl_no_recordings">冇錄製項目</string>
     <string name="lbl_live_tv_guide">直播電視節目表</string>
     <string name="lbl_recorded_tv">已錄製電視節目</string>
@@ -154,14 +143,9 @@
     <string name="lbl_programs">節目</string>
     <string name="lbl_albums">專輯</string>
     <string name="lbl_artists">演出者</string>
-    <string name="lbl_song">歌曲</string>
     <string name="lbl_songs">歌曲</string>
-    <string name="lbl_album">專輯</string>
     <string name="lbl_episodes">集數</string>
-    <string name="lbl_enable_cinema_mode">劇院模式</string>
-    <string name="sum_enable_cinema_mode">播片之前先播放開場片同預告</string>
     <string name="lbl_playlists">播放清單</string>
-    <string name="msg_items_added">" 個項目已加入"</string>
     <string name="lbl_add_to_queue">加入待播清單</string>
     <string name="lbl_open_artist">打開演出者</string>
     <string name="lbl_open_album">打開專輯</string>
@@ -174,12 +158,8 @@
     <string name="lbl_goto_now_playing">前往播放緊畫面</string>
     <string name="lbl_instant_mix">即時混音</string>
     <string name="lbl_delete">刪走</string>
-    <string name="msg_item_added">" 個項目已加入"</string>
     <string name="desc_automatic_fav_songs">心水歌曲自動播放清單</string>
-    <string name="lbl_new_premieres">最新首映</string>
     <string name="lbl_bitstream_ac3">位元流 Dolby Digital 音訊</string>
-    <string name="desc_bitstream_ac3">需要支援嘅硬體</string>
-    <string name="desc_audio_night_mode">自動平衡音量</string>
     <string name="lbl_zoom">縮放</string>
     <string name="lbl_auto_crop">自動裁剪</string>
     <string name="lbl_stretch">拉伸</string>
@@ -193,8 +173,6 @@
     <string name="lbl_play_next_up">播放「跟住落嚟」</string>
     <string name="lbl_open">開啟</string>
     <string name="lbl_show_backdrop">顯示背景圖</string>
-    <string name="lbl_show_premieres">顯示季度首播</string>
-    <string name="desc_premieres">顯示你睇開嘅劇集最新一集試播</string>
     <string name="lbl_in_x_days">%d 日後</string>
     <string name="lbl_select_date">揀日期</string>
     <string name="lbl_just_this_once">就呢一次</string>
@@ -235,7 +213,6 @@
     <string name="lbl_tv_filter_status">之後 %1$d 個鐘</string>
     <string name="lbl_news">新聞</string>
     <string name="lbl_new_only">只限新集數</string>
-    <string name="lbl_subtitle_delay">字幕延遲</string>
     <string name="lbl_new_episodes">新集數</string>
     <string name="lbl_premieres">首播</string>
     <string name="lbl_repeat_episodes">重播集數</string>
@@ -249,28 +226,18 @@
     <string name="pref_theme_dark">暗色（預設）</string>
     <string name="pref_theme_emerald">經典翡翠綠</string>
     <string name="pref_about_title">關於</string>
-    <string name="pref_external_player">用外部播放器</string>
     <string name="pref_next_up_timeout_summary">播下一個項目之前要等幾耐</string>
     <string name="pref_next_up_timeout_title">「跟住落嚟」倒數時間</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="watch_now">而家睇</string>
     <string name="pref_next_up_behavior_title">顯示下段片嘅詳細資訊</string>
-    <string name="pref_still_watching_behavior_title">顯示閒置逾時彈窗</string>
     <string name="pref_app_theme">程式主題色水</string>
     <string name="pref_device_model">裝置型號</string>
     <string name="grid_direction">網格方向</string>
     <string name="grid_direction_horizontal">橫向</string>
     <string name="grid_direction_vertical">直向</string>
-    <string name="lbl_unknown_key">未知 (%1s)</string>
-    <string name="pref_audio_track_button">音軌撳掣</string>
-    <string name="pref_subtitle_track_button">字幕軌撳掣</string>
-    <string name="pref_button_remapping_description">喺電視遙控撳任何掣嚟設定功能</string>
-    <string name="lbl_Reset">重設</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/秒</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/秒</string>
-    <string name="mark_watched">標記為已睇</string>
-    <string name="mark_watched_message">呢個項目睇落仲未播完，係咪要標記為已睇？</string>
-    <string name="no_player">冇播放器</string>
     <string name="no_player_message">你部機睇落冇裝到可以播片嘅 App。呢個選項需要你裝返個第三方應用程式嚟播片。</string>
     <string name="episode_missing">搵唔到呢集</string>
     <string name="episode_missing_message">你個媒體櫃搵唔到呢集。你想唔想跳過佢，直接播下一集？</string>
@@ -281,14 +248,10 @@
     <string name="seek_error">跳轉唔到</string>
     <string name="player_error">播放器出咗錯，試緊重新連線…</string>
     <string name="too_many_errors">出太多錯喇，放棄嘗試</string>
-    <string name="subtitle_error">揀唔到字幕</string>
     <string name="msg_no_items">冇項目可以播</string>
-    <string name="audio_error">播唔到音訊 %1$s</string>
-    <string name="turn_off">閂咗呢個選項</string>
     <string name="just_one">就呢一個</string>
     <string name="lbl_sign_in">唔該登入</string>
     <string name="lbl_playback_control_ends">喺 %1$s 播完</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="pref_clock_display">顯示時鐘</string>
     <string name="lbl_always">一直都係</string>
     <string name="pref_clock_display_browsing">瀏覽緊嗰陣</string>
@@ -307,7 +270,6 @@
     <string name="lbl_sign_out_content">下次用要再登入過</string>
     <string name="lbl_remove_server">刪走伺服器</string>
     <string name="lbl_user_last_used">上次喺 %1$s %2$s 用過</string>
-    <string name="lbl_user_server">%2$s 上嘅 %1$s</string>
     <string name="lbl_server">伺服器</string>
     <string name="lbl_remove">刪走</string>
     <string name="lbl_sign_out">登出</string>
@@ -322,8 +284,6 @@
     <string name="image_size_large">大</string>
     <string name="image_size_xlarge">加大</string>
     <string name="pref_developer_link">開發者選項</string>
-    <string name="pref_developer_link_description">進階同實驗性功能</string>
-    <string name="lbl_hidden">收埋咗</string>
     <string name="discovered_servers_title">搵到嘅伺服器</string>
     <string name="discovered_servers_empty">喺區域網路入面搵唔到伺服器。</string>
     <string name="connect_manually_by_address">輸入伺服器位址</string>
@@ -378,7 +338,6 @@
     <string name="advanced_settings">進階</string>
     <string name="select_version">版本</string>
     <string name="licenses_link">授權</string>
-    <string name="licenses_link_description">睇吓 Jellyfin 應用程式用緊嘅函式庫授權</string>
     <string name="license_description">描述</string>
     <string name="license_version">版本</string>
     <string name="license_artifact">組件</string>
@@ -387,7 +346,6 @@
     <string name="license_author">作者</string>
     <string name="license_license">授權</string>
     <string name="home_prefs">首頁</string>
-    <string name="home_sections">首頁板塊</string>
     <string name="home_section_latest_media">近排新增嘅媒體</string>
     <string name="home_section_library">我嘅媒體</string>
     <string name="home_section_library_small">我嘅媒體（細）</string>
@@ -400,20 +358,11 @@
     <string name="home_section_i">首頁板塊 %1$d</string>
     <string name="searchable_hint">搜尋 Jellyfin</string>
     <string name="searchable_settings_description">媒體</string>
-    <string name="pref_subtitles_background_title">開啟背景</string>
-    <string name="pref_subtitles_background_summary">喺字幕後面顯示黑色背景</string>
-    <string name="color_white">⚪️白色</string>
-    <string name="color_black">⚫️黑色</string>
-    <string name="color_darkgrey">🩶深灰色</string>
     <string name="color_red">🔴紅色</string>
     <string name="color_green">🟢綠色</string>
     <string name="color_blue">🔵藍色</string>
-    <string name="color_yellow">🟡黃色</string>
-    <string name="color_pink">🩷粉色</string>
-    <string name="color_cyan">🩵青色</string>
     <string name="pref_subtitles_size">文字大細</string>
     <string name="pref_subtitles_position">離底距離</string>
-    <string name="pref_subtitles_bold">粗體文字</string>
     <string name="server_issue_unable_to_connect">連線唔到</string>
     <string name="server_issue_invalid_product">伺服器軟體唔相容</string>
     <string name="server_issue_missing_version">確定唔到伺服器版本</string>
@@ -424,21 +373,12 @@
     <string name="pref_customization">自訂</string>
     <string name="sort_accounts_by">帳戶排序依據</string>
     <string name="pref_accounts">帳戶</string>
-    <string name="pref_behavior">運作行為</string>
     <string name="pref_browsing">瀏覽緊</string>
-    <string name="pref_theme">主題色水</string>
-    <string name="pref_home_description">設定顯示邊個板塊</string>
     <string name="pref_libraries">媒體櫃</string>
-    <string name="pref_libraries_description">更改媒體櫃嘅顯示方式</string>
     <string name="pref_login">登入</string>
-    <string name="pref_customization_description">主題色水、首頁、撳掣對應</string>
-    <string name="pref_playback_description">影片、字幕、直播電視、跟住落嚟</string>
-    <string name="pref_login_description">伺服器、帳戶、自動登入</string>
     <string name="pref_video">影片</string>
     <string name="pref_subtitles">字幕</string>
     <string name="pref_audio">音訊</string>
-    <string name="pref_direct_stream_live_off">有需要嗰陣會用轉碼</string>
-    <string name="pref_direct_stream_live_on">轉碼已停用</string>
     <string name="home_section_resume_book">繼續睇</string>
     <string name="action_login">登入</string>
     <string name="action_use_password">用密碼</string>
@@ -454,11 +394,9 @@
     <string name="pref_refresh_rate_scale_on_tv">喺電視上縮放</string>
     <string name="pref_refresh_rate_scale_on_device">喺裝置上縮放</string>
     <string name="action_connect">連線</string>
-    <string name="live_tv_preferences">直播電視選項</string>
     <string name="app_notification_uimode_invalid">呢個應用程式係專為電視而設嘅。喺其他裝置上面，我哋建議用返行動版程式。</string>
     <string name="server_unsupported_notification">呢個伺服器用緊嘅 Jellyfin 版本係 %1$s，已經唔再支援。唔該升級至 %2$s 或者更新嘅版本嚟繼續用呢個應用程式。</string>
     <string name="pref_telemetry_category">宕機回報</string>
-    <string name="pref_telemetry_description">傳送宕機回報（包括日誌）</string>
     <string name="pref_crash_reports">將宕機回報傳送去伺服器</string>
     <string name="pref_crash_reports_enabled">宕機回報</string>
     <string name="pref_crash_reports_disabled">唔會提交宕機回報</string>
@@ -471,16 +409,12 @@
     <string name="app_notification_beta">應用程式已更新至 %1$s\n唔該晒你參加 Jellyfin 嘅 Beta 測試計劃。</string>
     <string name="item_deleted">%1$s 已刪走</string>
     <string name="item_deletion_failed">刪唔到 %1$s</string>
-    <string name="pref_enable_media_management">開啟媒體管理</string>
-    <string name="pref_enable_media_management_description">瀏覽緊嗰陣顯示管理媒體嘅選項</string>
     <string name="item_delete_confirm_title">刪走項目</string>
     <string name="item_delete_confirm_message">你係咪肯定要喺伺服器刪走呢個項目？刪咗就冇得返轉頭。</string>
     <string name="pref_screensaver">螢幕保護程式</string>
     <string name="pref_screensaver_inapp_enabled">用應用程式內置嘅螢幕保護程式</string>
     <string name="pref_screensaver_inapp_enabled_description">開住個應用程式嗰陣顯示 Jellyfin 螢幕保護程式</string>
     <string name="pref_screensaver_inapp_timeout">螢幕保護程式啟動時間</string>
-    <string name="enable_reactive_homepage">開啟動態首頁</string>
-    <string name="not_set">未設定</string>
     <string name="lbl_album_artists">專輯演出者</string>
     <string name="disable_ui_mode_warning">停用裝置類型警告</string>
     <string name="channels">頻道</string>
@@ -507,7 +441,6 @@
     <string name="pref_screensaver_ageratingmax_unlimited">停用最高限制</string>
     <string name="pref_screensaver_ageratingrequired_title">必須要有分級</string>
     <string name="pref_screensaver_ageratingrequired_enabled">只會顯示有設定分級嘅項目</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">顯示所有項目</string>
     <string name="all_channels">所有頻道</string>
     <string name="app_notification_update_soon">唔該將你個伺服器由 %1$s 升級到至少 %2$s，若唔係下次應用程式更新之後就用唔到。</string>
     <string name="current_queue">而家播緊嘅隊列</string>
@@ -518,7 +451,6 @@
     <string name="prefer_exoplayer_ffmpeg_content">就算系統有解碼器，都強制用 FFmpeg 嚟解音訊碼。</string>
     <string name="default_video_zoom">預設縮放模式</string>
     <string name="video_start_delay">影片啟動延遲</string>
-    <string name="pref_mediasegment_actions">媒體片段動作</string>
     <string name="segment_action_ask_to_skip">跳過之前問我</string>
     <string name="segment_action_nothing">乜都唔使做</string>
     <string name="segment_action_skip">跳過</string>
@@ -529,8 +461,6 @@
     <string name="segment_type_recap">前情提要</string>
     <string name="segment_type_unknown">未知片段</string>
     <string name="skip_forward_length">快進長度</string>
-    <string name="preference_enable_trickplay">喺播放器開啟預覽圖 (Trickplay)</string>
-    <string name="pref_subtitles_background_opacity">字幕背景不透明度</string>
     <string name="pref_troubleshooting">疑難排解</string>
     <string name="pref_report_device_profile_title">向伺服器回報播放能力</string>
     <string name="pref_report_device_profile_summary">上載一份關於播放能力嘅疑難排解文檔去 Jellyfin 伺服器</string>
@@ -591,12 +521,6 @@
     </plurals>
     <plurals name="items">
         <item quantity="other">%1$s 個項目</item>
-    </plurals>
-    <plurals name="movies">
-        <item quantity="other">%1$s 套戲</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="other">%1$s 套劇</item>
     </plurals>
     <plurals name="songs">
         <item quantity="other">%1$s 首歌</item>

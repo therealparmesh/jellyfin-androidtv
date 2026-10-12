@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import androidx.lifecycle.LifecycleOwner
@@ -307,10 +308,12 @@ object BrowsingUtils {
 	)
 
 	@JvmStatic
-	fun createBrowseGridItemsRequest(parent: BaseItemDto): GetItemsRequest {
+	@JvmOverloads
+	fun createBrowseGridItemsRequest(parent: BaseItemDto, genre: String? = null): GetItemsRequest {
 		val baseRequest = GetItemsRequest(
-			fields = ItemRepository.itemFields,
+			fields = ItemRepository.browseFields,
 			parentId = parent.id,
+			genres = genre?.let(::setOf),
 		)
 
 		if (parent.type == BaseItemKind.USER_VIEW || parent.type == BaseItemKind.COLLECTION_FOLDER) {

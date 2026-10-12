@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -48,6 +49,8 @@ import org.jellyfin.androidtv.preference.PreferencesRepository;
 import org.jellyfin.androidtv.ui.AlphaPickerView;
 import org.jellyfin.androidtv.ui.itemhandling.BaseRowItem;
 import org.jellyfin.androidtv.ui.itemhandling.ItemLauncher;
+import org.jellyfin.androidtv.ui.navigation.Destinations;
+import org.jellyfin.androidtv.ui.navigation.NavigationRepository;
 import org.jellyfin.androidtv.ui.itemhandling.ItemRowAdapter;
 import org.jellyfin.androidtv.ui.itemhandling.ItemRowAdapterHelperKt;
 import org.jellyfin.androidtv.ui.presentation.CardPresenter;
@@ -145,7 +148,9 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
         mFolder = Json.Default.decodeFromString(BaseItemDto.Companion.serializer(), getArguments().getString(Extras.Folder));
         mParentId = mFolder.getId();
         mainTitle = mFolder.getName();
-        libraryPreferences = preferencesRepository.getValue().getLibraryPreferences(Objects.requireNonNull(mFolder.getDisplayPreferencesId()));
+        String displayPreferencesId = mFolder.getDisplayPreferencesId();
+        if (displayPreferencesId == null) displayPreferencesId = mParentId.toString();
+        libraryPreferences = preferencesRepository.getValue().getLibraryPreferences(displayPreferencesId);
         mPosterSizeSetting = libraryPreferences.get(LibraryPreferences.Companion.getPosterSize());
         mImageType = libraryPreferences.get(LibraryPreferences.Companion.getImageType());
         mGridDirection = libraryPreferences.get(LibraryPreferences.Companion.getGridDirection());
@@ -212,10 +217,13 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
 
     @Override
     public void onDestroyView() {
+        mHandler.removeCallbacksAndMessages(null);
+        if (mAdapter != null) mAdapter.cancelRetrieval();
         super.onDestroyView();
 
         binding = null;
         mGridView = null;
+        mDirty = true;
     }
 
     private void createGrid() {
@@ -563,7 +571,8 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             }
         }
 
-        setRowDef(new BrowseRowDef("", BrowsingUtils.createBrowseGridItemsRequest(mFolder), CHUNK_SIZE_MINIMUM, false, true));
+        setRowDef(new BrowseRowDef("", BrowsingUtils.createBrowseGridItemsRequest(mFolder,
+                getArguments().getString(Extras.AutomaticGenre)), CHUNK_SIZE_MINIMUM, false, true));
     }
 
     @Override
@@ -623,7 +632,6 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             chunkSize = Math.min(mCardsScreenEst + mCardsScreenStride, 150); // cap at 150
             Timber.d("buildAdapter adjusting chunkSize to <%s> screenEst <%s>", chunkSize, mCardsScreenEst);
         }
-        chunkSize=100;
 
         switch (mRowDef.getQueryType()) {
             case NextUp:
@@ -663,7 +671,7 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
         filters.setFavoriteOnly(libraryPreferences.get(LibraryPreferences.Companion.getFilterFavoritesOnly()));
         filters.setUnwatchedOnly(libraryPreferences.get(LibraryPreferences.Companion.getFilterUnwatchedOnly()));
 
-        mAdapter.setRetrieveFinishedListener(new EmptyResponse(getLifecycle()) {
+        mAdapter.setRetrieveFinishedListener(new EmptyResponse(getViewLifecycleOwner().getLifecycle()) {
             @Override
             public void onResponse() {
                 if (!isActive()) return;
@@ -697,6 +705,7 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             buildAdapter();
         }
 
+        mAdapter.setRequestLifecycleOwner(getViewLifecycleOwner());
         mAdapter.setSortBy(getSortOption(libraryPreferences.get(LibraryPreferences.Companion.getSortBy())));
         mAdapter.Retrieve();
     }
@@ -720,6 +729,18 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
     private void addTools() {
         //Add tools
         int size = Utils.convertDpToPixel(requireContext(), 26);
+
+        if (getArguments().getString(Extras.AutomaticGenre) == null &&
+                (mFolder.getCollectionType() == CollectionType.MOVIES || mFolder.getCollectionType() == CollectionType.TVSHOWS)) {
+            ImageButton foldersButton = new ImageButton(requireContext(), null, 0, R.style.Button_Icon);
+            foldersButton.setImageResource(R.drawable.ic_folder);
+            foldersButton.setMaxHeight(size);
+            foldersButton.setAdjustViewBounds(true);
+            foldersButton.setContentDescription(getString(R.string.lbl_automatic_folders));
+            foldersButton.setOnClickListener(v -> org.koin.java.KoinJavaComponent.<NavigationRepository>get(NavigationRepository.class)
+                    .navigate(Destinations.INSTANCE.libraryAutomaticFolders(mFolder)));
+            binding.toolBar.addView(foldersButton);
+        }
 
         mSortButton = new ImageButton(requireContext(), null, 0, R.style.Button_Icon);
         mSortButton.setImageResource(R.drawable.ic_sort);

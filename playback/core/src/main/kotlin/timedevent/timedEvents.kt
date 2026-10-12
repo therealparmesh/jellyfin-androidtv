@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.playback.core.timedevent
 
 import org.jellyfin.playback.core.element.ElementKey
@@ -17,11 +18,4 @@ fun QueueEntry.addTimedEvent(timedEvent: TimedEvent) {
 	val timedEvents = getOrNull(timedEventsKey).orEmpty()
 	val newTimedEvents = timedEvents + timedEvent
 	put(timedEventsKey, newTimedEvents)
-}
-
-fun QueueEntry.removeTimedEvent(timedEvent: TimedEvent) {
-	val timedEvents = getOrNull(timedEventsKey).orEmpty()
-	val newTimedEvents = timedEvents - timedEvent
-	if (newTimedEvents.isEmpty()) remove(timedEventsKey)
-	else put(timedEventsKey, newTimedEvents)
 }

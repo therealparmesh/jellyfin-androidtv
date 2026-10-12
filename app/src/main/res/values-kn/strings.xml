@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_settings">ಆದ್ಯತೆಗಳು</string>
     <string name="state_disabled">ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಲಾಗಿದೆ</string>
     <string name="chapters">ಅಧ್ಯಾಯಗಳು</string>
-    <string name="pref_authentication_cat">ದೃಢೀಕರಣ</string>
     <string name="settings_title">ಆದ್ಯತೆಗಳು</string>
     <string name="pref_max_bitrate_title">ಗರಿಷ್ಠ ಸ್ಟ್ರೀಮಿಂಗ್ ಬಿಟ್ರೇಟ್</string>
     <string name="pref_playback">ಪುನ್ಹಾ ಪ್ಲೇ ಮಾಡು</string>
@@ -27,7 +27,6 @@
     <string name="lbl_latest">ಇತ್ತೀಚೆಗೆ ಸೇರಿಸಲಾಗಿದೆ</string>
     <string name="lbl_movies">ಚಲನಚಿತ್ರಗಳು</string>
     <string name="lbl_collections">ಸಂಗ್ರಹಗಳು</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_latest_in">%1$s ನಲ್ಲಿ ಇತ್ತೀಚೆಗೆ ಸೇರಿಸಲಾಗಿದೆ</string>
     <string name="lbl_by_name">ಹೆಸರಿನಿಂದ</string>
     <string name="lbl_favorite_channels">ನೆಚ್ಚಿನ ಚಾನಲ್‌ಗಳು</string>
@@ -54,8 +53,6 @@
     <string name="lbl_chapters">ಅಧ್ಯಾಯಗಳು</string>
     <string name="lbl_specials">ವಿಶೇಷ ಕಾರ್ಯಕ್ರಮಗಳು</string>
     <string name="lbl_trailers">ಟ್ರೇಲರ್‌ಗಳು</string>
-    <string name="lbl_items">ವಸ್ತುಗಳು</string>
-    <string name="lbl_item">ವಸ್ತು</string>
     <string name="lbl_series">ಧಾರಾವಾಹಿ</string>
     <string name="lbl_seasons">ಹಂಗಾಮುಗಳು</string>
     <string name="lbl_upcoming">ಮುಂಬರುವುದು</string>
@@ -96,14 +93,6 @@
     <plurals name="items">
         <item quantity="one">%1$s ವಸ್ತು</item>
         <item quantity="other">%1$s ವಸ್ತುಗಳು</item>
-    </plurals>
-    <plurals name="movies">
-        <item quantity="one">%1$s ಚಲನಚಿತ್ರ</item>
-        <item quantity="other">%1$s ಚಲನಚಿತ್ರಗಳು</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s ಧಾರಾವಾಹಿ</item>
-        <item quantity="other">%1$s ಧಾರಾವಾಹಿಗಳು</item>
     </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s ಹಾಡು</item>

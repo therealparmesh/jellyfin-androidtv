@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <plurals name="seconds">
         <item quantity="one">%1$s segundo</item>
@@ -13,13 +14,11 @@
     <string name="image_type_poster">Cartaz</string>
     <string name="pref_customization">Personalização</string>
     <string name="msg_live_tv_next">Carregar as próximas %1$d horas?</string>
-    <string name="pref_subtitles_bold">Negrito</string>
     <string name="server_issue_unable_to_connect">Não é possível ligar</string>
     <string name="preference_enable_pgs">Reproduzir diretamente legendas PGS</string>
     <string name="pref_app_theme">Tema da aplicação</string>
     <string name="lbl_sign_out">Terminar sessão</string>
     <string name="lbl_exit">Sair</string>
-    <string name="pref_still_watching_behavior_title">Mostrar aviso de inatividade</string>
     <string name="lbl_still_watching_default">3 episódios ou 90 minutos</string>
     <string name="lbl_still_watching_short">2 episódios ou 60 minutos</string>
     <string name="lbl_still_watching_long">5 episódios ou 150 minutos</string>
@@ -36,7 +35,6 @@
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="pref_playback">Playback</string>
     <string name="settings_title">Ajustes</string>
-    <string name="pref_authentication_cat">Autenticação</string>
     <string name="state_disabled">Desativado</string>
     <string name="lbl_settings">Ajustes</string>
     <string name="lbl_home">Início</string>
@@ -67,7 +65,6 @@
     <string name="lbl_cancel_series">Cancelar as séries</string>
     <string name="lbl_record">Gravar</string>
     <string name="lbl_by_letter">Por letra</string>
-    <string name="lbl_status">%1$s/%2$s</string>
     <string name="lbl_record_series">Gravar as séries</string>
     <string name="msg_set_to_record">Programado para gravar</string>
     <string name="msg_unable_to_create_recording">Impossível criar gravação</string>
@@ -91,14 +88,12 @@
     <string name="lbl_none">Nenhum</string>
     <string name="msg_video_playback_error">"Erro na reprodução do vídeo "</string>
     <string name="lbl_bracket_unknown">Desconhecido</string>
-    <string name="lbl_trailer">"Trailer "</string>
     <string name="lbl_play_trailers">Reproduzir trailer(s)</string>
     <string name="lbl_no">Não</string>
     <string name="lbl_yes">Sim</string>
     <string name="lbl_enter_server_address">Introduzir o endereço do servidor</string>
     <string name="lbl_valid_server_address">Por favor, introduza o endereço do servidor (IP ou domínio/nome do computador)</string>
     <string name="lbl_ok">Ok</string>
-    <string name="lbl_born">"Nascido(a) "</string>
     <string name="lbl_loading_elipses">A carregar…</string>
     <string name="msg_playback_not_allowed">Reprodução não autorizada</string>
     <string name="msg_playback_restricted">O administrador restringiu a reprodução deste conteúdo por agora</string>
@@ -108,8 +103,6 @@
     <string name="msg_cannot_play">Este conteúdo não pode ser reproduzido</string>
     <string name="lbl_no_items">Sem conteúdo</string>
     <string name="lbl_empty">Vazio</string>
-    <string name="lbl_tv_queuing">Reproduzir o próximo episódio automaticamente</string>
-    <string name="lbl_search_hint">Procurar texto (selecione para teclado)</string>
     <string name="lbl_play_first_unwatched">Reproduzir primeiro não visto</string>
     <string name="lbl_mark_unplayed">Marcar como novo</string>
     <string name="lbl_mark_played">Marcar como visto</string>

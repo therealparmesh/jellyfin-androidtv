@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="video_error_unknown_error">Mislukking om video te laai</string>
     <string name="btn_cancel">Kanselleer</string>
@@ -7,7 +8,6 @@
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="pref_playback">Terugspeel</string>
     <string name="pref_max_bitrate_title">Maks stroom bitkoers</string>
-    <string name="pref_authentication_cat">Verifikasie</string>
     <string name="chapters">Hoofstukke</string>
     <string name="state_disabled">Gestremd</string>
     <string name="lbl_settings">Voorkeure</string>

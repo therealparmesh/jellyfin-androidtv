@@ -1,12 +1,10 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback;
 
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.media.audiofx.DynamicsProcessing;
-import android.media.audiofx.DynamicsProcessing.Limiter;
-import android.media.audiofx.Equalizer;
 import android.net.Uri;
 import android.os.Handler;
 import android.util.TypedValue;
@@ -75,9 +73,6 @@ import timber.log.Timber;
 public class VideoManager {
     private ZoomMode mZoomMode;
     private Activity mActivity;
-    private Equalizer mEqualizer;
-    private DynamicsProcessing mDynamicsProcessing;
-    private Limiter mLimiter;
     private PlaybackControllerNotifiable mPlaybackControllerNotifiable;
     private PlaybackOverlayFragmentHelper _helper;
     public ExoPlayer mExoPlayer;

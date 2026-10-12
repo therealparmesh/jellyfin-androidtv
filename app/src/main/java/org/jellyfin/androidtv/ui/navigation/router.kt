@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.navigation
 
 import androidx.compose.animation.AnimatedContentTransitionScope
@@ -39,19 +40,19 @@ class Router(
 	// Route resolving
 
 	fun resolve(route: String): RouteComposable? = routes[route]
-	fun verifyRoute(route: String, parameters: RouteParameters = emptyMap()) = require(resolve(route) != null) { "Invalid route $route" }
+	fun verifyRoute(route: String) = require(resolve(route) != null) { "Invalid route $route" }
 
 	// Route manipulation
 
 	fun push(route: String, parameters: RouteParameters = emptyMap()) {
-		verifyRoute(route, parameters)
+		verifyRoute(route)
 
 		val context = RouteContext(route, parameters)
 		backStack.add(context)
 	}
 
 	fun replace(route: String, parameters: RouteParameters = emptyMap()) {
-		verifyRoute(route, parameters)
+		verifyRoute(route)
 
 		val context = RouteContext(route, parameters)
 		backStack.removeLastOrNull()

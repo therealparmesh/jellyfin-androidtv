@@ -1,9 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.itemhandling
 
 import android.content.Context
 import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.ProcessLifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -43,6 +45,10 @@ import org.jellyfin.sdk.model.api.request.GetUpcomingEpisodesRequest
 import timber.log.Timber
 import kotlin.math.min
 
+private fun ItemRowAdapter.launchRetrieval(block: suspend CoroutineScope.() -> Unit) {
+	setRetrievalJob(requestLifecycleOwner.lifecycleScope.launch(block = block))
+}
+
 fun <T : Any> ItemRowAdapter.setItems(
 	items: Collection<T>,
 	transform: (T, Int) -> BaseRowItem?,
@@ -72,7 +78,7 @@ fun <T : Any> ItemRowAdapter.setItems(
 }
 
 fun ItemRowAdapter.retrieveResumeItems(api: ApiClient, query: GetResumeItemsRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.itemsApi.getResumeItems(query).content
@@ -92,13 +98,16 @@ fun ItemRowAdapter.retrieveResumeItems(api: ApiClient, query: GetResumeItemsRequ
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveNextUpItems(api: ApiClient, query: GetNextUpRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.tvShowsApi.getNextUp(query).content
@@ -151,13 +160,16 @@ fun ItemRowAdapter.retrieveNextUpItems(api: ApiClient, query: GetNextUpRequest) 
 			}
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveLatestMedia(api: ApiClient, query: GetLatestMediaRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.userLibraryApi.getLatestMedia(query).content
@@ -180,13 +192,16 @@ fun ItemRowAdapter.retrieveLatestMedia(api: ApiClient, query: GetLatestMediaRequ
 			if (response.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveSpecialFeatures(api: ApiClient, query: GetSpecialsRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.userLibraryApi.getSpecialFeatures(query.itemId).content
@@ -202,13 +217,16 @@ fun ItemRowAdapter.retrieveSpecialFeatures(api: ApiClient, query: GetSpecialsReq
 			if (response.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveAdditionalParts(api: ApiClient, query: GetAdditionalPartsRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.videosApi.getAdditionalPart(query.itemId).content
@@ -222,13 +240,16 @@ fun ItemRowAdapter.retrieveAdditionalParts(api: ApiClient, query: GetAdditionalP
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveUserViews(api: ApiClient, userViewsRepository: UserViewsRepository) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.userViewsApi.getUserViews().content
@@ -245,13 +266,16 @@ fun ItemRowAdapter.retrieveUserViews(api: ApiClient, userViewsRepository: UserVi
 			if (filteredItems.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveSeasons(api: ApiClient, query: GetSeasonsRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.tvShowsApi.getSeasons(query).content
@@ -265,13 +289,16 @@ fun ItemRowAdapter.retrieveSeasons(api: ApiClient, query: GetSeasonsRequest) {
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveUpcomingEpisodes(api: ApiClient, query: GetUpcomingEpisodesRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.tvShowsApi.getUpcomingEpisodes(query).content
@@ -285,13 +312,16 @@ fun ItemRowAdapter.retrieveUpcomingEpisodes(api: ApiClient, query: GetUpcomingEp
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveSimilarItems(api: ApiClient, query: GetSimilarItemsRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.libraryApi.getSimilarItems(query).content
@@ -305,13 +335,16 @@ fun ItemRowAdapter.retrieveSimilarItems(api: ApiClient, query: GetSimilarItemsRe
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveTrailers(api: ApiClient, query: GetTrailersRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.userLibraryApi.getLocalTrailers(itemId = query.itemId)
@@ -333,7 +366,10 @@ fun ItemRowAdapter.retrieveTrailers(api: ApiClient, query: GetTrailersRequest) {
 			if (response.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -342,7 +378,7 @@ fun ItemRowAdapter.retrieveLiveTvRecommendedPrograms(
 	api: ApiClient,
 	query: GetRecommendedProgramsRequest
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.liveTvApi.getRecommendedPrograms(query).content
@@ -362,13 +398,16 @@ fun ItemRowAdapter.retrieveLiveTvRecommendedPrograms(
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
 
 fun ItemRowAdapter.retrieveLiveTvRecordings(api: ApiClient, query: GetRecordingsRequest) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.liveTvApi.getRecordings(query).content
@@ -388,7 +427,10 @@ fun ItemRowAdapter.retrieveLiveTvRecordings(api: ApiClient, query: GetRecordings
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -398,7 +440,7 @@ fun ItemRowAdapter.retrieveLiveTvSeriesTimers(
 	context: Context,
 	canManageRecordings: Boolean
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.liveTvApi.getSeriesTimers().content
@@ -443,7 +485,10 @@ fun ItemRowAdapter.retrieveLiveTvSeriesTimers(
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -454,7 +499,7 @@ fun ItemRowAdapter.retrieveLiveTvChannels(
 	startIndex: Int,
 	batchSize: Int
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.liveTvApi.getLiveTvChannels(
@@ -480,7 +525,10 @@ fun ItemRowAdapter.retrieveLiveTvChannels(
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -491,7 +539,7 @@ fun ItemRowAdapter.retrieveAlbumArtists(
 	startIndex: Int,
 	batchSize: Int
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.artistsApi.getAlbumArtists(
@@ -517,7 +565,10 @@ fun ItemRowAdapter.retrieveAlbumArtists(
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -528,7 +579,7 @@ fun ItemRowAdapter.retrieveArtists(
 	startIndex: Int,
 	batchSize: Int
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.artistsApi.getArtists(
@@ -554,7 +605,10 @@ fun ItemRowAdapter.retrieveArtists(
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -565,7 +619,7 @@ fun ItemRowAdapter.retrieveItems(
 	startIndex: Int,
 	batchSize: Int
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.itemsApi.getItems(
@@ -591,7 +645,10 @@ fun ItemRowAdapter.retrieveItems(
 			if (itemsLoaded == 0) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }
@@ -600,7 +657,7 @@ fun ItemRowAdapter.retrievePremieres(
 	api: ApiClient,
 	query: GetItemsRequest,
 ) {
-	ProcessLifecycleOwner.get().lifecycleScope.launch {
+	launchRetrieval {
 		runCatching {
 			val response = withContext(Dispatchers.IO) {
 				api.itemsApi.getItems(query).content
@@ -620,7 +677,10 @@ fun ItemRowAdapter.retrievePremieres(
 			if (response.items.isEmpty()) removeRow()
 		}.fold(
 			onSuccess = { notifyRetrieveFinished() },
-			onFailure = { error -> notifyRetrieveFinished(error as? Exception) }
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			}
 		)
 	}
 }

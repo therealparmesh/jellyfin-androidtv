@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
 
     <style name="DatePickerCustom">
@@ -9,11 +10,6 @@
         <item name="android:textColor">?attr/headerTextColor</item>
     </style>
 
-    <style name="player_progress" parent="android:Widget.ProgressBar.Horizontal">
-        <item name="android:progressDrawable">@drawable/progress_bar</item>
-        <item name="android:minHeight">5sp</item>
-        <item name="android:maxHeight">5sp</item>
-    </style>
 
     <style name="overlay_progress" parent="android:Widget.ProgressBar.Horizontal">
         <item name="android:progressDrawable">@drawable/progress_bar</item>
@@ -28,10 +24,6 @@
         <item name="android:windowExitAnimation">@anim/abc_slide_out_top</item>
     </style>
 
-    <style name="WindowAnimation.SlideRight">
-        <item name="android:windowEnterAnimation">@anim/slide_right_in</item>
-        <item name="android:windowExitAnimation">@anim/slide_right_out</item>
-    </style>
 
     <style name="WindowAnimation.Fade">
         <item name="android:windowEnterAnimation">@anim/fade_in</item>
@@ -64,9 +56,6 @@
         <item name="android:stateListAnimator">@null</item>
     </style>
 
-    <style name="Button.Icon.Animated" parent="Button.Icon">
-        <item name="android:tint">@drawable/button_icon_tint_animated</item>
-    </style>
 
     <style name="Input.Default" parent="android:Widget.EditText">
         <item name="android:background">@drawable/input_default_back</item>

@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="msg_playback_not_allowed">ไม่อนุญาตให้เล่นในขณะนี้</string>
     <string name="lbl_loading_elipses">กำลังโหลด…</string>
-    <string name="lbl_born">"เกิด "</string>
     <string name="lbl_ok">ตกลง</string>
     <string name="lbl_valid_server_address">โปรดใส่ที่อยู่เซิร์ฟเวอร์ (ที่อยู่IP หรือ ชื่อโดเมน/ชื่อเครื่อง)</string>
     <string name="lbl_yes">ใช่</string>
     <string name="lbl_no">ไม่</string>
     <string name="lbl_play_trailers">เล่นตัวอย่างภาพยนตร์</string>
-    <string name="lbl_trailer">"ตัวอย่าง "</string>
     <string name="lbl_bracket_unknown">ไม่รู้จัก</string>
     <string name="msg_video_playback_error">"เกิดข้อผิดพลาดในการเล่นวิดีโอ - "</string>
     <string name="lbl_none">ไม่มี</string>
@@ -52,14 +51,12 @@
     <string name="lbl_latest">ล่าสุด</string>
     <string name="lbl_search">ค้นหา</string>
     <string name="lbl_genres">แนว</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_suggested">แนะนำ</string>
     <string name="lbl_by_letter">โดยตัวอักษร</string>
     <string name="lbl_views">การดู</string>
     <string name="lbl_next_up">ถัดไป</string>
     <string name="lbl_continue_watching">รับชมต่อ</string>
     <string name="lbl_settings">การตั้งค่า</string>
-    <string name="pref_authentication_cat">การยืนยันตัวตน</string>
     <string name="settings_title">การตั้งค่า</string>
     <string name="pref_max_bitrate_title">อัตราบิตเรตการสตรีมสูงสุด</string>
     <string name="pref_playback">การเล่น</string>
@@ -71,14 +68,11 @@
     <string name="lbl_on_now">เดี๋ยวนี้</string>
     <string name="msg_not_implemented">" ไม่ถูกจัดทำ"</string>
     <string name="lbl_chapters">ตอน</string>
-    <string name="lbl_items">รายการ</string>
-    <string name="lbl_item">รายการ</string>
     <string name="lbl_load_channels">"ช่องที่โหลด "</string>
     <string name="pref_audio_compat">แปลงลงเป็น สเตริโอ</string>
     <string name="lbl_audio_output">เอาต์พุตเสียง</string>
     <string name="no_program_data">ไม่มีข้อมูลรายการ</string>
     <string name="lbl_empty">ว่าง</string>
-    <string name="lbl_tv_queuing">เล่นตอนถัดไปโดยอัตโนมัติ</string>
     <string name="lbl_now_playing_album">จาก %1$s</string>
     <string name="lbl_from">จาก</string>
     <string name="lbl_kids">เด็ก</string>
@@ -87,12 +81,9 @@
     <string name="lbl_direct_stream_live">สตรีมตรงไปยังโทรทัศน์สด</string>
     <string name="lbl_programs">โปรแกรม</string>
     <string name="lbl_albums">อัลบั้ม</string>
-    <string name="lbl_song">เพลง</string>
-    <string name="lbl_enable_cinema_mode">โหมดโรงภาพยนตร์</string>
     <string name="lbl_playlists">เพลย์ลิสต์</string>
     <string name="lbl_add_to_queue">เพิ่มไปยังคิว</string>
     <string name="lbl_instant_mix">มิกซ์ทันที</string>
-    <string name="desc_bitstream_ac3">ต้องการฮาร์ดแวร์ที่มีความสามารถ</string>
     <string name="lbl_recent_recordings">บันทึกล่าสุด</string>
     <string name="lbl_series_recordings">ซีรีส์ที่บันทึก</string>
     <string name="pref_audio_night_mode">โหมดเสียงตอนกลางคืน (ทดลอง)</string>
@@ -105,7 +96,6 @@
     <string name="msg_cannot_play_time">ไม่สามารถเล่นรายการนี้ได้ในเวลานี้</string>
     <string name="msg_cannot_play">รายการนี้ไม่สามารถเล่นได้</string>
     <string name="lbl_no_items">ไม่มีรายการ</string>
-    <string name="lbl_search_hint">ค้นหาข้อความ (เลือกสำหรับคีย์บอร์ด)</string>
     <string name="lbl_add_favorite">เพิ่มในรายการโปรด</string>
     <string name="lbl_now_playing_track">%1$s จาก %2$s</string>
     <string name="msg_will_record">กำลังจะบันทึก</string>
@@ -117,17 +107,13 @@
     <string name="lbl_premier_date">วันที่ออกฉาย</string>
     <string name="lbl_critic_rating">เรตติ้ง นักวิจารณ์</string>
     <string name="lbl_community_rating">เรตติ้ง ผู้รับชม</string>
-    <string name="lbl_display_preferences">การตั้งค่าหน้าจอ</string>
     <string name="lbl_filters">กรอง ช่องโทรทัศน์</string>
-    <string name="msg_burn_sub_warning">กำลังฝังคำบรรยายลงในภาพ โปรดรอสักครู่…</string>
     <string name="pref_live_tv_cat">โทรทัศน์</string>
     <string name="lbl_songs">เพลง</string>
-    <string name="sum_enable_cinema_mode">เล่นอินโทรและตัวอย่างที่เล่นได้ ก่อนเริ่มภาพยนตร์</string>
     <string name="lbl_open_artist">เปิด ศิลปิน</string>
     <string name="lbl_quality_profile">รูปแบบคุณภาพ</string>
     <string name="lbl_clear_queue">ล้างคิว</string>
     <string name="lbl_play_next_up">เล่นถัดไป</string>
-    <string name="lbl_show_premieres">แสดงซีซันที่ออกอากาศ</string>
     <string name="lbl_just_this_once">แค่ครั้งเดียว</string>
     <string name="lbl_repeat">เล่นซ้ำ</string>
     <string name="lbl_new">ใหม่</string>
@@ -143,9 +129,7 @@
     <string name="lbl_enable_debug">เมนู Debug</string>
     <string name="msg_cancel_entire_series">คุณแน่ใจหรือไม่ ที่จะยกเลิกซีรีส์นี้ ทั้งชุด\?</string>
     <string name="lbl_artists">ศิลปิน</string>
-    <string name="msg_items_added">" รายการถูกเพิ่ม"</string>
     <string name="lbl_delete">ลบ</string>
-    <string name="msg_item_added">" รายการถูกเพิ่ม"</string>
     <string name="lbl_stretch">ยืด</string>
     <string name="lbl_fit">ปกติ</string>
     <string name="lbl_open">เปิด</string>
@@ -165,7 +149,6 @@
     <string name="lbl_prev_item">รายการก่อนหน้า</string>
     <string name="lbl_remove_from_queue">นำออกจากคิว</string>
     <string name="lbl_goto_now_playing">ไปยังรายการที่เล่นอยู่</string>
-    <string name="lbl_new_premieres">ออกฉายใหม่</string>
     <string name="lbl_auto_crop">ครอปอัตโนมัติ</string>
     <string name="lbl_playback_speed">ความเร็วการเล่น</string>
     <string name="lbl_guest_stars">ดารารับเชิญ</string>
@@ -182,21 +165,16 @@
     <string name="lbl_name">ชื่อ</string>
     <string name="lbl_rating">เรตติ้ง</string>
     <string name="lbl_starting_with">เริ่มต้นด้วย ผู้ที่ชื่อขึ้นต้นด้วย</string>
-    <string name="msg_subtitles_loading">กำลังโหลด คำบรรยาย.…</string>
     <string name="lbl_recorded_tv">รายการโทรทัศน์ที่บันทึก</string>
-    <string name="msg_unable_load_subs">ไม่สามารถโหลด คำบรรยาย</string>
     <string name="lbl_live_tv_guide">ผังรายการทีวีถ่ายทอดสด</string>
     <string name="msg_error_live_stream">ไม่สามารถสตรีม โทรทัศน์สดได้ กำลังลองใหม่…</string>
     <string name="lbl_episodes">ตอน</string>
-    <string name="lbl_album">อัลบั้ม</string>
-    <string name="desc_audio_night_mode">ปรับระดับเสียงอัตโนมัติ</string>
     <string name="desc_automatic_fav_songs">สร้างเพลย์ลิสต์ เพลงโปรดอัตโนมัติ</string>
     <string name="state_disabled">ปิดใช้งาน</string>
     <string name="lbl_zoom">ซูม</string>
     <string name="lbl_audio_track">เลือกแทร็กเสียง</string>
     <string name="btn_got_it">เข้าใจแล้ว</string>
     <string name="lbl_show_backdrop">แสดง Backdrops</string>
-    <string name="desc_premieres">แสดงซีรีส์นำร่องตอนใหม่สำหรับซีรีส์ที่คุณดู</string>
     <string name="lbl_in_x_days">ใน %d วัน</string>
     <string name="lbl_episode_not_record">รายการดังกล่าวไม่ถูกบันทึก</string>
     <string name="lbl_save">บันทึก</string>
@@ -208,14 +186,8 @@
     <string name="lbl_home">หน้าหลัก</string>
     <string name="continue_listening">รับฟังต่อ</string>
     <string name="color_red">แดง</string>
-    <string name="color_white">ขาว</string>
-    <string name="color_black">ดำ</string>
-    <string name="color_darkgrey">เทาเข้ม</string>
     <string name="color_green">เขียว</string>
     <string name="color_blue">น้ำเงิน</string>
-    <string name="color_pink">ชมพู</string>
-    <string name="color_cyan">ฟ้า</string>
-    <string name="color_yellow">เหลือง</string>
     <string name="pref_audio_direct">ตรง</string>
     <string name="lbl_runs">รัน</string>
     <string name="runtime_hours_minutes">%1$dh %2$dm</string>
@@ -260,7 +232,6 @@
     <string name="lbl_tv_filter_status">สำหรับ %1$d ชั่วโมงถัดไป</string>
     <string name="lbl_news">ข่าวสาร</string>
     <string name="lbl_new_only">เฉพาะรายการใหม่</string>
-    <string name="lbl_subtitle_delay">ความหน่วงคำบรรยาย</string>
     <string name="lbl_new_episodes">ตอนใหม่</string>
     <string name="lbl_premieres">ออกอากาศครั้งแรก</string>
     <string name="lbl_repeat_episodes">ตอนฉายซ้ำ</string>
@@ -274,26 +245,16 @@
     <string name="pref_theme_dark">มืด (เริ่มต้น)</string>
     <string name="pref_theme_emerald">เขียวมรกตคลาสสิก</string>
     <string name="pref_about_title">เกี่ยวกับ</string>
-    <string name="pref_external_player">ใช้เครื่องเล่นภายนอก</string>
     <string name="pref_next_up_timeout_summary">ระยะเวลาที่ต้องรอก่อนเล่นรายการถัดไป</string>
     <string name="pref_next_up_timeout_title">ระยะเวลาตัวนับถอยหลังรายการถัดไป</string>
     <string name="watch_now">รับชมตอนนี้</string>
     <string name="pref_next_up_behavior_title">แสดงข้อมูลวิดีโอถัดไป</string>
-    <string name="pref_still_watching_behavior_title">แสดงป๊อปอัปแจ้งเตือนเมื่อไม่มีการใช้งาน</string>
     <string name="pref_app_theme">ธีมแอป</string>
     <string name="pref_device_model">รุ่นอุปกรณ์</string>
     <string name="grid_direction">ทิศทางตาราง</string>
     <string name="grid_direction_horizontal">แนวนอน</string>
     <string name="grid_direction_vertical">แนวตั้ง</string>
-    <string name="lbl_unknown_key">ไม่รู้จัก (%1s)</string>
-    <string name="pref_audio_track_button">ปุ่มแทร็กเสียง</string>
-    <string name="pref_subtitle_track_button">ปุ่มแทร็กคำบรรยาย</string>
-    <string name="pref_button_remapping_description">กดปุ่มใดก็ได้บนรีโมททีวีเพื่อกำหนดหน้าที่</string>
-    <string name="lbl_Reset">รีเซ็ต</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
-    <string name="mark_watched">ทำเครื่องหมายว่ารับชมแล้ว</string>
-    <string name="mark_watched_message">รายการนี้ดูเหมือนจะยังเล่นไม่จบความยาว ต้องการทำเครื่องหมายว่ารับชมแล้วหรือไม่?</string>
-    <string name="no_player">ไม่มีเครื่องเล่น</string>
     <string name="no_player_message">ดูเหมือนว่าคุณยังไม่ได้ติดตั้งแอปที่รองรับการเล่นวิดีโอ ตัวเลือกนี้กำหนดให้คุณติดตั้งแอปภายนอกเพื่อเล่นเนื้อหาวิดีโอ</string>
     <string name="episode_missing">ไม่พบตอน</string>
     <string name="episode_missing_message">ไม่พบตอนนี้ในคลังของคุณ คุณต้องการข้ามตอนนี้และเล่นตอนถัดไปหรือไม่?</string>
@@ -304,10 +265,7 @@
     <string name="seek_error">ไม่สามารถข้ามไปยังเวลาที่เลือกได้</string>
     <string name="player_error">เกิดข้อผิดพลาดกับเครื่องเล่นสื่อ กำลังลองใหม่อีกครั้ง…</string>
     <string name="too_many_errors">เกิดข้อผิดพลาดมากเกินไป ยุติการทำงาน</string>
-    <string name="subtitle_error">ไม่สามารถเลือกคำบรรยายได้</string>
     <string name="msg_no_items">ไม่มีรายการที่จะเล่น</string>
-    <string name="audio_error">ไม่สามารถเล่นเสียง %1$s ได้</string>
-    <string name="turn_off">ปิดตัวเลือกนี้</string>
     <string name="just_one">เฉพาะรายการนี้</string>
     <string name="lbl_sign_in">โปรดเข้าสู่ระบบ</string>
     <string name="lbl_playback_control_ends">สิ้นสุดเวลา %1$s</string>
@@ -329,7 +287,6 @@
     <string name="lbl_sign_out_content">ต้องเข้าสู่ระบบใหม่ในการใช้งานครั้งถัดไป</string>
     <string name="lbl_remove_server">ลบเซิร์ฟเวอร์</string>
     <string name="lbl_user_last_used">ใช้งานล่าสุดเมื่อ %1$s เวลา %2$s</string>
-    <string name="lbl_user_server">%1$s บน %2$s</string>
     <string name="lbl_server">เซิร์ฟเวอร์</string>
     <string name="lbl_remove">ลบ</string>
     <string name="lbl_sign_out">ออกจากระบบ</string>
@@ -346,9 +303,6 @@
     <string name="pref_developer_link">ตัวเลือกสำหรับนักพัฒนา</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/s</string>
-    <string name="watch_count_overflow">99+</string>
-    <string name="pref_developer_link_description">ฟีเจอร์ขั้นสูงและฟีเจอร์ทดลอง</string>
-    <string name="lbl_hidden">ซ่อนอยู่</string>
     <string name="discovered_servers_title">เซิร์ฟเวอร์ที่ค้นพบ</string>
     <string name="discovered_servers_empty">ไม่พบเซิร์ฟเวอร์ในเครือข่ายท้องถิ่น</string>
     <string name="connect_manually_by_address">ป้อนที่อยู่เซิร์ฟเวอร์</string>
@@ -398,7 +352,6 @@
     <string name="advanced_settings">ขั้นสูง</string>
     <string name="select_version">เวอร์ชัน</string>
     <string name="licenses_link">สัญญาอนุญาต</string>
-    <string name="licenses_link_description">ดูสัญญาอนุญาตของไลบรารีที่ใช้ในแอป Jellyfin</string>
     <string name="license_description">คำอธิบาย</string>
     <string name="license_version">เวอร์ชัน</string>
     <string name="license_artifact">ไฟล์ประกอบ</string>
@@ -407,7 +360,6 @@
     <string name="license_author">ผู้พัฒนา</string>
     <string name="license_license">สัญญาอนุญาต</string>
     <string name="home_prefs">หน้าหลัก</string>
-    <string name="home_sections">ส่วนต่างๆ ในหน้าหลัก</string>
     <string name="home_section_latest_media">สื่อที่เพิ่มล่าสุด</string>
     <string name="home_section_library">สื่อของฉัน</string>
     <string name="home_section_library_small">สื่อของฉัน (ขนาดเล็ก)</string>
@@ -420,11 +372,8 @@
     <string name="home_section_i">ส่วนหน้าหลัก %1$d</string>
     <string name="searchable_hint">ค้นหาใน Jellyfin</string>
     <string name="searchable_settings_description">สื่อ</string>
-    <string name="pref_subtitles_background_title">เปิดใช้งานพื้นหลัง</string>
-    <string name="pref_subtitles_background_summary">แสดงพื้นหลังสีดำด้านหลังคำบรรยาย</string>
     <string name="pref_subtitles_size">ขนาดตัวอักษร</string>
     <string name="pref_subtitles_position">ขนาดตัวอักษร</string>
-    <string name="pref_subtitles_bold">ตัวหนา</string>
     <string name="server_issue_unable_to_connect">ไม่สามารถเชื่อมต่อได้</string>
     <string name="server_issue_invalid_product">ซอฟต์แวร์เซิร์ฟเวอร์ไม่รองรับ</string>
     <string name="server_issue_missing_version">ไม่สามารถระบุเวอร์ชันของเซิร์ฟเวอร์ได้</string>
@@ -435,24 +384,15 @@
     <string name="pref_customization">การปรับแต่ง</string>
     <string name="sort_accounts_by">เรียงลำดับบัญชีตาม</string>
     <string name="pref_accounts">บัญชี</string>
-    <string name="pref_behavior">พฤติกรรมการทำงาน</string>
     <string name="pref_browsing">การเรียกดู</string>
-    <string name="pref_theme">ธีม</string>
-    <string name="pref_home_description">กำหนดค่าส่วนที่แสดงผล</string>
     <string name="lbl_episode_number">E%1$d</string>
     <string name="lbl_episode_range">E%1$d–%2$d</string>
     <string name="lbl_name_date">%1$s (%2$s)</string>
     <string name="lbl_time_range">%1$s–%2$s</string>
     <string name="pref_libraries">คลัง</string>
-    <string name="pref_libraries_description">เปลี่ยนรูปแบบการแสดงผลคลังสื่อ</string>
     <string name="pref_login">เข้าสู่ระบบ</string>
-    <string name="pref_login_description">เซิร์ฟเวอร์, บัญชี, การเข้าสู่ระบบอัตโนมัติ</string>
-    <string name="pref_customization_description">ธีม, หน้าหลัก, การกำหนดปุ่มใหม่</string>
-    <string name="pref_playback_description">วิดีโอ, คำบรรยาย, รายการสดทางทีวี, ถัดไป</string>
     <string name="pref_video">วิดีโอ</string>
     <string name="pref_audio">เสียง</string>
-    <string name="pref_direct_stream_live_off">ใช้การแปลงโค้ดเมื่อจำเป็น</string>
-    <string name="pref_direct_stream_live_on">ปิดใช้งานการแปลงโค้ด</string>
     <string name="home_section_resume_book">อ่านต่อ</string>
     <string name="action_login">เข้าสู่ระบบ</string>
     <string name="action_use_password">ใช้รหัสผ่าน</string>
@@ -470,11 +410,9 @@
     <string name="pref_refresh_rate_scale_on_tv">ปรับขนาดบนทีวี</string>
     <string name="pref_refresh_rate_scale_on_device">ปรับขนาดบนอุปกรณ์</string>
     <string name="action_connect">เชื่อมต่อ</string>
-    <string name="live_tv_preferences">ตัวเลือกทีวีถ่ายทอดสด</string>
     <string name="app_notification_uimode_invalid">แอปนี้ได้รับการปรับแต่งสำหรับทีวี แนะนำให้ใช้แอปเวอร์ชันมือถือสำหรับอุปกรณ์อื่น</string>
     <string name="server_unsupported_notification">เซิร์ฟเวอร์นี้ใช้ Jellyfin เวอร์ชัน %1$s ซึ่งไม่รองรับ โปรดอัปเดตเป็น Jellyfin %2$s หรือใหม่กว่าเพื่อใช้งานต่อ</string>
     <string name="pref_telemetry_category">การรายงานข้อผิดพลาด</string>
-    <string name="pref_telemetry_description">ส่งรายงานข้อผิดพลาด และแนบไฟล์บันทึก</string>
     <string name="pref_crash_reports">ส่งรายงานข้อผิดพลาดไปยังเซิร์ฟเวอร์</string>
     <string name="pref_crash_reports_enabled">รายงานข้อผิดพลาดจะถูกส่งไปยังเซิร์ฟเวอร์ล่าสุดที่ใช้งาน</string>
     <string name="pref_crash_reports_disabled">จะไม่ส่งรายงานข้อผิดพลาด</string>
@@ -486,8 +424,6 @@
     <string name="episode_name_special">ตอนพิเศษ</string>
     <string name="app_notification_beta">อัปเดตแอปเป็นเวอร์ชัน %1$s แล้ว\nขอบคุณที่ร่วมทดสอบโปรแกรม Jellyfin Beta</string>
     <string name="item_deletion_failed">ไม่สามารถลบ %1$s ได้</string>
-    <string name="pref_enable_media_management">เปิดใช้งานการจัดการสื่อ</string>
-    <string name="pref_enable_media_management_description">แสดงตัวเลือกในการจัดการสื่อขณะเลือกดู</string>
     <string name="item_deleted">ลบ %1$s แล้ว</string>
     <string name="item_delete_confirm_title">ลบรายการ</string>
     <string name="item_delete_confirm_message">คุณแน่ใจหรือไม่ว่าต้องการลบรายการนี้ออกจากเซิร์ฟเวอร์? การดำเนินการนี้ไม่สามารถย้อนกลับได้</string>
@@ -495,8 +431,6 @@
     <string name="pref_screensaver_inapp_enabled">ใช้โปรแกรมรักษาหน้าจอภายในแอป</string>
     <string name="pref_screensaver_inapp_enabled_description">แสดงโปรแกรมรักษาหน้าจอ Jellyfin ขณะเปิดแอปทิ้งไว้</string>
     <string name="pref_screensaver_inapp_timeout">เริ่มโปรแกรมรักษาหน้าจอหลังจาก</string>
-    <string name="enable_reactive_homepage">เปิดใช้งานหน้าหลักแบบปรับเปลี่ยนตามการใช้งาน</string>
-    <string name="not_set">ไม่ได้ตั้งค่า</string>
     <string name="lbl_album_artists">ศิลปินอัลบั้ม</string>
     <string name="disable_ui_mode_warning">ปิดคำเตือนประเภทอุปกรณ์</string>
     <string name="channels">ช่องรายการ</string>
@@ -514,7 +448,6 @@
     <string name="pref_screensaver_ageratingmax_unlimited">ไม่จำกัดเรตอายุ</string>
     <string name="pref_screensaver_ageratingrequired_title">ต้องมีการจัดเรตอายุ</string>
     <string name="pref_screensaver_ageratingrequired_enabled">แสดงเฉพาะรายการที่มีการตั้งค่าเรตอายุเท่านั้น</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">แสดงทุกรายการ</string>
     <string name="all_channels">ช่องรายการทั้งหมด</string>
     <string name="app_notification_update_soon">อัปเดตเซิร์ฟเวอร์ของคุณจาก %1$s เป็นอย่างน้อย %2$s เพื่อใช้งานแอปต่อไปได้หลังการอัปเดตครั้งถัดไป</string>
     <string name="current_queue">คิวปัจจุบัน</string>
@@ -524,7 +457,6 @@
     <string name="default_video_zoom">โหมดซูมเริ่มต้น</string>
     <string name="prefer_exoplayer_ffmpeg">ใช้ FFmpeg สำหรับเล่นเสียงเป็นหลัก</string>
     <string name="prefer_exoplayer_ffmpeg_content">ใช้ FFmpeg ในการถอดรหัสเสียง แม้จะมีตัวถอดรหัสของระบบพร้อมใช้งาน</string>
-    <string name="pref_mediasegment_actions">การดำเนินการช่วงสื่อ</string>
     <string name="segment_action_ask_to_skip">ถามก่อนข้าม</string>
     <string name="segment_action_nothing">ไม่ทำอะไร</string>
     <string name="video_start_delay">หน่วงเวลาก่อนเริ่มเล่นวิดีโอ</string>
@@ -539,8 +471,6 @@
     <string name="segment_type_recap">สรุปความเดิม</string>
     <string name="segment_type_unknown">ไม่ทราบประเภทช่วง</string>
     <string name="skip_forward_length">ระยะเวลาข้ามไปข้างหน้า</string>
-    <string name="preference_enable_trickplay">เปิดใช้งานภาพตัวอย่างขณะกรอในเครื่องเล่นวิดีโอ</string>
-    <string name="pref_subtitles_background_opacity">ความทึบของพื้นหลังคำบรรยาย</string>
     <string name="pref_troubleshooting">การแก้ไขปัญหา</string>
     <string name="pref_report_device_profile_title">รายงานความสามารถในการเล่นของอุปกรณ์ไปยังเซิร์ฟเวอร์</string>
     <string name="pref_report_device_profile_summary">อัปโหลดเอกสารการแก้ไขปัญหาไปยังเซิร์ฟเวอร์ Jellyfin พร้อมข้อมูลเกี่ยวกับความสามารถในการเล่น</string>
@@ -634,12 +564,6 @@
     </plurals>
     <plurals name="items">
         <item quantity="other">%1$s รายการ</item>
-    </plurals>
-    <plurals name="movies">
-        <item quantity="other">%1$s ภาพยนตร์</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="other">%1$s ซีรีส์ทีวี</item>
     </plurals>
     <plurals name="songs">
         <item quantity="other">%1$s เพลง</item>

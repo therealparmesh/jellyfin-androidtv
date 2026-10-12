@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.preference
 
 import android.content.Context
@@ -54,7 +55,7 @@ class UserPreferences(context: Context) : SharedPreferenceStore(
 		/**
 		 * Maximum bitrate in megabit for playback.
 		 */
-		var maxBitrate = stringPreference("pref_max_bitrate", "100")
+		var maxBitrate = stringPreference("pref_max_bitrate", "original")
 
 		/**
 		 * Auto-play next item
@@ -291,7 +292,7 @@ class UserPreferences(context: Context) : SharedPreferenceStore(
 		/**
 		 * Enable libass.
 		 */
-		var assDirectPlay = booleanPreference("libass_enabled", false)
+		var assDirectPlay = booleanPreference("libass_enabled", true)
 
 		/**
 		 * Always burn in subtitles when transcoding.

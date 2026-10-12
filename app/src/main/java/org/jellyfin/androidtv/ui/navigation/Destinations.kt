@@ -1,8 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.navigation
 
 import kotlinx.serialization.json.Json
 import org.jellyfin.androidtv.constant.Extras
 import org.jellyfin.androidtv.ui.browsing.BrowseGridFragment
+import org.jellyfin.androidtv.ui.browsing.AutomaticFoldersFragment
+import org.jellyfin.androidtv.ui.browsing.FamilyFolderFragment
 import org.jellyfin.androidtv.ui.browsing.BrowseRecordingsFragment
 import org.jellyfin.androidtv.ui.browsing.BrowseScheduleFragment
 import org.jellyfin.androidtv.ui.browsing.BrowseViewFragment
@@ -48,6 +51,22 @@ object Destinations {
 	// TODO only pass item id instead of complete JSON to browsing destinations
 	fun librarySmartScreen(item: BaseItemDto) = fragmentDestination<BrowseViewFragment> {
 		putString(Extras.Folder, Json.encodeToString(item))
+	}
+
+	fun libraryAutomaticFolders(item: BaseItemDto) = fragmentDestination<AutomaticFoldersFragment> {
+		putString(Extras.Folder, Json.encodeToString(item))
+	}
+
+	fun libraryFamily(item: BaseItemDto) = fragmentDestination<FamilyFolderFragment> {
+		putString(Extras.Folder, Json.encodeToString(item))
+	}
+
+	fun libraryGenre(item: BaseItemDto, genre: String) = fragmentDestination<BrowseGridFragment> {
+		putString(Extras.Folder, Json.encodeToString(item.copy(
+			name = "${item.name} / $genre",
+			displayPreferencesId = "${item.id}:genre:$genre",
+		)))
+		putString(Extras.AutomaticGenre, genre)
 	}
 
 	// TODO only pass item id instead of complete JSON to browsing destinations

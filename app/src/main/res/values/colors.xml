@@ -1,3 +1,4 @@
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <!-- Base Colors -->
     <color name="jellyfin_blue">#00a4dc</color>
@@ -15,7 +16,6 @@
 
     <!-- Semi-Transparent Blacks -->
     <color name="black_transparent_dark">#E6000000</color>
-    <color name="black_opaque">#AA000000</color>
     <color name="black_transparent">#97000000</color>
     <color name="black_transparent_light">#74000000</color>
 
@@ -25,9 +25,6 @@
     <!-- Gradients -->
     <color name="dark_green_gradient_start">#c306610a</color>
     <color name="dark_green_gradient_end">#c3064d07</color>
-    <color name="green_gradient_start">#044b13</color>
-    <color name="green_gradient_end">#085c04</color>
-    <color name="red_gradient_start">#7c0b09</color>
     <color name="red_gradient_end">#900d10</color>
 
     <!-- Live TV Colors -->

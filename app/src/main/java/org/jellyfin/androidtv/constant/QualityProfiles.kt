@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.constant
 
 import android.content.Context
@@ -14,7 +15,7 @@ private val qualityOptions = setOf(
 @Suppress("MagicNumber")
 fun getQualityProfiles(
 	context: Context
-): Map<String, String> = qualityOptions.associate {
+): Map<String, String> = mapOf("original" to context.getString(R.string.lbl_original_quality)) + qualityOptions.associate {
 	val value = when {
 		it >= 1.0 -> context.getString(R.string.bitrate_mbit, it)
 		else -> context.getString(R.string.bitrate_kbit, it * 1000.0)
@@ -22,4 +23,3 @@ fun getQualityProfiles(
 
 	it.toString().removeSuffix(".0") to value
 }
-

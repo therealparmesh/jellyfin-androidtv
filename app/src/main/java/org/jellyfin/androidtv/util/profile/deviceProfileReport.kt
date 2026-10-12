@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.util.profile
 
 import android.content.Context
@@ -78,7 +79,7 @@ fun createDeviceProfileReport(
 		appendLine("- Server compatibility: $serverVersion")
 		appendCodeBlock(
 			language = "json",
-			code = createDeviceProfile(context, userPreferences, serverVersion)
+			code = createDeviceProfile(context, userPreferences)
 				.let(ApiSerializer::encodeRequestBody)
 				?.let(::formatJson)
 		)

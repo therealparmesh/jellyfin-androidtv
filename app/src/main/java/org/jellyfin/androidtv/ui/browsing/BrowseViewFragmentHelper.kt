@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import androidx.lifecycle.lifecycleScope
@@ -24,7 +25,7 @@ fun EnhancedBrowseFragment.getLiveTvRecordingsAndTimers(
 ) {
 	val api by inject<ApiClient>()
 
-	lifecycleScope.launch {
+	viewLifecycleOwner.lifecycleScope.launch {
 		runCatching {
 			val recordings = async(Dispatchers.IO) {
 				api.liveTvApi.getRecordings(
@@ -52,7 +53,7 @@ fun EnhancedBrowseFragment.getLiveTvTimers(
 ) {
 	val api by inject<ApiClient>()
 
-	lifecycleScope.launch {
+	viewLifecycleOwner.lifecycleScope.launch {
 		runCatching {
 			withContext(Dispatchers.IO) {
 				api.liveTvApi.getTimers().content

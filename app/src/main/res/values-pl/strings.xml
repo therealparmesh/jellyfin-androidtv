@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_loading_elipses">Ładowanie…</string>
     <string name="lbl_ok">Ok</string>
@@ -7,7 +8,6 @@
     <string name="lbl_yes">Tak</string>
     <string name="lbl_no">Nie</string>
     <string name="lbl_play_trailers">Odtwórz zwiastun(y)</string>
-    <string name="lbl_trailer">"Zwiastun "</string>
     <string name="lbl_bracket_unknown">Nieznany</string>
     <string name="msg_video_playback_error">"Błąd odtwarzania wideo - "</string>
     <string name="lbl_none">Żadne</string>
@@ -23,8 +23,6 @@
     <string name="lbl_upcoming">Następne</string>
     <string name="lbl_seasons">Sezony</string>
     <string name="lbl_series">Serie</string>
-    <string name="lbl_item">Pozycja</string>
-    <string name="lbl_items">Pozycja</string>
     <string name="lbl_trailers">Zwiastun</string>
     <string name="lbl_specials">Dodatki</string>
     <string name="lbl_chapters">Rozdziały</string>
@@ -59,13 +57,11 @@
     <string name="lbl_continue_watching">Kontynuuj oglądanie</string>
     <string name="lbl_settings">Preferencje</string>
     <string name="chapters">Rozdziały</string>
-    <string name="pref_authentication_cat">Autoryzacja</string>
     <string name="settings_title">Preferencje</string>
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="btn_cancel">Anuluj</string>
     <string name="loading">Ładowanie…</string>
     <string name="video_error_unknown_error">Nie udało się załadować video</string>
-    <string name="lbl_tv_queuing">Odtwarzaj automatycznie następny odcinek</string>
     <string name="lbl_empty">Pusty</string>
     <string name="lbl_no_items">Brak elementów</string>
     <string name="msg_cannot_play">Dany obiekt nie może zostać odtworzony</string>
@@ -74,7 +70,6 @@
     <string name="msg_playback_incompatible">Nie można odtworzyć tego formatu pliku video</string>
     <string name="msg_playback_restricted">Administrator ograniczył odtwarzanie danego elementu</string>
     <string name="msg_playback_not_allowed">Odtwarzanie nie dozwolone</string>
-    <string name="lbl_born">"Urodzony/a "</string>
     <string name="lbl_sd">SD</string>
     <string name="msg_not_implemented">" niezaimplementowane"</string>
     <string name="lbl_coming_up">Nadchodzące</string>
@@ -87,16 +82,10 @@
     <string name="lbl_mark_played">Oznacz jako odtworzone</string>
     <string name="lbl_mark_unplayed">Oznacz jako nieodtworzone</string>
     <string name="lbl_play_first_unwatched">Odtwórz pierwszy nieobejrzany</string>
-    <string name="lbl_search_hint">Wyszukaj (wybierz, aby wyświetlić klawiaturę)</string>
     <string name="lbl_cancel_series">Anuluj serię</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_playlists">Playlisty</string>
-    <string name="sum_enable_cinema_mode">Odtwórz zwiastuny i informacje wprowadzające przez seansem</string>
-    <string name="lbl_enable_cinema_mode">Tryb kinowy</string>
     <string name="lbl_episodes">Odcinki</string>
-    <string name="lbl_album">Album</string>
     <string name="lbl_songs">Piosenki</string>
-    <string name="lbl_song">Piosenka</string>
     <string name="lbl_artists">Wykonawcy</string>
     <string name="lbl_albums">Albumy</string>
     <string name="lbl_programs">Programy</string>
@@ -104,11 +93,8 @@
     <string name="pref_live_tv_cat">Telewizja</string>
     <string name="lbl_live_tv_guide">Przewodnik TV</string>
     <string name="lbl_no_recordings">Brak dostępnych nagrań</string>
-    <string name="msg_unable_load_subs">Nie można wczytać napisów</string>
-    <string name="msg_subtitles_loading">Wczytuję napisy…</string>
     <string name="lbl_filters">Filtry TV</string>
     <string name="lbl_ended">ZAKOŃCZONE</string>
-    <string name="lbl_display_preferences">Preferencje wyświetlania</string>
     <string name="lbl_rating">Ocena</string>
     <string name="lbl_critic_rating">Ocena krytyków</string>
     <string name="lbl_premier_date">Data premiery</string>
@@ -140,30 +126,23 @@
     <string name="lbl_open_album">Pokaż album</string>
     <string name="lbl_open_artist">Pokaż wykonawcę</string>
     <string name="lbl_add_to_queue">Dodaj do kolejki</string>
-    <string name="msg_items_added">" przedmiotów dodanych"</string>
     <string name="lbl_recorded_tv">Nagrania TV</string>
-    <string name="msg_burn_sub_warning">Wypalanie napisów. Może zająć kilka sekund…</string>
     <string name="lbl_starting_with">Zaczynając od tych, których nazwa zaczyna się od</string>
     <string name="lbl_from">z</string>
     <string name="lbl_clear_queue">Wyczyść kolejkę</string>
-    <string name="lbl_new_premieres">Nowe premiery</string>
     <string name="msg_will_record">Będzie nagrywać</string>
     <string name="no_program_data">Brak dostępnych danych programu</string>
     <string name="msg_record_entire_series">Nagrać całą serię\?</string>
     <string name="lbl_just_this_once">Tylko ten jeden raz</string>
     <string name="lbl_select_date">Wybierz datę</string>
     <string name="lbl_in_x_days">Za %d dni</string>
-    <string name="desc_premieres">Pokaż rząd nowych pilotów odcinków dowolnego oglądanego serialu</string>
-    <string name="lbl_show_premieres">Pokaż premiery sezonu</string>
     <string name="lbl_refresh_switching">Przełączanie częstotliwości odświeżania</string>
     <string name="lbl_show_backdrop">Pokaż tło</string>
     <string name="lbl_open">Otwórz</string>
     <string name="btn_got_it">Rozumiem</string>
     <string name="lbl_zoom">Powiększenie</string>
-    <string name="desc_bitstream_ac3">Wymaga odpowiedniego sprzętu</string>
     <string name="lbl_bitstream_ac3">Dźwięk w technologii Bitstream Dolby Digital</string>
     <string name="desc_automatic_fav_songs">Automatyczna lista ulubionych piosenek</string>
-    <string name="msg_item_added">" pozycja dodana"</string>
     <string name="lbl_instant_mix">Szybki miks</string>
     <string name="lbl_play_from_here">Odtwarzaj od tego momentu</string>
     <string name="lbl_direct_stream_live">Bezpośrednia transmisja TV</string>
@@ -185,11 +164,6 @@
     <string name="lbl_recent_recordings">Najnowsze nagrania</string>
     <string name="lbl_kids">Dzieci</string>
     <string name="lbl_sports">Sport</string>
-    <string name="lbl_Reset">Resetowanie</string>
-    <string name="pref_button_remapping_description">Naciśnij dowolny przycisk na pilocie telewizora, aby go przypisać</string>
-    <string name="pref_subtitle_track_button">Przycisk ścieżki napisów</string>
-    <string name="pref_audio_track_button">Przycisk ścieżki dźwiękowej</string>
-    <string name="lbl_unknown_key">Nieznany (%1s)</string>
     <string name="grid_direction_vertical">Pionowa</string>
     <string name="grid_direction_horizontal">Poziomy</string>
     <string name="grid_direction">Kierunek siatki</string>
@@ -238,10 +212,7 @@
     <string name="lbl_play_next_up">Odtwórz kolejny</string>
     <string name="lbl_load_guide_data">Załaduj dane przewodnika</string>
     <string name="just_one">Tylko to</string>
-    <string name="turn_off">Wyłącz tę opcję</string>
-    <string name="audio_error">Nie można odtworzyć dźwięku: %1$s</string>
     <string name="msg_no_items">Brak elementu do odtworzenia</string>
-    <string name="subtitle_error">Nie mogę wybrać napisów</string>
     <string name="too_many_errors">Za dużo błędów. Poddaję się</string>
     <string name="player_error">Błąd odtwarzacza. Próbuję ponownie…</string>
     <string name="seek_error">Niemożliwe do odnalezienia</string>
@@ -253,11 +224,7 @@
     <string name="episode_missing_message">Tego epizodu nie ma w twojej bibliotece. Czy chciałbyś go pominąć i odtworzyć następny epizod\?</string>
     <string name="episode_missing">Brakuje odcinka</string>
     <string name="no_player_message">Wydaje się że nie masz zainstalowanej aplikacji do odtwarzania video. Ta opcja wymaga zainstalowanej zewnętrznej aplikacji do odtwarzania video.</string>
-    <string name="no_player">Brak aplikacji odtwarzającej</string>
-    <string name="mark_watched_message">Plik nie został do końca odtworzony. Czy oznaczyć go jako obejrzany\?</string>
-    <string name="mark_watched">Oznacz jako obejrzane</string>
     <string name="lbl_pause">Zatrzymaj</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_sign_in">Zaloguj się</string>
     <string name="lbl_subtitle_track">Wybierz napisy</string>
     <string name="lbl_audio_track">Wybierz ścieżkę audio</string>
@@ -278,8 +245,6 @@
     <string name="connect_manually_by_address">Wprowadź adres serwera</string>
     <string name="discovered_servers_empty">Nie wykryto serwerów w sieci lokalnej.</string>
     <string name="discovered_servers_title">Wykryte serwery</string>
-    <string name="lbl_hidden">Ukryte</string>
-    <string name="pref_developer_link_description">Zaawansowane i eksperymentalne funkcje</string>
     <string name="pref_developer_link">Opcje programisty</string>
     <string name="image_size_large">Duży</string>
     <string name="image_size_medium">Średni</string>
@@ -291,7 +256,6 @@
     <string name="lbl_sign_out">Wyloguj się</string>
     <string name="lbl_remove">Usuń</string>
     <string name="lbl_server">Serwer</string>
-    <string name="lbl_user_server">%1$s na %2$s</string>
     <string name="lbl_user_last_used">Ostatnio używany %1$s na %2$s</string>
     <string name="lbl_remove_server">Usuń serwer</string>
     <string name="lbl_sign_out_content">Wymaga zalogowania się przy następnym użyciu</string>
@@ -347,8 +311,6 @@
     <string name="lbl_auto_crop">Automatyczne przycinanie</string>
     <string name="lbl_community_rating">Ocena społeczności</string>
     <string name="pref_subtitles_size">Rozmiar napisów</string>
-    <string name="pref_subtitles_background_summary">Wyświetl czarne tło za napisami</string>
-    <string name="pref_subtitles_background_title">Włącz tło</string>
     <string name="home_section_next_up">Następne</string>
     <string name="home_section_resume_audio">Kontynuuj odtwarzanie</string>
     <string name="home_section_resume">Kontynuuj oglądanie</string>
@@ -359,26 +321,16 @@
     <string name="license_website">Strona internetowa</string>
     <string name="license_version">Wersja</string>
     <string name="license_description">Opis</string>
-    <string name="licenses_link_description">Wyświetl licencje bibliotek używanych przez Jellyfin</string>
     <string name="licenses_link">Licencje</string>
     <string name="select_version">Wersja</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="home_section_resume_book">Kontynuuj czytanie</string>
-    <string name="pref_direct_stream_live_on">Transkodowanie jest wyłączone</string>
-    <string name="pref_direct_stream_live_off">Transkodowanie jest używane w razie potrzeby</string>
     <string name="pref_audio">Audio</string>
     <string name="pref_subtitles">Napisy</string>
     <string name="pref_video">Wideo</string>
-    <string name="pref_playback_description">Wideo, napisy, telewizja, następne</string>
-    <string name="pref_customization_description">Motyw, strona główna, ponowne mapowanie</string>
-    <string name="pref_login_description">Serwery, konta, automatyczne logowanie</string>
     <string name="pref_login">Login</string>
-    <string name="pref_libraries_description">Zmeń sposób wyświetlania bibliotek</string>
     <string name="pref_libraries">Biblioteki</string>
-    <string name="pref_home_description">Skonfiguruj pokazane sekcje</string>
-    <string name="pref_theme">Motyw</string>
     <string name="pref_browsing">Przeglądanie</string>
-    <string name="pref_behavior">Zachowanie</string>
     <string name="pref_accounts">Konta</string>
     <string name="sort_accounts_by">Sortuj konta według</string>
     <string name="pref_customization">Dostosowywanie</string>
@@ -398,7 +350,6 @@
     <string name="home_section_library_small">Moje media (małe)</string>
     <string name="home_section_library">Moje media</string>
     <string name="home_section_latest_media">Ostatnio dodane media</string>
-    <string name="home_sections">Sekcje domowe</string>
     <string name="license_artifact">Aretfakt</string>
     <string name="server_connection_failed_candidates">Nie można połączyć się z serwerem, wypróbowane adresy: %1$s</string>
     <string name="lbl_playback_speed">Prędkość odtwarzania</string>
@@ -416,24 +367,16 @@
     <string name="login_other_options">Inne opcje:</string>
     <string name="app_notification_uimode_invalid">Ta aplikacja jest zoptymalizowana dla telewizorów. Zalecamy użycie naszej aplikacji mobilnej na innych urządzeniach.</string>
     <string name="server_unsupported_notification">Ten serwer używa Jellyfin w wersji %1$s, która nie jest obsługiwana. Zaktualizuj do wersji Jellyfin %2$s lub nowszej, aby nadal korzystać z aplikacji.</string>
-    <string name="live_tv_preferences">Ustawienia TV</string>
     <string name="crash_report_toast">Ups! Coś poszło nie tak, raport o błędzie został wysłany do twojego serwera Jellyfin.</string>
     <string name="lbl_quality_profile">Profil jakościowy</string>
     <string name="image_size_xlarge">Bardzo duży</string>
     <string name="login_quickconnect_step_2">2. Otwórz menu użytkownika i przejdź do strony Szybkie łączenie</string>
     <string name="pref_refresh_rate_scale_on_tv">Skala na telewizorze</string>
     <string name="pref_crash_report_logs">Dołącz logi</string>
-    <string name="lbl_subtitle_delay">Opóźnienie napisów</string>
     <string name="image_size_smallest">Najmniejszy</string>
-    <string name="color_white">Biały</string>
-    <string name="color_black">Czarny</string>
-    <string name="color_darkgrey">Ciemny szary</string>
     <string name="color_red">Czerwony</string>
     <string name="color_green">Zielony</string>
     <string name="color_blue">Niebieski</string>
-    <string name="color_yellow">Żółty</string>
-    <string name="color_pink">Różowy</string>
-    <string name="color_cyan">Cyjan</string>
     <string name="action_use_quickconnect">Użyj szybkiego łączenia</string>
     <string name="pref_refresh_rate_scale_on_device">Skala na urządzeniu</string>
     <string name="pref_crash_reports_disabled">Raporty o błędach nie będą wysyłane</string>
@@ -441,20 +384,16 @@
     <string name="server_setup_incomplete">Konfiguracja tego serwera nie została ukończona. Otwórz Jellyfin w przeglądarce i dokończ konfigurację przed logowaniem.</string>
     <string name="episode_name_special">specjalny</string>
     <string name="action_connect">Połącz</string>
-    <string name="pref_telemetry_description">Wysyłaj raporty o błędach, dołączaj logi</string>
     <string name="pref_crash_reports">Wysyłaj raporty o błędach do serwera</string>
     <string name="pref_crash_reports_enabled">Raporty o błędach będą wysyłane do ostatnio używanego serwera</string>
     <string name="pref_telemetry_category">Raportowanie błędów</string>
     <string name="pref_crash_report_logs_enabled">Logi będą dołączane do raportów o błędach</string>
-    <string name="desc_audio_night_mode">Automatycznie wyrównuje poziom głośności</string>
     <string name="state_disabled">Wyłączone</string>
     <string name="app_notification_beta">Aplikacja zaktualizowana do wersji %1$s
 \nDziękujemy za uczestnictwo w beta testach Jellyfin.</string>
     <string name="item_deleted">Usunięto %1$s</string>
     <string name="item_deletion_failed">Nie można usunąć %1$s</string>
-    <string name="pref_enable_media_management_description">Pokaż opcje zarządzania podczas przeglądania biblioteki</string>
     <string name="item_delete_confirm_message">Czy na pewno chcesz to usunąć\? Ta akcja nie może być cofnięta.</string>
-    <string name="pref_enable_media_management">Włącz zarządzanie multimediami</string>
     <string name="item_delete_confirm_title">Usuń przedmiot</string>
     <string name="pref_screensaver">Wygaszacz ekranu</string>
     <string name="pref_screensaver_inapp_enabled_description">Pokaż wygaszacz ekranu Jellyfin podczas uruchomienia aplikacji</string>
@@ -479,7 +418,6 @@
         <item quantity="many">%1$s godzin</item>
         <item quantity="other">%1$s godzin</item>
     </plurals>
-    <string name="enable_reactive_homepage">Włącz reaktywną stronę domową</string>
     <plurals name="tracks">
         <item quantity="one">%1$s utwór</item>
         <item quantity="few">%1$s utwory</item>
@@ -492,7 +430,6 @@
         <item quantity="many">%1$s odcinków</item>
         <item quantity="other">%1$s odcinków</item>
     </plurals>
-    <string name="not_set">Nie ustawiony</string>
     <string name="lbl_album_artists">Wykonawcy albumów</string>
     <string name="disable_ui_mode_warning">Wyłącz ostrzeżenie o typie urządzenia</string>
     <string name="because_you_watched">Bo obejrzałeś %1$s</string>
@@ -507,12 +444,6 @@
     <string name="dts_x">DTS:X</string>
     <string name="dts_hd">DTS-HD</string>
     <string name="ac3">DD</string>
-    <plurals name="movies">
-        <item quantity="one">%1$s film</item>
-        <item quantity="few">%1$s filmy</item>
-        <item quantity="many">%1$s filmów</item>
-        <item quantity="other">%1$s filmów</item>
-    </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s piosenka</item>
         <item quantity="few">%1$s piosenki</item>
@@ -527,12 +458,6 @@
         <item quantity="few">%1$s pozycje</item>
         <item quantity="many">%1$s pozycji</item>
         <item quantity="other">%1$s pozycji</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s serial</item>
-        <item quantity="few">%1$s seriale</item>
-        <item quantity="many">%1$s seriali</item>
-        <item quantity="other">%1$s seriali</item>
     </plurals>
     <plurals name="albums">
         <item quantity="one">%1$s album</item>
@@ -551,12 +476,10 @@
     <string name="pref_screensaver_ageratingrequired_title">Wymagaj kategorii wiekowej</string>
     <string name="pref_screensaver_ageratingrequired_enabled">Wyświetlaj jedynie elementy z ustawioną kategorią wiekową</string>
     <string name="pref_screensaver_ageratingmax_entry">Maksymalnie do wieku %1$d</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Wyświetlaj wszystkie elementy</string>
     <string name="pref_screensaver_ageratingmax">Maksymalna kategoria wiekowa</string>
     <string name="all_channels">Wszystkie kanały</string>
     <string name="app_notification_update_soon">Zaktualizuj serwer z wersji %1$s do co najmniej %2$s, aby móc dalej korzystać z aplikacji po kolejnej aktualizacji.</string>
     <string name="current_queue">Bieżąca kolejka</string>
-    <string name="pref_external_player">Użyj zewnętrznego odtwarzacza</string>
     <string name="continue_listening">Kontynuuj odtwarzanie</string>
     <string name="past_week">Ostatni tydzień</string>
     <string name="scheduled_in_next_24_hours">Zaplanowane w ciągu najbliższych 24 godzin</string>
@@ -567,7 +490,6 @@
     <string name="prefer_exoplayer_ffmpeg_content">Użyj FFmpeg do dekodowania dźwięku, nawet jeśli kodeki platformy są dostępne.</string>
     <string name="prefer_exoplayer_ffmpeg">Preferuj FFmpeg do odtwarzania dźwięku</string>
     <string name="video_start_delay">Opóźnienie rozpoczęcia wideo</string>
-    <string name="pref_mediasegment_actions">Działania segmentu mediów</string>
     <string name="segment_type_recap">Podsumowania</string>
     <string name="segment_action_nothing">Nie rób nic</string>
     <string name="segment_action_skip">Pomiń</string>
@@ -578,11 +500,9 @@
     <string name="segment_type_preview">Zapowiedzi</string>
     <string name="segment_action_ask_to_skip">Pytaj o pominięcie</string>
     <string name="default_video_zoom">Domyślny tryb powiększenia</string>
-    <string name="preference_enable_trickplay">Włącz podglądy Trickplay w odtwarzaczu wideo</string>
     <string name="skip_forward_length">Długość pomijania do przodu</string>
     <string name="runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="runtime_minutes">%1$dm</string>
-    <string name="pref_subtitles_background_opacity">Nieprzezroczystość tła napisów</string>
     <string name="pref_report_device_profile_summary">Prześlij dokument dotyczący rozwiązywania problemów na serwer Jellyfin z informacjami o możliwościach odtwarzania</string>
     <string name="pref_troubleshooting">Rozwiązywanie problemów</string>
     <string name="pref_report_device_profile_title">Zgłoś możliwości odtwarzania do serwera</string>
@@ -595,10 +515,8 @@
     <string name="speech_error_unknown">Wystąpił nieoczekiwany błąd podczas rozpoznawania mowy.</string>
     <string name="lbl_from_beginning">Odtwórz od początku</string>
     <string name="speech_error_unavailable">Funkcja rozpoznawania mowy jest niedostępna na tym urządzeniu.</string>
-    <string name="pref_subtitles_bold">Tekst pogrubiony</string>
     <string name="preference_enable_pgs">Bezpośrednio odtwarzaj napisy PGS</string>
     <string name="lbl_exit">Wyjdź</string>
-    <string name="pref_still_watching_behavior_title">Pokaż okienko przekroczenia limitu czasu bezczynności</string>
     <string name="lbl_still_watching_default">3 odcinki lub 90 minut</string>
     <string name="lbl_still_watching_short">2 odcinki lub 60 minut</string>
     <string name="lbl_still_watching_long">5 odcinków lub 150 minut</string>

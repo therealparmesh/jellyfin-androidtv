@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="btn_cancel">Cancelar</string>
     <string name="loading">Cargando…</string>
     <string name="video_error_unknown_error">No se pudo cargar el video</string>
-    <string name="pref_authentication_cat">Autenticación</string>
     <string name="settings_title">Ajustes</string>
     <string name="pref_max_bitrate_title">Máximo Transmisión de Bitrate</string>
     <string name="pref_playback">Reproducción</string>
@@ -22,8 +22,6 @@
     <string name="lbl_mark_played">Marcar como reproducido</string>
     <string name="lbl_mark_unplayed">Marcar como sin reproducir</string>
     <string name="lbl_play_first_unwatched">Reproducir primero los no vistos</string>
-    <string name="lbl_search_hint">Buscar texto (Seleccionar teclado)</string>
-    <string name="lbl_tv_queuing">Poner en cola todos los próximos episodios</string>
     <string name="lbl_empty">Vacío</string>
     <string name="lbl_no_items">No hay elementos</string>
     <string name="msg_cannot_play">Este elemento no puede ser reproducido</string>
@@ -32,13 +30,11 @@
     <string name="msg_playback_incompatible">No se puede reproducir este formato de video</string>
     <string name="msg_playback_restricted">El administrador ha restringido la reproducción de este elemento por este momento</string>
     <string name="msg_playback_not_allowed">La reproducción no está permitida en este momento</string>
-    <string name="lbl_born">"Nacimiento "</string>
     <string name="lbl_ok">Aceptar</string>
     <string name="lbl_valid_server_address">Por favor, ingrese la dirección del servidor (IP o dirección/nombre del dispositivo)</string>
     <string name="lbl_enter_server_address">Ingrese la dirección del servidor</string>
     <string name="lbl_yes">Sí</string>
     <string name="lbl_no">No</string>
-    <string name="lbl_trailer">"Trailer "</string>
     <string name="lbl_bracket_unknown">&lt;Desconocido&gt;</string>
     <string name="msg_video_playback_error">"Error de reproducción de video "</string>
     <string name="lbl_none">Nada</string>
@@ -54,8 +50,6 @@
     <string name="lbl_upcoming">Pronto</string>
     <string name="lbl_seasons">Temporadas</string>
     <string name="lbl_series">Series</string>
-    <string name="lbl_item">Elemento</string>
-    <string name="lbl_items">Elementos</string>
     <string name="lbl_specials">Especiales</string>
     <string name="lbl_chapters">Capítulos</string>
     <string name="lbl_cast_crew">Cast / Equipo</string>

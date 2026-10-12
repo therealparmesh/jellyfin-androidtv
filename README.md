@@ -1,6 +1,8 @@
 <h1 align="center">Jellyfin for Android TV</h1>
 <h3 align="center">Part of the <a href="https://jellyfin.org">Jellyfin Project</a></h3>
 
+This is Parmesh's fork. See [fork features, audit, and validation](FORK.md) for automatic folders, built-in player improvements, and cleanup.
+
 ---
 
 <p align="center">

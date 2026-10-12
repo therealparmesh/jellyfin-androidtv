@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_favorite">Омилено</string>
     <string name="lbl_upcoming">Претстојни</string>
     <string name="lbl_seasons">Сезони</string>
     <string name="lbl_series">Серии</string>
-    <string name="lbl_item">Ставка</string>
-    <string name="lbl_items">Ставки</string>
     <string name="lbl_trailers">Трејлери</string>
     <string name="lbl_specials">Специјали</string>
     <string name="lbl_chapters">Поглавја</string>
@@ -35,7 +34,6 @@
     <string name="msg_not_implemented">" не е имплементирано"</string>
     <string name="lbl_search">Пребарај</string>
     <string name="lbl_genres">Жанрови</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_suggested">Предложено</string>
     <string name="lbl_by_letter">По буква</string>
     <string name="lbl_views">Прегледи</string>
@@ -44,7 +42,6 @@
     <string name="lbl_continue_watching">Продолжи со гледање</string>
     <string name="lbl_settings">Поставки</string>
     <string name="chapters">Поглавја</string>
-    <string name="pref_authentication_cat">Автентикација</string>
     <string name="settings_title">Поставки</string>
     <string name="pref_max_bitrate_title">Максимален битрејт на стриминг</string>
     <string name="pref_playback">Репродукција</string>
@@ -58,18 +55,15 @@
     <string name="lbl_remove_favorite">Отстрани омилено</string>
     <string name="lbl_mark_played">Означи како пуштено</string>
     <string name="lbl_mark_unplayed">Означи како негледано</string>
-    <string name="lbl_search_hint">Пребарувај текст (одбери за приказ на тастатура)</string>
     <string name="lbl_empty">Празно</string>
     <string name="lbl_never">Никогаш</string>
     <string name="lbl_loading_elipses">Се вчитува…</string>
-    <string name="lbl_born">"Роден "</string>
     <string name="lbl_ok">Во ред</string>
     <string name="lbl_valid_server_address">Ве молиме внесете ја адресата на серверот (IP адреса или име на домен)</string>
     <string name="lbl_enter_server_address">Внесете ја адресата на серверот</string>
     <string name="lbl_yes">Да</string>
     <string name="lbl_no">Не</string>
     <string name="lbl_play_trailers">Пушти трејлер(и)</string>
-    <string name="lbl_trailer">"Трејлер "</string>
     <string name="lbl_bracket_unknown">&lt;Непознато&gt;</string>
     <string name="lbl_recordings">Снимки</string>
     <string name="lbl_videos">Видеа</string>
@@ -93,7 +87,6 @@
     <string name="lbl_starting_early_ending_after">Почнува %1$s порано и завршува %2$s подоцна</string>
     <string name="license_website">Веб-страна</string>
     <string name="msg_playback_incompatible">Невозможно е да се пушти овој видео формат</string>
-    <string name="lbl_tv_queuing">Стави ги на ред за пуштање сите последователни епизоди</string>
     <string name="pref_audio_night_mode">Аудио ноќен режим (експериментално)</string>
     <string name="lbl_name">Име</string>
     <string name="lbl__continuing">Продолжува</string>
@@ -101,7 +94,6 @@
     <string name="lbl_programs">Програми</string>
     <string name="lbl_now_playing">Моментално пуштено</string>
     <string name="lbl_play_from_here">Пушти од тука</string>
-    <string name="desc_audio_night_mode">Го изедначува нивото на звукот автоматски</string>
     <string name="lbl_zoom">Доближување</string>
     <string name="lbl_schedule">Закажи</string>
     <string name="msg_settings_updated">Поставките се обновени</string>
@@ -111,14 +103,10 @@
     <string name="pref_theme_dark">Темно (Зададено)</string>
     <string name="pref_next_up_behavior_title">Прикажи инфо за следно видео</string>
     <string name="pref_app_theme">Тема на апликација</string>
-    <string name="mark_watched_message">Оваа ставка не беше пуштена до крај. Да се означи како гледано\?</string>
     <string name="episode_missing">Недостасува епизода</string>
     <string name="episode_missing_message">Оваа епизода недостасува во вашата библиотека. Дали би сакале да ја прескокнете и да продолжите со следната\?</string>
     <string name="episode_missing_message_2">Оваа епизода недостасува во вашата библиотека. Репродукцијата ќе запре.</string>
     <string name="seek_error">Невозможно е пребарувањето</string>
-    <string name="subtitle_error">Невозможно е да се избере превод</string>
-    <string name="audio_error">Невозможно е да се пушти аудио %1$s</string>
-    <string name="turn_off">Исклучи ја оваа опција</string>
     <string name="pref_clock_display">Прикажи часовник</string>
     <string name="server_field_empty">Адресата неможе да биде празна</string>
     <string name="login_authenticating">Автентицирање…</string>
@@ -128,7 +116,6 @@
     <string name="lbl_server">Сервер</string>
     <string name="enable_smart_view">Овозможи паметен екран</string>
     <string name="enable_smart_view_description">Паметниот екран прикажува релевантни ставки наместо решетка-приказ</string>
-    <string name="pref_developer_link_description">Напредни и експериментални функции</string>
     <string name="discovered_servers_empty">Не се пронајдени сервери на локалната мрежа.</string>
     <string name="login_help_description">Jellyfin бара сервер за поврзување. Прегледајте ја нашата документација на docs.jellyfin.org или скенирајте QR код да започнете со Jellyfin.</string>
     <string name="lbl_hide_unwatched_count">Сокриј бројчаник за негледани</string>
@@ -144,7 +131,6 @@
     <string name="lbl_start_end_on_schedule">Почнува на време и завршува на време</string>
     <string name="lbl_record_only_new">Ќе се снимат само нови епизоди</string>
     <string name="enable_playback_module_description">Ова е експериментална фунцкија. Поддршката не е обезбедена.</string>
-    <string name="licenses_link_description">Погледни ги лиценците за библиотеките користени од страна на Jellyfin</string>
     <string name="license_description">Опис</string>
     <string name="home_prefs">Почетна</string>
     <string name="home_section_latest_media">Неодамна додадена содржина</string>
@@ -154,17 +140,9 @@
     <string name="server_issue_missing_version">Неможе да се утврди верзијата на серверот</string>
     <string name="server_issue_unsupported_version">Серверот користи верзија %1$s која не е поддржана</string>
     <string name="server_issue_timeout">Истече времето на врската</string>
-    <string name="pref_behavior">Однесување</string>
-    <string name="pref_theme">Тема</string>
-    <string name="pref_home_description">Конфигурација на прикажани делови</string>
-    <string name="pref_libraries_description">Измени приказ на библиотеки</string>
-    <string name="pref_login_description">Сервери, сметки, автоматско најавување</string>
     <string name="pref_video">Видео</string>
-    <string name="pref_direct_stream_live_off">Транскодирањето се користи кога е неопходно</string>
-    <string name="pref_direct_stream_live_on">Транскодирањето е оневозможено</string>
     <string name="input_username">Корисничко име</string>
     <string name="login_quickconnect_step_1">1. Отворете ја апликацијата Jellyfin на вашиот телефон или во пребарувачот, и најавете се со вашата сметка</string>
-    <string name="live_tv_preferences">Поставки за ТВ во живо</string>
     <string name="app_notification_uimode_invalid">Оваа апликација е прилагодена за телевизори. Ви препорачуваме да ја користите нашата мобилна апликација на други уреди.</string>
     <string name="server_unsupported_notification">Овој сервер ја користи Jellyfin верзијата %1$s која е неподдржана. Ве молиме ажурирајте го Jellyfin на %2$s или понова за да продолжите да ја користите апликацијата.</string>
     <string name="pref_telemetry_category">Пријава на грешки</string>
@@ -177,23 +155,15 @@
     <string name="server_setup_incomplete">Поставувањето на овој сервер сеуште не е завршено. Отворете го Jellyfin во пребарувач за да завршите со поставувањето пред да се најавите.</string>
     <string name="app_notification_beta">Апликацијата е ажурирана на %1$s
 \nВи благодариме за учеството во Jellyfin бета програмата</string>
-    <string name="pref_enable_media_management_description">Прикажи опција за менаџирање на содржина додека се пребарува</string>
     <string name="item_delete_confirm_title">Избриши ставка</string>
     <string name="pref_screensaver">Заштитник на екран</string>
     <string name="pref_screensaver_inapp_enabled_description">Прикажи го Jellyfin заштитникот на екран додека е отворена апликацијата</string>
-    <string name="enable_reactive_homepage">Овозможете реактивна почетна страница</string>
-    <string name="not_set">Не е поставено</string>
     <string name="disable_ui_mode_warning">Оневозможи предупредување за тип на уред</string>
     <string name="license_version">Верзија</string>
-    <string name="color_white">Бела</string>
     <string name="home_section_resume_book">Продолжи со читање</string>
     <string name="item_deletion_failed">Неуспешно бришење на %1$s</string>
-    <string name="lbl_show_premieres">Прикажи сезонски премиери</string>
     <string name="user_picker_last_user_title">Неодамна користени</string>
     <string name="lbl_quality_profile">Профил на квалитет</string>
-    <string name="msg_burn_sub_warning">Се вградува преводот. Ова може да потрае неколку секунди…</string>
-    <string name="lbl_enable_cinema_mode">Кино режим</string>
-    <string name="sum_enable_cinema_mode">Пушти достапни воведи и прегледи пред почеток на филм</string>
     <string name="lbl_repeat">Повтори</string>
     <string name="lbl_album_name">Име на албум</string>
     <string name="pref_next_up_timeout_summary">Колку да се чека пред пуштање на следната ставка</string>
@@ -204,17 +174,12 @@
     <string name="user_picker_disable_summary">Секогаш прикажувај го екранот за пријавување</string>
     <string name="lbl_episode_number">Е%1$d</string>
     <string name="home_section_library">Моја содржина</string>
-    <string name="home_sections">Почетни делови</string>
     <string name="home_section_library_small">Моја содржина (мало)</string>
     <string name="home_section_resume_audio">Продолжи со слушање</string>
     <string name="home_section_active_recordings">Активни снимки</string>
     <string name="home_section_next_up">Следно</string>
-    <string name="pref_subtitles_background_title">Овозможи позадина</string>
-    <string name="pref_subtitles_background_summary">Прикажи црна позадина позади превод</string>
     <string name="color_red">Црвена</string>
     <string name="color_green">Зелена</string>
-    <string name="color_yellow">Жолта</string>
-    <string name="color_pink">Розева</string>
     <string name="server_issue_unable_to_connect">Поврзувањето е неуспешно</string>
     <string name="server_issue_invalid_product">Софтверот на серверот не е компатибилен</string>
     <string name="server_issue_ssl_handshake">SSL ракувањето е неуспешно</string>
@@ -223,10 +188,8 @@
     <string name="pref_audio">Звук</string>
     <string name="pref_subtitles">Превод</string>
     <string name="login_other_options">Други поставки:</string>
-    <string name="pref_telemetry_description">Испрати пријави за грешки, вклучително логови</string>
     <string name="pref_crash_reports">Испрати пријави за грешки на сервер</string>
     <string name="item_deleted">%1$s избришано</string>
-    <string name="pref_enable_media_management">Овозможи менаџирање на содржина</string>
     <string name="pref_screensaver_inapp_enabled">Користи заштитник на екран во апликација</string>
     <plurals name="hours">
         <item quantity="one">%1$s час</item>
@@ -234,12 +197,10 @@
     </plurals>
     <string name="lbl_playlists">Листи за пуштање</string>
     <string name="lbl_additional_parts">Додатни делови</string>
-    <string name="msg_item_added">" ставка додадена"</string>
     <string name="lbl_audio_track">Избери аудио запис</string>
     <string name="login_connect_to">Поврзување со %1$s</string>
     <string name="pref_browsing">Пребарување</string>
     <string name="image_size_medium">Средно</string>
-    <string name="pref_audio_track_button">Копче за аудио запис</string>
     <string name="lbl_episode_not_record">Ова прикажување НЕМА да се снима</string>
     <string name="help">Помош</string>
     <string name="pref_accounts">Сметки</string>
@@ -248,8 +209,6 @@
     <string name="lbl_resume_preroll">Продолжи со пред-пуштање</string>
     <string name="lbl_news">Новости</string>
     <string name="grid_direction_vertical">Вертикално</string>
-    <string name="lbl_unknown_key">Непознато (%1s)</string>
-    <string name="no_player">Нема плеер</string>
     <string name="msg_live_tv_next">Да се вчитаат следните %1$d часови?</string>
     <string name="lbl_playback_control_ends">Завршува во %1$s</string>
     <string name="pref_clock_display_playback">Во тек на репродукција</string>
@@ -257,9 +216,7 @@
     <string name="press_to_close">Притиснете за излез</string>
     <string name="advanced_settings">Напредно</string>
     <string name="color_blue">Сина</string>
-    <string name="color_cyan">Тиркизна</string>
     <string name="pref_login">Најава</string>
-    <string name="pref_playback_description">Видео, превод, ТВ во живо, следно</string>
     <string name="login_quickconnect_step_2">2. Отворете го корисничкото мени и одете на Quick Connect</string>
     <string name="login_quickconnect_step_3">3. Внесете ја следната шифра:</string>
     <string name="pref_refresh_rate_scale_on_tv">Прилагоди слика на ТВ</string>
@@ -267,19 +224,14 @@
     <string name="lbl_refresh_switching">Префрлување на брзината на освежување</string>
     <string name="action_connect">Поврзи се</string>
     <string name="license_repository">Репозиториум</string>
-    <string name="color_black">Црна</string>
     <string name="server_issue_outdated_version">Серверот користи неподдржана верзија %1$s. Ве молиме ажурирајте ја на %2$s или понова</string>
     <string name="item_delete_confirm_message">Дали сте сигурни дека сакате да ја избришете ставката од серверот\? Нема враќање назад.</string>
     <string name="watch_now">Гледај сега</string>
-    <string name="lbl_Reset">Ресетирај</string>
     <string name="too_many_errors">Премногу грешки. Се предавам</string>
     <string name="lbl_kids">За деца</string>
     <string name="lbl_filters">ТВ во живо филтери</string>
-    <string name="msg_unable_load_subs">Невозможно е да се вчита преводот</string>
-    <string name="msg_subtitles_loading">Се вчитува преводот…</string>
     <string name="lbl_albums">Албуми</string>
     <string name="lbl_songs">Песни</string>
-    <string name="lbl_album">Албум</string>
     <string name="lbl_artists">Изведувачи</string>
     <string name="lbl_delete">Избриши</string>
     <string name="lbl_open">Отвори</string>
@@ -287,8 +239,6 @@
     <string name="lbl_show_backdrop">Прикажи позадини</string>
     <string name="lbl_new">Ново</string>
     <string name="lbl_tv_channel_status">%1$d од %2$d канали</string>
-    <string name="lbl_hidden">Сокриено</string>
-    <string name="pref_customization_description">Тема, почетна, ремапирање</string>
     <string name="action_use_password">Користи лозинка</string>
     <string name="lbl_add_to_queue">Додај во ред за пуштање</string>
     <string name="lbl_open_album">Отвори албум</string>
@@ -296,7 +246,6 @@
     <string name="lbl_open_artist">Отвори изведувач</string>
     <string name="lbl_next_item">Следна ставка</string>
     <string name="lbl_remove_from_queue">Отстрани до ред за пуштање</string>
-    <string name="lbl_new_premieres">Нови премиери</string>
     <string name="lbl_instant_mix">Моментален микс</string>
     <string name="lbl_playback_speed">Брзина на репродукција</string>
     <string name="lbl_auto_crop">Автоматско кратење</string>
@@ -311,14 +260,12 @@
     <string name="lbl_guide_option_number">Број на канал</string>
     <string name="lbl_song_title">Име на песна</string>
     <string name="lbl_new_only">Само ново</string>
-    <string name="lbl_subtitle_delay">Доцнење на превод</string>
     <string name="lbl_new_episodes">Нови епизоди</string>
     <string name="lbl_live_broadcasts">Емитувања во живо</string>
     <string name="lbl_colored_backgrounds">Позадини по боја</string>
     <string name="lbl_starting_on_schedule_ending_after">Почнува на време и завршува %1$s подоцна</string>
     <string name="lbl_record_all">Ќе се снимат сите епизоди</string>
     <string name="lbl_on_any_channel">На било кој канал</string>
-    <string name="color_darkgrey">Темно сива</string>
     <string name="action_use_quickconnect">Користи Quick Connect</string>
     <plurals name="seconds">
         <item quantity="one">%1$s секунда</item>
@@ -342,7 +289,6 @@
     <string name="lbl_next_episode">Следна епизода</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="grid_direction_horizontal">Хоризонтално</string>
-    <string name="pref_subtitle_track_button">Копче за превод</string>
     <string name="lbl_load_guide_data">Вчитај информации од водич</string>
     <string name="msg_no_items">Нема ставки за репродукција</string>
     <string name="lbl_always">Секогаш</string>
@@ -350,7 +296,6 @@
     <string name="lbl_remove_user_content">Отстрани сметка</string>
     <string name="lbl_remove_users">Ова ќе ги отстрани сите асоцирани сметки</string>
     <string name="lbl_user_last_used">Последно употребено на %1$s во %2$s</string>
-    <string name="lbl_user_server">%1$s во %2$s</string>
     <string name="image_size_smallest">Најмало</string>
     <string name="image_size_small">Мало</string>
     <string name="pref_watched_indicator">Прикажи показатели за изгледано</string>
@@ -363,7 +308,6 @@
     <string name="license_license">Лиценца</string>
     <string name="home_section_livetv">ТВ во живо</string>
     <string name="lbl_rating">Оценка</string>
-    <string name="lbl_display_preferences">Поставки за приказ</string>
     <string name="lbl_no_recordings">Нема достапни снимки</string>
     <string name="lbl_prev_item">Претходна ставка</string>
     <string name="lbl_use_series_thumbnails">Претпочитајте сликички од сериите</string>
@@ -378,7 +322,6 @@
     <string name="msg_playback_not_allowed">Репродукцијата моментално не е дозволена</string>
     <string name="msg_playback_restricted">Администраторот моментално ја има ограничено репродукцијата на оваа ставка</string>
     <string name="desc_debug">Наведете додатни информации за отклонување на грешки</string>
-    <string name="msg_items_added">" ставки додадено"</string>
     <string name="lbl_in_x_days">За %d денови</string>
     <string name="lbl_only_new_episodes">Само нови епизоди</string>
     <string name="lbl_enable_debug">Опции за отклонување грешки</string>
@@ -389,7 +332,6 @@
     <string name="lbl_goto_series">Оди на серија</string>
     <string name="msg_no_playable_items">Нема ставки за репродукција</string>
     <string name="lbl_sorted_by">сортирано по</string>
-    <string name="pref_button_remapping_description">Притиснете било кое копче на далечинскиот управувач од ТВ да го доделите</string>
     <string name="lbl_unwatched">Негледано</string>
     <string name="lbl_runs">Во тек</string>
     <string name="lbl_tune_to_channel">Прилагоди на канал</string>
@@ -399,7 +341,6 @@
     <string name="lbl_ends">Завршува во</string>
     <string name="lbl_goto_now_playing">Оди на моментално пуштено</string>
     <string name="lbl_subtitle_track">Избери превод</string>
-    <string name="lbl_song">Песна</string>
     <string name="pref_device_model">Модел на уред</string>
     <string name="lbl_image_size">Големина на слика</string>
     <string name="lbl_critic_rating">Оценка на критичарите</string>
@@ -435,13 +376,11 @@
     <string name="pref_live_tv_cat">ТВ во живо</string>
     <string name="msg_error_live_stream">Грешка при стримувањето на ТВ во живо. Се обидувам повторно…</string>
     <string name="lbl_direct_stream_live">Директен стрим на ТВ во живо</string>
-    <string name="desc_bitstream_ac3">Потребен е способен хардвер</string>
     <string name="lbl_bitstream_ac3">Bitstream Dolby Digital звук</string>
     <string name="lbl_stretch">Развлечи</string>
     <string name="lbl_just_this_once">Само овој пат</string>
     <string name="msg_record_entire_series">Да се сними целата серија\?</string>
     <string name="lbl_series_settings">Поставки за серија</string>
-    <string name="desc_premieres">Покажи ред на нови пилот епизоди за било која серија која се гледа</string>
     <string name="lbl_on_schedule">На време</string>
     <string name="lbl_previous_episode">Претходна епизода</string>
     <string name="lbl_sort_by">Сортирај по</string>
@@ -454,8 +393,6 @@
     <string name="pref_about_title">За</string>
     <string name="pref_next_up_timeout_title">Следно времетраење на тајмерот</string>
     <string name="no_player_message">Изгледа немате инсталирано апликација за видео. Оваа опција бара да инсталирате независна апликација за пуштање на видео содржини.</string>
-    <string name="mark_watched">Означи како гледано</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="server_connection_failed">Неуспешно поврзување со серверот</string>
     <string name="pref_clock_display_browsing">Додека се пребарува</string>
     <string name="server_connection_failed_candidates">Неуспешно поврзување со серверот, пробано со следните адреси: %1$s</string>
@@ -492,10 +429,6 @@
     <string name="dca">ДТС</string>
     <string name="dts_hd">ДТС:ХД</string>
     <string name="ac3">ДД</string>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s ТВ Серија</item>
-        <item quantity="other">%1$s ТВ Серии</item>
-    </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s песна</item>
         <item quantity="other">%1$s песни</item>
@@ -509,10 +442,6 @@
     <string name="dolby_atmos">Долби Атмос</string>
     <string name="dts_x">ДТС:Х</string>
     <string name="eac3">ДД+</string>
-    <plurals name="movies">
-        <item quantity="one">%1$s филм</item>
-        <item quantity="other">%1$s филмови</item>
-    </plurals>
     <plurals name="items">
         <item quantity="one">%1$s предмет</item>
         <item quantity="other">%1$s предмети</item>
