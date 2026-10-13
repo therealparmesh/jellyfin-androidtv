@@ -4,9 +4,7 @@ package org.jellyfin.androidtv.ui.composable.compat
 import android.content.Context
 import android.view.View
 import androidx.activity.compose.BackHandler
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
-import androidx.lifecycle.flowWithLifecycle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -19,6 +17,7 @@ import kotlinx.coroutines.flow.map
 import org.jellyfin.androidtv.ui.browsing.DestinationFragmentView
 import org.jellyfin.androidtv.ui.navigation.NavigationAction
 import org.jellyfin.androidtv.ui.navigation.NavigationRepository
+import org.jellyfin.androidtv.ui.navigation.actionsWhileStarted
 import org.koin.compose.koinInject
 
 @Composable
@@ -41,11 +40,10 @@ fun AppNavigationHost(
 	)
 
 	LaunchedEffect(navigationRepository, lifecycle) {
-		navigationRepository.currentAction.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED).collect { action ->
+		navigationRepository.actionsWhileStarted(lifecycle).collect { action ->
 			when (action) {
 				is NavigationAction.NavigateFragment -> factory.view.navigate(action)
-				NavigationAction.GoBack -> factory.view.goBack()
-				NavigationAction.Nothing -> Unit
+				is NavigationAction.GoBack -> factory.view.goBack()
 			}
 		}
 	}

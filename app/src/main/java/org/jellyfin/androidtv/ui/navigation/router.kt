@@ -60,7 +60,7 @@ class Router(
 	}
 
 	fun back() {
-		backStack.removeLastOrNull()
+		if (backStack.size > 1) backStack.removeLastOrNull()
 	}
 }
 

@@ -1,6 +1,6 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.navigation
 
-import kotlinx.coroutines.channels.BufferOverflow
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -64,17 +64,20 @@ class NavigationRepositoryImpl(
 ) : NavigationRepository {
 	private val fragmentHistory = Stack<Destination.Fragment>()
 
-	private val _currentAction = MutableSharedFlow<NavigationAction>(1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+	private var nextActionId = 0L
+	// Active collectors receive every action. Storage grows on demand; inactive collectors need only the latest action.
+	private val _currentAction = MutableSharedFlow<NavigationAction>(replay = 1, extraBufferCapacity = Int.MAX_VALUE - 1)
 	override val currentAction = _currentAction.asSharedFlow()
 
 	override fun navigate(destination: Destination, replace: Boolean) {
 		Timber.i("Navigating to $destination (via navigate function)")
 		val action = when (destination) {
-			is Destination.Fragment -> NavigationAction.NavigateFragment(destination, true, replace, false)
+			is Destination.Fragment -> NavigationAction.NavigateFragment(destination, true, replace, false, ++nextActionId)
 		}
 		if (destination is Destination.Fragment) {
-			if (replace && fragmentHistory.isNotEmpty()) fragmentHistory[fragmentHistory.lastIndex] = destination
-			else fragmentHistory.push(destination)
+			if (replace) {
+				if (fragmentHistory.isNotEmpty()) fragmentHistory[fragmentHistory.lastIndex] = destination
+			} else fragmentHistory.push(destination)
 		}
 		_currentAction.tryEmit(action)
 	}
@@ -86,14 +89,15 @@ class NavigationRepositoryImpl(
 
 		Timber.i("Navigating back")
 		fragmentHistory.pop()
-		_currentAction.tryEmit(NavigationAction.GoBack)
+		_currentAction.tryEmit(NavigationAction.GoBack(++nextActionId))
 		return true
 	}
 
 	override fun reset(destination: Destination.Fragment?, clearHistory: Boolean) {
-		fragmentHistory.clear()
 		val actualDestination = destination ?: defaultDestination
-		_currentAction.tryEmit(NavigationAction.NavigateFragment(actualDestination, true, false, clearHistory))
+		if (clearHistory) fragmentHistory.clear()
+		else fragmentHistory.push(actualDestination)
+		_currentAction.tryEmit(NavigationAction.NavigateFragment(actualDestination, true, false, clearHistory, ++nextActionId))
 		Timber.i("Navigating to $actualDestination (via reset, clearHistory=$clearHistory)")
 	}
 }

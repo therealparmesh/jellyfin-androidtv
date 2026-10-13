@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.itemdetail;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -1043,7 +1044,7 @@ public class FullDetailsFragment extends Fragment implements RecordingIndicatorV
                                         if (navigationRepository.getValue().getCanGoBack()) {
                                             navigationRepository.getValue().goBack();
                                         } else {
-                                            navigationRepository.getValue().reset(Destinations.INSTANCE.getHome());
+                                            navigationRepository.getValue().reset(Destinations.INSTANCE.getHome(), true);
                                         }
                                         return null;
                                     });

@@ -1,7 +1,9 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback
 
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -10,12 +12,15 @@ import org.jellyfin.androidtv.data.compat.StreamInfo
 import org.jellyfin.androidtv.data.compat.VideoOptions
 import org.jellyfin.androidtv.util.apiclient.Response
 import org.jellyfin.sdk.api.client.ApiClient
+import org.jellyfin.sdk.api.client.exception.ApiClientException
 import org.jellyfin.sdk.api.client.extensions.hlsSegmentApi
 import org.jellyfin.sdk.api.client.extensions.mediaInfoApi
 import org.jellyfin.sdk.api.client.extensions.videosApi
+import org.jellyfin.sdk.model.api.PlaybackErrorCode
 import org.jellyfin.sdk.model.api.PlayMethod
 import org.jellyfin.sdk.model.api.PlaybackInfoDto
 import org.jellyfin.sdk.model.api.PlaybackInfoResponse
+import timber.log.Timber
 
 private fun createStreamInfo(
 	api: ApiClient,
@@ -24,14 +29,14 @@ private fun createStreamInfo(
 ): StreamInfo = StreamInfo().apply {
 	val source = response.mediaSources.firstOrNull {
 		options.mediaSourceId != null && it.id == options.mediaSourceId
-	} ?: response.mediaSources.firstOrNull()
+	} ?: response.mediaSources.firstOrNull() ?: throw PlaybackException().apply {
+		errorCode = PlaybackErrorCode.NO_COMPATIBLE_STREAM
+	}
 
 	itemId = options.itemId
 	mediaSource = source
-	runTimeTicks = source?.runTimeTicks
+	runTimeTicks = source.runTimeTicks
 	playSessionId = response.playSessionId
-
-	if (source == null) return@apply
 
 	if (options.enableDirectPlay && source.supportsDirectPlay) {
 		playMethod = PlayMethod.DIRECT_PLAY
@@ -55,7 +60,10 @@ private fun createStreamInfo(
 		playMethod = PlayMethod.TRANSCODE
 		container = source.transcodingContainer
 		mediaUrl = api.createUrl(requireNotNull(source.transcodingUrl), ignorePathParameters = true)
+	} else {
+		throw PlaybackException().apply { errorCode = PlaybackErrorCode.NO_COMPATIBLE_STREAM }
 	}
+	if (mediaUrl.isNullOrBlank()) throw PlaybackException().apply { errorCode = PlaybackErrorCode.NO_COMPATIBLE_STREAM }
 }
 
 class PlaybackManager(
@@ -69,7 +77,7 @@ class PlaybackManager(
 	) = lifecycleOwner.lifecycleScope.launch {
 		getVideoStreamInfoInternal(options, startTimeTicks).fold(
 			onSuccess = { callback.onResponse(it) },
-			onFailure = { callback.onError(Exception(it)) },
+			onFailure = { callback.onError(if (it is Exception) it else Exception(it)) },
 		)
 	}
 
@@ -81,14 +89,19 @@ class PlaybackManager(
 		callback: Response<StreamInfo>
 	) = lifecycleOwner.lifecycleScope.launch {
 		if (stream.playSessionId != null && stream.playMethod != PlayMethod.DIRECT_PLAY) {
-			withContext(Dispatchers.IO) {
-				api.hlsSegmentApi.stopEncodingProcess(api.deviceInfo.id, stream.playSessionId)
+			try {
+				withContext(Dispatchers.IO) {
+					api.hlsSegmentApi.stopEncodingProcess(api.deviceInfo.id, stream.playSessionId)
+				}
+			} catch (error: ApiClientException) {
+				// Cleanup may fail after the server has already stopped the previous encoder.
+				Timber.w(error, "Unable to stop the previous encoding process")
 			}
 		}
 
 		getVideoStreamInfoInternal(options, startTimeTicks).fold(
 			onSuccess = { callback.onResponse(it) },
-			onFailure = { callback.onError(Exception(it)) },
+			onFailure = { callback.onError(if (it is Exception) it else Exception(it)) },
 		)
 	}
 
@@ -123,5 +136,5 @@ class PlaybackManager(
 		}
 
 		createStreamInfo(api, options, response)
-	}
+	}.onFailure { if (it is CancellationException) throw it }
 }

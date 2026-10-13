@@ -6,6 +6,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.produceState
+import androidx.compose.runtime.key
 import org.jellyfin.androidtv.preference.LibraryPreferences
 import org.jellyfin.androidtv.preference.PreferencesRepository
 import kotlinx.coroutines.flow.map
@@ -26,7 +27,9 @@ fun rememberUserView(itemId: UUID): BaseItemDto? {
 @Composable
 fun rememberLibraryPreferences(displayPreferencesId: String): LibraryPreferences? {
 	val repository = koinInject<PreferencesRepository>()
-	return produceState<LibraryPreferences?>(null, displayPreferencesId, repository) {
-		value = repository.loadLibraryPreferences(displayPreferencesId)
-	}.value
+	return key(displayPreferencesId, repository) {
+		produceState<LibraryPreferences?>(null) {
+			value = repository.loadLibraryPreferences(displayPreferencesId)
+		}.value
+	}
 }

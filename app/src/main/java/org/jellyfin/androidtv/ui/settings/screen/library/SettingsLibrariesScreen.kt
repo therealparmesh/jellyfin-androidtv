@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.settings.screen.library
 
 import androidx.compose.foundation.lazy.items
@@ -35,7 +36,7 @@ fun SettingsLibrariesScreen() {
 
 		items(userViews) { userView ->
 			val allowGridView = viewModel.allowGridView(userView.collectionType)
-			val displayPreferencesId = userView.displayPreferencesId
+			val displayPreferencesId = userView.displayPreferencesId ?: userView.id.toString()
 
 			if (userView.collectionType == CollectionType.LIVETV) {
 				ListButton(
@@ -45,7 +46,7 @@ fun SettingsLibrariesScreen() {
 					modifier = Modifier.focusKey(Routes.LIVETV_GUIDE_OPTIONS)
 				)
 			} else {
-				val canOpen = allowGridView && displayPreferencesId != null
+				val canOpen = allowGridView
 
 				ListButton(
 					leadingContent = { Icon(painterResource(R.drawable.ic_folder), contentDescription = null) },
@@ -55,7 +56,7 @@ fun SettingsLibrariesScreen() {
 						if (canOpen) {
 							router.push(
 								Routes.LIBRARIES_DISPLAY,
-								mapOf("itemId" to userView.id.toString(), "displayPreferencesId" to userView.displayPreferencesId!!)
+								mapOf("itemId" to userView.id.toString(), "displayPreferencesId" to displayPreferencesId)
 							)
 						}
 					},
