@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.preference.store
 
 import kotlinx.coroutines.Dispatchers
@@ -44,17 +45,6 @@ abstract class DisplayPreferencesStore(
 		return true
 	}
 
-	/**
-	 * Clear local copy of display preferences and require an update for new modifications.
-	 */
-	fun clearCache(): Boolean {
-		if (displayPreferencesDto == null) return false
-
-		displayPreferencesDto = null
-		cachedPreferences.clear()
-
-		return true
-	}
 
 	override suspend fun update(): Boolean {
 		try {

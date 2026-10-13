@@ -1,12 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.playback.core
 
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
-import kotlinx.coroutines.cancel
 import org.jellyfin.playback.core.backend.BackendService
 import org.jellyfin.playback.core.backend.PlayerBackend
 import org.jellyfin.playback.core.plugin.PlayerService
-import timber.log.Timber
 import kotlin.reflect.KClass
 
 class PlaybackManager internal constructor(
@@ -30,11 +29,6 @@ class PlaybackManager internal constructor(
 		services.forEach { it.initialize(this, state, Job(job)) }
 	}
 
-	fun addService(service: PlayerService) {
-		Timber.i("Adding service $service")
-		service.initialize(this, state, Job(job))
-		services.add(service)
-	}
 
 	fun <T : PlayerService> getService(kclass: KClass<T>): T? {
 		for (service in services) {
@@ -46,9 +40,4 @@ class PlaybackManager internal constructor(
 
 	inline fun <reified T : PlayerService> getService() = getService(T::class)
 
-	fun removeService(service: PlayerService) {
-		Timber.i("Removing service $service")
-		service.coroutineScope.cancel()
-		services.remove(service)
-	}
 }

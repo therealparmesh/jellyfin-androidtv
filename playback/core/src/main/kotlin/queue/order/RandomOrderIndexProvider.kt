@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.playback.core.queue.order
 
 import kotlin.random.Random
@@ -12,13 +13,17 @@ internal class RandomOrderIndexProvider : OrderIndexProvider {
 		size: Int,
 		playedIndices: Collection<Int>,
 		currentIndex: Int,
-	) = List(amount) { i ->
-		if (i <= nextIndices.lastIndex) {
-			nextIndices[i]
-		} else {
-			val index = Random.nextInt(size)
-			nextIndices.add(index)
-			index
+	): Collection<Int> {
+		if (amount <= 0 || size <= 0) return emptyList()
+		nextIndices.removeAll { it !in 0 until size }
+		return List(amount) { i ->
+			if (i <= nextIndices.lastIndex) {
+				nextIndices[i]
+			} else {
+				val index = Random.nextInt(size)
+				nextIndices.add(index)
+				index
+			}
 		}
 	}
 
@@ -28,6 +33,6 @@ internal class RandomOrderIndexProvider : OrderIndexProvider {
 	}
 
 	override fun useNextIndex() {
-		nextIndices.removeAt(0)
+		if (nextIndices.isNotEmpty()) nextIndices.removeAt(0)
 	}
 }

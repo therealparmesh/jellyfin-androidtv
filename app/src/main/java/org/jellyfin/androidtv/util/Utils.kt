@@ -1,17 +1,17 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.util
 
 import android.content.Context
 import android.widget.Toast
 import org.jellyfin.sdk.model.api.UserDto
 import org.jellyfin.sdk.model.serializer.toUUIDOrNull
-import org.koin.core.component.KoinComponent
 import java.util.UUID
 import kotlin.math.roundToInt
 
 /**
  * A collection of utility methods, all static.
  */
-object Utils : KoinComponent {
+object Utils {
 	/**
 	 * Shows a (long) toast
 	 */

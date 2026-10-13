@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.playback.core.queue.order
 
 import kotlin.math.min
@@ -9,6 +10,7 @@ internal class DefaultOrderIndexProvider : OrderIndexProvider {
 		playedIndices: Collection<Int>,
 		currentIndex: Int,
 	): Collection<Int> {
+		if (amount <= 0 || size <= 0) return emptyList()
 		// No need to use currentQueueNextIndices because we can efficiently calculate the next items
 		val remainingItemsSize = size - currentIndex - 1
 

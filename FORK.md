@@ -1,6 +1,6 @@
 # Jellyfin Android TV fork
 
-This fork adds automatic Family and genre folders for movie and show libraries, reduces unnecessary server conversion using the existing player, and removes verified unused code and resources. It starts from upstream `release-0.20.z` at `3867cfa48591fae2f1e084972de6400a165ab3fe`. Changes dated October 12, 2026 retain the original GPL v2 license and upstream notices.
+This fork adds automatic Family and genre folders for movie and show libraries, reduces unnecessary server conversion using the existing player, and removes verified unused code and resources. It starts from upstream `release-0.20.z` at `3867cfa48591fae2f1e084972de6400a165ab3fe`. Changes dated October 12–13, 2026 retain the original GPL v2 license and upstream notices.
 
 ## Automatic folders
 
@@ -53,22 +53,34 @@ The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `or
 | Playback negotiation | Failed requests could leave buffering active; empty or unsupported sources could reach the player | Report the original playback error, close failed playback, and reject unusable stream information |
 | Playback teardown | Canceled requests were reported as errors and late player callbacks could touch cleared state | Propagate cancellation, bind requests to the player view, and guard cleared callbacks |
 | Quality switching | Failure to stop an already-finished encoder aborted the next stream request | Log SDK cleanup failures and continue negotiation while preserving cancellation |
+| Audio shuffle | Out-of-range indices, duplicates, replay of the current track, and unstable previews | Shuffle only valid unplayed indices without replacement and preserve cached preview order |
+| Audio queue bounds | Empty random queues and negative preview counts could throw | Return empty results for invalid or empty requests and guard empty consumption |
+| Audio queue reset/removal | Replacement queues inherited removal counts and shuffle state; deleting the active item left stale playback or duplicate Previous history | Reset counts/order caches and select the replacement without adding the deleted item to history |
+| Audio queue display | The UI used `runBlocking` while building upcoming tracks | Suspend adapter updates within their existing lifecycle coroutines |
+| Remote video controls | Pause and Unpause both toggled playback; malformed seeks jumped to zero | Honor explicit pause/resume state and ignore seek commands with no position |
+| Remote messages | Display messages blocked their coroutine while switching to Main | Suspend the dispatcher switch and avoid displaying a literal null message |
+| Photo navigation | Previous could index below zero if a selected image was missing from a nonempty album | Include the selected photo, wrap safely, and avoid querying all photos when its parent is missing |
+| Photo loading | Server errors could crash photo loading | Retain a selected image if its album query fails; report item-load errors and return to browsing |
+| Photo slideshow | Timer work mutated UI state on IO and recreated its job at every tick; invalid delays could spin; explicit Pause toggled playback | Keep one timer on Main, clamp the interval to the settings range, pause for settings, and distinguish Play/Pause from toggle |
+| Adapter notifications | Clear observers saw stale data; invalid removal lengths threw | Mutate before notifying and validate the complete removal range without integer overflow |
 
 ## Cleanup
 
-Removed seven unused implementation files: the PopoverMenu helper, SequenceQueueSupplier, PagedQueueSupplier, and four unused playback queue suppliers. Also removed BasicMediaStream, unused text and timed-event helpers, unused codec/API parameters and fields, the never-emitted navigation Nothing action, and 376 commented-out null codec mappings.
+Removed seven unused implementation files: the PopoverMenu helper, SequenceQueueSupplier, PagedQueueSupplier, and four unused playback queue suppliers. Also removed BasicMediaStream, unused text and timed-event helpers, unused codec/API parameters and fields, the never-emitted navigation Nothing action, and 376 commented-out null codec mappings. The October 13 loops additionally removed 11 unused methods (menu submenu, display-preference cache reset, six guide filter getters, two runtime service-management methods, and backend listener removal), their unused imports, and the unused KoinComponent role on Utils. Kotlin property consumers and framework callbacks were checked before deletion; active overlay accessors remain.
 
 Android lint identified 141 unused resource IDs across the cleanup runs. Their definitions and qualified variants were removed: 3,865 string entries, 102 plural entries, 44 drawable files, two animations, one layout, eight color definitions, and unused fraction, style, integer, and generated app-ID definitions. Resource shrinking and R8 remain enabled for release builds. Framework callbacks, active Kotlin property accessors, and editor previews are retained.
 
 ## Validation
 
-The app and preference unit suites pass 148 tests, including 54 new tests covering library-scoped folder filters, alternative Family criteria, genre normalization, bitrate edge cases, audio aliases, subtitle delivery, codec-query caching, old-Android software decoders, seek boundaries and thumbnails, navigation history and lifecycle replay, playback negotiation failures, cancellation, and late player callbacks. Debug and optimized release builds have succeeded. Android lint and Detekt complete with inherited diagnostics; their reports are in the build directories. The final lint report contains zero unused-resource findings, 39 errors, 118 warnings, and 424 hints. The remaining errors concern existing notification permission checks, Leanback restricted APIs, experimental API annotations, resource access, and translated quantity/format checks. A successful lint task is not a claim of zero diagnostics because upstream config permits findings.
+The app, preference, and playback-core unit suites pass 175 tests, including 81 new tests covering library-scoped folder filters, alternative Family criteria, genre normalization, bitrate edge cases, audio aliases, subtitle delivery, codec-query caching, old-Android software decoders, seek boundaries and thumbnails, navigation history and lifecycle replay, playback negotiation failures, cancellation, late player callbacks, queue ordering/reset/removal, remote commands, photo albums and slideshow timing, and adapter notifications. Debug and optimized release builds have succeeded. Android lint and Detekt complete with inherited diagnostics; their reports are in the build directories. The final lint report contains zero unused-resource findings, 39 errors, 118 warnings, and 424 hints. The remaining errors concern existing notification permission checks, Leanback restricted APIs, experimental API annotations, resource access, and translated quantity/format checks. A successful lint task is not a claim of zero diagnostics because upstream config permits findings.
 
 An Android emulator with a local synthetic library exercises folder navigation and paging. A first movie-grid request used 36 items on the test viewport, versus the old forced 100. The test library intentionally omits childCount. The existing player also played generated H.264/AAC media directly, rendered embedded SRT subtitles locally, exposed both audio tracks, and handled pause and seeking. An isolated real Jellyfin 12.2.0 server with 80 movies and 80 shows confirmed each Family criterion returns 20 titles per library. The emulator populated the show Family rows, switched to the Spanish audio track locally, and visibly switched English to Spanish embedded subtitles. Selecting 420 Kbit/s triggered server transcoding with `ContainerBitrateExceedsLimit` while preserving Spanish audio and subtitles; the lower-quality video played correctly. Returning to Original restored direct play with both selections retained, and the player performed its initial seek to the previous playback position. This is functional and request-size evidence, not a Fire TV frame-rate or playback benchmark. ASS/PGS rendering, HDR, and sustained playback still need checks on the actual device.
 
 A second sweep reproduced the library reopening crash against the real server and verified reopening movie and show libraries after the fix. Regression tests cover sparse stream IDs, missing sources, mixed subtitle groups, nonblocking preference loads, shared concurrent loads, and preference invalidation on session change.
 
 A third sweep added 30 regression tests and checked playback failures against the real local server through an HTTP fault-injection proxy. A forced 503 response produced the playback error toast and returned to item details instead of remaining in buffering. Backing out during a delayed playback request returned to details without reopening the player or reporting cancellation as an error. A subsequent request played directly and rendered the selected Spanish subtitles. The proxy does not support WebSocket forwarding, so these checks cover local UI and HTTP playback behavior rather than remote-control commands.
+
+The October 13 bug/dead-code loop completed four fix-and-check rounds, adding 27 regressions. Before the fixes, all eight new queue-order tests failed; five of seven initial photo tests failed; two of three adapter notification/range tests failed; and the follow-up queue removal test reproduced duplicate Previous history. The final review of those areas found no further confirmed defects. Against the isolated real server, repeated remote Pause reported paused/paused and repeated Unpause reported playing/playing. The emulator also opened a three-image photo library and wrapped Previous from the first image to the last. The photo Pause-key bug was reproduced in the native UI and corrected. These are scoped checks, not a claim that the entire app is bug-free.
 
 Static searches and lint do not prove that every unused callback or implementation has been removed; retained framework and SDK entry points need runtime coverage before further deletion.
 
@@ -77,7 +89,7 @@ Static searches and lint do not prove that every unused callback or implementati
 Use JDK 21 and the Android SDK, then run:
 
 ```shell
-./gradlew :app:testDebugUnitTest :preference:testDebugUnitTest :app:assembleDebug
+./gradlew :app:testDebugUnitTest :preference:testDebugUnitTest :playback:core:testDebugUnitTest :app:assembleDebug
 ./gradlew :app:lintDebug detekt :app:assembleRelease
 ```
 

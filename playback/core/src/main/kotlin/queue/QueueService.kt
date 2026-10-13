@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.playback.core.queue
 
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -125,7 +126,14 @@ class QueueService internal constructor() : PlayerService(), Queue {
 		orderIndexProvider.notifyRemoved(index)
 
 		// Play next entry if the removed entry is currently the active one
-		if (_entry.value == entry) next(usePlaybackOrder = true, useRepeatMode = false)
+		if (_entry.value == entry) {
+			// The removed item cannot be saved to Previous history. In shuffle/random order
+			// there is no active index to exclude; in default order resume at the removed slot.
+			val currentIndex = if (orderIndexProvider === defaultOrderIndexProvider) _entryIndex.value else Queue.INDEX_NONE
+			val nextIndex = orderIndexProvider.provideIndices(1, estimatedSize, currentQueueIndicesPlayed, currentIndex).firstOrNull()
+			if (nextIndex != null) orderIndexProvider.useNextIndex()
+			setIndex(nextIndex ?: Queue.INDEX_NONE)
+		}
 
 		// Update emitted entries
 		_entries.value = fetchedEntries.toList()
@@ -135,6 +143,9 @@ class QueueService internal constructor() : PlayerService(), Queue {
 		suppliers.clear()
 		currentSupplierIndex = 0
 		currentSupplierEntryIndex = 0
+		removedEntries = 0
+		defaultOrderIndexProvider.reset()
+		orderIndexProvider.reset()
 		fetchedEntries.clear()
 		_entries.value = emptyList()
 		_entry.value = null
@@ -145,8 +156,9 @@ class QueueService internal constructor() : PlayerService(), Queue {
 	// Preloading
 
 	private fun getNextIndices(amount: Int, usePlaybackOrder: Boolean, useRepeatMode: Boolean): Collection<Int> {
+		if (amount <= 0) return emptyList()
 		val provider = if (usePlaybackOrder) orderIndexProvider else defaultOrderIndexProvider
-		val repeatMode = if (useRepeatMode) state.repeatMode.value else RepeatMode.NONE
+		val repeatMode = if (useRepeatMode && _entryIndex.value != Queue.INDEX_NONE) state.repeatMode.value else RepeatMode.NONE
 
 		return when (repeatMode) {
 			RepeatMode.NONE -> provider.provideIndices(amount, estimatedSize, currentQueueIndicesPlayed, _entryIndex.value)

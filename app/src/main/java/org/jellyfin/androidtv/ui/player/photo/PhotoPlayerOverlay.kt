@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.ui.player.photo
 
 import androidx.compose.runtime.Composable
@@ -34,10 +35,18 @@ fun PhotoPlayerOverlay(
 				if (event.type != KeyEventType.KeyDown) return@onPreviewKeyEvent false
 
 				when (event.key) {
-					Key.MediaPlayPause,
-					Key.MediaPlay,
-					Key.MediaPause -> {
+					Key.MediaPlayPause -> {
 						viewModel.togglePresentation()
+						true
+					}
+
+					Key.MediaPlay -> {
+						viewModel.startPresentation()
+						true
+					}
+
+					Key.MediaPause -> {
+						viewModel.stopPresentation()
 						true
 					}
 

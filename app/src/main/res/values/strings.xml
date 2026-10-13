@@ -4,6 +4,8 @@
     <string name="app_name_release" translatable="false" tools:ignore="UnusedResources">Jellyfin</string>
     <string name="app_name_debug" translatable="false" tools:ignore="UnusedResources">Jellyfin Debug</string>
     <string name="video_error_unknown_error">Failed to load video</string>
+    <!-- Modified for the Parmesh fork on 2026-10-13. See FORK.md. -->
+    <string name="msg_unable_to_load_photo">Unable to load photo</string>
     <string name="loading">Loading…</string>
     <string name="btn_cancel">Cancel</string>
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>

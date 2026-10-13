@@ -1,6 +1,5 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.playback.core.queue.order
-
-import kotlin.math.min
 
 internal class ShuffleOrderIndexProvider : OrderIndexProvider {
 	private val nextIndices = mutableListOf<Int>()
@@ -13,24 +12,15 @@ internal class ShuffleOrderIndexProvider : OrderIndexProvider {
 		playedIndices: Collection<Int>,
 		currentIndex: Int,
 	): Collection<Int> {
-		val remainingItemsSize = size - playedIndices.size
-		return if (remainingItemsSize <= 0) {
-			emptyList()
-		} else {
-			val remainingIndices = (0..size).filterNot {
-				it in playedIndices || it in nextIndices
-			}
-
-			List(min(amount, remainingItemsSize)) { i ->
-				if (i < nextIndices.lastIndex) {
-					nextIndices[i]
-				} else {
-					val index = remainingIndices.random()
-					nextIndices.add(index)
-					index
-				}
-			}
+		if (amount <= 0 || size <= 0) return emptyList()
+		val excluded = playedIndices.toMutableSet().apply { add(currentIndex) }
+		nextIndices.removeAll { it !in 0 until size || it in excluded }
+		if (nextIndices.size < amount) {
+			val cached = nextIndices.toSet()
+			val available = (0 until size).filterNot { it in excluded || it in cached }.shuffled()
+			nextIndices.addAll(available.take(amount - nextIndices.size))
 		}
+		return nextIndices.take(amount)
 	}
 
 	override fun notifyRemoved(index: Int) {
@@ -39,6 +29,6 @@ internal class ShuffleOrderIndexProvider : OrderIndexProvider {
 	}
 
 	override fun useNextIndex() {
-		nextIndices.removeAt(0)
+		if (nextIndices.isNotEmpty()) nextIndices.removeAt(0)
 	}
 }
