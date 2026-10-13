@@ -1,8 +1,10 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback
 
 import androidx.annotation.OptIn
 import androidx.lifecycle.lifecycleScope
 import androidx.media3.common.C
+import androidx.media3.common.Tracks
 import androidx.media3.common.TrackSelectionOverride
 import androidx.media3.common.util.UnstableApi
 import kotlinx.coroutines.Dispatchers
@@ -65,7 +67,7 @@ fun PlaybackController.setSubtitleIndex(index: Int, force: Boolean = false) {
 		// Use empty string to indicate "subtitles explicitly disabled" vs null meaning "no preference"
 		videoQueueManager.setLastPlayedSubtitleLanguageIsoCode("")
 	} else {
-		val stream = currentMediaSource.mediaStreams?.firstOrNull { it.type == MediaStreamType.SUBTITLE && it.index == index }
+		val stream = currentMediaSource?.mediaStreams?.firstOrNull { it.type == MediaStreamType.SUBTITLE && it.index == index }
 		videoQueueManager.setLastPlayedSubtitleLanguageIsoCode(stream?.language)
 	}
 
@@ -92,7 +94,7 @@ fun PlaybackController.setSubtitleIndex(index: Int, force: Boolean = false) {
 		mCurrentOptions.subtitleStreamIndex = index
 		play(mCurrentPosition, index)
 	} else {
-		val mediaSource = currentMediaSource
+		val mediaSource = currentMediaSource ?: return
 		val stream = mediaSource.mediaStreams?.firstOrNull { it.type == MediaStreamType.SUBTITLE && it.index == index }
 		if (stream == null) {
 			Timber.w("Failed to find correct media stream")
@@ -133,10 +135,7 @@ fun PlaybackController.setSubtitleIndex(index: Int, force: Boolean = false) {
 						return setSubtitleIndex(-1)
 					}
 
-					mVideoManager.mExoPlayer.currentTracks.groups
-						.filter { it.type == C.TRACK_TYPE_TEXT }
-						.filterNot { it.length == 1 && it.getTrackFormat(0).id?.endsWith(":JF_EXTERNAL:$index") == true }
-						.getOrNull(localIndex)
+					mVideoManager.mExoPlayer.currentTracks.groups.embeddedSubtitleGroup(localIndex)
 				}?.mediaTrackGroup
 
 				if (group == null) {
@@ -217,3 +216,8 @@ private fun PlaybackController.addAskToSkipAction(mediaSegment: MediaSegmentDto)
 		.setDeleteAfterDelivery(false)
 		.send()
 }
+
+@OptIn(UnstableApi::class)
+internal fun List<Tracks.Group>.embeddedSubtitleGroup(index: Int): Tracks.Group? = filter { group ->
+	group.type == C.TRACK_TYPE_TEXT && !(group.length == 1 && group.getTrackFormat(0).id?.contains(":JF_EXTERNAL:") == true)
+}.getOrNull(index)

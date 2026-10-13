@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.data.compat;
 
 import org.jellyfin.sdk.model.api.MediaSourceInfo;
@@ -71,9 +72,19 @@ public class StreamInfo {
     }
 
     public final org.jellyfin.sdk.model.api.SubtitleDeliveryMethod getSubtitleDeliveryMethod() {
+        if (MediaSource == null) return SubtitleDeliveryMethod.DROP;
         Integer subtitleStreamIndex = MediaSource.getDefaultSubtitleStreamIndex();
-        if (subtitleStreamIndex == null || subtitleStreamIndex == -1) return SubtitleDeliveryMethod.DROP;
-        return MediaSource.getMediaStreams().get(subtitleStreamIndex).getDeliveryMethod();
+        if (subtitleStreamIndex == null) return SubtitleDeliveryMethod.DROP;
+        MediaStream stream = findMediaStream(MediaSource, subtitleStreamIndex, MediaStreamType.SUBTITLE);
+        return stream == null || stream.getDeliveryMethod() == null ? SubtitleDeliveryMethod.DROP : stream.getDeliveryMethod();
+    }
+
+    public static MediaStream findMediaStream(MediaSourceInfo source, int index, MediaStreamType type) {
+        if (source == null || source.getMediaStreams() == null || index < 0) return null;
+        for (MediaStream stream : source.getMediaStreams()) {
+            if (stream.getIndex() == index && stream.getType() == type) return stream;
+        }
+        return null;
     }
 
     private String PlaySessionId;
@@ -97,7 +108,8 @@ public class StreamInfo {
     public final ArrayList<org.jellyfin.sdk.model.api.MediaStream> getSelectableStreams(MediaStreamType type) {
         ArrayList<org.jellyfin.sdk.model.api.MediaStream> list = new ArrayList<org.jellyfin.sdk.model.api.MediaStream>();
 
-        for (org.jellyfin.sdk.model.api.MediaStream stream : getMediaSource().getMediaStreams()) {
+        if (MediaSource == null || MediaSource.getMediaStreams() == null) return list;
+        for (org.jellyfin.sdk.model.api.MediaStream stream : MediaSource.getMediaStreams()) {
             if (type == stream.getType()) {
                 list.add(stream);
             }

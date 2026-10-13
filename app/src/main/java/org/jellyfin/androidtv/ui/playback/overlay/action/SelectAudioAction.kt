@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback.overlay.action
 
 import android.content.Context
@@ -25,8 +26,8 @@ class SelectAudioAction(
 		context: Context,
 		view: View,
 	) {
+		val audioTracks = playbackController.currentStreamInfo?.selectableAudioStreams?.takeIf { it.isNotEmpty() } ?: return
 		videoPlayerAdapter.leanbackOverlayFragment.setFading(false)
-		val audioTracks = playbackController.currentStreamInfo?.selectableAudioStreams ?: return
 		val currentAudioIndex = playbackController.audioStreamIndex
 
 		dismissPopup()

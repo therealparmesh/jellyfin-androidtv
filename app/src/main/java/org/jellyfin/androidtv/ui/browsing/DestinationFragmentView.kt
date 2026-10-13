@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import android.annotation.SuppressLint
@@ -40,7 +41,7 @@ private class HistoryEntry(
 			name = Class.forName(parcel.readString()!!) as Class<out Fragment>,
 			arguments = parcel.readBundle(this::class.java.classLoader)!!,
 			fragment = null,
-			savedState = ParcelCompat.readParcelable(parcel, this::class.java.classLoader, Fragment.SavedState::class.java)!!,
+			savedState = ParcelCompat.readParcelable(parcel, this::class.java.classLoader, Fragment.SavedState::class.java),
 		)
 
 		override fun newArray(size: Int): Array<HistoryEntry?> = arrayOfNulls(size)
@@ -120,8 +121,8 @@ class DestinationFragmentView @JvmOverloads constructor(
 		if (history.isEmpty()) return
 
 		// Update the top-most history entry with state from current fragment
-		val fragment = requireNotNull(fragmentManager.findFragmentByTag(FRAGMENT_TAG_CONTENT))
-		history[history.size - 1].savedState = fragmentManager.saveFragmentInstanceState(fragment)
+		val fragment = history.last().fragment?.takeIf { it.isAdded } ?: return
+		history.last().savedState = fragmentManager.saveFragmentInstanceState(fragment)
 	}
 
 	@SuppressLint("CommitTransaction")
@@ -134,14 +135,10 @@ class DestinationFragmentView @JvmOverloads constructor(
 		// Create if there is no existing fragment
 		if (fragment == null) {
 			fragment = fragmentManager.fragmentFactory.instantiate(context.classLoader, entry.name.name).apply {
+				arguments = entry.arguments
 				setInitialSavedState(entry.savedState)
 			}
 			entry.fragment = fragment
-		}
-
-		// Update arguments
-		if (!fragmentManager.isStateSaved) {
-			fragment.arguments = entry.arguments
 		}
 
 		transaction.apply {

@@ -39,6 +39,12 @@ The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `or
 | Library launch | A nullable library argument was dereferenced | Ignore missing library input safely |
 | Session switching | User ID alone determined whether a session changed | Compare server and user IDs |
 | Subtitle color presets | Current color was accepted but never displayed as selected | Outline the selected preset |
+| Stream selection | Sparse stream IDs were treated as list positions | Resolve audio and subtitle IDs by ID and type; safely handle missing sources |
+| Mixed subtitles | Other external subtitle groups shifted embedded track positions | Exclude every external group when selecting an embedded track |
+| First library visit | Saved preferences were fetched with `runBlocking` on the UI thread | Suspend loading, share concurrent loads, and wait before displaying settings |
+| Settings navigation | Missing libraries crashed lookup; state followed the previous preference store | Allow missing libraries and key state by its store and preference |
+| Reopening libraries | Background navigation could create fragments without arguments | Limit host collection to started activities and assign arguments before creation |
+| Grid item refresh | A late callback could touch a destroyed view or the wrong selection | Cancel with the view and check the requested item before applying refreshed data |
 
 ## Cleanup
 
@@ -48,11 +54,13 @@ Android lint identified 141 unused resource IDs across the cleanup runs. Their d
 
 ## Validation
 
-The app and preference unit suites pass 108 tests, including 14 new tests covering library-scoped folder filters, alternative Family criteria, genre normalization, bitrate edge cases, audio aliases, subtitle delivery, codec-query caching, and old-Android software decoders. Debug and optimized release builds have succeeded. Android lint and Detekt complete with inherited diagnostics; their reports are in the build directories. The final lint report contains zero unused-resource findings, 39 errors, 118 warnings, and 421 hints. The remaining errors concern existing notification permission checks, Leanback restricted APIs, experimental API annotations, resource access, and translated quantity/format checks. A successful lint task is not a claim of zero diagnostics because upstream config permits findings.
+The app and preference unit suites pass 118 tests, including 24 new tests covering library-scoped folder filters, alternative Family criteria, genre normalization, bitrate edge cases, audio aliases, subtitle delivery, codec-query caching, and old-Android software decoders. Debug and optimized release builds have succeeded. Android lint and Detekt complete with inherited diagnostics; their reports are in the build directories. The final lint report contains zero unused-resource findings, 39 errors, 118 warnings, and 424 hints. The remaining errors concern existing notification permission checks, Leanback restricted APIs, experimental API annotations, resource access, and translated quantity/format checks. A successful lint task is not a claim of zero diagnostics because upstream config permits findings.
 
-An Android emulator with a local synthetic library exercises folder navigation and paging. A first movie-grid request used 36 items on the test viewport, versus the old forced 100. The test library intentionally omits childCount. The existing player also played generated H.264/AAC media directly, rendered embedded SRT subtitles locally, exposed both audio tracks, and handled pause and seeking. This is functional and request-size evidence, not a Fire TV frame-rate or playback benchmark. Audio-track switching, quality changes, ASS/PGS rendering, HDR, and sustained playback still need checks on the actual device.
+An Android emulator with a local synthetic library exercises folder navigation and paging. A first movie-grid request used 36 items on the test viewport, versus the old forced 100. The test library intentionally omits childCount. The existing player also played generated H.264/AAC media directly, rendered embedded SRT subtitles locally, exposed both audio tracks, and handled pause and seeking. An isolated real Jellyfin 12.2.0 server with 80 movies and 80 shows confirmed each Family criterion returns 20 titles per library. The emulator populated the show Family rows, switched to the Spanish audio track locally, and visibly switched English to Spanish embedded subtitles. Selecting 420 Kbit/s triggered server transcoding with `ContainerBitrateExceedsLimit` while preserving Spanish audio and subtitles; the lower-quality video played correctly. This is functional and request-size evidence, not a Fire TV frame-rate or playback benchmark. ASS/PGS rendering, HDR, and sustained playback still need checks on the actual device.
 
-The audit also found synchronous library-preference loading (`runBlocking` in `PreferencesRepository.getLibraryPreferences`) that can delay the first library visit. Removing it safely requires moving the Java navigation and Compose settings callers to asynchronous loading while preserving saved preferences. This remains an identified performance issue. Static searches and lint do not prove that every unused callback or implementation has been removed; retained framework and SDK entry points need runtime coverage before further deletion.
+A second sweep reproduced the library reopening crash against the real server and verified reopening movie and show libraries after the fix. Regression tests cover sparse stream IDs, missing sources, mixed subtitle groups, nonblocking preference loads, shared concurrent loads, and preference invalidation on session change.
+
+Static searches and lint do not prove that every unused callback or implementation has been removed; retained framework and SDK entry points need runtime coverage before further deletion.
 
 ## Build and install
 

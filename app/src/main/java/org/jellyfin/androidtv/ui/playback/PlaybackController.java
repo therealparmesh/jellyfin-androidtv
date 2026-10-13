@@ -791,14 +791,11 @@ public class PlaybackController implements PlaybackControllerNotifiable {
             return;
 
         MediaSourceInfo currentMediaSource = getCurrentMediaSource();
-        if (currentMediaSource == null
-                || currentMediaSource.getMediaStreams() == null
-                || index >= currentMediaSource.getMediaStreams().size()) {
-            return;
-        }
+        MediaStream requestedStream = StreamInfo.findMediaStream(currentMediaSource, index, MediaStreamType.AUDIO);
+        if (requestedStream == null) return;
 
         String lastAudioIsoCode = videoQueueManager.getValue().getLastPlayedAudioLanguageIsoCode();
-        String currentAudioIsoCode = currentMediaSource.getMediaStreams().get(index).getLanguage();
+        String currentAudioIsoCode = requestedStream.getLanguage();
 
         if (currentAudioIsoCode != null
                 && (lastAudioIsoCode == null || !lastAudioIsoCode.equals(currentAudioIsoCode))) {

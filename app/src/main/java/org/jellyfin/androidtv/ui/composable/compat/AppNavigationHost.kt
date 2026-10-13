@@ -1,8 +1,12 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.composable.compat
 
 import android.content.Context
 import android.view.View
 import androidx.activity.compose.BackHandler
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LocalLifecycleOwner
+import androidx.lifecycle.flowWithLifecycle
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
@@ -22,6 +26,7 @@ fun AppNavigationHost(
 	modifier: Modifier = Modifier,
 	navigationRepository: NavigationRepository = koinInject(),
 ) {
+	val lifecycle = LocalLifecycleOwner.current.lifecycle
 	val factory = remember { AppNavigationHostViewFactory() }
 
 	val canGoBack by remember {
@@ -35,8 +40,8 @@ fun AppNavigationHost(
 		modifier = modifier,
 	)
 
-	LaunchedEffect(Unit) {
-		navigationRepository.currentAction.collect { action ->
+	LaunchedEffect(navigationRepository, lifecycle) {
+		navigationRepository.currentAction.flowWithLifecycle(lifecycle, Lifecycle.State.STARTED).collect { action ->
 			when (action) {
 				is NavigationAction.NavigateFragment -> factory.view.navigate(action)
 				NavigationAction.GoBack -> factory.view.goBack()

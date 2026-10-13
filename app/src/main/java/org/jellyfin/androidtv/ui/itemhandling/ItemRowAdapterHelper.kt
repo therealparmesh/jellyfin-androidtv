@@ -786,6 +786,7 @@ fun ItemRowAdapter.refreshItem(
 				)
 			},
 			onFailure = { err ->
+				if (err is CancellationException) throw err
 				if (err is InvalidStatusException && err.status == 404) remove(currentBaseRowItem)
 				else Timber.e(err, "Failed to refresh item")
 			}
