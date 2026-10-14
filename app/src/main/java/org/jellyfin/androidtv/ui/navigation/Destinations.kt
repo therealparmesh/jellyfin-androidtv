@@ -6,6 +6,7 @@ import org.jellyfin.androidtv.constant.Extras
 import org.jellyfin.androidtv.ui.browsing.BrowseGridFragment
 import org.jellyfin.androidtv.ui.browsing.AutomaticFoldersFragment
 import org.jellyfin.androidtv.ui.browsing.FamilyFolderFragment
+import org.jellyfin.androidtv.ui.browsing.ShortsFolderFragment
 import org.jellyfin.androidtv.ui.browsing.BrowseRecordingsFragment
 import org.jellyfin.androidtv.ui.browsing.BrowseScheduleFragment
 import org.jellyfin.androidtv.ui.browsing.BrowseViewFragment
@@ -58,6 +59,11 @@ object Destinations {
 	}
 
 	fun libraryFamily(item: BaseItemDto) = fragmentDestination<FamilyFolderFragment> {
+		putString(Extras.Folder, Json.encodeToString(item))
+	}
+
+	// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
+	fun libraryShorts(item: BaseItemDto) = fragmentDestination<ShortsFolderFragment> {
 		putString(Extras.Folder, Json.encodeToString(item))
 	}
 

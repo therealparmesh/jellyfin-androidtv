@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <lint>
+    <!-- Modified for the Parmesh fork on 2026-10-14. See FORK.md.
+         This sender only posts MediaStyle notifications carrying a MediaSession token, which
+         Android exempts from POST_NOTIFICATIONS. The cross-module manifest check cannot
+         inspect that style. Keep the permission detector enabled for every other sender. -->
+    <issue id="NotificationPermission">
+        <ignore regexp="\(usage from org\.jellyfin\.playback\.media3\.session\.MediaSessionService\)" />
+    </issue>
     <issue id="BinaryOperationInTimber" severity="error" />
     <issue id="ConvertToWebp" severity="warning" />
     <issue id="DuplicateStrings" severity="ignore" />

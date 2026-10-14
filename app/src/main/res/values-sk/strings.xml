@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
+<!-- Modified for the Parmesh fork on 2026-10-14. See FORK.md. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="btn_cancel">Zrušiť</string>
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
@@ -402,27 +403,32 @@
         <item quantity="one">%1$s stopa</item>
         <item quantity="few">%1$s stopy</item>
         <item quantity="other">%1$s stôp</item>
+        <item quantity="many">%1$s stopy</item>
     </plurals>
     <plurals name="minutes">
         <item quantity="one">%1$s minúte</item>
         <item quantity="few">%1$s minútach</item>
         <item quantity="other">%1$s minútach</item>
+        <item quantity="many">%1$s minúty</item>
     </plurals>
     <string name="pref_screensaver_inapp_enabled">Použiť vstavaný šetrič obrazovky</string>
     <plurals name="episodes">
         <item quantity="one">%1$s epizóda</item>
         <item quantity="few">%1$s epizódy</item>
         <item quantity="other">%1$s epizód</item>
+        <item quantity="many">%1$s epizódy</item>
     </plurals>
     <plurals name="seconds">
         <item quantity="one">%1$s sekunde</item>
         <item quantity="few">%1$s sekundách</item>
         <item quantity="other">%1$s sekundách</item>
+        <item quantity="many">%1$s sekundy</item>
     </plurals>
     <plurals name="hours">
         <item quantity="one">%1$s hodine</item>
         <item quantity="few">%1$s hodinách</item>
         <item quantity="other">%1$s hodinách</item>
+        <item quantity="many">%1$s hodiny</item>
     </plurals>
     <string name="lbl_latest_in">Nedávno pridané v knižnici %1$s</string>
     <string name="lbl_album_artists">Interpreti albumu</string>
@@ -444,11 +450,13 @@
         <item quantity="one">%1$s položka</item>
         <item quantity="few">%1$s položky</item>
         <item quantity="other">%1$s položiek</item>
+        <item quantity="many">%1$s položky</item>
     </plurals>
     <plurals name="albums">
         <item quantity="one">%1$s album</item>
         <item quantity="few">%1$s albumy</item>
         <item quantity="other">%1$s albumov</item>
+        <item quantity="many">%1$s albumu</item>
     </plurals>
     <string name="dts_x">DTS:X</string>
     <string name="dts_hd">DTS-HD</string>
@@ -458,6 +466,7 @@
         <item quantity="one">%1$s skladba</item>
         <item quantity="few">%1$s skladby</item>
         <item quantity="other">%1$s skladieb</item>
+        <item quantity="many">%1$s skladby</item>
     </plurals>
     <string name="random">Náhodne</string>
     <string name="unreleased">Zatiaľ nevydané</string>

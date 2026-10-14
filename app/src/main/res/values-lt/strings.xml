@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
+<!-- Modified for the Parmesh fork on 2026-10-14. See FORK.md. -->
 <resources>
     <string name="lbl_upcoming">Būsimi</string>
     <string name="lbl_seasons">Sezonai</string>
@@ -416,6 +417,7 @@
         <item quantity="one">%1$s minutė</item>
         <item quantity="few">%1$s minutės</item>
         <item quantity="other">%1$s minučių</item>
+        <item quantity="many">%1$s minutės</item>
     </plurals>
     <string name="segment_action_nothing">Nieko nedaryti</string>
     <string name="segment_action_skip">Praleisti</string>
@@ -434,17 +436,20 @@
         <item quantity="one">%1$s epizodas</item>
         <item quantity="few">%1$s epizodai</item>
         <item quantity="other">%1$s epizodų</item>
+        <item quantity="many">%1$s epizodo</item>
     </plurals>
     <string name="photos">Nuotraukos</string>
     <plurals name="songs">
         <item quantity="one">%1$s daina</item>
         <item quantity="few">%1$s dainos</item>
         <item quantity="other">%1$s dainų</item>
+        <item quantity="many">%1$s dainos</item>
     </plurals>
     <plurals name="albums">
         <item quantity="one">%1$s albumas</item>
         <item quantity="few">%1$s albumai</item>
         <item quantity="other">%1$s albumų</item>
+        <item quantity="many">%1$s albumo</item>
     </plurals>
     <string name="current_queue">Dabartinė eilė</string>
     <string name="disable_ui_mode_warning">Išjungti įrenginio tipo įspėjimą</string>
@@ -463,6 +468,7 @@
         <item quantity="one">%1$s takelis</item>
         <item quantity="few">%1$s takeliai</item>
         <item quantity="other">%1$s takelių</item>
+        <item quantity="many">%1$s takelio</item>
     </plurals>
     <string name="pref_report_device_profile_failure">Nepavyko pateikti dokumento. Jellyfin serveris gali drausti naudotojų žurnalus.</string>
     <string name="pref_screensaver_ageratingmax">Didžiausias amžiaus cenzas</string>
@@ -492,12 +498,14 @@
         <item quantity="one">%1$s sekundė</item>
         <item quantity="few">%1$s sekundės</item>
         <item quantity="other">%1$s sekundžių</item>
+        <item quantity="many">%1$s sekundės</item>
     </plurals>
     <string name="app_notification_beta">Programėlė atnaujinta į %1$s\nDėkojame, kad dalyvaujate Jellyfin beta versijos programoje.</string>
     <plurals name="hours">
         <item quantity="one">%1$s valanda</item>
         <item quantity="few">%1$s valandos</item>
         <item quantity="other">%1$s valandų</item>
+        <item quantity="many">%1$s valandos</item>
     </plurals>
     <string name="preference_enable_pgs">Tiesiogiai paleisti PGS subtitrus</string>
     <string name="lbl_from_beginning">Paleisti nuo pradžių</string>

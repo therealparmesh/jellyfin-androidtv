@@ -1,5 +1,7 @@
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 package org.jellyfin.playback.media3.session
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.os.Looper
 import androidx.annotation.OptIn
@@ -46,6 +48,9 @@ class MediaSessionService(
 		}.launchIn(coroutineScope)
 	}
 
+	// This method only posts MediaStyle notifications tied to a MediaSession: Android 13
+	// explicitly exempts these from POST_NOTIFICATIONS. See FORK.md for the platform reference.
+	@SuppressLint("NotificationPermission", "MissingPermission")
 	@OptIn(UnstableApi::class)
 	private suspend fun updateNotification(session: MediaSession, item: QueueEntry) {
 		val notification = NotificationCompat.Builder(androidContext, options.channelId).apply {
@@ -78,8 +83,6 @@ class MediaSessionService(
 
 		if (notifiedNotificationId == null) notifiedNotificationId = options.notificationId
 
-		// POST_NOTIFICATIONS permission is not required for media notifications
-		@Suppress("MissingPermission")
 		notificationManager.notify(notifiedNotificationId!!, notification)
 	}
 }

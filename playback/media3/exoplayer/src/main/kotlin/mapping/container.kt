@@ -1,11 +1,10 @@
-// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
+@file:androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+
 package org.jellyfin.playback.media3.exoplayer.mapping
 
-import androidx.annotation.OptIn
 import androidx.media3.common.MimeTypes
-import androidx.media3.common.util.UnstableApi
 
-@OptIn(UnstableApi::class)
 fun getFfmpegContainerMimeType(codec: String, fallback: String = codec) = codec.lowercase().let { codec ->
 	ffmpegContainerMimeTypes[codec]
 		?: ffmpegVideoMimeTypes[codec]
@@ -14,7 +13,6 @@ fun getFfmpegContainerMimeType(codec: String, fallback: String = codec) = codec.
 		?: fallback
 }
 
-@OptIn(UnstableApi::class)
 val ffmpegContainerMimeTypes = mapOf(
 	"aac" to MimeTypes.AUDIO_AAC,
 	"alaw" to MimeTypes.AUDIO_ALAW,

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
+<!-- Modified for the Parmesh fork on 2026-10-14. See FORK.md. -->
 <resources>
     <string name="lbl_other_options">Остале опције</string>
     <string name="lbl_last_played">"Последње гледано "</string>
@@ -378,9 +379,9 @@
     <string name="speech_error_unavailable">Препознавање говора није доступно на Вашем уређају.</string>
     <string name="speech_error_unknown">Дошло је до неочекиване грешке током препознавања говора.</string>
     <plurals name="seconds">
-        <item quantity="one">Једна</item>
-        <item quantity="few">Неколико</item>
-        <item quantity="other">Друго</item>
+        <item quantity="one">%1$s секунда</item>
+        <item quantity="few">%1$s секунде</item>
+        <item quantity="other">%1$s секунди</item>
     </plurals>
     <string name="lbl_from_beginning">Пусти од почетка</string>
     <string name="channels">Канали</string>

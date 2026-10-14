@@ -1,10 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
+@file:androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+
 package org.jellyfin.playback.media3.exoplayer.support
 
-import androidx.annotation.OptIn
 import androidx.media3.common.C
 import androidx.media3.common.Format
 import androidx.media3.common.MimeTypes
-import androidx.media3.common.util.UnstableApi
 import org.jellyfin.playback.core.mediastream.MediaStream
 import org.jellyfin.playback.core.mediastream.MediaStreamAudioTrack
 import org.jellyfin.playback.core.mediastream.MediaStreamVideoTrack
@@ -12,7 +13,6 @@ import org.jellyfin.playback.media3.exoplayer.mapping.getFfmpegAudioMimeType
 import org.jellyfin.playback.media3.exoplayer.mapping.getFfmpegContainerMimeType
 import org.jellyfin.playback.media3.exoplayer.mapping.getFfmpegVideoMimeType
 
-@OptIn(UnstableApi::class)
 private val PCM_CODECS = mapOf(
 	"pcm_s8" to C.ENCODING_PCM_8BIT,
 	"pcm_s16le" to C.ENCODING_PCM_16BIT,
@@ -24,7 +24,6 @@ private val PCM_CODECS = mapOf(
 	"pcm_f32le" to C.ENCODING_PCM_FLOAT,
 )
 
-@OptIn(UnstableApi::class)
 fun toFormat(stream: MediaStream, track: MediaStreamAudioTrack) = Format.Builder().also { f ->
 	f.setId(stream.identifier)
 	f.setContainerMimeType(getFfmpegContainerMimeType(stream.container.format))
@@ -43,7 +42,6 @@ fun toFormat(stream: MediaStream, track: MediaStreamAudioTrack) = Format.Builder
 	f.setSampleRate(track.sampleRate)
 }.build()
 
-@OptIn(UnstableApi::class)
 fun toFormat(stream: MediaStream, track: MediaStreamVideoTrack) = Format.Builder().also { f ->
 	f.setId(stream.identifier)
 	f.setContainerMimeType(getFfmpegContainerMimeType(stream.container.format))

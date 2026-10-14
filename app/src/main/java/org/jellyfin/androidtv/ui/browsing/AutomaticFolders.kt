@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import androidx.fragment.app.Fragment
@@ -30,6 +31,9 @@ import timber.log.Timber
 object AutomaticFolders {
 	val familyNames = setOf("Family", "Kids", "Children", "Children's", "Childrens")
 	val familyRatings = setOf("G", "PG", "TV-Y", "TV-Y7", "TV-Y7-FV", "TV-G", "TV-PG")
+	val shortNames = setOf("Short", "Shorts", "Short Film", "Short Films")
+
+	fun supportsShorts(library: BaseItemDto) = itemType(library) == BaseItemKind.MOVIE
 
 	fun itemType(library: BaseItemDto): BaseItemKind? = when (library.collectionType) {
 		CollectionType.MOVIES -> BaseItemKind.MOVIE
@@ -41,16 +45,21 @@ object AutomaticFolders {
 		.distinctBy(String::lowercase)
 		.sortedWith(String.CASE_INSENSITIVE_ORDER)
 
+	fun genreFolders(library: BaseItemDto, items: List<BaseItemDto>): List<String> = genreNames(items).filterNot { name ->
+		familyNames.any { it.equals(name, true) } || (supportsShorts(library) && shortNames.any { it.equals(name, true) })
+	}
+
+	private fun itemsRequest(library: BaseItemDto) = GetItemsRequest(
+		parentId = library.id,
+		includeItemTypes = setOf(requireNotNull(itemType(library))),
+		recursive = true,
+		sortBy = setOf(ItemSortBy.SORT_NAME),
+		fields = ItemRepository.browseFields,
+		imageTypeLimit = 1,
+	)
+
 	fun familyRequests(library: BaseItemDto): List<GetItemsRequest> {
-		val type = requireNotNull(itemType(library))
-		val base = GetItemsRequest(
-			parentId = library.id,
-			includeItemTypes = setOf(type),
-			recursive = true,
-			sortBy = setOf(ItemSortBy.SORT_NAME),
-			fields = ItemRepository.browseFields,
-			imageTypeLimit = 1,
-		)
+		val base = itemsRequest(library)
 		// The server ANDs different filters. Separate paged rows implement genre OR tag OR rating
 		// without downloading the library or excluding titles that match just one criterion.
 		return listOf(
@@ -58,6 +67,12 @@ object AutomaticFolders {
 			base.copy(tags = familyNames),
 			base.copy(officialRatings = familyRatings),
 		)
+	}
+
+	fun shortsRequests(library: BaseItemDto): List<GetItemsRequest> {
+		require(supportsShorts(library)) { "Shorts folders require a movie library" }
+		val base = itemsRequest(library)
+		return listOf(base.copy(genres = shortNames), base.copy(tags = shortNames))
 	}
 }
 
@@ -76,6 +91,11 @@ fun Fragment.createAutomaticFoldersRow(library: BaseItemDto, owner: LifecycleOwn
 		buttons.add(AutomaticFolderButton(getString(R.string.lbl_family)) {
 			navigation.navigate(Destinations.libraryFamily(library))
 		})
+		if (AutomaticFolders.supportsShorts(library)) {
+			buttons.add(AutomaticFolderButton(getString(R.string.lbl_shorts)) {
+				navigation.navigate(Destinations.libraryShorts(library))
+			})
+		}
 		owner.lifecycleScope.launch {
 			try {
 				val genres = withContext(Dispatchers.IO) {
@@ -85,7 +105,7 @@ fun Fragment.createAutomaticFoldersRow(library: BaseItemDto, owner: LifecycleOwn
 						sortBy = setOf(ItemSortBy.SORT_NAME),
 					).content.items
 				}
-				for (genre in AutomaticFolders.genreNames(genres).filterNot { name -> AutomaticFolders.familyNames.any { it.equals(name, true) } }) {
+				for (genre in AutomaticFolders.genreFolders(library, genres)) {
 					buttons.add(AutomaticFolderButton(genre) {
 						navigation.navigate(Destinations.libraryGenre(library, genre))
 					})

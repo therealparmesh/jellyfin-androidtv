@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
+<!-- Modified for the Parmesh fork on 2026-10-14. See FORK.md. -->
 <resources>
     <string name="msg_playback_not_allowed">ไม่อนุญาตให้เล่นในขณะนี้</string>
     <string name="lbl_loading_elipses">กำลังโหลด…</string>
@@ -209,7 +210,7 @@
     <string name="playback_info_video_title">วิดีโอ</string>
     <string name="playback_info_audio_title">เสียง</string>
     <string name="playback_info_codec">ตัวถอดรหัส: %1$s</string>
-    <string name="playback_info_resolution">ความละเอียด: %1$dx\\%2$d</string>
+    <string name="playback_info_resolution">ความละเอียด: %1$dx%2$d</string>
     <string name="playback_info_bitrate">อัตราบิตเรต: %1$s</string>
     <string name="playback_info_channels">ช่องเสียง: %1$d</string>
     <string name="playback_info_video_range">ช่วงสีวิดีโอ: %1$s</string>
@@ -228,7 +229,7 @@
     <string name="lbl_next_episode">ตอนถัดไป</string>
     <string name="lbl_album_name">ชื่ออัลบั้ม</string>
     <string name="lbl_song_title">ชื่อเพลง</string>
-    <string name="lbl_tv_channel_status">%1$d จาก \\%2$d ช่อง</string>
+    <string name="lbl_tv_channel_status">%1$d จาก %2$d ช่อง</string>
     <string name="lbl_tv_filter_status">สำหรับ %1$d ชั่วโมงถัดไป</string>
     <string name="lbl_news">ข่าวสาร</string>
     <string name="lbl_new_only">เฉพาะรายการใหม่</string>
@@ -436,7 +437,7 @@
     <string name="channels">ช่องรายการ</string>
     <string name="photo_albums">อัลบั้มรูปภาพ</string>
     <string name="photos">รูปภาพ</string>
-    <string name="person_birthday_and_age">เกิด %1$s (\\%2$d)</string>
+    <string name="person_birthday_and_age">เกิด %1$s (%2$d)</string>
     <string name="clear_image_cache">ล้างแคชรูปภาพ</string>
     <string name="clear_image_cache_content">ใช้ไป: %1$s</string>
     <string name="random">สุ่ม</string>

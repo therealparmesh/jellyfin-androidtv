@@ -1,4 +1,4 @@
-// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 plugins {
 	alias(libs.plugins.aboutlibraries)
 	alias(libs.plugins.android.application)
@@ -87,7 +87,7 @@ android {
 
 	lint {
 		lintConfig = file("$rootDir/android-lint.xml")
-		abortOnError = false
+		abortOnError = true
 		checkDependencies = true
 	}
 

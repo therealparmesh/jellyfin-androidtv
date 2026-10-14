@@ -1,17 +1,16 @@
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
+@file:androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+
 package org.jellyfin.playback.media3.exoplayer.mapping
 
-import androidx.annotation.OptIn
 import androidx.media3.common.MimeTypes
-import androidx.media3.common.util.UnstableApi
 
-@OptIn(UnstableApi::class)
 fun getFfmpegVideoMimeType(codec: String, fallback: String = codec) = codec.lowercase().let { codec ->
 	ffmpegVideoMimeTypes[codec]
 		?: MimeTypes.getVideoMediaMimeType(codec)
 		?: fallback
 }
 
-@OptIn(UnstableApi::class)
 val ffmpegVideoMimeTypes = mapOf(
 	"mp4" to MimeTypes.VIDEO_MP4,
 	"mkv" to MimeTypes.VIDEO_MATROSKA,
