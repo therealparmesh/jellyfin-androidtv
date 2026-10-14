@@ -1,7 +1,9 @@
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 package org.jellyfin.androidtv.constant
 
 enum class QueryType {
 	Items,
+	ShortRuntime,
 	NextUp,
 	Views,
 	Season,

@@ -23,6 +23,7 @@ import org.jellyfin.sdk.model.api.BaseItemDto
 import org.jellyfin.sdk.model.api.BaseItemKind
 import org.jellyfin.sdk.model.api.CollectionType
 import org.jellyfin.sdk.model.api.ItemSortBy
+import org.jellyfin.sdk.model.api.SortOrder
 import org.jellyfin.sdk.model.api.request.GetItemsRequest
 import org.koin.android.ext.android.inject
 import timber.log.Timber
@@ -73,6 +74,15 @@ object AutomaticFolders {
 		require(supportsShorts(library)) { "Shorts folders require a movie library" }
 		val base = itemsRequest(library)
 		return listOf(base.copy(genres = shortNames), base.copy(tags = shortNames))
+	}
+
+	fun shortRuntimeRequest(library: BaseItemDto): GetItemsRequest {
+		require(supportsShorts(library)) { "Shorts folders require a movie library" }
+		return itemsRequest(library).copy(
+			sortBy = linkedSetOf(ItemSortBy.RUNTIME, ItemSortBy.SORT_NAME),
+			sortOrder = setOf(SortOrder.ASCENDING),
+			enableTotalRecordCount = true,
+		)
 	}
 }
 

@@ -1,4 +1,4 @@
-// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 package org.jellyfin.androidtv.ui.itemhandling
 
 import android.content.Context
@@ -14,6 +14,7 @@ import org.jellyfin.androidtv.constant.LiveTvOption
 import org.jellyfin.androidtv.data.querying.GetAdditionalPartsRequest
 import org.jellyfin.androidtv.data.querying.GetSpecialsRequest
 import org.jellyfin.androidtv.data.querying.GetTrailersRequest
+import org.jellyfin.androidtv.data.querying.ShortRuntimePager
 import org.jellyfin.androidtv.data.repository.UserViewsRepository
 import org.jellyfin.androidtv.ui.GridButton
 import org.jellyfin.androidtv.ui.browsing.BrowseGridFragment.SortOption
@@ -609,6 +610,26 @@ fun ItemRowAdapter.retrieveArtists(
 				if (error is CancellationException) throw error
 				notifyRetrieveFinished(error as? Exception)
 			}
+		)
+	}
+}
+
+fun ItemRowAdapter.retrieveShortRuntimeItems(api: ApiClient, pager: ShortRuntimePager, batchSize: Int) {
+	launchRetrieval {
+		runCatching {
+			val page = withContext(Dispatchers.IO) {
+				pager.load(batchSize) { api.itemsApi.getItems(it).content }
+			}
+			// The server's total includes longer movies. Only advertise another page while needed.
+			totalItems = itemsLoaded + page.items.size + if (page.hasMore) 1 else 0
+			setItems(page.items) { item, _ -> BaseItemDtoBaseRowItem(item, preferParentThumb, isStaticHeight) }
+			if (itemsLoaded == 0) removeRow()
+		}.fold(
+			onSuccess = { notifyRetrieveFinished() },
+			onFailure = { error ->
+				if (error is CancellationException) throw error
+				notifyRetrieveFinished(error as? Exception)
+			},
 		)
 	}
 }

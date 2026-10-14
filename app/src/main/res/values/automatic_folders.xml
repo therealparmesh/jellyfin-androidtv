@@ -11,6 +11,7 @@
     <string name="lbl_shorts">Shorts</string>
     <string name="lbl_shorts_genres">Shorts genres</string>
     <string name="lbl_shorts_tags">Shorts tags</string>
+    <string name="lbl_shorts_runtime">Under 30 minutes</string>
     <string name="lbl_genres_retry">Unable to load genres · Retry</string>
     <string name="lbl_browse_retry">Unable to load folder · Retry</string>
 </resources>

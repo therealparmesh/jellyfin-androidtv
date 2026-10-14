@@ -85,6 +85,7 @@ class AutomaticFoldersTests : FunSpec({
 		for (type in CollectionType.entries.filterNot { it == CollectionType.MOVIES }) {
 			AutomaticFolders.supportsShorts(library(type)) shouldBe false
 			shouldThrow<IllegalArgumentException> { AutomaticFolders.shortsRequests(library(type)) }
+			shouldThrow<IllegalArgumentException> { AutomaticFolders.shortRuntimeRequest(library(type)) }
 		}
 	}
 
@@ -93,6 +94,20 @@ class AutomaticFoldersTests : FunSpec({
 		val genres = names.map { BaseItemDto(id = UUID.randomUUID(), type = BaseItemKind.GENRE, name = it) }
 		AutomaticFolders.genreFolders(library(CollectionType.MOVIES), genres) shouldBe listOf("Action", "Comedy")
 		AutomaticFolders.genreFolders(library(CollectionType.TVSHOWS), genres) shouldBe listOf("Action", "Comedy", "Short", "short film", "Short Films", "SHORTS")
+	}
+
+	test("runtime discovery preserves movie library scoping and sorts shortest first without metadata restrictions") {
+		val query = AutomaticFolders.shortRuntimeRequest(library(CollectionType.MOVIES))
+		query.parentId shouldBe libraryId
+		query.includeItemTypes shouldBe setOf(BaseItemKind.MOVIE)
+		query.recursive shouldBe true
+		query.sortBy?.toList() shouldBe listOf(org.jellyfin.sdk.model.api.ItemSortBy.RUNTIME, org.jellyfin.sdk.model.api.ItemSortBy.SORT_NAME)
+		query.sortOrder shouldBe setOf(org.jellyfin.sdk.model.api.SortOrder.ASCENDING)
+		query.enableTotalRecordCount shouldBe true
+		query.genres shouldBe null
+		query.tags shouldBe null
+		query.officialRatings shouldBe null
+		query.fields?.contains(ItemFields.MEDIA_SOURCES) shouldBe false
 	}
 
 })

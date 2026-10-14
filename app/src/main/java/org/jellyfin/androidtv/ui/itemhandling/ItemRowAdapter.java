@@ -1,4 +1,4 @@
-// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 package org.jellyfin.androidtv.ui.itemhandling;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -25,6 +25,7 @@ import org.jellyfin.androidtv.data.querying.GetSeriesTimersRequest;
 import org.jellyfin.androidtv.data.querying.GetSpecialsRequest;
 import org.jellyfin.androidtv.data.querying.GetTrailersRequest;
 import org.jellyfin.androidtv.data.querying.GetUserViewsRequest;
+import org.jellyfin.androidtv.data.querying.ShortRuntimePager;
 import org.jellyfin.androidtv.data.repository.UserViewsRepository;
 import org.jellyfin.androidtv.ui.GridButton;
 import org.jellyfin.androidtv.ui.browsing.BrowseGridFragment;
@@ -79,6 +80,7 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
         setCurrentlyRetrieving(false);
     }
     private GetItemsRequest mQuery;
+    private ShortRuntimePager shortRuntimePager;
     private GetNextUpRequest mNextUpQuery;
     private GetSeasonsRequest mSeasonQuery;
     private GetUpcomingEpisodesRequest mUpcomingQuery;
@@ -520,6 +522,10 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
         }
 
         switch (queryType) {
+            case ShortRuntime:
+                notifyRetrieveStarted();
+                ItemRowAdapterHelperKt.retrieveShortRuntimeItems(this, api.getValue(), shortRuntimePager, chunkSize);
+                break;
             case LiveTvChannel:
                 if (mTvChannelQuery == null) {
                     return;
@@ -596,6 +602,11 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
         lastFullRetrieve = Instant.now();
         itemsLoaded = 0;
         switch (queryType) {
+            case ShortRuntime:
+                clear();
+                shortRuntimePager = new ShortRuntimePager(mQuery);
+                ItemRowAdapterHelperKt.retrieveShortRuntimeItems(this, api.getValue(), shortRuntimePager, chunkSize);
+                break;
             case Items:
                 if (mQuery.getStartIndex() != null && mQuery.getLimit() != null) {
                     ItemRowAdapterHelperKt.retrieveItems(this, api.getValue(), mQuery, mQuery.getStartIndex(), mQuery.getLimit());
