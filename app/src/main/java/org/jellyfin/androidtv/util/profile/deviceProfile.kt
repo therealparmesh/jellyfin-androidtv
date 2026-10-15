@@ -73,8 +73,7 @@ private val hlsFmp4AudioCodecs = arrayOf(
 )
 
 internal fun parseMaxBitrate(value: String): Int {
-	if (value == "original") return Int.MAX_VALUE
-	val megabits = value.toDoubleOrNull()?.takeIf { it.isFinite() && it >= 0.01 } ?: return Int.MAX_VALUE
+	val megabits = value.toDoubleOrNull()?.takeIf { it.isFinite() && it >= 0.01 } ?: return 100_000_000
 	return (megabits * 1_000_000).coerceAtMost(Int.MAX_VALUE.toDouble()).roundToInt()
 }
 

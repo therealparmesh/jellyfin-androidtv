@@ -11,6 +11,7 @@ import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import org.jellyfin.sdk.api.client.ApiClient
 import org.jellyfin.sdk.api.client.Response
+import org.jellyfin.sdk.api.client.exception.ApiClientException
 import org.jellyfin.sdk.api.client.extensions.displayPreferencesApi
 import org.jellyfin.sdk.api.operations.DisplayPreferencesApi
 import org.jellyfin.sdk.model.api.DisplayPreferencesDto
@@ -58,6 +59,19 @@ class PreferencesRepositoryTests : FunSpec({
 		val before = repository.loadLibraryPreferences("library")
 		repository.onSessionChanged()
 		(repository.loadLibraryPreferences("library") === before) shouldBe false
+		coVerify(exactly = 2) { endpoint.getDisplayPreferences(any(), any(), any()) }
+	}
+	test("a failed preference load is retried on the next library visit") {
+		val (repository, endpoint) = fixture()
+		var attempts = 0
+		coEvery { endpoint.getDisplayPreferences(any(), any(), any()) } coAnswers {
+			if (++attempts == 1) throw ApiClientException("offline")
+			response()
+		}
+		repository.loadLibraryPreferences("library").shouldUpdate shouldBe true
+		val restored = repository.loadLibraryPreferences("library")
+		restored[LibraryPreferences.enableSmartScreen] shouldBe true
+		restored.shouldUpdate shouldBe false
 		coVerify(exactly = 2) { endpoint.getDisplayPreferences(any(), any(), any()) }
 	}
 })

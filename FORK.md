@@ -1,28 +1,12 @@
 # Jellyfin Android TV fork
 
-This fork adds automatic Family and genre folders for movie and show libraries and a Shorts folder for movies, reduces unnecessary server conversion using the existing player, and removes verified unused code and resources. It starts from upstream `release-0.20.z` at `3867cfa48591fae2f1e084972de6400a165ab3fe`. Changes dated October 12–14, 2026 retain the original GPL v2 license and upstream notices.
+This fork contains bug fixes, performance improvements, lint corrections, and verified dead-code removal. It starts from upstream `release-0.20.z` at `3867cfa48591fae2f1e084972de6400a165ab3fe`. Changes dated October 12–15, 2026 retain the original GPL v2 license and upstream notices.
 
-## Automatic folders
+Automatic Family, genre, and Shorts folders, their navigation hooks, and their tests have been removed from this PR. The original Genres and By letter screens remain. Quality choices, the 100 Mbit/s default, and the default ASS/SSA setting match upstream. No server plugin is required or installed by the app.
 
-Movie and show smart screens show an Automatic folders row. Standard library grids have a folder button in the toolbar. The existing Genres shortcut for movies and shows opens the same picker. Opening a genre uses a server-filtered, paged grid scoped to that library and signed-in user; the picker fetches genre names without downloading titles from every genre.
+The built-in Media3 player remains in use. Hardware decoding stays preferred, with the existing FFmpeg audio extension as a fallback when software codecs are allowed. Auto audio capability detection accepts locally decodable AC3, EAC3, DTS, and TrueHD when passthrough is unavailable. Explicit disable and downmix settings are respected; DTS/DCA and TrueHD/MLP aliases follow the same rules. Unsupported media retains the server conversion fallback.
 
-Family contains three independently paged rows:
-
-- Genres: Family, Kids, Children, Children's, or Childrens.
-- Tags: the same names.
-- Ratings: G, PG, TV-Y, TV-Y7, TV-Y7-FV, TV-G, or TV-PG.
-
-These are alternatives because Jellyfin intersects different filter types. A title may appear in more than one row. Animation alone does not qualify. Ratings currently use US metadata names; regional classifications need an explicit mapping. All folders are virtual views and leave server files and metadata untouched.
-
-Movie libraries also show Shorts beside Family. Shorts has three independently paged rows: matching genres, matching tags, and movies with a known positive runtime strictly under 30 minutes. The genre/tag aliases are Short, Shorts, Short Film, and Short Films. Movie genre pickers collapse those aliases into the Shorts folder; show libraries keep their ordinary genre folders. The runtime row also includes untagged movies. Movies exactly 30 minutes long and unknown, zero, or negative runtimes do not qualify through duration; explicit genre/tag matches still qualify independently. Because the Jellyfin item API has no duration cutoff filter, runtime discovery pages in ascending Runtime/SortName order and stops at the first page reaching 30 minutes. It tracks server offsets separately from visible matches and skips unknown-runtime pages without downloading longer movies up front.
-
-## Playback
-
-The built-in Media3 player remains in use. Hardware decoding stays preferred, with its existing FFmpeg audio extension as a fallback. Audio capability detection in Auto mode now accepts locally decodable AC3, EAC3, DTS, and TrueHD when passthrough is unavailable. Explicit codec-disable and stereo-downmix settings remain respected. DTS/DCA and TrueHD/MLP aliases follow the same capability rules.
-
-New installations default to Original quality, which removes the application bitrate ceiling, and enable local ASS/SSA subtitle rendering through the bundled libass extension. PGS direct playback was already enabled. Quality limits and subtitle rendering can still be changed in settings. Unsupported video, HDR, audio, or subtitle formats retain the server conversion fallback; device limitations and network throughput still determine actual playback.
-
-The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `org.jellyfin.androidtv.parmesh.debug`, so it can coexist with official builds.
+Separate application IDs, `org.jellyfin.androidtv.parmesh` and `org.jellyfin.androidtv.parmesh.debug`, let this fork coexist with official builds.
 
 ## Fixed bugs and performance changes
 
@@ -36,7 +20,7 @@ The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `or
 | Static rows | Re-retrieval appended people, chapters, or items again | Clear static row contents before rebuilding |
 | Device profiles | Repeated capability calls and exceptions for unsupported MIME types | Cache decoder metadata within each profile query and skip unsupported types |
 | Older Fire OS | Disabling software codecs did not filter pre-Android-10 software decoders | Recognize known software decoder names on older Android versions |
-| Bitrate settings | NaN, infinity, and malformed values could fail conversion | Parse and clamp finite values; support Original explicitly |
+| Bitrate settings | NaN, infinity, and malformed values could fail conversion | Parse and clamp finite numeric values; fall back to the existing 100 Mbit/s default |
 | Audio language selection | Missing media sources could be dereferenced | Guard the source before searching audio streams |
 | Library launch | A nullable library argument was dereferenced | Ignore missing library input safely |
 | Session switching | User ID alone determined whether a session changed | Compare server and user IDs |
@@ -50,7 +34,7 @@ The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `or
 | Seek positions | Short or unknown durations produced duplicate or negative positions; invalid steps could divide by zero or allocate excessively | Clamp positions, validate steps, and bound allocations while retaining the current position |
 | Seek thumbnails | End-of-video previews requested nonexistent sheets; malformed dimensions or negative indices could fail | Clamp to the last real thumbnail and validate dimensions, indices, and arithmetic |
 | Navigation history | Reset and replacement disagreed with the fragment back stack; settings Back could remove the root | Preserve history when requested, clear it when closing playback, and retain the settings root |
-| Navigation delivery | Rapid actions were dropped; resuming a host reapplied its last action | Buffer actions for active collectors and identify each action to suppress lifecycle replay |
+| Navigation delivery | Rapid actions were dropped; resuming a host reapplied its last action | Keep host subscriptions while stopped, deliver pending actions after Start, and identify actions to suppress replay |
 | Library settings | Switching libraries briefly exposed the previous store; missing preference IDs disabled valid libraries | Reset loading state per library and use the library ID fallback |
 | Playback negotiation | Failed requests could leave buffering active; empty or unsupported sources could reach the player | Report the original playback error, close failed playback, and reject unusable stream information |
 | Playback teardown | Canceled requests were reported as errors and late player callbacks could touch cleared state | Propagate cancellation, bind requests to the player view, and guard cleared callbacks |
@@ -58,7 +42,7 @@ The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `or
 | Audio shuffle | Out-of-range indices, duplicates, replay of the current track, and unstable previews | Shuffle only valid unplayed indices without replacement and preserve cached preview order |
 | Audio queue bounds | Empty random queues and negative preview counts could throw | Return empty results for invalid or empty requests and guard empty consumption |
 | Audio queue reset/removal | Replacement queues inherited removal counts and shuffle state; deleting the active item left stale playback or duplicate Previous history | Reset counts/order caches and select the replacement without adding the deleted item to history |
-| Audio queue display | The UI used `runBlocking` while building upcoming tracks | Suspend adapter updates within their existing lifecycle coroutines |
+| Audio queue display | The UI used `runBlocking` while building upcoming tracks | Suspend updates and cancel superseded refreshes so older results cannot replace the current track |
 | Remote video controls | Pause and Unpause both toggled playback; malformed seeks jumped to zero | Honor explicit pause/resume state and ignore seek commands with no position |
 | Remote item requests | Missing titles could crash an implicit-position request or clear the playing queue when a position was supplied | Ignore empty requests and report empty results before touching the queue |
 | Remote messages | Display messages blocked their coroutine while switching to Main | Suspend the dispatcher switch and avoid displaying a literal null message |
@@ -68,39 +52,46 @@ The fork uses separate application IDs, `org.jellyfin.androidtv.parmesh` and `or
 | Photo controls focus | Hiding controls could leave focus on a removed button and stop remote input | Restore focus to the photo player whenever its controls hide |
 | Adapter notifications | Clear observers saw stale data; invalid removal lengths threw | Mutate before notifying and validate the complete removal range without integer overflow |
 
+## Adversarial review
+
+The October 15 review compared the complete PR against the release baseline and challenged lifecycle cancellation, delayed callbacks, sparse or missing metadata, repeated commands, queue replacement, and concurrent retrievals. Confirmed regressions were reproduced with failing tests before fixes where practical:
+
+- Navigation emitted while a host was stopped lost intermediate actions and disagreed with repository history. The collector now stays subscribed and waits for Start before applying each action.
+- A failed display-preference load permanently cached defaults. Failed loads remain eligible for retry.
+- An old supplier completing after queue clear resurrected removed entries. Queue generations reject stale supplier results and index changes.
+- Concurrent peeks could append the same supplier slot twice. Cache insertion checks the supplier cursor under synchronization.
+- A delayed audio-row refresh could replace the playing item with a previous track. Combined state collection cancels superseded updates.
+- A completion event from an old stream could advance a replacement queue. Completion checks the active entry and queue generation. Stopping playback during a pending automatic advance could also restart it; selection versions now prevent older requests from overriding a newer selection.
+- Canceled track loads could add phantom Previous history. History is committed after loading; tests also cover replacement while an old supplier remains pending.
+- Live TV request cancellation could invoke callbacks after the view was destroyed, and failed parallel requests could escape as uncaught parent failures. Structured request scopes contain failures; cancellation propagates without callbacks. Tests cover both timer-only and combined requests.
+
 ## Cleanup
 
-Removed seven unused implementation files: the PopoverMenu helper, SequenceQueueSupplier, PagedQueueSupplier, and four unused playback queue suppliers. Also removed BasicMediaStream, unused text and timed-event helpers, unused codec/API parameters and fields, the never-emitted navigation Nothing action, and 376 commented-out null codec mappings. The October 13 loops additionally removed 11 unused methods (menu submenu, display-preference cache reset, six guide filter getters, two runtime service-management methods, and backend listener removal), their unused imports, and the unused KoinComponent role on Utils. Kotlin property consumers and framework callbacks were checked before deletion; active overlay accessors remain.
+Removed seven unused implementation files: PopoverMenu, SequenceQueueSupplier, PagedQueueSupplier, and four playback queue suppliers. Also removed BasicMediaStream, unused text and timed-event helpers, unused codec/API parameters and fields, the never-emitted navigation Nothing action, and 376 commented-out null codec mappings. Earlier loops removed 11 unused methods and the unused KoinComponent role on Utils. Kotlin property consumers and framework callbacks were checked before deletion; active overlay accessors remain.
 
-Android lint identified 141 unused resource IDs across the cleanup runs. Their definitions and qualified variants were removed: 3,865 string entries, 102 plural entries, 44 drawable files, two animations, one layout, eight color definitions, and unused fraction, style, integer, and generated app-ID definitions. Resource shrinking and R8 remain enabled for release builds. Framework callbacks, active Kotlin property accessors, and editor previews are retained.
+Android lint identified 141 unused resource IDs. Their definitions and qualified variants were removed: 3,865 string entries, 102 plural entries, 44 drawables, two animations, one layout, eight colors, and unused fraction, style, integer, and generated app-ID definitions. R8 and resource shrinking remain enabled in release builds.
 
 ## Validation
 
-The app, preference, and playback-core unit suites pass 192 tests, including 98 new tests covering library-scoped folder filters, alternative Family criteria, genre normalization, bitrate edge cases, audio aliases, subtitle delivery, codec-query caching, old-Android software decoders, seek boundaries and thumbnails, navigation history and lifecycle replay, playback negotiation failures, cancellation, late player callbacks, queue ordering/reset/removal, remote commands and missing-item responses, photo albums and slideshow timing, adapter notifications, and movie-only Shorts scoping, alternative criteria, aliases, genre-picker grouping, duration boundaries, filtered paging, and retry/cancellation behavior. Debug and optimized release builds have succeeded. Android lint passes with zero errors, 115 warnings, 424 hints, and zero unused-resource findings. The app now enables `abortOnError` and checks dependencies, so new lint errors fail the build. Detekt still reports existing style diagnostics.
+The app, preference, and playback-core suites pass 188 tests (168 + 2 + 18). This review adds 13 focused regressions and removes the 17 tests belonging to the withdrawn folder features. Debug and optimized release builds pass. Android lint reports zero errors, 115 warnings, 424 hints, and zero unused-resource findings. Detekt completes with non-fatal style diagnostics.
 
-The October 14 lint fixes replace a restricted Leanback view type with public ViewGroup operations, move Media3 opt-ins to file scope so they cover codec and PCM initializers, use configuration-aware resources for voice-search errors, repair three Thai format strings and Serbian second-count strings, and add the required decimal plural forms for Czech, Slovak, and Lithuanian. The notification permission detector has two false-positive findings for the existing media-session sender. Its source exemption is limited to the method that builds MediaStyle notifications with a MediaSession; the cross-module manifest exception matches only that sender's exact class name. All other notification checks remain enabled. [Android documents the media-session exemption](https://developer.android.com/develop/ui/compose/notifications/notification-permission#media-sessions). An API 36 emulator published the audio fixture's MediaStyle notification with an `android.mediaSession` token while POST_NOTIFICATIONS was absent from the app's declared permissions.
+Android lint uses `abortOnError` and checks dependencies. Corrections include public ViewGroup operations instead of a restricted Leanback type, file-level Media3 opt-ins, configuration-aware voice-search resources, three Thai format strings, Serbian second-count strings, and decimal plural forms for Czech, Slovak, and Lithuanian. Two narrow exemptions cover the existing media-session notification sender: the method building MediaStyle notifications with a MediaSession and that exact sender's class in the cross-module manifest check. Other notification checks remain enabled. [Android documents the media-session exemption](https://developer.android.com/develop/ui/compose/notifications/notification-permission#media-sessions).
 
-An Android emulator with a local synthetic library exercises folder navigation and paging. A first movie-grid request used 36 items on the test viewport, versus the old forced 100. The test library intentionally omits childCount. The existing player also played generated H.264/AAC media directly, rendered embedded SRT subtitles locally, exposed both audio tracks, and handled pause and seeking. An isolated real Jellyfin 12.2.0 server with 80 movies and 80 shows confirmed each Family criterion returns 20 titles per library. The emulator populated the show Family rows, switched to the Spanish audio track locally, and visibly switched English to Spanish embedded subtitles. Selecting 420 Kbit/s triggered server transcoding with `ContainerBitrateExceedsLimit` while preserving Spanish audio and subtitles; the lower-quality video played correctly. Returning to Original restored direct play with both selections retained, and the player performed its initial seek to the previous playback position. This is functional and request-size evidence, not a Fire TV frame-rate or playback benchmark. ASS/PGS rendering, HDR, and sustained playback still need checks on the actual device.
+Earlier local runs verified direct H.264/AAC playback, local embedded SRT rendering, English/Spanish audio and subtitle selection, seeking, explicit remote Pause/Unpause, and reduced-quality transcoding with selections retained. HTTP fault injection verified that a forced 503 returns to details with a playback error and that backing out during a delayed request does not reopen playback. Photo checks covered Previous wrapping, explicit Play/Pause, and focus after hiding controls. Those tests used an isolated Jellyfin 12.2.0 server and an API 36 emulator.
 
-A second sweep reproduced the library reopening crash against the real server and verified reopening movie and show libraries after the fix. Regression tests cover sparse stream IDs, missing sources, mixed subtitle groups, nonblocking preference loads, shared concurrent loads, and preference invalidation on session change.
+The October 15 emulator run confirms the feature-free movie and show grids, the existing movie smart screen and Genres rows, the alphabet picker, library reopening, and the original quality menu with 100 Mbit/s selected. The movie grid again requests 36 items on this viewport; ordinary genre rows request 40 display-only entries per genre. Direct playback reports Spanish audio index 2 and embedded subtitle index 4; the paused frame visibly renders the Spanish fixture text. Settings, playback, and queue regression suites cover the affected state transitions. No Fire TV connection was attempted.
 
-A third sweep added 30 regression tests and checked playback failures against the real local server through an HTTP fault-injection proxy. A forced 503 response produced the playback error toast and returned to item details instead of remaining in buffering. Backing out during a delayed playback request returned to details without reopening the player or reporting cancellation as an error. A subsequent request played directly and rendered the selected Spanish subtitles. The proxy does not support WebSocket forwarding, so these checks cover local UI and HTTP playback behavior rather than remote-control commands.
-
-The October 13 bug/dead-code loop completed six fix-and-check rounds, adding 31 regressions. Before the fixes, all eight new queue-order tests failed; five of seven initial photo tests failed; two of three adapter notification/range tests failed; the follow-up queue removal test reproduced duplicate Previous history; and three of four remote item-request checks failed before adding empty-input/result guards. The final review of those areas found no further confirmed defects. Against the isolated real server, repeated remote Pause reported paused/paused and repeated Unpause reported playing/playing. The emulator also opened a three-image photo library and wrapped Previous from the first image to the last. Native UI checks reproduced the photo Pause-key bug and loss of remote focus after hiding controls; both were corrected. These are scoped checks, not a claim that the entire app is bug-free.
-
-The initial Shorts check used genre-only and tag-only movie fixtures plus one overlapping fixture. Four tests verify library/type scoping, alternative genre/tag criteria, movie-only availability, and alias grouping in movie genre pickers. The under-30-minute follow-up adds nine tests covering runtime query scoping, the exact cutoff, missing/nonpositive runtimes, filtered server offsets, completion, empty pages, retry, and cancellation. Against the isolated server, 77 of 80 movies qualified by runtime: the 29:59 fixture qualified while 30:00, 30:01, and 35:00 fixtures were excluded. Native navigation verified an untagged movie appears, loaded 40 then 37 runtime matches, and stopped at the 29:59 fixture. The tagged 35-minute movie remained in the independent tags row.
-
-Static searches and lint do not prove that every unused callback or implementation has been removed; retained framework and SDK entry points need runtime coverage before further deletion.
+These checks establish scoped functional behavior and smaller browse requests. They do not establish Fire TV frame rates, sustained decoding performance, ASS/PGS or HDR compatibility, or that every bug and unused callback in the entire application has been found. Device testing remains deferred.
 
 ## Build and install
 
-Use JDK 21 and the Android SDK, then run:
+Use JDK 21 and the Android SDK:
 
 ```shell
 ./gradlew :app:testDebugUnitTest :preference:testDebugUnitTest :playback:core:testDebugUnitTest :app:assembleDebug
 ./gradlew :app:lintDebug detekt :app:assembleRelease
 ```
 
-Debug APKs are signed with the local Android development key. The local `jellyfin-fork-preview.apk` is an optimized release build signed with the standard Android development key for device testing; it is not a production-signed release. Published release APKs require a dedicated signing configuration. Keep published APKs accompanied by the matching GPL source and notices.
+This machine's JDK 21.0.2 C1 compiler crashed during earlier builds. Local verification uses `-Dorg.gradle.jvmargs="-Xmx4g -XX:-TieredCompilation -Dfile.encoding=UTF-8"` as a JVM workaround; it does not change the APK's runtime behavior.
 
-Before treating playback performance as established, test the actual Fire TV with representative H.264/HEVC/AV1, Dolby/DTS audio, ASS/PGS subtitles, seeking, resume, quality changes, and HDR files. Check the Jellyfin dashboard to distinguish direct play, remux, audio conversion, and video conversion. The app's existing device-profile report records detected capabilities for the exact device.
+Debug APKs use the local Android development key. The local `jellyfin-fork-preview.apk` is an optimized release build signed with that development key for testing. Published releases require a dedicated signing configuration and matching GPL source and notices.

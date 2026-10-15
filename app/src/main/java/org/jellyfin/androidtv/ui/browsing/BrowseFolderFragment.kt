@@ -3,9 +3,9 @@ package org.jellyfin.androidtv.ui.browsing
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.leanback.app.BrowseSupportFragment
 import androidx.leanback.widget.HeaderItem
-import androidx.leanback.widget.ArrayObjectAdapter
 import androidx.leanback.widget.ListRow
 import androidx.leanback.widget.OnItemViewClickedListener
 import androidx.leanback.widget.OnItemViewSelectedListener
@@ -24,7 +24,6 @@ import org.jellyfin.androidtv.ui.itemhandling.BaseRowItem
 import org.jellyfin.androidtv.ui.itemhandling.ItemLauncher
 import org.jellyfin.androidtv.ui.itemhandling.ItemRowAdapter
 import org.jellyfin.androidtv.ui.presentation.CardPresenter
-import org.jellyfin.androidtv.ui.presentation.GridButtonPresenter
 import org.jellyfin.androidtv.ui.presentation.MutableObjectAdapter
 import org.jellyfin.androidtv.ui.presentation.PositionableListRowPresenter
 import org.jellyfin.sdk.model.api.BaseItemDto
@@ -54,9 +53,7 @@ abstract class BrowseFolderFragment : BrowseSupportFragment(), RowLoader {
 
 		// Add event listeners
 		onItemViewClickedListener = OnItemViewClickedListener { _: Presenter.ViewHolder?, item: Any?, _: RowPresenter.ViewHolder?, row: Row ->
-			if (item is AutomaticFolderButton) {
-				item.open()
-			} else if (item is BaseRowItem) {
+			if (item is BaseRowItem) {
 				itemLauncher.launch(
 					item,
 					(row as ListRow).adapter as ItemRowAdapter,
@@ -93,12 +90,7 @@ abstract class BrowseFolderFragment : BrowseSupportFragment(), RowLoader {
 				throw cancelled
 			} catch (error: Exception) {
 				Timber.w(error, "Failed to set up folder queries")
-				val retryAdapter = ArrayObjectAdapter(GridButtonPresenter(155, 140, 40)).apply {
-					add(AutomaticFolderButton(getString(R.string.lbl_browse_retry)) { startQueries() })
-				}
-				adapter = ArrayObjectAdapter(PositionableListRowPresenter()).apply {
-					add(ListRow(HeaderItem(title?.toString()), retryAdapter))
-				}
+				Toast.makeText(requireContext(), R.string.server_issue_unable_to_connect, Toast.LENGTH_LONG).show()
 			}
 		}
 	}

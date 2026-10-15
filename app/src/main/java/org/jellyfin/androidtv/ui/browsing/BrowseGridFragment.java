@@ -49,8 +49,6 @@ import org.jellyfin.androidtv.preference.PreferencesRepository;
 import org.jellyfin.androidtv.ui.AlphaPickerView;
 import org.jellyfin.androidtv.ui.itemhandling.BaseRowItem;
 import org.jellyfin.androidtv.ui.itemhandling.ItemLauncher;
-import org.jellyfin.androidtv.ui.navigation.Destinations;
-import org.jellyfin.androidtv.ui.navigation.NavigationRepository;
 import org.jellyfin.androidtv.ui.itemhandling.ItemRowAdapter;
 import org.jellyfin.androidtv.ui.itemhandling.ItemRowAdapterHelperKt;
 import org.jellyfin.androidtv.ui.presentation.CardPresenter;
@@ -581,8 +579,7 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             }
         }
 
-        setRowDef(new BrowseRowDef("", BrowsingUtils.createBrowseGridItemsRequest(mFolder,
-                getArguments().getString(Extras.AutomaticGenre)), CHUNK_SIZE_MINIMUM, false, true));
+        setRowDef(new BrowseRowDef("", BrowsingUtils.createBrowseGridItemsRequest(mFolder), CHUNK_SIZE_MINIMUM, false, true));
     }
 
     @Override
@@ -745,18 +742,6 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
     private void addTools() {
         //Add tools
         int size = Utils.convertDpToPixel(requireContext(), 26);
-
-        if (getArguments().getString(Extras.AutomaticGenre) == null &&
-                (mFolder.getCollectionType() == CollectionType.MOVIES || mFolder.getCollectionType() == CollectionType.TVSHOWS)) {
-            ImageButton foldersButton = new ImageButton(requireContext(), null, 0, R.style.Button_Icon);
-            foldersButton.setImageResource(R.drawable.ic_folder);
-            foldersButton.setMaxHeight(size);
-            foldersButton.setAdjustViewBounds(true);
-            foldersButton.setContentDescription(getString(R.string.lbl_automatic_folders));
-            foldersButton.setOnClickListener(v -> org.koin.java.KoinJavaComponent.<NavigationRepository>get(NavigationRepository.class)
-                    .navigate(Destinations.INSTANCE.libraryAutomaticFolders(mFolder)));
-            binding.toolBar.addView(foldersButton);
-        }
 
         mSortButton = new ImageButton(requireContext(), null, 0, R.style.Button_Icon);
         mSortButton.setImageResource(R.drawable.ic_sort);

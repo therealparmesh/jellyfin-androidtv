@@ -31,8 +31,7 @@ class DeviceProfileTests : FunSpec({
 		forceDisabledHdr = emptySet(),
 	)
 
-	test("original quality removes the bitrate cap while retaining explicit limits") {
-		parseMaxBitrate("original") shouldBe Int.MAX_VALUE
+	test("explicit bitrate limits are retained in device profiles") {
 		parseMaxBitrate("100") shouldBe 100_000_000
 		parseMaxBitrate("0.72") shouldBe 720_000
 		val profile = profile()
@@ -41,7 +40,7 @@ class DeviceProfileTests : FunSpec({
 	}
 
 	test("legacy and invalid bitrate values cannot crash or overflow") {
-		for (value in listOf("0", "-1", "NaN", "Infinity", "", "broken")) parseMaxBitrate(value) shouldBe Int.MAX_VALUE
+		for (value in listOf("0", "-1", "NaN", "Infinity", "", "broken", "original")) parseMaxBitrate(value) shouldBe 100_000_000
 		parseMaxBitrate("999999999999") shouldBe Int.MAX_VALUE
 	}
 

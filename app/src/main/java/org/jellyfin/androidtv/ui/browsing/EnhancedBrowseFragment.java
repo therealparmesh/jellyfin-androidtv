@@ -358,10 +358,6 @@ public class EnhancedBrowseFragment extends Fragment implements RowLoader, View.
     private final class SpecialViewClickedListener implements OnItemViewClickedListener {
         @Override
         public void onItemClicked(Presenter.ViewHolder itemViewHolder, Object item, RowPresenter.ViewHolder rowViewHolder, Row row) {
-            if (item instanceof AutomaticFolderButton) {
-                ((AutomaticFolderButton) item).open();
-                return;
-            }
             if (item instanceof GridButtonBaseRowItem) item = ((GridButtonBaseRowItem) item).getGridButton();
             if (item instanceof GridButton) {
                 switch (((GridButton) item).getId()) {
@@ -392,11 +388,7 @@ public class EnhancedBrowseFragment extends Fragment implements RowLoader, View.
                         break;
 
                     case GENRES:
-                        if (itemType == BaseItemKind.MOVIE || itemType == BaseItemKind.SERIES) {
-                            navigationRepository.getValue().navigate(Destinations.INSTANCE.libraryAutomaticFolders(mFolder));
-                        } else {
-                            navigationRepository.getValue().navigate(Destinations.INSTANCE.libraryByGenres(mFolder, itemType.getSerialName()));
-                        }
+                        navigationRepository.getValue().navigate(Destinations.INSTANCE.libraryByGenres(mFolder, itemType.getSerialName()));
                         break;
                     case SHUFFLE_SONGS:
                       BrowsingUtils.getRandomItems(api.getValue(), getViewLifecycleOwner(), mFolder, BaseItemKind.AUDIO, randomItems -> {

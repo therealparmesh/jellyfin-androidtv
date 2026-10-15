@@ -1,10 +1,9 @@
-// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
+// Modified for the Parmesh fork on 2026-10-15. See FORK.md.
 package org.jellyfin.androidtv.ui.playback
 
 import androidx.lifecycle.LifecycleCoroutineScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.jellyfin.androidtv.ui.itemhandling.AudioQueueBaseRowItem
 import org.jellyfin.androidtv.ui.presentation.CardPresenter
@@ -19,15 +18,9 @@ class AudioQueueBaseRowAdapter(
 ) : MutableObjectAdapter<AudioQueueBaseRowItem>(CardPresenter(true, @Suppress("MagicNumber") 140)) {
 	init {
 		lifecycleScope.launch {
-			updateAdapter()
-			watchPlaybackStateChanges()
+			combine(playbackManager.queue.entry, playbackManager.queue.entries, playbackManager.state.playbackOrder) { _, _, _ -> Unit }
+				.collectLatest { updateAdapter() }
 		}
-	}
-
-	private suspend fun watchPlaybackStateChanges() = coroutineScope {
-		playbackManager.queue.entry.onEach { updateAdapter() }.launchIn(this)
-		playbackManager.queue.entries.onEach { updateAdapter() }.launchIn(this)
-		playbackManager.state.playbackOrder.onEach { updateAdapter() }.launchIn(this)
 	}
 
 	private suspend fun updateAdapter() {

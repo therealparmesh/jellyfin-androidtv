@@ -308,12 +308,10 @@ object BrowsingUtils {
 	)
 
 	@JvmStatic
-	@JvmOverloads
-	fun createBrowseGridItemsRequest(parent: BaseItemDto, genre: String? = null): GetItemsRequest {
+	fun createBrowseGridItemsRequest(parent: BaseItemDto): GetItemsRequest {
 		val baseRequest = GetItemsRequest(
 			fields = ItemRepository.browseFields,
 			parentId = parent.id,
-			genres = genre?.let(::setOf),
 		)
 
 		if (parent.type == BaseItemKind.USER_VIEW || parent.type == BaseItemKind.COLLECTION_FOLDER) {
