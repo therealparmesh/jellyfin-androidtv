@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback.overlay
 
 import android.content.Context
@@ -19,6 +20,7 @@ import org.jellyfin.androidtv.util.coil.SubsetTransformation
 import org.jellyfin.sdk.api.client.ApiClient
 import org.jellyfin.sdk.api.client.extensions.trickplayApi
 import org.jellyfin.sdk.api.client.util.AuthorizationHeaderBuilder
+import org.jellyfin.sdk.model.api.TrickplayInfoDto
 import org.jellyfin.sdk.model.serializer.toUUIDOrNull
 
 class CustomSeekProvider(
@@ -28,46 +30,43 @@ class CustomSeekProvider(
 	private val context: Context,
 	private val forwardTime: Long
 ) : PlaybackSeekDataProvider() {
+	private companion object {
+		const val MAX_SEEK_POINTS = 10_000L
+		const val DEFAULT_FORWARD_TIME = 10_000L
+	}
+
 	private val imageRequests = mutableMapOf<Int, Disposable>()
 	private var currentSeekPositions = LongArray(0)
 
 	private var cachedPlaceholderThumbnail: Bitmap? = null
 
 	override fun getSeekPositions(): LongArray {
-		if (!videoPlayerAdapter.canSeek()) return LongArray(0)
+		if (!videoPlayerAdapter.canSeek()) {
+			currentSeekPositions = LongArray(0)
+			return currentSeekPositions
+		}
 
-		val currentSeekPosition = videoPlayerAdapter.currentPosition
-		val videoEndPosition = videoPlayerAdapter.duration
-
-		val firstSeekPosition = currentSeekPosition % forwardTime
-		val lastSeekPosition = videoEndPosition - ((videoEndPosition - currentSeekPosition) % forwardTime)
-		val seekPositionCount = ((lastSeekPosition - firstSeekPosition) / forwardTime).toInt() + 1
-
-		val seekPositions = ArrayList<Long>(seekPositionCount + 2) // intermediate seek positions + beginning + end position
+		val videoEndPosition = videoPlayerAdapter.duration.coerceAtLeast(0)
+		val currentSeekPosition = videoPlayerAdapter.currentPosition.coerceIn(0, videoEndPosition)
+		// Bound allocations for bogus durations or unusually small intervals while retaining the current position.
+		val minimumStep = videoEndPosition / MAX_SEEK_POINTS + if (videoEndPosition % MAX_SEEK_POINTS == 0L) 0 else 1
+		val step = (forwardTime.takeIf { it > 0 } ?: DEFAULT_FORWARD_TIME).coerceAtLeast(minimumStep).coerceAtLeast(1)
+		val seekPositions = ArrayList<Long>((videoEndPosition / step).toInt() + 3)
 		seekPositions.add(0L)
-		// Omit the first seek position if it represents the beginning of the video
-		if (firstSeekPosition != 0L) {
-			seekPositions.add(firstSeekPosition)
+		var position = currentSeekPosition % step
+		while (position < videoEndPosition) {
+			if (position > 0) seekPositions.add(position)
+			if (videoEndPosition - position <= step) break
+			position += step
 		}
-		// Add all available seek positions but the last one
-		for (i in 1..<seekPositionCount - 1) {
-			seekPositions.add(firstSeekPosition + (i * forwardTime))
-		}
-		// Omit the last seek position if it represents the end of the video
-		if (lastSeekPosition != videoEndPosition) {
-			seekPositions.add(lastSeekPosition)
-		}
-		// Omit the video end seek position if it represents the beginning of the video
-		if (videoEndPosition != 0L) {
-			seekPositions.add(videoEndPosition)
-		}
+		if (videoEndPosition > 0) seekPositions.add(videoEndPosition)
 
 		currentSeekPositions = seekPositions.toLongArray()
 		return currentSeekPositions
 	}
 
 	override fun getThumbnail(index: Int, callback: ResultCallback) {
-		if (index >= currentSeekPositions.size) return
+		if (index !in currentSeekPositions.indices) return
 
 		val currentRequest = imageRequests[index]
 		if (currentRequest?.isDisposed == false) currentRequest.dispose()
@@ -80,22 +79,12 @@ class CustomSeekProvider(
 		val trickPlayResolutions = item.trickplay?.get(mediaSource.id)
 		val trickPlayInfo = trickPlayResolutions?.values?.firstOrNull() ?: return
 
-		val currentTimeMs = currentSeekPositions[index]
-		val currentTile = currentTimeMs.floorDiv(trickPlayInfo.interval).toInt()
-
-		val tileSize = trickPlayInfo.tileWidth * trickPlayInfo.tileHeight
-		val tileOffset = currentTile % tileSize
-		val tileIndex = currentTile / tileSize
-
-		val tileOffsetX = tileOffset % trickPlayInfo.tileWidth
-		val tileOffsetY = tileOffset / trickPlayInfo.tileWidth
-		val offsetX = tileOffsetX * trickPlayInfo.width
-		val offsetY = tileOffsetY * trickPlayInfo.height
+		val tile = trickPlayInfo.tileAt(currentSeekPositions[index]) ?: return
 
 		val url = api.trickplayApi.getTrickplayTileImageUrl(
 			itemId = item.id,
 			width = trickPlayInfo.width,
-			index = tileIndex,
+			index = tile.index,
 			mediaSourceId = mediaSourceId,
 		)
 
@@ -118,7 +107,7 @@ class CustomSeekProvider(
 				)
 			}.build())
 
-			transformations(SubsetTransformation(offsetX, offsetY, trickPlayInfo.width, trickPlayInfo.height))
+			transformations(SubsetTransformation(tile.offsetX, tile.offsetY, trickPlayInfo.width, trickPlayInfo.height))
 
 			target(
 				onStart = { _ -> callback.onThumbnailLoaded(placeholderThumbnail, index) },
@@ -151,4 +140,20 @@ class CustomSeekProvider(
 		cachedPlaceholderThumbnail = result
 		return result
 	}
+}
+
+internal data class TrickplayTile(val index: Int, val offsetX: Int, val offsetY: Int)
+
+internal fun TrickplayInfoDto.tileAt(timeMs: Long): TrickplayTile? {
+	if (timeMs < 0 || interval <= 0 || width <= 0 || height <= 0 || tileWidth <= 0 || tileHeight <= 0 || thumbnailCount <= 0) return null
+	val tilesPerSheet = tileWidth.toLong() * tileHeight
+	if (tilesPerSheet > Int.MAX_VALUE || width.toLong() * tileWidth > Int.MAX_VALUE || height.toLong() * tileHeight > Int.MAX_VALUE) return null
+	// The end seek point is the duration and may fall immediately after the last thumbnail.
+	val frame = timeMs.floorDiv(interval).coerceAtMost((thumbnailCount - 1).toLong())
+	val offset = frame % tilesPerSheet
+	return TrickplayTile(
+		index = (frame / tilesPerSheet).toInt(),
+		offsetX = ((offset % tileWidth) * width).toInt(),
+		offsetY = ((offset / tileWidth) * height).toInt(),
+	)
 }

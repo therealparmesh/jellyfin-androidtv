@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
-    <string name="pref_authentication_cat">Avtentikacija</string>
-    <string name="lbl_tv_queuing">Samodejno predvajanj naslednjo epizodo</string>
     <string name="lbl_empty">Prazno</string>
     <string name="lbl_no_items">Ni vsebin</string>
     <string name="msg_cannot_play">Te vsebine ni mogoče predvajati</string>
@@ -11,14 +10,12 @@
     <string name="msg_playback_restricted">Administrator je omejil predvajanje te vsebine</string>
     <string name="msg_playback_not_allowed">Predvajanje ni dovoljeno v tem trenutku</string>
     <string name="lbl_loading_elipses">Nalaganje…</string>
-    <string name="lbl_born">"Rojen "</string>
     <string name="lbl_ok">Ok</string>
     <string name="lbl_valid_server_address">Prosim vnesi naslov strežnika (IP ali domena/ime naprave)</string>
     <string name="lbl_enter_server_address">Vnesi naslov strežnika</string>
     <string name="lbl_yes">Da</string>
     <string name="lbl_no">Ne</string>
     <string name="lbl_play_trailers">Predvajaj napovednik(e)</string>
-    <string name="lbl_trailer">"Napovednik "</string>
     <string name="lbl_bracket_unknown">&lt;Neznano&gt;</string>
     <string name="msg_video_playback_error">"Napaka pri predvajanju videa - "</string>
     <string name="lbl_none">Nič</string>
@@ -82,12 +79,8 @@
     <string name="lbl_now_playing">Trenutno se predvaja</string>
     <string name="lbl_add_to_queue">Dodaj v čakalno vrsto</string>
     <string name="lbl_playlists">Seznami predvajanj</string>
-    <string name="sum_enable_cinema_mode">Pokaži predoglede in napovednike pred predvajanjem filma</string>
-    <string name="lbl_enable_cinema_mode">Kino način</string>
     <string name="lbl_episodes">Epizode</string>
-    <string name="lbl_album">Album</string>
     <string name="lbl_songs">Skladbe</string>
-    <string name="lbl_song">Skladba</string>
     <string name="lbl_artists">Izvajalci</string>
     <string name="lbl_albums">Albumi</string>
     <string name="lbl_programs">Programi</string>
@@ -97,11 +90,9 @@
     <string name="lbl_recorded_tv">Posneta TV</string>
     <string name="lbl_live_tv_guide">TV spored v živo</string>
     <string name="lbl_no_recordings">Noben posnetek ni na voljo</string>
-    <string name="msg_unable_load_subs">Podnapisov ni bilo možno naložiti</string>
     <string name="lbl_filters">Filtri televizije v živo</string>
     <string name="lbl_ended">ZAKLJUČENO</string>
     <string name="lbl__continuing">SE NADALJUJE</string>
-    <string name="msg_subtitles_loading">Podnapisi se nalagajo…</string>
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="lbl_more_like_this">Podobno</string>
     <string name="lbl_just_this_once">Samo tokrat</string>
@@ -134,10 +125,7 @@
     <string name="lbl_mark_played">Označi kot ogledano</string>
     <string name="lbl_mark_unplayed">Označi kot neogledano</string>
     <string name="lbl_play_first_unwatched">Predvajaj prvo neogledano</string>
-    <string name="lbl_search_hint">Išči besedilo (izberi za tipkovnico)</string>
     <string name="msg_set_to_record">Program nastavljen za snemanje</string>
-    <string name="lbl_status">%1$s / %2$s</string>
-    <string name="msg_item_added">" dodan element"</string>
     <string name="lbl_delete">Izbriši</string>
     <string name="lbl_instant_mix">Takojšnji miks</string>
     <string name="lbl_goto_now_playing">Pojdi na trenutno se predvaja</string>
@@ -146,9 +134,6 @@
     <string name="lbl_next_item">Naslednji element</string>
     <string name="lbl_open_album">Odpri album</string>
     <string name="lbl_open_artist">Odpri izvajalca</string>
-    <string name="msg_items_added">" dodani elementi"</string>
-    <string name="msg_burn_sub_warning">Pripenjam podnapise. To lahko vzame nekaj sekund…</string>
-    <string name="lbl_display_preferences">Nastavitve prikaza</string>
     <string name="lbl_starting_with">začenjam z imeni, ki se začnejo na</string>
     <string name="lbl_rating">Ocena</string>
     <string name="lbl_critic_rating">Ocena kritikov</string>
@@ -159,27 +144,14 @@
     <string name="lbl_sorted_by">razvrščeno po</string>
     <string name="lbl_all_items">Vsi elementi</string>
     <string name="lbl_showing">Prikazujem</string>
-    <string name="lbl_item">Element</string>
-    <string name="lbl_items">Elementi</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_playback_control_ends">Konec ob %1$s</string>
     <string name="lbl_sign_in">Prosimo vpišite se</string>
     <string name="just_one">Samo tega</string>
-    <string name="turn_off">Izklopi to možnost</string>
-    <string name="audio_error">Ne morem predvajati avdia %1$s</string>
     <string name="msg_no_items">Ni elementov za predvajanje</string>
-    <string name="subtitle_error">Ne morem izbrati sledi podnapisov</string>
     <string name="too_many_errors">Preveč napak. Predajam se</string>
     <string name="episode_missing">Manjkajoča epizoda</string>
-    <string name="no_player">Ni predvajalnika</string>
-    <string name="mark_watched">Označi kot ogledano</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/s</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
-    <string name="lbl_Reset">Ponastavi</string>
-    <string name="pref_button_remapping_description">Pritisni kateri koli gumb TV daljinca za določitev</string>
-    <string name="pref_subtitle_track_button">Gumb sledi podnapisov</string>
-    <string name="pref_audio_track_button">Gumb zvočne sledi</string>
-    <string name="lbl_unknown_key">Neznan (%1s)</string>
     <string name="grid_direction_vertical">Vertikalno</string>
     <string name="grid_direction_horizontal">Horizontalno</string>
     <string name="grid_direction">Smer mreže</string>
@@ -234,9 +206,7 @@
     <string name="lbl_subtitle_track">Izberi sled podnapisov</string>
     <string name="lbl_audio_track">Izberite zvočni posnetek</string>
     <string name="lbl_zoom">Povečava</string>
-    <string name="desc_bitstream_ac3">Zahteva zmogljivo strojno opremo</string>
     <string name="lbl_bitstream_ac3">Bitni pretok Dolby Digital audio</string>
-    <string name="lbl_new_premieres">Nove premiere</string>
     <string name="desc_automatic_fav_songs">Avtomatski seznam predvajanja priljubljenih glasb</string>
     <string name="lbl_pause">Pavza</string>
     <string name="lbl_refresh_switching">Spremeni hitrost osveževanja</string>
@@ -244,8 +214,6 @@
     <string name="lbl_clear_queue">Počisti čakalno vrsto</string>
     <string name="lbl_show_indicators">Prikaži indikatorje za</string>
     <string name="no_program_data">Podatki o programu niso na voljo</string>
-    <string name="desc_premieres">Prikaži vrstico pilotov novih sezon za serije ki jih gledaš</string>
-    <string name="lbl_show_premieres">Prikaži premiere sezon</string>
     <string name="lbl_play_next_up">Predvajaj naslednje</string>
     <string name="lbl_end_padding">Končni zamik</string>
     <string name="lbl_begin_padding">Začetni zamik</string>
@@ -258,13 +226,11 @@
     <string name="episode_missing_message_2">Ta epizoda manjka v vaši knjižnici. Predvajanje se bo ustavilo.</string>
     <string name="episode_missing_message">Ta epizoda manjka v vaši knjižnici. Jo želite preskočiti in nadaljevati z naslednjo\?</string>
     <string name="no_player_message">Zdi se da ni nameščena ni nobena aplikacija za predvajanje videa. Ta možnost zahteva nameščeno aplikacijo tretje osebe za predvajanje videa.</string>
-    <string name="mark_watched_message">Vsebina ni bila gledana do konca. Označim kot ogledano\?</string>
     <string name="pref_next_up_behavior_title">Prikaži informacije o naslednjem videu</string>
     <string name="pref_next_up_timeout_title">Trajanje obvestila Sledi</string>
     <string name="lbl_colored_backgrounds">Barvno kodirana ozadja</string>
     <string name="pref_crash_reports_enabled">Poročila o napakah bodo poslana na vaš zadnje izbran strežnik</string>
     <string name="pref_crash_reports">Pošlji poročila o napakah na strežnik</string>
-    <string name="pref_telemetry_description">Pošlji poročila o napakah in vključi loge</string>
     <string name="server_setup_incomplete">Ta postavitev strežnika ni dokončana. Odprite Jellyfin v spletnem brskalniku, da dokončate nastavitev pred prijavo.</string>
     <string name="crash_report_toast">Opala! Nekaj je šlo narobe, poročilo o napaki je bilo poslano na vaš Jellyfin strežnik.</string>
     <string name="pref_crash_report_logs_disabled">Logi ne bodo vključeni v poročilih o napakah</string>
@@ -284,13 +250,8 @@
     <string name="input_password">Geslo</string>
     <string name="action_use_password">Uporabi geslo</string>
     <string name="home_section_resume_book">Nadaljuj branje</string>
-    <string name="pref_direct_stream_live_on">Transkodiranje je onemogočeno</string>
-    <string name="pref_direct_stream_live_off">Transkodiranje se uporablja po potrebi</string>
     <string name="pref_subtitles">Podnapisi</string>
     <string name="pref_video">Video</string>
-    <string name="pref_playback_description">Video, podnapisi, TV v živo, naslednje</string>
-    <string name="pref_customization_description">Teme, dom, ponovna preslikava</string>
-    <string name="pref_login_description">Strežniki, računi, samodejna prijava</string>
     <string name="pref_libraries">Knjižnice</string>
     <string name="server_issue_ssl_handshake">SSL rokovanje ni uspelo</string>
     <string name="server_issue_invalid_product">Programska oprema strežnika ni kompatibilna</string>
@@ -353,8 +314,6 @@
     <string name="connect_manually_by_address">Vnesi naslov strežnika</string>
     <string name="discovered_servers_empty">Ne najdem strežnikov na lokalni mreži.</string>
     <string name="discovered_servers_title">Odkriti strežniki</string>
-    <string name="lbl_hidden">Skrito</string>
-    <string name="pref_developer_link_description">Napredne in eksperimentalne funkcije</string>
     <string name="pref_developer_link">Nastavitve razviljacev</string>
     <string name="image_size_xlarge">Največje</string>
     <string name="image_size_large">Veliko</string>
@@ -369,7 +328,6 @@
     <string name="lbl_sign_out">Izpis</string>
     <string name="lbl_remove">Odstrani</string>
     <string name="lbl_server">Strežnik</string>
-    <string name="lbl_user_server">%1$s na %2$s</string>
     <string name="lbl_user_last_used">Nazadnje uporabljeno dne %1$s ob %2$s</string>
     <string name="lbl_remove_server">Odstrani strežnik</string>
     <string name="lbl_sign_out_content">Zahteva prijavo ob naslednjem zagonu</string>
@@ -390,7 +348,6 @@
     <string name="pref_clock_display">Prikaži uro</string>
     <string name="player_error">Napaka predvajalnika. Poizkušam ponovno…</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
-    <string name="lbl_subtitle_delay">Zamik podnapisov</string>
     <string name="lbl_playback_speed">Hitrost predvajanja</string>
     <string name="lbl_fit">Normalno</string>
     <string name="lbl_stretch">Raztegni</string>
@@ -399,18 +356,13 @@
     <string name="lbl_community_rating">Ocena skupnosti</string>
     <string name="lbl_additional_parts">Dodatni deli</string>
     <string name="state_disabled">Onemogočeno</string>
-    <string name="live_tv_preferences">Možnosti TV v živo</string>
     <string name="login_other_options">Ostale možnosti:</string>
     <string name="input_username">Uporabniško ime</string>
     <string name="action_use_quickconnect">Uporabi Quick Connect</string>
     <string name="action_login">Prijava</string>
     <string name="pref_audio">Zvok</string>
     <string name="pref_login">Prijava</string>
-    <string name="pref_libraries_description">Spremeni pogled knjižnic</string>
-    <string name="pref_home_description">Uredi prikazane razdelke</string>
-    <string name="pref_theme">Teme</string>
     <string name="pref_browsing">Brskanje</string>
-    <string name="pref_behavior">Obnašanje</string>
     <string name="pref_accounts">Računi</string>
     <string name="sort_accounts_by">Razvrsti račune po</string>
     <string name="pref_customization">Prilagoditev</string>
@@ -419,8 +371,6 @@
     <string name="server_issue_unsupported_version">Strežnik uporablja različico %1$s, ki ni podprta</string>
     <string name="server_issue_missing_version">Ne morem določi različice strežnika</string>
     <string name="pref_subtitles_size">Velikost pisave</string>
-    <string name="pref_subtitles_background_summary">Prikazuj črno ozadje za podnapisi</string>
-    <string name="pref_subtitles_background_title">Omogoči ozadje</string>
     <string name="searchable_settings_description">Vsebina</string>
     <string name="searchable_hint">Išči Jellyfin</string>
     <string name="home_section_livetv">TV v živo</string>
@@ -428,19 +378,15 @@
     <string name="home_section_active_recordings">Aktivna snemanja</string>
     <string name="home_section_resume">Nadaljuj ogled</string>
     <string name="home_section_library">Moje vsebine</string>
-    <string name="home_sections">Razdelki domače strani</string>
     <string name="license_license">Licenca</string>
     <string name="license_author">Avtor</string>
     <string name="license_version">Različica</string>
-    <string name="licenses_link_description">Ogled licenc knjižnic, ki jih uporablja aplikacija Jellyfin</string>
     <string name="advanced_settings">Napredno</string>
     <string name="always_authenticate_description">Vklop te funkcije onemogoči samodejni vpis</string>
     <string name="pref_audio_night_mode">Nočni način zvoka (poskusno)</string>
     <string name="lbl_quality_profile">Profil kakovosti</string>
     <string name="item_deleted">%1$s izbrisano</string>
     <string name="item_delete_confirm_title">Izbriši element</string>
-    <string name="enable_reactive_homepage">Omogoči reaktivno domačo stran</string>
-    <string name="not_set">Ni nastavljeno</string>
     <string name="lbl_album_artists">Izvajalci albuma</string>
     <plurals name="episodes">
         <item quantity="one">%1$s epizoda</item>
@@ -449,10 +395,7 @@
         <item quantity="other">%1$s epizod</item>
     </plurals>
     <string name="disable_ui_mode_warning">Onemogoči opozorilo o vrsti naprave</string>
-    <string name="color_darkgrey">Temno siva</string>
-    <string name="pref_enable_media_management">Omogoči upravljanje predstavnosti</string>
     <string name="episode_name_special">posebna</string>
-    <string name="pref_enable_media_management_description">Pokaži možnost za upravljanje predstavnosti med brskanjem</string>
     <string name="pref_screensaver">Ohranjevalnik zaslona</string>
     <string name="pref_screensaver_inapp_enabled">Uporabite ohranjevalnik zaslona v aplikaciji</string>
     <string name="pref_screensaver_inapp_enabled_description">Pokaži Jellyfinov ohranjevalnik zaslona, ko je aplikacija odprta</string>
@@ -463,16 +406,12 @@
         <item quantity="few">%1$s sledi</item>
         <item quantity="other">%1$s sledi</item>
     </plurals>
-    <string name="color_white">Bela</string>
-    <string name="color_yellow">Rumena</string>
-    <string name="color_pink">Roza</string>
     <plurals name="seconds">
         <item quantity="one">%1$s sekunda</item>
         <item quantity="two">%1$s sekundi</item>
         <item quantity="few">%1$s sekunde</item>
         <item quantity="other">%1$s sekund</item>
     </plurals>
-    <string name="color_black">Črna</string>
     <string name="color_red">Rdeča</string>
     <string name="color_green">Zelena</string>
     <string name="item_deletion_failed">Ni mogoče izbrisati %1$s</string>
@@ -493,8 +432,6 @@
         <item quantity="other">%1$s ur</item>
     </plurals>
     <string name="lbl_latest_in">Nedavno dodano v %1$s</string>
-    <string name="desc_audio_night_mode">Samodejno izravna glasnost zvoka</string>
-    <string name="color_cyan">Cian</string>
     <string name="because_you_watched">Ker ste gledali %1$s</string>
     <string name="lbl_hide_watched_checkmark">Ko so še preostale epizode</string>
     <string name="photos">Slike</string>
@@ -512,7 +449,6 @@
         <item quantity="few">%1$s elementi</item>
         <item quantity="other">%1$s elementov</item>
     </plurals>
-    <string name="pref_external_player">Uporabi zunanju predvajalnik</string>
     <string name="indicator_subtitles">CC</string>
     <string name="current_queue">Trenutna čakalna vrsta</string>
     <string name="random">Naključno</string>
@@ -531,7 +467,6 @@
     <string name="pref_playback_advanced">Napredne nastavitve predvajanja</string>
     <string name="pref_screensaver_ageratingmax_entry">Do leta %1$d</string>
     <string name="pref_screensaver_ageratingmax_zero">Vsa leta</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Prikaz vseh elementov</string>
     <string name="all_channels">Vsi kanali</string>
     <string name="app_notification_update_soon">Posodobite strežnik z %1$s na vsaj %2$s, če želite aplikacijo uporabljati tudi po naslednji posodobitvi.</string>
     <string name="video_start_delay">Zakasnitev začetka videa</string>
@@ -544,13 +479,6 @@
         <item quantity="other">%1$s albumov</item>
     </plurals>
     <string name="segment_action_ask_to_skip">Vprašaj za preskok</string>
-    <string name="preference_enable_trickplay">Omogoči trickplay v video predvajalniku</string>
-    <plurals name="movies">
-        <item quantity="one">%1$s film</item>
-        <item quantity="two">%1$s filma</item>
-        <item quantity="few">%1$s filmov</item>
-        <item quantity="other">%1$s filmov</item>
-    </plurals>
     <string name="person_birthday_and_age">Rojen %1$s (%2$d)</string>
     <string name="dts_hd">DTS:HD</string>
     <string name="ac3">DD</string>
@@ -561,7 +489,6 @@
         <item quantity="other">%1$s pesemi</item>
     </plurals>
     <string name="skip_forward_length">Dolžina za preskok naprej</string>
-    <string name="pref_mediasegment_actions">Dejanja medijskega segmenta</string>
     <string name="segment_action_nothing">Ne stori ničesar</string>
     <string name="dca">DTS</string>
     <string name="runtime_hours_minutes">%1$dh %2$dm</string>
@@ -572,26 +499,17 @@
     <string name="past_24_hours">Zadnjih 24 ur</string>
     <string name="scheduled_in_next_24_hours">Načrtovano v naslednjih 24 urah</string>
     <string name="dts_x">DTS:X</string>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s TV oddaja</item>
-        <item quantity="two">%1$s TV oddaji</item>
-        <item quantity="few">%1$s TV oddaje</item>
-        <item quantity="other">%1$s TV oddaj</item>
-    </plurals>
     <string name="pref_screensaver_ageratingmax_unlimited">Onemogoči maksimum</string>
     <string name="pref_screensaver_ageratingrequired_title">Zahtevaj starostno oceno</string>
     <string name="pref_screensaver_ageratingrequired_enabled">Prikazujem samo elemente z nastavljeno starostno oceno</string>
     <string name="lbl_runtime">Čas Izvajanja</string>
     <string name="fast_forward">Hitro naprej</string>
-    <string name="pref_subtitles_bold">Krepko besedilo</string>
     <string name="pref_report_device_profile_title">Poročaj strežniku o zmogljivostih predvajanja</string>
     <string name="pref_report_device_profile_success">Poročilo poslano kot %1$s</string>
     <string name="lbl_from_beginning">Predvajaj od začetka</string>
     <string name="rewind">Previj nazaj</string>
-    <string name="pref_subtitles_background_opacity">Prosojnost ozadja podnapisov</string>
     <string name="pref_report_device_profile_failure">Pošiljanje poročila ni uspelo. Vaš strežnik Jellyfin morda ne podpira dnevnikov odjemalcev.</string>
     <string name="lbl_exit">Izhod</string>
-    <string name="pref_still_watching_behavior_title">Pokaži pojavno okno za neaktivnost</string>
     <string name="lbl_still_watching_default">3 epizode ali 90 minut</string>
     <string name="lbl_still_watching_short">2 epizodi ali 60 minut</string>
     <string name="lbl_still_watching_long">5 epizod ali 150 minut</string>

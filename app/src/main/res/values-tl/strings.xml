@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="btn_cancel">Kanselahin</string>
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
@@ -17,14 +18,12 @@
     <string name="lbl_collections">Mga Koleksyon</string>
     <string name="pref_playback">Playback</string>
     <string name="pref_max_bitrate_title">pinakamataas na streaming bitrate</string>
-    <string name="pref_authentication_cat">pagpapatunay</string>
     <string name="state_disabled">Hindi pinagana</string>
     <string name="lbl_home">Home</string>
     <string name="continue_listening">ipag patuloy ang pakikinig</string>
     <string name="lbl_on_now">Sa ngayon</string>
     <string name="lbl_views">Views</string>
     <string name="lbl_suggested">Inirerekomenda</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_genres">Mga uri</string>
     <string name="lbl_search">Hanapin</string>
     <string name="msg_not_implemented">" hindi ipinatupad"</string>

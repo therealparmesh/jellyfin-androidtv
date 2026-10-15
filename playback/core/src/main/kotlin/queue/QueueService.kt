@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-15. See FORK.md.
 package org.jellyfin.playback.core.queue
 
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -25,12 +26,14 @@ class QueueService internal constructor() : PlayerService(), Queue {
 	private var currentSupplierEntryIndex = 0
 	private val fetchedEntries: MutableList<QueueEntry> = mutableListOf()
 	private var removedEntries = 0
+	@Volatile private var generation = 0L
+	private var selectionVersion = 0L
 
-	private var defaultOrderIndexProvider = DefaultOrderIndexProvider()
+	private val defaultOrderIndexProvider = DefaultOrderIndexProvider()
 	private var orderIndexProvider: OrderIndexProvider = defaultOrderIndexProvider
 	private var currentQueueIndicesPlayed = mutableListOf<Int>()
 
-	override val estimatedSize get() = max(fetchedEntries.size, suppliers.sumOf { it.size } - removedEntries)
+	override val estimatedSize get() = synchronized(this) { max(fetchedEntries.size, suppliers.sumOf { it.size } - removedEntries) }
 
 	private val _entryIndex = MutableStateFlow(Queue.INDEX_NONE)
 	override val entryIndex: StateFlow<Int> get() = _entryIndex.asStateFlow()
@@ -44,10 +47,12 @@ class QueueService internal constructor() : PlayerService(), Queue {
 	override suspend fun onInitialize() {
 		// Reset calculated next-up indices when playback order changes
 		state.playbackOrder.onEach { playbackOrder ->
-			orderIndexProvider = when (playbackOrder) {
-				PlaybackOrder.DEFAULT -> defaultOrderIndexProvider
-				PlaybackOrder.RANDOM -> RandomOrderIndexProvider()
-				PlaybackOrder.SHUFFLE -> ShuffleOrderIndexProvider()
+			synchronized(this) {
+				orderIndexProvider = when (playbackOrder) {
+					PlaybackOrder.DEFAULT -> defaultOrderIndexProvider
+					PlaybackOrder.RANDOM -> RandomOrderIndexProvider()
+					PlaybackOrder.SHUFFLE -> ShuffleOrderIndexProvider()
+				}
 			}
 		}.launchIn(coroutineScope)
 
@@ -55,8 +60,12 @@ class QueueService internal constructor() : PlayerService(), Queue {
 		manager.backendService.addListener(object : PlayerBackendEventListener() {
 			override fun onMediaStreamEnd(mediaStream: PlayableMediaStream) {
 				coroutineScope.launch {
-					val nextEntry = next(usePlaybackOrder = true, useRepeatMode = true)
-					if (nextEntry == null && _entryIndex.value != Queue.INDEX_NONE) setIndex(Queue.INDEX_NONE, true)
+					val eventState = synchronized(this@QueueService) {
+						if (_entry.value !== mediaStream.queueEntry) return@launch
+						generation to selectionVersion
+					}
+					val nextEntry = next(true, true, eventState.first, eventState.second)
+					if (nextEntry == null) setIndex(Queue.INDEX_NONE, true, eventState.first, eventState.second)
 				}
 			}
 		})
@@ -64,77 +73,96 @@ class QueueService internal constructor() : PlayerService(), Queue {
 
 	// Entry management
 
-	override fun addSupplier(supplier: QueueSupplier) {
+	override fun addSupplier(supplier: QueueSupplier) = synchronized(this) {
 		suppliers.add(supplier)
 
 		if (_entryIndex.value == Queue.INDEX_NONE) {
-			coroutineScope.launch { setIndex(0) }
+			val currentGeneration = generation
+			val currentSelection = selectionVersion
+			coroutineScope.launch { setIndex(0, false, currentGeneration, currentSelection) }
 		}
 	}
 
-	override fun getSuppliers(): Collection<QueueSupplier> {
-		return suppliers.toList()
-	}
+	override fun getSuppliers(): Collection<QueueSupplier> = synchronized(this) { suppliers.toList() }
 
-	private suspend fun getOrSupplyEntry(index: Int): QueueEntry? {
+	private suspend fun getOrSupplyEntry(index: Int, expectedGeneration: Long = generation): QueueEntry? {
 		// Fetch additional entries from suppliers until we reach the desired index
 		var entriesChanged = false
-		while (index >= fetchedEntries.size) {
-			// No more suppliers to try
-			if (currentSupplierIndex >= suppliers.size) break
-
-			val supplier = suppliers[currentSupplierIndex]
-			val nextEntry = supplier.getItem(currentSupplierEntryIndex)
-
-			if (nextEntry != null) {
-				// Add entry to cache and increase entry index
-				fetchedEntries.add(nextEntry)
-				entriesChanged = true
-				currentSupplierEntryIndex++
-			} else {
-				// Move to the next supplier if current one is exhausted
-				currentSupplierIndex++
-				currentSupplierEntryIndex = 0
+		try {
+			while (true) {
+				val (supplier, supplierIndex, entryIndex) = synchronized(this) {
+					if (generation != expectedGeneration) return null
+					if (index < fetchedEntries.size || currentSupplierIndex >= suppliers.size) {
+						return fetchedEntries.getOrNull(index)
+					}
+					Triple(suppliers[currentSupplierIndex], currentSupplierIndex, currentSupplierEntryIndex)
+				}
+				val nextEntry = supplier.getItem(entryIndex)
+				synchronized(this) {
+					if (generation != expectedGeneration) return null
+					// A concurrent peek can have fetched this same supplier slot while we suspended.
+					if (currentSupplierIndex == supplierIndex && currentSupplierEntryIndex == entryIndex) {
+						if (nextEntry != null) {
+							fetchedEntries.add(nextEntry)
+							entriesChanged = true
+							currentSupplierEntryIndex++
+						} else {
+							currentSupplierIndex++
+							currentSupplierEntryIndex = 0
+						}
+					}
+				}
+			}
+		} finally {
+			// Publish once per fetch, including partial progress before cancellation.
+			synchronized(this) {
+				if (entriesChanged && generation == expectedGeneration) _entries.value = fetchedEntries.toList()
 			}
 		}
-		if (entriesChanged) _entries.value = fetchedEntries.toList()
-
-		// Return entry or null if not found
-		return if (index >= 0 && index < fetchedEntries.size) fetchedEntries[index]
-		else null
 	}
 
-	override fun indexOf(entry: QueueEntry): Int? {
-		return fetchedEntries.indexOf(entry).takeIf { index -> index != -1 }
-	}
+	override fun indexOf(entry: QueueEntry): Int? = synchronized(this) { fetchedEntries.indexOf(entry).takeIf { it != -1 } }
 
 	override suspend fun removeEntry(entry: QueueEntry) {
-		val index = indexOf(entry) ?: return
+		val replacement = synchronized(this) {
+			val index = indexOf(entry) ?: return
 
-		// Add to removed list
-		removedEntries++
+			// Add to removed list
+			removedEntries++
 
-		// Remove from fetched list
-		fetchedEntries.removeAt(index)
+			// Remove from fetched list
+			fetchedEntries.removeAt(index)
 
-		// Update indices
-		currentQueueIndicesPlayed.removeAll { it == index }
-		currentQueueIndicesPlayed.replaceAll { if (it > index) it - 1 else it }
-		if (_entryIndex.value >= index) _entryIndex.value -= 1
+			// Update indices
+			currentQueueIndicesPlayed.removeAll { it == index }
+			currentQueueIndicesPlayed.replaceAll { if (it > index) it - 1 else it }
+			if (_entryIndex.value >= index) _entryIndex.value -= 1
 
-		orderIndexProvider.notifyRemoved(index)
+			orderIndexProvider.notifyRemoved(index)
 
-		// Play next entry if the removed entry is currently the active one
-		if (_entry.value == entry) next(usePlaybackOrder = true, useRepeatMode = false)
-
-		// Update emitted entries
-		_entries.value = fetchedEntries.toList()
+			_entries.value = fetchedEntries.toList()
+			// Play next entry if the removed entry is currently the active one.
+			if (_entry.value == entry) {
+				// The removed item cannot be saved to Previous history. In shuffle/random order
+				// there is no active index to exclude; in default order resume at the removed slot.
+				val currentIndex = if (orderIndexProvider === defaultOrderIndexProvider) _entryIndex.value else Queue.INDEX_NONE
+				val nextIndex = orderIndexProvider.provideIndices(1, estimatedSize, currentQueueIndicesPlayed, currentIndex).firstOrNull()
+				if (nextIndex != null) orderIndexProvider.useNextIndex()
+				(nextIndex ?: Queue.INDEX_NONE) to generation
+			} else null
+		}
+		if (replacement != null) setIndex(replacement.first, false, replacement.second)
 	}
 
-	override fun clear() {
+	override fun clear() = synchronized(this) {
+		generation++
+		selectionVersion++
 		suppliers.clear()
 		currentSupplierIndex = 0
 		currentSupplierEntryIndex = 0
+		removedEntries = 0
+		defaultOrderIndexProvider.reset()
+		orderIndexProvider.reset()
 		fetchedEntries.clear()
 		_entries.value = emptyList()
 		_entry.value = null
@@ -144,11 +172,12 @@ class QueueService internal constructor() : PlayerService(), Queue {
 
 	// Preloading
 
-	private fun getNextIndices(amount: Int, usePlaybackOrder: Boolean, useRepeatMode: Boolean): Collection<Int> {
+	private fun getNextIndices(amount: Int, usePlaybackOrder: Boolean, useRepeatMode: Boolean): Collection<Int> = synchronized(this) {
+		if (amount <= 0) return emptyList()
 		val provider = if (usePlaybackOrder) orderIndexProvider else defaultOrderIndexProvider
-		val repeatMode = if (useRepeatMode) state.repeatMode.value else RepeatMode.NONE
+		val repeatMode = if (useRepeatMode && _entryIndex.value != Queue.INDEX_NONE) state.repeatMode.value else RepeatMode.NONE
 
-		return when (repeatMode) {
+		when (repeatMode) {
 			RepeatMode.NONE -> provider.provideIndices(amount, estimatedSize, currentQueueIndicesPlayed, _entryIndex.value)
 
 			RepeatMode.REPEAT_ENTRY_ONCE -> buildList(amount) {
@@ -162,46 +191,68 @@ class QueueService internal constructor() : PlayerService(), Queue {
 
 	// Jumping
 
-	override suspend fun previous(): QueueEntry? = currentQueueIndicesPlayed.removeLastOrNull()?.let {
-		setIndex(it)
+	override suspend fun previous(): QueueEntry? {
+		val previous = synchronized(this) { currentQueueIndicesPlayed.removeLastOrNull()?.let { it to generation } } ?: return null
+		return setIndex(previous.first, false, previous.second)
 	}
 
-	override suspend fun next(usePlaybackOrder: Boolean, useRepeatMode: Boolean): QueueEntry? {
-		val index = getNextIndices(1, usePlaybackOrder, useRepeatMode).firstOrNull() ?: return null
+	override suspend fun next(usePlaybackOrder: Boolean, useRepeatMode: Boolean): QueueEntry? =
+		next(usePlaybackOrder, useRepeatMode, generation)
 
-		val provider = if (usePlaybackOrder) orderIndexProvider else defaultOrderIndexProvider
-		val repeatMode = if (useRepeatMode) state.repeatMode.value else RepeatMode.NONE
+	private suspend fun next(
+		usePlaybackOrder: Boolean,
+		useRepeatMode: Boolean,
+		expectedGeneration: Long,
+		expectedSelection: Long? = null,
+	): QueueEntry? {
+		val (index, selection) = synchronized(this) {
+			if (generation != expectedGeneration || (expectedSelection != null && selectionVersion != expectedSelection)) return null
+			val index = getNextIndices(1, usePlaybackOrder, useRepeatMode).firstOrNull() ?: return null
 
-		// Automatically set repeat mode back to none when using the ONCE option
-		if (repeatMode == RepeatMode.REPEAT_ENTRY_ONCE && index == this._entryIndex.value) {
-			state.setRepeatMode(RepeatMode.NONE)
-		} else if (repeatMode == RepeatMode.NONE) {
-			provider.useNextIndex()
+			val provider = if (usePlaybackOrder) orderIndexProvider else defaultOrderIndexProvider
+			val repeatMode = if (useRepeatMode) state.repeatMode.value else RepeatMode.NONE
+
+			// Automatically set repeat mode back to none when using the ONCE option
+			if (repeatMode == RepeatMode.REPEAT_ENTRY_ONCE && index == this._entryIndex.value) {
+				state.setRepeatMode(RepeatMode.NONE)
+			} else if (repeatMode == RepeatMode.NONE) {
+				provider.useNextIndex()
+			}
+
+			index to selectionVersion
 		}
-
-		return setIndex(index, true)
+		return setIndex(index, true, expectedGeneration, selection)
 	}
 
-	override suspend fun setIndex(index: Int, saveHistory: Boolean): QueueEntry? {
+	override suspend fun setIndex(index: Int, saveHistory: Boolean): QueueEntry? = setIndex(index, saveHistory, generation)
+
+	private suspend fun setIndex(
+		index: Int,
+		saveHistory: Boolean,
+		expectedGeneration: Long,
+		expectedSelection: Long? = null,
+	): QueueEntry? {
 		if (index < 0 && index != Queue.INDEX_NONE) return null
-
-		// Save previous index
-		if (saveHistory && _entryIndex.value != Queue.INDEX_NONE) {
-			currentQueueIndicesPlayed.add(_entryIndex.value)
+		val selection = synchronized(this) {
+			if (generation != expectedGeneration || (expectedSelection != null && selectionVersion != expectedSelection)) return null
+			++selectionVersion
 		}
-
-		// Set new index
-		val currentEntry = getOrSupplyEntry(index)
-		_entryIndex.value = if (currentEntry == null) Queue.INDEX_NONE else index
-		_entry.value = currentEntry
-
-		return currentEntry
+		val currentEntry = getOrSupplyEntry(index, expectedGeneration)
+		return synchronized(this) {
+			if (generation != expectedGeneration || selectionVersion != selection) return null
+			// Only commit history after a successful load in the same queue generation.
+			if (saveHistory && _entryIndex.value != Queue.INDEX_NONE) currentQueueIndicesPlayed.add(_entryIndex.value)
+			_entryIndex.value = if (currentEntry == null) Queue.INDEX_NONE else index
+			_entry.value = currentEntry
+			currentEntry
+		}
 	}
 
 	// Peeking
 
-	override suspend fun peekPrevious(): QueueEntry? = currentQueueIndicesPlayed.lastOrNull()?.let {
-		getOrSupplyEntry(it)
+	override suspend fun peekPrevious(): QueueEntry? {
+		val previous = synchronized(this) { currentQueueIndicesPlayed.lastOrNull()?.let { it to generation } } ?: return null
+		return getOrSupplyEntry(previous.first, previous.second)
 	}
 
 	override suspend fun peekNext(
@@ -214,8 +265,8 @@ class QueueService internal constructor() : PlayerService(), Queue {
 		usePlaybackOrder: Boolean,
 		useRepeatMode: Boolean,
 	): Collection<QueueEntry> {
-		return getNextIndices(amount, usePlaybackOrder, useRepeatMode)
-			.mapNotNull { index -> getOrSupplyEntry(index) }
+		val (indices, expectedGeneration) = synchronized(this) { getNextIndices(amount, usePlaybackOrder, useRepeatMode) to generation }
+		return indices.mapNotNull { index -> getOrSupplyEntry(index, expectedGeneration) }
 	}
 }
 

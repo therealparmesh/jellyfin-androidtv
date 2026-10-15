@@ -1,11 +1,10 @@
+// Modified for the Parmesh fork on 2026-10-15. See FORK.md.
 package org.jellyfin.androidtv.ui.playback
 
 import androidx.lifecycle.LifecycleCoroutineScope
-import kotlinx.coroutines.coroutineScope
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import org.jellyfin.androidtv.ui.itemhandling.AudioQueueBaseRowItem
 import org.jellyfin.androidtv.ui.presentation.CardPresenter
 import org.jellyfin.androidtv.ui.presentation.MutableObjectAdapter
@@ -19,25 +18,18 @@ class AudioQueueBaseRowAdapter(
 ) : MutableObjectAdapter<AudioQueueBaseRowItem>(CardPresenter(true, @Suppress("MagicNumber") 140)) {
 	init {
 		lifecycleScope.launch {
-			updateAdapter()
-			watchPlaybackStateChanges()
+			combine(playbackManager.queue.entry, playbackManager.queue.entries, playbackManager.state.playbackOrder) { _, _, _ -> Unit }
+				.collectLatest { updateAdapter() }
 		}
 	}
 
-	private suspend fun watchPlaybackStateChanges() = coroutineScope {
-		playbackManager.queue.entry.onEach { updateAdapter() }.launchIn(this)
-		playbackManager.queue.entries.onEach { updateAdapter() }.launchIn(this)
-		playbackManager.state.playbackOrder.onEach { updateAdapter() }.launchIn(this)
-	}
-
-	private fun updateAdapter() {
+	private suspend fun updateAdapter() {
 		val currentItem = playbackManager.queue.entry.value?.let(::AudioQueueBaseRowItem)?.apply {
 			playing = true
 		}
 
-		// It's safe to run this blocking as all items are prefetched via the [BaseItemQueueSupplier]
-		val upcomingItems = runBlocking { playbackManager.queue.peekNext(100) }
-			.mapIndexedNotNull { index, item -> item.takeIf { it.baseItem != null }?.let(::AudioQueueBaseRowItem) }
+		val upcomingItems = playbackManager.queue.peekNext(100)
+			.mapNotNull { item -> item.takeIf { it.baseItem != null }?.let(::AudioQueueBaseRowItem) }
 
 		val items = listOfNotNull(currentItem) + upcomingItems
 

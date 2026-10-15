@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -127,6 +128,7 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
     private final double CARD_SPACING_HORIZONTAL_BANNER_PCT = 0.5; // 50% allow horizontal card overlapping for banners, otherwise spacing is too large
     private final int VIEW_SELECT_UPDATE_DELAY = 250; // delay in ms until we update the top-row info for a selected item
 
+    private boolean preferencesReady = false;
     private boolean mDirty = true; // CardHeight, RowDef or GridSize changed
 
     @Override
@@ -145,7 +147,9 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
         mFolder = Json.Default.decodeFromString(BaseItemDto.Companion.serializer(), getArguments().getString(Extras.Folder));
         mParentId = mFolder.getId();
         mainTitle = mFolder.getName();
-        libraryPreferences = preferencesRepository.getValue().getLibraryPreferences(Objects.requireNonNull(mFolder.getDisplayPreferencesId()));
+        String displayPreferencesId = mFolder.getDisplayPreferencesId();
+        if (displayPreferencesId == null) displayPreferencesId = mParentId.toString();
+        libraryPreferences = preferencesRepository.getValue().getLibraryPreferences(displayPreferencesId);
         mPosterSizeSetting = libraryPreferences.get(LibraryPreferences.Companion.getPosterSize());
         mImageType = libraryPreferences.get(LibraryPreferences.Companion.getImageType());
         mGridDirection = libraryPreferences.get(LibraryPreferences.Companion.getGridDirection());
@@ -199,9 +203,17 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        createGrid();
-        loadGrid();
-        addTools();
+        preferencesReady = false;
+        binding.title.setText(mainTitle);
+        preferencesRepository.getValue().loadLibraryPreferencesAsync(
+                mFolder.getDisplayPreferencesId() != null ? mFolder.getDisplayPreferencesId() : mParentId.toString(),
+                getViewLifecycleOwner(), preferences -> {
+                    libraryPreferences = preferences;
+                    preferencesReady = true;
+                    applyDisplayPreferences();
+                    addTools();
+                    return null;
+                });
     }
 
     @Override
@@ -212,10 +224,14 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
 
     @Override
     public void onDestroyView() {
+        mHandler.removeCallbacksAndMessages(null);
+        if (mAdapter != null) mAdapter.cancelRetrieval();
         super.onDestroyView();
 
+        preferencesReady = false;
         binding = null;
         mGridView = null;
+        mDirty = true;
     }
 
     private void createGrid() {
@@ -570,6 +586,29 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
     public void onResume() {
         super.onResume();
 
+        if (!preferencesReady) return;
+        applyDisplayPreferences();
+
+        if (!justLoaded) {
+            //Re-retrieve anything that needs it but delay slightly so we don't take away gui landing
+            if (mAdapter != null) {
+                mHandler.postDelayed(() -> {
+                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
+                        return;
+
+                    if (mAdapter != null && mAdapter.size() > 0) {
+                        if (!mAdapter.ReRetrieveIfNeeded()) {
+                            refreshCurrentItem();
+                        }
+                    }
+                }, 500);
+            }
+        } else {
+            justLoaded = false;
+        }
+    }
+
+    private void applyDisplayPreferences() {
         PosterSize posterSizeSetting = libraryPreferences.get(LibraryPreferences.Companion.getPosterSize());
         ImageType imageType = libraryPreferences.get(LibraryPreferences.Companion.getImageType());
         GridDirection gridDirection = libraryPreferences.get(LibraryPreferences.Companion.getGridDirection());
@@ -593,23 +632,6 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             determiningPosterSize = false;
         }
 
-        if (!justLoaded) {
-            //Re-retrieve anything that needs it but delay slightly so we don't take away gui landing
-            if (mAdapter != null) {
-                mHandler.postDelayed(() -> {
-                    if (!getLifecycle().getCurrentState().isAtLeast(Lifecycle.State.STARTED))
-                        return;
-
-                    if (mAdapter != null && mAdapter.size() > 0) {
-                        if (!mAdapter.ReRetrieveIfNeeded()) {
-                            refreshCurrentItem();
-                        }
-                    }
-                }, 500);
-            }
-        } else {
-            justLoaded = false;
-        }
     }
 
     private void buildAdapter() {
@@ -623,7 +645,6 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             chunkSize = Math.min(mCardsScreenEst + mCardsScreenStride, 150); // cap at 150
             Timber.d("buildAdapter adjusting chunkSize to <%s> screenEst <%s>", chunkSize, mCardsScreenEst);
         }
-        chunkSize=100;
 
         switch (mRowDef.getQueryType()) {
             case NextUp:
@@ -663,7 +684,7 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
         filters.setFavoriteOnly(libraryPreferences.get(LibraryPreferences.Companion.getFilterFavoritesOnly()));
         filters.setUnwatchedOnly(libraryPreferences.get(LibraryPreferences.Companion.getFilterUnwatchedOnly()));
 
-        mAdapter.setRetrieveFinishedListener(new EmptyResponse(getLifecycle()) {
+        mAdapter.setRetrieveFinishedListener(new EmptyResponse(getViewLifecycleOwner().getLifecycle()) {
             @Override
             public void onResponse() {
                 if (!isActive()) return;
@@ -697,6 +718,7 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
             buildAdapter();
         }
 
+        mAdapter.setRequestLifecycleOwner(getViewLifecycleOwner());
         mAdapter.setSortBy(getSortOption(libraryPreferences.get(LibraryPreferences.Companion.getSortBy())));
         mAdapter.Retrieve();
     }
@@ -884,9 +906,16 @@ public class BrowseGridFragment extends Fragment implements View.OnKeyListener {
     }
 
     private void refreshCurrentItem() {
-        if (mCurrentItem == null) return;
+        if (binding == null || mCurrentItem == null || mAdapter == null) return;
+        final BaseRowItem requestedItem = mCurrentItem;
+        final int requestedPosition = mAdapter.indexOf(requestedItem);
         Timber.i("Refresh item \"%s\"", mCurrentItem.getFullName(requireContext()));
-        ItemRowAdapterHelperKt.refreshItem(mAdapter, api.getValue(), this, mCurrentItem, () -> {
+        ItemRowAdapterHelperKt.refreshItem(mAdapter, api.getValue(), getViewLifecycleOwner(), requestedItem, () -> {
+            if (binding == null || mCurrentItem == null || !Objects.equals(mCurrentItem.getItemId(), requestedItem.getItemId())) return null;
+            if (requestedPosition < 0 || requestedPosition >= mAdapter.size()) return null;
+            Object refreshed = mAdapter.get(requestedPosition);
+            if (!(refreshed instanceof BaseRowItem) || !Objects.equals(((BaseRowItem) refreshed).getItemId(), requestedItem.getItemId())) return null;
+            mCurrentItem = (BaseRowItem) refreshed;
             //Now - if filtered make sure we still pass
             if (mAdapter.getFilters() == null) return null;
             if ((mAdapter.getFilters().isFavoriteOnly() && !mCurrentItem.isFavorite()) || (mAdapter.getFilters().isUnwatchedOnly() && mCurrentItem.isPlayed())) {

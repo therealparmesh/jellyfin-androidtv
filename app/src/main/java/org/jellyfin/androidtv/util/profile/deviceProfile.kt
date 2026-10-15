@@ -1,7 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.util.profile
 
 import android.content.Context
 import androidx.media3.common.MimeTypes
+import androidx.annotation.OptIn
+import androidx.media3.common.util.UnstableApi
+import androidx.media3.decoder.ffmpeg.FfmpegLibrary
 import org.jellyfin.androidtv.constant.Codec
 import org.jellyfin.androidtv.preference.UserPreferences
 import org.jellyfin.androidtv.preference.constant.AudioBehavior
@@ -10,9 +14,9 @@ import org.jellyfin.androidtv.preference.constant.BitstreamAudioMode
 import org.jellyfin.androidtv.preference.constant.HdrFormat
 import org.jellyfin.androidtv.preference.constant.HdrOverrideMode
 import org.jellyfin.androidtv.util.profile.codec.isPassthroughAudioAvailable
-import org.jellyfin.sdk.model.ServerVersion
 import org.jellyfin.sdk.model.api.CodecType
 import org.jellyfin.sdk.model.api.DlnaProfileType
+import org.jellyfin.sdk.model.api.DeviceProfile
 import org.jellyfin.sdk.model.api.EncodingContext
 import org.jellyfin.sdk.model.api.MediaStreamProtocol
 import org.jellyfin.sdk.model.api.ProfileConditionValue
@@ -68,24 +72,25 @@ private val hlsFmp4AudioCodecs = arrayOf(
 	Codec.Audio.DTS,
 )
 
-private fun UserPreferences.getMaxBitrate(): Int {
-	var maxBitrate = this[UserPreferences.maxBitrate].toFloatOrNull()
-
-	// The value "0" was used in an older release, make sure we prevent that from being used to avoid video not playing
-	if (maxBitrate == null || maxBitrate < 0.01f) maxBitrate = UserPreferences.maxBitrate.defaultValue.toFloat()
-
-	// Convert megabit to bit
-	return (maxBitrate * 1_000_000).roundToInt()
+internal fun parseMaxBitrate(value: String): Int {
+	val megabits = value.toDoubleOrNull()?.takeIf { it.isFinite() && it >= 0.01 } ?: return 100_000_000
+	return (megabits * 1_000_000).coerceAtMost(Int.MAX_VALUE.toDouble()).roundToInt()
 }
+
+@OptIn(UnstableApi::class)
+private fun MediaCodecCapabilitiesTest.canDecodeAudio(mime: String, allowSoftwareDecoding: Boolean): Boolean =
+	// The built-in player enables FFmpeg as a fallback even when passthrough is unavailable.
+	hasAudioDecoder(mime) || (allowSoftwareDecoding && FfmpegLibrary.isAvailable() && FfmpegLibrary.supportsFormat(mime))
 
 private fun UserPreferences.getHdrRangeTypesFor(mode: HdrOverrideMode): Set<VideoRangeType> =
 	HdrFormat.entries
 		.filter { this[it.preference] == mode }
 		.flatMapTo(mutableSetOf()) { it.videoRangeTypes }
 
-private fun UserPreferences.isBitstreamAudioEnabled(context: Context, format: BitstreamAudioFormat): Boolean =
+private fun UserPreferences.isAudioSupported(context: Context, format: BitstreamAudioFormat, mediaTest: MediaCodecCapabilitiesTest): Boolean =
 	when (this[format.preference]) {
-		BitstreamAudioMode.AUTO -> isPassthroughAudioAvailable(context, format.mimeType)
+		BitstreamAudioMode.AUTO -> isPassthroughAudioAvailable(context, format.mimeType) ||
+			mediaTest.canDecodeAudio(format.mimeType, this[UserPreferences.softwareCodecsEnabled])
 		BitstreamAudioMode.ENABLE -> true
 		BitstreamAudioMode.DISABLE -> false
 	}
@@ -93,22 +98,24 @@ private fun UserPreferences.isBitstreamAudioEnabled(context: Context, format: Bi
 fun createDeviceProfile(
 	context: Context,
 	userPreferences: UserPreferences,
-	serverVersion: ServerVersion,
-) = createDeviceProfile(
-	mediaTest = MediaCodecCapabilitiesTest(userPreferences[UserPreferences.softwareCodecsEnabled]),
-	maxBitrate = userPreferences.getMaxBitrate(),
-	isAC3PrefEnabled = userPreferences.isBitstreamAudioEnabled(context, BitstreamAudioFormat.AC3),
-	isEAC3PrefEnabled = userPreferences.isBitstreamAudioEnabled(context, BitstreamAudioFormat.EAC3),
-	isDTSPrefEnabled = userPreferences.isBitstreamAudioEnabled(context, BitstreamAudioFormat.DTS),
-	isTrueHDPrefEnabled = userPreferences.isBitstreamAudioEnabled(context, BitstreamAudioFormat.TRUEHD),
-	downMixAudio = userPreferences[UserPreferences.audioBehaviour] == AudioBehavior.DOWNMIX_TO_STEREO,
-	assDirectPlay = userPreferences[UserPreferences.assDirectPlay],
-	pgsDirectPlay = userPreferences[UserPreferences.pgsDirectPlay],
-	userAVCLevel = userPreferences[UserPreferences.userAVCLevel].level,
-	userHEVCLevel = userPreferences[UserPreferences.userHEVCLevel].level,
-	forceEnabledHdr = userPreferences.getHdrRangeTypesFor(HdrOverrideMode.ENABLE),
-	forceDisabledHdr = userPreferences.getHdrRangeTypesFor(HdrOverrideMode.DISABLE),
-)
+): DeviceProfile {
+	val mediaTest = MediaCodecCapabilitiesTest(userPreferences[UserPreferences.softwareCodecsEnabled])
+	return createDeviceProfile(
+		mediaTest = mediaTest,
+		maxBitrate = parseMaxBitrate(userPreferences[UserPreferences.maxBitrate]),
+		isAC3PrefEnabled = userPreferences.isAudioSupported(context, BitstreamAudioFormat.AC3, mediaTest),
+		isEAC3PrefEnabled = userPreferences.isAudioSupported(context, BitstreamAudioFormat.EAC3, mediaTest),
+		isDTSPrefEnabled = userPreferences.isAudioSupported(context, BitstreamAudioFormat.DTS, mediaTest),
+		isTrueHDPrefEnabled = userPreferences.isAudioSupported(context, BitstreamAudioFormat.TRUEHD, mediaTest),
+		downMixAudio = userPreferences[UserPreferences.audioBehaviour] == AudioBehavior.DOWNMIX_TO_STEREO,
+		assDirectPlay = userPreferences[UserPreferences.assDirectPlay],
+		pgsDirectPlay = userPreferences[UserPreferences.pgsDirectPlay],
+		userAVCLevel = userPreferences[UserPreferences.userAVCLevel].level,
+		userHEVCLevel = userPreferences[UserPreferences.userHEVCLevel].level,
+		forceEnabledHdr = userPreferences.getHdrRangeTypesFor(HdrOverrideMode.ENABLE),
+		forceDisabledHdr = userPreferences.getHdrRangeTypesFor(HdrOverrideMode.DISABLE),
+	)
+}
 
 fun createDeviceProfile(
 	mediaTest: MediaCodecCapabilitiesTest,
@@ -134,6 +141,8 @@ fun createDeviceProfile(
 			Codec.Audio.EAC3 -> isEAC3PrefEnabled
 			Codec.Audio.TRUEHD -> isTrueHDPrefEnabled
 			Codec.Audio.DTS -> isDTSPrefEnabled
+			Codec.Audio.DCA -> isDTSPrefEnabled
+			Codec.Audio.MLP -> isTrueHDPrefEnabled
 			else -> true
 		}
 	}.toTypedArray()

@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.data.eventhandling
 
 import android.content.Context
@@ -11,7 +12,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
 import org.jellyfin.androidtv.data.model.DataRefreshService
 import org.jellyfin.androidtv.ui.itemhandling.ItemLauncher
@@ -34,11 +34,9 @@ import org.jellyfin.sdk.model.api.LibraryChangedMessage
 import org.jellyfin.sdk.model.api.LibraryUpdateInfo
 import org.jellyfin.sdk.model.api.MediaType
 import org.jellyfin.sdk.model.api.PlayMessage
-import org.jellyfin.sdk.model.api.PlaystateCommand
 import org.jellyfin.sdk.model.api.PlaystateMessage
 import org.jellyfin.sdk.model.extensions.get
 import org.jellyfin.sdk.model.extensions.getValue
-import org.jellyfin.sdk.model.extensions.ticks
 import org.jellyfin.sdk.model.serializer.toUUIDOrNull
 import timber.log.Timber
 import java.time.Instant
@@ -199,20 +197,7 @@ class SocketHandler(
 			// PlaybackController
 			else -> {
 				val playbackController = playbackControllerContainer.playbackController
-				when (message.data?.command) {
-					PlaystateCommand.STOP -> playbackController?.endPlayback(true)
-					PlaystateCommand.PAUSE, PlaystateCommand.UNPAUSE, PlaystateCommand.PLAY_PAUSE -> playbackController?.playPause()
-					PlaystateCommand.NEXT_TRACK -> playbackController?.next()
-					PlaystateCommand.PREVIOUS_TRACK -> playbackController?.prev()
-					PlaystateCommand.SEEK -> playbackController?.seek(
-						message.data?.seekPositionTicks?.ticks?.inWholeMilliseconds ?: 0
-					)
-
-					PlaystateCommand.REWIND -> playbackController?.rewind()
-					PlaystateCommand.FAST_FORWARD -> playbackController?.fastForward()
-
-					null -> Unit
-				}
+				playbackController?.handleRemotePlayState(message.data)
 			}
 		}
 	}
@@ -238,13 +223,13 @@ class SocketHandler(
 		}
 	}
 
-	private fun onDisplayMessage(header: String?, text: String?) {
+	private suspend fun onDisplayMessage(header: String?, text: String?) {
 		val toastMessage = buildString {
 			if (!header.isNullOrBlank()) append(header, ": ")
-			append(text)
+			if (text != null) append(text)
 		}
 
-		runBlocking(Dispatchers.Main) {
+		withContext(Dispatchers.Main) {
 			Toast.makeText(context, toastMessage, Toast.LENGTH_LONG).show()
 		}
 	}

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_shuffle_all">Cymysgu Pobeth</string>
     <string name="lbl_play_all">Chwarae Pob Un</string>
@@ -20,17 +21,14 @@
     <string name="licenses_link">Trwyddedau</string>
     <string name="alphabetical">Yn Nhrefn y Wyddor</string>
     <string name="lbl_special">Arbennig</string>
-    <string name="lbl_hidden">Cudd</string>
     <string name="image_size_medium">Canolig</string>
     <string name="image_type_thumbnail">Mân-lun</string>
     <string name="login_authenticating">Wrthi\'n dilysu…</string>
     <string name="lbl_always">Bob tro</string>
-    <string name="lbl_Reset">Ailosod</string>
     <string name="pref_about_title">Ynghylch</string>
     <string name="lbl_open">Agor</string>
     <string name="lbl_stretch">Ymestyn</string>
     <string name="lbl_zoom">Nesáu</string>
-    <string name="lbl_song">Cân</string>
     <string name="lbl_ended">Wedi gorffen</string>
     <string name="lbl__continuing">Wrthi\'n bwrw ymlaen</string>
     <string name="lbl_rating">Sgôr</string>
@@ -43,7 +41,6 @@
     <string name="lbl_unwatched">Heb ei wylio</string>
     <string name="lbl_empty">Gwag</string>
     <string name="lbl_loading_elipses">Yn llwytho…</string>
-    <string name="lbl_born">"Geni "</string>
     <string name="lbl_bracket_unknown">&lt;Dim manylion&gt;</string>
     <string name="lbl_ends">Gorffen</string>
     <string name="lbl_runs">Yn rhedeg</string>
@@ -53,7 +50,6 @@
     <string name="lbl_suggested">Awgrymwyd</string>
     <string name="lbl_views">Gweddau</string>
     <string name="chapters">Pennodau</string>
-    <string name="pref_authentication_cat">Dilysu</string>
     <string name="loading">Yn llwytho…</string>
     <string name="searchable_settings_description">Cyfryngau</string>
     <string name="home_section_none">Dim</string>
@@ -72,7 +68,6 @@
     <string name="image_type_banner">Baner</string>
     <string name="lbl_remove">Tynnu</string>
     <string name="lbl_server">Gweinydd</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="grid_direction_horizontal">Llorweddol</string>
     <string name="lbl_premieres">Perfformiadau cyntaf</string>
     <string name="lbl_news">Newyddion</string>
@@ -88,7 +83,6 @@
     <string name="lbl_delete">Dileu</string>
     <string name="lbl_playlists">Rhestri Chwarae</string>
     <string name="lbl_episodes">Penodau</string>
-    <string name="lbl_album">Albwm</string>
     <string name="lbl_songs">Caneuon</string>
     <string name="lbl_artists">Artistiaid</string>
     <string name="lbl_albums">Albwmau</string>
@@ -99,7 +93,6 @@
     <string name="lbl_ok">Iawn</string>
     <string name="lbl_yes">Iawn</string>
     <string name="lbl_no">Na</string>
-    <string name="lbl_trailer">"Trelar "</string>
     <string name="lbl_none">Dim</string>
     <string name="lbl_recordings">Recordiadau</string>
     <string name="lbl_videos">Fideos</string>
@@ -110,8 +103,6 @@
     <string name="lbl_upcoming">I Ddod</string>
     <string name="lbl_seasons">Tymorau</string>
     <string name="lbl_series">Cyfres</string>
-    <string name="lbl_item">Eitem</string>
-    <string name="lbl_items">Eitemau</string>
     <string name="lbl_trailers">Trelars</string>
     <string name="lbl_record">Cofnod</string>
     <string name="lbl_cancel">Canslo</string>
@@ -130,14 +121,10 @@
     <string name="byletter_letters">ABCDEFGHIJKLMNOPQRSTUVWXYZ</string>
     <string name="btn_cancel">Canslo</string>
     <string name="pref_libraries">Llyfrgelloedd</string>
-    <string name="pref_libraries_description">Newid sut mae llyfrgelloedd yn cael eu harddangos</string>
     <string name="pref_login">Mewngofnodi</string>
-    <string name="pref_login_description">Gweinyddwyr, cyfrifon, mewngofnodi awtomatig</string>
     <string name="pref_video">Fideo</string>
     <string name="pref_subtitles">Isdeitlau</string>
     <string name="pref_audio">Sain</string>
-    <string name="pref_direct_stream_live_off">Defnyddir trawsgodio pan fod angen</string>
-    <string name="pref_direct_stream_live_on">Trawsgodio wedi\'i ddiffodd</string>
     <string name="home_section_resume_book">Parhau i ddarllen</string>
     <string name="video_error_unknown_error">Methwyd llwytho\'r fideo</string>
     <string name="pref_max_bitrate_title">Cyfradd didau ffrydio uchaf</string>

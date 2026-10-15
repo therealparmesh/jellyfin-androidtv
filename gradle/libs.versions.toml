@@ -1,3 +1,4 @@
+# Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 [versions]
 aboutlibraries = "15.2.0"
 accompanist = "0.37.3"
@@ -57,6 +58,7 @@ jellyfin-sdk = { module = "org.jellyfin.sdk:jellyfin-core", version.ref = "jelly
 # Kotlin
 kotlin-gradle = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinx-coroutines" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
 kotlinx-coroutines-guava = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-guava", version.ref = "kotlinx-coroutines" }
 kotlinx-serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "kotlinx-serialization" }
 

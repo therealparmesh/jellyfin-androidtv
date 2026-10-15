@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.data.repository
 
 import org.jellyfin.sdk.model.api.ItemFields
@@ -30,6 +31,7 @@ object ItemRepository {
 		ItemFields.CAN_DELETE,
 		ItemFields.CHILD_COUNT,
 		ItemFields.DATE_CREATED,
+		ItemFields.DISPLAY_PREFERENCES_ID,
 		ItemFields.GENRES,
 		ItemFields.OVERVIEW,
 		ItemFields.PRIMARY_IMAGE_ASPECT_RATIO,

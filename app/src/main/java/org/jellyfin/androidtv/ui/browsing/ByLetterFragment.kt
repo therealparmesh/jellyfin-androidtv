@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import org.jellyfin.androidtv.R
@@ -8,9 +9,6 @@ import org.jellyfin.sdk.model.api.request.GetItemsRequest
 
 class ByLetterFragment : BrowseFolderFragment() {
 	override suspend fun setupQueries(rowLoader: RowLoader) {
-		val childCount = folder?.childCount ?: 0
-		if (childCount <= 0) return
-
 		val letters = getString(R.string.byletter_letters)
 
 		// Add a '#' item
@@ -20,7 +18,7 @@ class ByLetterFragment : BrowseFolderFragment() {
 			includeItemTypes = includeType?.let(BaseItemKind::fromNameOrNull)?.let(::setOf),
 			nameLessThan = letters.substring(0, 1),
 			recursive = true,
-			fields = ItemRepository.itemFields,
+			fields = ItemRepository.browseFields,
 		)
 
 		rows.add(BrowseRowDef("#", numbersItemsRequest, 40))
@@ -33,7 +31,7 @@ class ByLetterFragment : BrowseFolderFragment() {
 				includeItemTypes = includeType?.let(BaseItemKind::fromNameOrNull)?.let(::setOf),
 				nameStartsWith = letter.toString(),
 				recursive = true,
-				fields = ItemRepository.itemFields,
+				fields = ItemRepository.browseFields,
 			)
 
 			rows.add(BrowseRowDef(letter.toString(), letterItemsRequest, 40))

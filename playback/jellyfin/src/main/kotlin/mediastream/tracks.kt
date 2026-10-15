@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.playback.jellyfin.mediastream
 
 import org.jellyfin.playback.core.mediastream.MediaStreamAudioTrack
@@ -18,10 +19,10 @@ fun MediaInfo.getTracks() =
 fun MediaStream.getMediaStreamTrack() = when (type) {
 	MediaStreamType.AUDIO -> getAudioTrack(this)
 	MediaStreamType.VIDEO -> getVideoTrack(this)
-	MediaStreamType.SUBTITLE -> getSubtitleTrack(this)
 
 	// Ignore other track types
 	MediaStreamType.EMBEDDED_IMAGE,
+	MediaStreamType.SUBTITLE,
 	MediaStreamType.DATA,
 	MediaStreamType.LYRIC -> null
 }
@@ -40,6 +41,3 @@ private fun getVideoTrack(stream: MediaStream) = MediaStreamVideoTrack(
 	height = stream.height ?: 0,
 	videoRange = stream.videoRangeType.name,
 )
-
-// TODO Implement Subtitle track type
-private fun getSubtitleTrack(stream: MediaStream) = null

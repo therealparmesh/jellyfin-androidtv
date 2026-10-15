@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="video_error_unknown_error">Videonu yükləmək mümkün olmadı</string>
     <string name="loading">Yüklənir…</string>
@@ -7,7 +8,6 @@
     <string name="pref_playback">Oxutma</string>
     <string name="pref_max_bitrate_title">Maksimum axın sürəti (bitrate)</string>
     <string name="settings_title">Seçimlər</string>
-    <string name="pref_authentication_cat">Giriş təsdiqlənməsi</string>
     <string name="chapters">Fəsillər</string>
     <string name="state_disabled">Söndürülüb</string>
     <string name="lbl_settings">Seçimlər</string>
@@ -19,7 +19,6 @@
     <string name="lbl_views">İzlənmələr</string>
     <string name="lbl_by_letter">Hərfə görə</string>
     <string name="lbl_suggested">Tövsiyə olunanlar</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_genres">Janrlar</string>
     <string name="lbl_search">Axtarış</string>
     <string name="msg_not_implemented">" Həyata keçirilməyib"</string>
@@ -54,8 +53,6 @@
     <string name="lbl_chapters">Fəsillər</string>
     <string name="lbl_specials">Xüsusi bölmələr</string>
     <string name="lbl_trailers">Treylerlər</string>
-    <string name="lbl_items">Elementlər</string>
-    <string name="lbl_item">Element</string>
     <string name="lbl_series">Seriallar</string>
     <string name="lbl_seasons">Sezonlar</string>
     <string name="lbl_upcoming">Yaxın gələcək</string>
@@ -79,6 +76,4 @@
     <string name="msg_cannot_play">Bu element ifa edilə bilməz</string>
     <string name="lbl_no_items">Element yoxdur</string>
     <string name="lbl_empty">Boş</string>
-    <string name="lbl_tv_queuing">Növbəti epizodu avtomatik oynayın</string>
-    <string name="lbl_search_hint">Mətni axtarın (klaviatura üçün seçin)</string>
 </resources>

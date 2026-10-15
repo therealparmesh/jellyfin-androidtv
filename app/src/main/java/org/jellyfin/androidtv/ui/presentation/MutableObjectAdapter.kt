@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.ui.presentation
 
 import androidx.leanback.widget.ObjectAdapter
@@ -72,8 +73,8 @@ open class MutableObjectAdapter<T : Any> : ObjectAdapter, Iterable<T> {
 		val size = data.size
 		if (size == 0) return
 
-		notifyItemRangeRemoved(0, size)
 		data.clear()
+		notifyItemRangeRemoved(0, size)
 	}
 
 	fun remove(element: T): Boolean {
@@ -83,7 +84,7 @@ open class MutableObjectAdapter<T : Any> : ObjectAdapter, Iterable<T> {
 	}
 
 	fun removeAt(index: Int, length: Int = 1): Boolean {
-		if (index < 0 || index >= data.size) return false
+		if (index < 0 || index >= data.size || length <= 0 || length > data.size - index) return false
 
 		data.subList(index, index + length).clear()
 		notifyItemRangeRemoved(index, length)

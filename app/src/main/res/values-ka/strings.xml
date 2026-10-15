@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="loading">მიმდინარეობს ჩატვირთვა…</string>
     <string name="btn_cancel">გაუქმება</string>
     <string name="byletter_letters">აბგდევზთიკლმნოპჟრსტუფქღყშჩცწჭხჯჰ</string>
     <string name="pref_playback">დაკვრა</string>
     <string name="settings_title">მორგება</string>
-    <string name="pref_authentication_cat">ავთენტიკაცია</string>
     <string name="chapters">თავები</string>
     <string name="state_disabled">გათიშულია</string>
     <string name="lbl_settings">მორგება</string>
@@ -26,8 +26,6 @@
     <string name="lbl_chapters">თავები</string>
     <string name="lbl_specials">დამ. მასალები</string>
     <string name="lbl_trailers">ტრეილერები</string>
-    <string name="lbl_items">ელემენტები</string>
-    <string name="lbl_item">ელემენტი</string>
     <string name="lbl_series">სერიები</string>
     <string name="lbl_seasons">სეზონები</string>
     <string name="lbl_upcoming">მალე</string>
@@ -43,11 +41,9 @@
     <string name="lbl_recordings">ჩანაწერები</string>
     <string name="lbl_none">არცერთი</string>
     <string name="lbl_bracket_unknown">უცნობი</string>
-    <string name="lbl_trailer">"ტრეილერი "</string>
     <string name="lbl_no">არა</string>
     <string name="lbl_yes">დიახ</string>
     <string name="lbl_ok">კი</string>
-    <string name="lbl_born">"დაიბადა "</string>
     <string name="lbl_loading_elipses">მიმდინარეობს ჩატვირთვა…</string>
     <string name="lbl_never">არასოდეს</string>
     <string name="lbl_empty">ცარიელი</string>
@@ -65,9 +61,7 @@
     <string name="lbl_programs">პროგრამები</string>
     <string name="lbl_albums">ალბომები</string>
     <string name="lbl_artists">შემსრულებლები</string>
-    <string name="lbl_song">სიმღერა</string>
     <string name="lbl_songs">სიმღერები</string>
-    <string name="lbl_album">ალბომი</string>
     <string name="lbl_episodes">ეპიზოდები</string>
     <string name="lbl_playlists">დასაკრავი სიები</string>
     <string name="lbl_delete">წაშლა</string>
@@ -94,8 +88,6 @@
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="grid_direction_horizontal">ჰორიზონტალური</string>
     <string name="grid_direction_vertical">ვერტიკალური</string>
-    <string name="lbl_Reset">ჩამოყრა</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_always">ყოველთვის</string>
     <string name="login_authenticating">ავთენტიკაცია…</string>
     <string name="lbl_server">სერვერი</string>
@@ -108,7 +100,6 @@
     <string name="image_size_medium">საშუალო</string>
     <string name="image_size_large">დიდი</string>
     <string name="image_size_xlarge">ძალიან დიდი</string>
-    <string name="lbl_hidden">დამალული</string>
     <string name="user_picker_disable_title">გათიშვა</string>
     <string name="help">დახმარება</string>
     <string name="lbl_special">სპეცეპიზოდი</string>
@@ -130,19 +121,12 @@
     <string name="home_prefs">საწყისი</string>
     <string name="home_section_none">არცერთი</string>
     <string name="searchable_settings_description">მედია</string>
-    <string name="color_white">თეთრი</string>
-    <string name="color_black">შავი</string>
     <string name="color_red">წითელი</string>
     <string name="color_green">მწვანე</string>
     <string name="color_blue">ლურჯი</string>
-    <string name="color_yellow">ყვითელი</string>
-    <string name="color_pink">ვარდისფერი</string>
-    <string name="color_cyan">მომწვანო-მოცისფრო</string>
     <string name="pref_customization">მორგება</string>
     <string name="pref_accounts">ანგარიშები</string>
-    <string name="pref_behavior">ქცევა</string>
     <string name="pref_browsing">ნავიგაცია</string>
-    <string name="pref_theme">თემა</string>
     <string name="pref_libraries">ბიბლიოთეკები</string>
     <string name="pref_login">შესვლა</string>
     <string name="pref_video">ვიდეო</string>
@@ -235,12 +219,8 @@
     <string name="lbl_premier_date">პრემიერის თარიღი</string>
     <string name="lbl_critic_rating">კრიტიკოსების რეიტინგი</string>
     <string name="lbl_community_rating">საზოგადოების რეიტინგი</string>
-    <string name="lbl_display_preferences">ჩვენების მორგება</string>
-    <string name="msg_subtitles_loading">სუბტიტრების ჩატვირთვა…</string>
     <string name="lbl_recorded_tv">ჩაწერილი TV</string>
     <string name="pref_live_tv_cat">ეთერი</string>
-    <string name="lbl_enable_cinema_mode">კინოს რეჟიმი</string>
-    <string name="msg_items_added">" ელემენტი დაემატა"</string>
     <string name="lbl_open_artist">შემსრულებლის გახსნა</string>
     <string name="lbl_open_album">ალბომის გახსნა</string>
     <string name="lbl_shuffle_queue">არევის გადართვა</string>
@@ -248,8 +228,6 @@
     <string name="lbl_prev_item">წინა ელემენტი</string>
     <string name="lbl_now_playing">მიმდინარეობს დაკვრა</string>
     <string name="lbl_instant_mix">მყისიერი მიქსი</string>
-    <string name="msg_item_added">" ელემენტი დაემატა"</string>
-    <string name="lbl_new_premieres">ახალი პრემიერები</string>
     <string name="playback_info">დაკვრის ინფორმაცია</string>
     <string name="playback_info_container">კონტეინერი: %1$s</string>
     <string name="playback_info_codec">კოდეკი: %1$s</string>
@@ -281,7 +259,6 @@
     <string name="lbl_album_name">ალბომის სახელი</string>
     <string name="lbl_song_title">სიმღერის სახელი</string>
     <string name="lbl_new_only">მხოლოდ ახალი</string>
-    <string name="lbl_subtitle_delay">სუბტიტრის დაყოვნება</string>
     <string name="lbl_new_episodes">ახალი ეპიზოდები</string>
     <string name="lbl_repeat_episodes">ეპიზოდების გამეორება</string>
     <string name="lbl_live_broadcasts">პირდაპირი ტრანსლაციები</string>
@@ -295,11 +272,8 @@
     <string name="pref_app_theme">აპის თემა</string>
     <string name="pref_device_model">მოწყობილობის მოდელი</string>
     <string name="grid_direction">ბადის მიმართულება</string>
-    <string name="lbl_unknown_key">უცნობი (%1s)</string>
     <string name="bitrate_mbit">%1$,.0f მბიტ/წმ</string>
     <string name="bitrate_kbit">%1$,.0f კბიტ/წმ</string>
-    <string name="mark_watched">ნანახად მონიშვნა</string>
-    <string name="no_player">დამკვრელის გარეშე</string>
     <string name="episode_missing">ნაკლული ეპიზოდი</string>
     <string name="pref_clock_display">საათის ჩვენება</string>
     <string name="pref_clock_display_browsing">ნავიგაციისას</string>
@@ -320,7 +294,6 @@
     <string name="lbl_next_up_minimal">მინიატურის გარეშე</string>
     <string name="lbl_on_channel">%1$s-ზე</string>
     <string name="lbl_name_date">%1$s (%2$s)</string>
-    <string name="home_sections">საწყისის სექციები</string>
     <string name="home_section_library">ჩემი მედია</string>
     <string name="home_section_resume">ყურების გაგრძელება</string>
     <string name="home_section_resume_audio">მოსმენის გაგრძელება</string>
@@ -328,10 +301,7 @@
     <string name="home_section_next_up">შემდეგი</string>
     <string name="home_section_livetv">პირდაპირი ეთერი</string>
     <string name="searchable_hint">Jellyfin-ის ძებნა</string>
-    <string name="pref_subtitles_background_title">ფონის ჩართვა</string>
-    <string name="color_darkgrey">მუქი ნაცრისფერი</string>
     <string name="pref_subtitles_size">ტექსტის ზომა</string>
-    <string name="pref_subtitles_bold">სქელი ტექსტი</string>
     <string name="home_section_resume_book">კითხვის გაგრძელება</string>
     <string name="action_login">შესვლა</string>
     <string name="login_other_options">სხვა პარამეტრები:</string>
@@ -339,7 +309,6 @@
     <string name="pref_crash_report_logs">ჟურნალის ჩასმა</string>
     <string name="item_deleted">%1$s წაიშალა</string>
     <string name="item_delete_confirm_title">ელემენტის წაშლა</string>
-    <string name="not_set">დაყენებული არაა</string>
     <string name="lbl_album_artists">ალბომის შემსრულებლები</string>
     <string name="photo_albums">ფოტოალბომები</string>
     <string name="dolby_vision">Dolby Vision</string>
@@ -376,7 +345,6 @@
     <string name="codec_level_4_1">დონე 4.1</string>
     <string name="codec_level_4_0">დონე 4.0</string>
     <string name="pref_max_bitrate_title">სტრიმინგის მაქს. ბიტური სიხშირე</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_cast_crew">მსახიობები და გუნდი</string>
     <string name="lbl_enter_server_address">შეიყვანეთ სერვერის მისამართი</string>
     <string name="lbl_play_first_unwatched">პირველი უნახავის დაკვრა</string>
@@ -392,13 +360,11 @@
     <string name="lbl_add_to_queue">რიგში დამატება</string>
     <string name="lbl_play_from_here">აქედან დაკვრა</string>
     <string name="lbl_remove_from_queue">რიგიდან წაშლა</string>
-    <string name="desc_bitstream_ac3">სჭირდება შესაბამისი აპარატურა</string>
     <string name="playback_info_play_method">დაკვრის მეთოდი: %1$s</string>
     <string name="playback_info_video_range">ვიდეოს შუალედი: %1$s</string>
     <string name="lbl_audio_track">აუდიოტრეკის არჩევა</string>
     <string name="lbl_subtitle_track">სუბტიტრის ტრეკის არჩევა</string>
     <string name="lbl_play_next_up">შემდეგის დაკვრა</string>
-    <string name="lbl_show_premieres">სეზონის პრემიერების ჩვენება</string>
     <string name="lbl_in_x_days">%d დღეში</string>
     <string name="lbl_just_this_once">მხოლოდ, ამ ერთხელ</string>
     <string name="msg_record_entire_series">ჩავიწერო მთელი სერია?</string>
@@ -408,16 +374,12 @@
     <string name="lbl_from_beginning">დასაწყისიდან დაკვრა</string>
     <string name="lbl_more_like_this">მეტი ამნაირი</string>
     <string name="lbl_colored_backgrounds">ფერით კოდირებული ფონები</string>
-    <string name="pref_external_player">გარე დამკვრელის გამოყენება</string>
-    <string name="pref_audio_track_button">აუდიოტრეკის ღილაკი</string>
-    <string name="pref_subtitle_track_button">სუბტიტრის ტრეკის ღილაკი</string>
     <string name="lbl_load_guide_data">გიდის მონაცემების ჩატვირთვა</string>
     <string name="seek_error">გადახვევა შეუძლებელია</string>
     <string name="just_one">მხოლოდ ეს</string>
     <string name="lbl_sign_in">შედით სისტემაში</string>
     <string name="lbl_playback_control_ends">სრულდება %1$s-ზე</string>
     <string name="server_connecting">%1$s-ისთან დაკავშირება</string>
-    <string name="lbl_user_server">%1$s %2$s-ზე</string>
     <string name="enable_smart_view">ჭკვიანი ეკრანის ჩართვა</string>
     <string name="connect_manually_by_address">შეიყვანეთ სერვერის მისამართი</string>
     <string name="pref_watched_indicator">ნანახობის მაჩვენებლის ჩვენება</string>
@@ -436,35 +398,26 @@
     <string name="server_issue_timeout">კავშირის მოლოდინის ვადა ამოიწურა</string>
     <string name="server_issue_ssl_handshake">SSL-ის არხის აწყობა ჩავარდა</string>
     <string name="sort_accounts_by">ანგარიშების დალაგების პირობა</string>
-    <string name="pref_home_description">ნაჩვენები სექციების მორგება</string>
-    <string name="pref_customization_description">თემა, საწყისი, თავიდან ასახვა</string>
-    <string name="pref_direct_stream_live_on">ტრანსკოდინგი გათიშულია</string>
     <string name="action_use_password">პაროლის გამოყენება</string>
     <string name="action_use_quickconnect">სწრაფი კავშირის გამოყენება</string>
     <string name="login_connect_to">%1$s-ისთან დაკავშირება</string>
     <string name="lbl_refresh_switching">განახლების სიხშირის გადართვა</string>
     <string name="pref_refresh_rate_scale_on_tv">მასშტაბირება ტელევიზორზე</string>
     <string name="pref_refresh_rate_scale_on_device">მასშტაბირება მოწყობილობაზე</string>
-    <string name="live_tv_preferences">პირდაპირი ეთერის მორგება</string>
-    <string name="pref_enable_media_management">მედიის მართვის ჩართვა</string>
     <string name="pref_screensaver_inapp_enabled">აპის საკუთარი ეკრანის შემნახველის გამოყენება</string>
     <string name="pref_screensaver_inapp_timeout">ეკრანის შემნახველის გაშვება</string>
-    <string name="enable_reactive_homepage">რეაქტიული საწყისი გვერდის ჩართვა</string>
     <string name="person_birthday_and_age">დაიბადა %1$s (%2$d)</string>
     <string name="clear_image_cache">გამოსახულების კეშის გასუფთავება</string>
     <string name="unreleased">ჯერ არ გამოსულა</string>
     <string name="pref_playback_advanced">დაკვრის დამატებითი მორგება</string>
     <string name="pref_screensaver_ageratingmax">მაქს. ასაკობრივი რეიტინგი</string>
     <string name="pref_screensaver_ageratingrequired_title">ასაკობრივი რეიტინგის მოთხოვნა</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">ნაჩვენებია ყველა ელემენტი</string>
     <string name="past_24_hours">ბოლო 24 საათი</string>
     <string name="default_video_zoom">გადიდების ნაგულისხმევი რეჟიმი</string>
     <string name="video_start_delay">ვიდეოს დაწყების დაყოვნება</string>
     <string name="playback_buffer_length">დაკვრის ბუფერის ზომა</string>
-    <string name="pref_mediasegment_actions">მედიის სეგმენტის ქმედებები</string>
     <string name="segment_action_ask_to_skip">კითხვა გამოტოვებისას</string>
     <string name="skip_forward_length">წინ გადახვევის ხანგრძლივობა</string>
-    <string name="pref_subtitles_background_opacity">სუბტიტრის ფონის გაუმჭვირვალობა</string>
     <plurals name="seconds">
         <item quantity="one">%1$s წამი</item>
         <item quantity="other">%1$s წამი</item>
@@ -488,14 +441,6 @@
     <plurals name="items">
         <item quantity="one">%1$s ელემენტი</item>
         <item quantity="other">%1$s ელემენტი</item>
-    </plurals>
-    <plurals name="movies">
-        <item quantity="one">%1$s ფილმი</item>
-        <item quantity="other">%1$s ფილმი</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s სერიალი</item>
-        <item quantity="other">%1$s სერიალი</item>
     </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s სიმღერა</item>
@@ -521,11 +466,9 @@
     <string name="msg_unable_to_create_recording">ჩაწერის შექმნა შეუძლებელია</string>
     <string name="msg_unable_to_cancel">ჩაწერის გაუქმება შეუძლებელია</string>
     <string name="msg_video_playback_error">"ვიდეოს დაკვრის შეცდომა - "</string>
-    <string name="lbl_tv_queuing">შემდეგი ეპიზოდის ავტომატური დაკვრა</string>
     <string name="lbl_record_any_channel">ჩაწერა ნებისმიერი არხიდან</string>
     <string name="lbl_record_any_time">ჩაწერა ნებისმიერ დროს</string>
     <string name="pref_audio_night_mode">აუდიოს ღამის რეჟიმი (ექსპერიმენტული)</string>
-    <string name="msg_unable_load_subs">სუბტიტრის ჩატვირთვა ჩავარდა</string>
     <string name="lbl_direct_stream_live">პირდაპირი ეთერის პირდაპირი ნაკადი</string>
     <string name="lbl_goto_now_playing">გადასვლა იმაზე, რომლის დაკვრაც მიმდინარეობს</string>
     <string name="lbl_bitstream_ac3">Dolby Digital audio-ის სტრიმინგი</string>
@@ -535,15 +478,11 @@
     <string name="lbl_start_favorites">რჩეულების დასაწყისში მოთავსება</string>
     <string name="pref_next_up_timeout_title">შემდეგი წამზომის ხანგრძლივობა</string>
     <string name="pref_next_up_behavior_title">შემდეგი ვიდეოს ინფორმაციის ჩვენება</string>
-    <string name="pref_still_watching_behavior_title">არააქტიურობის დროის ამოწურვის მხტუნარას ჩვენება</string>
     <string name="msg_live_tv_next">ჩაიტვირთოს შემდეგი %1$d საათი?</string>
     <string name="msg_live_tv_prev">ჩაიტვირთოს წინა %1$d საათი?</string>
-    <string name="subtitle_error">სუბსტიტრების არჩევა შეუძლებელია</string>
     <string name="msg_no_items">დასაკრავი ელემენტების გარეშე</string>
-    <string name="turn_off">ამ პარამეტრის გამორთვა</string>
     <string name="login_invalid_credentials">არასწორი მომხმარებლის სახელი ან/და პაროლი</string>
     <string name="login_username_field_empty">მომხმარებლის სახელი ცარიელი ვერ იქნება</string>
-    <string name="pref_developer_link_description">დამატებითი და ექსპერიმენტული ფუნქციები</string>
     <string name="lbl_record_all">ჩაიწერს ყველა ეპიზოდს</string>
     <string name="always_authenticate">ავტორიზაციის დეტალების ყოველთვის მოთხოვნა</string>
     <string name="server_issue_invalid_product">სერვერის პროგრამული უზრუნველყოფა თავსებადი არაა</string>

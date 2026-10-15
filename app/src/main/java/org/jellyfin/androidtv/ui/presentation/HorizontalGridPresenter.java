@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.presentation;
 
 import android.view.LayoutInflater;
@@ -102,14 +103,6 @@ public class HorizontalGridPresenter extends Presenter {
      */
     public boolean isUsingDefaultShadow() {
         return ShadowOverlayContainer.supportsShadow();
-    }
-
-    /**
-     * Enables or disabled rounded corners on children of this row.
-     * Supported on Android SDK >= L.
-     */
-    public final void enableChildRoundedCorners(boolean enable) {
-        mRoundedCornersEnabled = enable;
     }
 
     /**

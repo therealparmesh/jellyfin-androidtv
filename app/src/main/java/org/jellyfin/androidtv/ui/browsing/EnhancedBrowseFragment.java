@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -114,7 +115,6 @@ public class EnhancedBrowseFragment extends Fragment implements RowLoader, View.
         mRowsAdapter = new MutableObjectAdapter<Row>(new PositionableListRowPresenter());
 
         setupViews();
-        setupQueries(this);
     }
 
     @Nullable
@@ -146,6 +146,8 @@ public class EnhancedBrowseFragment extends Fragment implements RowLoader, View.
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        mRows.clear();
+        setupQueries(this);
         setupEventListeners();
     }
 
@@ -273,6 +275,7 @@ public class EnhancedBrowseFragment extends Fragment implements RowLoader, View.
             }
 
             rowAdapter.setReRetrieveTriggers(def.getChangeTriggers());
+            rowAdapter.setRequestLifecycleOwner(getViewLifecycleOwner());
 
             ListRow row = new ListRow(header, rowAdapter);
             mRowsAdapter.add(row);
@@ -325,8 +328,6 @@ public class EnhancedBrowseFragment extends Fragment implements RowLoader, View.
         gridRowAdapter.add(new GridButton(GRID, getString(R.string.lbl_all_items)));
         gridRowAdapter.add(new GridButton(BY_LETTER, getString(R.string.lbl_by_letter)));
         gridRowAdapter.add(new GridButton(GENRES, getString(R.string.lbl_genres)));
-        // Disabled because the screen doesn't behave properly
-        // gridRowAdapter.add(new GridButton(PERSONS, getString(R.string.lbl_performers)));
     }
 
     protected void setupEventListeners() {

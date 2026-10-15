@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-14. See FORK.md.
 package org.jellyfin.androidtv.ui.itemhandling;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -57,6 +58,26 @@ import kotlin.Lazy;
 import timber.log.Timber;
 
 public class ItemRowAdapter extends MutableObjectAdapter<Object> {
+    private androidx.lifecycle.LifecycleOwner requestLifecycleOwner = androidx.lifecycle.ProcessLifecycleOwner.get();
+    private kotlinx.coroutines.Job retrievalJob;
+
+    public androidx.lifecycle.LifecycleOwner getRequestLifecycleOwner() {
+        return requestLifecycleOwner;
+    }
+
+    public void setRequestLifecycleOwner(androidx.lifecycle.LifecycleOwner owner) {
+        requestLifecycleOwner = owner;
+    }
+
+    public void setRetrievalJob(kotlinx.coroutines.Job job) {
+        retrievalJob = job;
+    }
+
+    public void cancelRetrieval() {
+        if (retrievalJob != null) retrievalJob.cancel(null);
+        retrievalJob = null;
+        setCurrentlyRetrieving(false);
+    }
     private GetItemsRequest mQuery;
     private GetNextUpRequest mNextUpQuery;
     private GetSeasonsRequest mSeasonQuery;
@@ -570,6 +591,7 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
     }
 
     public void Retrieve() {
+        cancelRetrieval();
         notifyRetrieveStarted();
         lastFullRetrieve = Instant.now();
         itemsLoaded = 0;
@@ -654,6 +676,7 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
     }
 
     private void loadPeople() {
+        clear();
         if (mPersons != null) {
             for (BaseItemPerson person : mPersons) {
                 add(new BaseItemPersonBaseRowItem(person));
@@ -667,6 +690,7 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
     }
 
     private void loadChapters() {
+        clear();
         if (mChapters != null) {
             for (ChapterItemInfo chapter : mChapters) {
                 add(new ChapterItemInfoBaseRowItem(chapter));
@@ -680,6 +704,7 @@ public class ItemRowAdapter extends MutableObjectAdapter<Object> {
     }
 
     private void loadStaticItems() {
+        clear();
         if (mItems != null) {
             for (org.jellyfin.sdk.model.api.BaseItemDto item : mItems) {
                 add(new BaseItemDtoBaseRowItem(item));

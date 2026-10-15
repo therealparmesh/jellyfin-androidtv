@@ -1,7 +1,12 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.ui.player.photo
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.input.key.Key
 import androidx.compose.ui.input.key.KeyEventType
 import androidx.compose.ui.input.key.key
@@ -18,6 +23,10 @@ fun PhotoPlayerOverlay(
 ) {
 	val viewModel = koinViewModel<PhotoPlayerViewModel>()
 	val visibilityState = rememberPlayerOverlayVisibility()
+	val playerFocusRequester = remember { FocusRequester() }
+	LaunchedEffect(visibilityState.visible) {
+		if (!visibilityState.visible) playerFocusRequester.requestFocus()
+	}
 
 	PlayerOverlayLayout(
 		visibilityState = visibilityState,
@@ -30,14 +39,23 @@ fun PhotoPlayerOverlay(
 			PhotoPlayerControls()
 		},
 		modifier = Modifier
+			.focusRequester(playerFocusRequester)
 			.onPreviewKeyEvent { event ->
 				if (event.type != KeyEventType.KeyDown) return@onPreviewKeyEvent false
 
 				when (event.key) {
-					Key.MediaPlayPause,
-					Key.MediaPlay,
-					Key.MediaPause -> {
+					Key.MediaPlayPause -> {
 						viewModel.togglePresentation()
+						true
+					}
+
+					Key.MediaPlay -> {
+						viewModel.startPresentation()
+						true
+					}
+
+					Key.MediaPause -> {
+						viewModel.stopPresentation()
 						true
 					}
 

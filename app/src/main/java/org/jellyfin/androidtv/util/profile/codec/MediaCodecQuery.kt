@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.util.profile.codec
 
 import android.media.MediaCodecInfo
@@ -15,13 +16,20 @@ class MediaCodecQuery(
 	private val mediaCodecList: MediaCodecList,
 	private val softwareCodecsEnabled: Boolean,
 ) {
+	private val decoders by lazy {
+		mediaCodecList.codecInfos.filter { !it.isEncoder && (softwareCodecsEnabled || !it.isSoftwareCodec) }
+	}
+	private val capabilitiesCache = mutableMapOf<Pair<MediaCodecInfo, String>, MediaCodecInfo.CodecCapabilities?>()
+
 	private val MediaCodecInfo.isSoftwareCodec: Boolean
-		get() = AndroidVersion.isAtLeastQ && isSoftwareOnly
+		get() = if (AndroidVersion.isAtLeastQ) isSoftwareOnly else {
+			val codecName = name.lowercase()
+			codecName.startsWith("omx.google.") || codecName.startsWith("omx.ffmpeg.") ||
+				codecName.startsWith("c2.android.") || codecName.startsWith("c2.google.") || codecName.endsWith(".sw.dec")
+		}
 
 	private fun decoderInfos(): Sequence<MediaCodecInfo> =
-		mediaCodecList.codecInfos.asSequence()
-			.filter { !it.isEncoder }
-			.filter { softwareCodecsEnabled || !it.isSoftwareCodec }
+		decoders.asSequence()
 
 	fun hasCodecForMime(mime: String): Boolean {
 		val info = decoderInfos().firstOrNull { info ->
@@ -58,6 +66,7 @@ class MediaCodecQuery(
 				val h = vc.supportedHeights?.upper ?: return@mapNotNull null
 				w to h
 			}
+			.toList()
 
 		val maxWidth = resolutions.maxOfOrNull { it.first } ?: 0
 		val maxHeight = resolutions.maxOfOrNull { it.second } ?: 0
@@ -93,7 +102,6 @@ class MediaCodecQuery(
 	}
 
 	private fun hasMultipleInstances(info: MediaCodecInfo, mime: String): Boolean {
-		if (!info.supportedTypes.contains(mime)) return false
 		val capabilities = getCapabilitiesOrNull(info, mime) ?: return false
 		return capabilities.maxSupportedInstances > 1
 	}
@@ -101,9 +109,19 @@ class MediaCodecQuery(
 	private fun getCapabilitiesOrNull(
 		info: MediaCodecInfo,
 		mime: String,
-	): MediaCodecInfo.CodecCapabilities? = try {
-		info.getCapabilitiesForType(mime)
-	} catch (_: IllegalArgumentException) {
-		null
+	): MediaCodecInfo.CodecCapabilities? {
+		val key = info to mime.lowercase()
+		if (capabilitiesCache.containsKey(key)) return capabilitiesCache[key]
+		val supportedType = info.supportedTypes.firstOrNull { it.equals(mime, ignoreCase = true) }
+		val capabilities = if (supportedType == null) null else try {
+			info.getCapabilitiesForType(supportedType)
+		} catch (_: IllegalArgumentException) {
+			null
+		} catch (error: IllegalStateException) {
+			Timber.w(error, "Failed to query codec %s for %s", info.name, mime)
+			null
+		}
+		capabilitiesCache[key] = capabilities
+		return capabilities
 	}
 }

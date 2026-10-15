@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -1313,7 +1314,7 @@ public class CustomPlaybackOverlayFragment extends Fragment implements LiveTvGui
         if (navigationRepository.getValue().getCanGoBack()) {
             navigationRepository.getValue().goBack();
         } else {
-            navigationRepository.getValue().reset(Destinations.INSTANCE.getHome());
+            navigationRepository.getValue().reset(Destinations.INSTANCE.getHome(), true);
         }
     }
 

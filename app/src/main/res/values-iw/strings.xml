@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="btn_got_it">הבנתי</string>
     <string name="lbl_subtitle_track">בחר כתוביות</string>
     <string name="lbl_audio_track">בחר רצועת שמע</string>
     <string name="lbl_zoom">זום</string>
-    <string name="desc_bitstream_ac3">דורש חומרה מתאימה</string>
     <string name="lbl_bitstream_ac3">הזרמה ישירה של שמע בפורמט Dolby Digital</string>
-    <string name="lbl_new_premieres">יצאו לאחרונה</string>
     <string name="desc_automatic_fav_songs">רשימת השמעה אוטומטית של שירים מועדפים</string>
-    <string name="msg_item_added">" פריט נוסף"</string>
     <string name="lbl_delete">מחק</string>
     <string name="lbl_instant_mix">מיקס מהיר</string>
     <string name="lbl_goto_now_playing">עבור למנגן עכשיו</string>
@@ -20,14 +18,9 @@
     <string name="lbl_open_album">פתח אלבום</string>
     <string name="lbl_open_artist">פתח אמן</string>
     <string name="lbl_add_to_queue">הוסף לתור</string>
-    <string name="msg_items_added">" פריטים נוספו"</string>
     <string name="lbl_playlists">רשימות השמעה</string>
-    <string name="sum_enable_cinema_mode">נגן קדימונים זמינים לפני תחילת הסרט</string>
-    <string name="lbl_enable_cinema_mode">מצב קולנוע</string>
     <string name="lbl_episodes">פרקים</string>
-    <string name="lbl_album">אלבום</string>
     <string name="lbl_songs">שירים</string>
-    <string name="lbl_song">שיר</string>
     <string name="lbl_artists">אמנים</string>
     <string name="lbl_albums">אלבומים</string>
     <string name="lbl_programs">תוכניות</string>
@@ -37,13 +30,9 @@
     <string name="lbl_recorded_tv">הקלטות טלוויזיה</string>
     <string name="lbl_live_tv_guide">לוח שידורים</string>
     <string name="lbl_no_recordings">אין הקלטות</string>
-    <string name="msg_burn_sub_warning">צורב כתוביות. פעולה זו עשויה להימשך מספר שניות…</string>
-    <string name="msg_unable_load_subs">לא ניתן לטעון כתוביות</string>
-    <string name="msg_subtitles_loading">כתוביות נטענות…</string>
     <string name="lbl_filters">מסנני טלוויזיה בשידור חי</string>
     <string name="lbl_ended">הסתיימה</string>
     <string name="lbl__continuing">ממשיכה</string>
-    <string name="lbl_display_preferences">העדפות תצוגה</string>
     <string name="lbl_starting_with">מתחיל עם אלה ששמותיהם מתחילים באות</string>
     <string name="lbl_rating">דירוג</string>
     <string name="lbl_critic_rating">דירוג מבקרים</string>
@@ -85,8 +74,6 @@
     <string name="lbl_mark_played">סמן כנוגן</string>
     <string name="lbl_mark_unplayed">סמן כלא נצפה</string>
     <string name="lbl_play_first_unwatched">נגן תחילה את מה שלא נצפה</string>
-    <string name="lbl_search_hint">טקסט לחיפוש (בחר לפתיחת מקלדת)</string>
-    <string name="lbl_tv_queuing">נגן את הפרק הבא אוטומטית</string>
     <string name="lbl_empty">ריק</string>
     <string name="lbl_no_items">אין פריטים</string>
     <string name="msg_cannot_play">לא ניתן לנגן את הפריט הזה</string>
@@ -96,14 +83,12 @@
     <string name="msg_playback_restricted">מנהל המערכת הגביל את ההפעלה של פריט זה כרגע</string>
     <string name="msg_playback_not_allowed">נגינה לא מאופשרת בזמן זה</string>
     <string name="lbl_loading_elipses">טוען…</string>
-    <string name="lbl_born">"לידה "</string>
     <string name="lbl_ok">אוקיי</string>
     <string name="lbl_valid_server_address">נא להזין את כתובת השרת (IP או שם דומיין/מכונה)</string>
     <string name="lbl_enter_server_address">הכנס כתובת שרת</string>
     <string name="lbl_yes">כן</string>
     <string name="lbl_no">לא</string>
     <string name="lbl_play_trailers">נגן טריילר(ים)</string>
-    <string name="lbl_trailer">"טריילר "</string>
     <string name="lbl_bracket_unknown">לא ידוע</string>
     <string name="msg_video_playback_error">"שגיאת בניגון וידאו - "</string>
     <string name="lbl_none">ללא</string>
@@ -151,7 +136,6 @@
     <string name="msg_not_implemented">" לא ממומש"</string>
     <string name="lbl_search">חיפוש</string>
     <string name="lbl_genres">ז׳אנרים</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_suggested">מומלץ</string>
     <string name="lbl_by_letter">לפי אות</string>
     <string name="lbl_views">תצוגות</string>
@@ -160,7 +144,6 @@
     <string name="lbl_continue_watching">המשך צפייה</string>
     <string name="lbl_settings">העדפות</string>
     <string name="chapters">פרקים</string>
-    <string name="pref_authentication_cat">אימות</string>
     <string name="settings_title">העדפות</string>
     <string name="pref_max_bitrate_title">קצב סיביות מרבי להזרמה</string>
     <string name="pref_playback">ניגון</string>
@@ -168,7 +151,6 @@
     <string name="btn_cancel">בטל</string>
     <string name="loading">טוען…</string>
     <string name="video_error_unknown_error">טעינת וידאו נכשלה</string>
-    <string name="lbl_show_premieres">הצג בכורות עונתיות</string>
     <string name="lbl_refresh_switching">התאמת קצב ריענון</string>
     <string name="lbl_show_backdrop">הצג תמונות רקע</string>
     <string name="lbl_open">פתח</string>
@@ -206,14 +188,10 @@
     <string name="lbl_just_this_once">רק הפעם</string>
     <string name="lbl_select_date">בחר תאריך</string>
     <string name="lbl_in_x_days">בעוד %d ימים</string>
-    <string name="desc_premieres">הצג שורה של פיילוטים לפרקים חדשים עבור הסדרה שנצפית</string>
     <string name="lbl_playback_control_ends">מסתיים ב-%1$s</string>
     <string name="lbl_sign_in">אנא התחבר</string>
     <string name="just_one">רק את זה</string>
-    <string name="turn_off">כבה את האופציה הזו</string>
-    <string name="audio_error">לא ניתן לנגן שמע %1$s</string>
     <string name="msg_no_items">אין פריטים לנגן</string>
-    <string name="subtitle_error">לא ניתן לבחור כתוביות</string>
     <string name="too_many_errors">יותר מדי תקלות. מוותר</string>
     <string name="player_error">בעיית נגן. מנסה שנית…</string>
     <string name="seek_error">לא ניתן לדלג</string>
@@ -224,14 +202,6 @@
     <string name="episode_missing_message">הפרק חסר בספרייה. האם תרצה לדלג עליו ולעבור לפרק הבא\?</string>
     <string name="episode_missing">פרק חסר</string>
     <string name="no_player_message">לא נראה שיש אפליקציה המסוגלת לנגן וידאו. תכונה זו דורשת שתותקן במכשיר תוכנה חיצונית המסוגלת לנגן וידאו.</string>
-    <string name="no_player">אין נגן</string>
-    <string name="mark_watched_message">נדמה שהפריט לא התנגן למלוא אורכו. סמן כנצפה?</string>
-    <string name="mark_watched">סמן כנצפה</string>
-    <string name="lbl_Reset">הפעל מחדש</string>
-    <string name="pref_button_remapping_description">לחץ על מקש כלשהו בשלט כדי לקבוע אותו</string>
-    <string name="pref_subtitle_track_button">כפתור כתוביות</string>
-    <string name="pref_audio_track_button">כפתור רצועת שמע</string>
-    <string name="lbl_unknown_key">לא ידוע (%1s)</string>
     <string name="grid_direction_vertical">אנכי</string>
     <string name="grid_direction_horizontal">אופקי</string>
     <string name="grid_direction">כיוון הטבלה</string>
@@ -262,11 +232,8 @@
     <string name="pref_clock_display_browsing">בזמן הדפדוף</string>
     <string name="lbl_always">תמיד</string>
     <string name="pref_clock_display">הצג שעון</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="bitrate_kbit">%1$,.0f קילו-ביט לשנייה</string>
     <string name="bitrate_mbit">%1$,.0f מגה-ביט לשנייה</string>
-    <string name="lbl_item">פריט</string>
-    <string name="lbl_items">פריטים</string>
     <string name="server_connection_failed">לא ניתן להתחבר לשרת</string>
     <string name="login_username_field_empty">שם המשתמש לא יכול להיות ריק</string>
     <string name="login_server_unavailable">לא ניתן להתחבר לשרת</string>
@@ -290,8 +257,6 @@
     <string name="connect_manually_by_address">הזן כתובת שרת</string>
     <string name="discovered_servers_empty">לא נמצאו שרתים ברשת המקומית.</string>
     <string name="discovered_servers_title">שרתים שהתגלו</string>
-    <string name="lbl_hidden">מוסתר</string>
-    <string name="pref_developer_link_description">תכונות מתקדמות ונסיוניות</string>
     <string name="pref_developer_link">הגדרות מפתחים</string>
     <string name="image_size_large">גדול</string>
     <string name="image_size_medium">בינוני</string>
@@ -303,7 +268,6 @@
     <string name="lbl_sign_out">התנתק</string>
     <string name="lbl_remove">הסרה</string>
     <string name="lbl_server">שרת</string>
-    <string name="lbl_user_server">%1$s ב%2$s</string>
     <string name="lbl_user_last_used">היה בשימוש פעם אחרונה ב-%1$s בשעה %2$s</string>
     <string name="lbl_remove_server">מחק שרת</string>
     <string name="lbl_sign_out_content">דורש להתחבר שוב בפעם הבאה</string>
@@ -334,21 +298,12 @@
     <string name="home_section_i">חלקה %1$d במסך הבית</string>
     <string name="home_prefs">מסך הבית</string>
     <string name="home_section_resume_book">המשך קריאה</string>
-    <string name="pref_direct_stream_live_on">קידוד מחדש מבוטל</string>
-    <string name="pref_direct_stream_live_off">קידוד מחדש לפי הצורך</string>
     <string name="pref_audio">שמע</string>
     <string name="pref_subtitles">כתוביות</string>
     <string name="pref_video">וידאו</string>
-    <string name="pref_playback_description">וידאו, כתוביות, טלוויזיה חיה, הבא בתור</string>
-    <string name="pref_customization_description">ערכת נושא, מסך הבית, הגדרות שליטה</string>
-    <string name="pref_login_description">שרתים, משתמשים, התחברות אוטומטית</string>
     <string name="pref_login">התחברות</string>
-    <string name="pref_libraries_description">הגדר כיצד יוצגו הספריות</string>
     <string name="pref_libraries">ספריות</string>
-    <string name="pref_home_description">הגדרת החלקות המוצגות</string>
-    <string name="pref_theme">ערכת נושא</string>
     <string name="pref_browsing">דפדוף</string>
-    <string name="pref_behavior">אופי פעולה</string>
     <string name="pref_accounts">משתמשים</string>
     <string name="sort_accounts_by">מיין משתמשים לפי</string>
     <string name="pref_customization">התאמה אישית</string>
@@ -360,8 +315,6 @@
     <string name="server_issue_invalid_product">תוכנת השרת אינה נתמכת</string>
     <string name="server_issue_unable_to_connect">תקלה בהתחברות לשרת</string>
     <string name="pref_subtitles_size">גודל טקסט</string>
-    <string name="pref_subtitles_background_summary">הצג רקע שחור מאחורי הכתוביות</string>
-    <string name="pref_subtitles_background_title">הפעל רקע לכתוביות</string>
     <string name="searchable_settings_description">מדיה</string>
     <string name="searchable_hint">חפש ב-Jellyfin</string>
     <string name="home_section_none">ללא</string>
@@ -373,14 +326,12 @@
     <string name="home_section_library_small">המדיה שלי (מוקטן)</string>
     <string name="home_section_library">המדיה שלי</string>
     <string name="home_section_latest_media">מדיה שנוספה לאחרונה</string>
-    <string name="home_sections">חלקות מסך הבית</string>
     <string name="license_license">רישיון</string>
     <string name="license_author">יוצר</string>
     <string name="license_repository">מאגר</string>
     <string name="license_website">אתר</string>
     <string name="license_version">גרסה</string>
     <string name="license_description">תיאור</string>
-    <string name="licenses_link_description">הצג את רישיונות הספריות שבשימוש ע\"י אפליקציית Jellyfin</string>
     <string name="licenses_link">רישיונות</string>
     <string name="select_version">גרסה</string>
     <string name="advanced_settings">הגדרות מתקדמות</string>
@@ -399,7 +350,6 @@
     <string name="lbl_playback_speed">מהירות ניגון</string>
     <string name="lbl_stretch">מתיחה</string>
     <string name="lbl_auto_crop">חיתוך אוטומטי</string>
-    <string name="live_tv_preferences">אפשרויות טלוויזיה חיה</string>
     <string name="action_connect">התחבר</string>
     <string name="login_quickconnect_step_3">3. הכנס את הקוד הבא:</string>
     <string name="login_quickconnect_step_2">2. פתח את תפריט המשתמש והיכנס לדף ה-Quick Connect</string>
@@ -412,7 +362,6 @@
     <string name="action_use_password">השתמש בסיסמה</string>
     <string name="action_login">היכנס</string>
     <string name="lbl_start_end_on_schedule">מתחיל ומסיים בזמן המתוכנן</string>
-    <string name="lbl_subtitle_delay">השהיית כתוביות</string>
     <string name="lbl_shuffle_queue">החלף מצב ערבוב</string>
     <string name="state_disabled">מושבת</string>
     <string name="pref_telemetry_category">דיווח על קריסה</string>
@@ -421,7 +370,6 @@
     <string name="image_size_xlarge">גדול-במיוחד</string>
     <string name="lbl_additional_parts">חלקים נוספים</string>
     <string name="pref_audio_night_mode">מצב לילה לאודיו (ניסיוני)</string>
-    <string name="desc_audio_night_mode">מאזן את עוצמת השמע באופן אוטומטי</string>
     <string name="lbl_quality_profile">פרופיל איכות</string>
     <string name="image_type_poster">פוסטר</string>
     <string name="image_size_smallest">קטן ביותר</string>
@@ -430,7 +378,6 @@
     <string name="pref_refresh_rate_scale_on_device">קביעת קנה מידה במכשיר</string>
     <string name="app_notification_uimode_invalid">אפליקציה זו מותאמת לטלוויזיות. אנו ממליצים להשתמש באפליקציה שלנו לנייד במכשירים אחרים.</string>
     <string name="server_unsupported_notification">שרת זה משתמש בגרסת %1$s Jellyfin שאינה נתמכת. עדכן ל-Jellyfin %2$s ומעלה כדי להמשיך להשתמש באפליקציה.</string>
-    <string name="pref_telemetry_description">שלח דוחות קריסה, כולל יומנים</string>
     <string name="pref_crash_reports">שלח דוחות קריסה לשרת</string>
     <string name="pref_crash_reports_enabled">דוחות קריסה יישלחו לשרת האחרון שבו השתמשת</string>
     <string name="pref_crash_reports_disabled">לא יוגשו דוחות קריסה</string>
@@ -440,18 +387,10 @@
     <string name="crash_report_toast">אבוי! משהו השתבש, דוח קריסה נשלח לשרת Jellyfin שלך.</string>
     <string name="app_notification_beta">היישום עודכן לגרסה %1$s
 \nתודה על השתתפותך בתוכנית הבטא של Jellyfin.</string>
-    <string name="color_black">שחור</string>
-    <string name="color_white">לבן</string>
     <string name="color_red">אדום</string>
     <string name="color_green">ירוק</string>
     <string name="color_blue">כחול</string>
-    <string name="color_yellow">צהוב</string>
-    <string name="color_darkgrey">אפור כהה</string>
-    <string name="color_cyan">טורקיז</string>
-    <string name="color_pink">ורוד</string>
-    <string name="pref_enable_media_management">הפעלת ניהול מדיה</string>
     <string name="item_delete_confirm_message">האם אתה בטוח שאתה רוצה למחוק את הפריט הזה מהשרת? לא ניתן לשחזר פעולה זו.</string>
-    <string name="pref_enable_media_management_description">הצג אפשרויות לניהול המדיה בזמן השימוש</string>
     <string name="item_delete_confirm_title">מחיקת פריט</string>
     <string name="item_deleted">%1$s נמחק</string>
     <string name="item_deletion_failed">לא ניתן למחוק את %1$s</string>
@@ -463,14 +402,12 @@
         <item quantity="two">%1$s רצועות</item>
         <item quantity="other">%1$s רצועות</item>
     </plurals>
-    <string name="enable_reactive_homepage">הפעלת עמוד בית מסתגל</string>
     <plurals name="seconds">
         <item quantity="one">שניה %1$s</item>
         <item quantity="two">%1$s שניות</item>
         <item quantity="many">%1$s שניות</item>
         <item quantity="other">%1$s שניות</item>
     </plurals>
-    <string name="not_set">לא הוגדר</string>
     <plurals name="hours">
         <item quantity="one">שעה %1$s</item>
         <item quantity="two">שעתיים</item>
@@ -497,7 +434,6 @@
     <string name="photos">תמונות</string>
     <string name="photo_albums">אלבומי תמונות</string>
     <string name="lbl_hide_watched_checkmark">כאשר ישנם פרקים נותרים</string>
-    <string name="pref_external_player">השתמש בנגן חיצוני</string>
     <string name="dolby_vision">Dolby Vision</string>
     <string name="person_birthday_and_age">תאריך לידה %1$s (%2$d)</string>
     <string name="dolby_atmos">Dolby Atmos</string>
@@ -520,11 +456,6 @@
         <item quantity="two">%1$s שירים</item>
         <item quantity="other">%1$s שירים</item>
     </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">סדרה %1$s</item>
-        <item quantity="two">%1$s סדרות</item>
-        <item quantity="other">%1$s סדרות</item>
-    </plurals>
     <plurals name="albums">
         <item quantity="one">אלבום %1$s</item>
         <item quantity="two">%1$s אלבומים</item>
@@ -541,14 +472,8 @@
     <string name="app_notification_update_soon">יש לעדכן את השרת מגרסה %1$s לגרסה %2$s לפחות בכדי להמשיך להשתמש באפליקציה אחרי העדכון הבא.</string>
     <string name="pref_screensaver_ageratingmax_unlimited">השבתת מקסימום</string>
     <string name="pref_playback_advanced">העדפות ניגון מתקדמות</string>
-    <plurals name="movies">
-        <item quantity="one">סרט %1$s</item>
-        <item quantity="two">%1$s סרטים</item>
-        <item quantity="other">%1$s סרטים</item>
-    </plurals>
     <string name="unreleased">טרם יצא</string>
     <string name="pref_screensaver_ageratingrequired_enabled">מציג רק פריטים שיש להם הגבלת גיל</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">מציג את כל הפריטים</string>
     <string name="pref_screensaver_ageratingmax">הגבלת גיל מרבית</string>
     <string name="prefer_exoplayer_ffmpeg">העדף FFmpeg לניגון שמע</string>
     <string name="lbl_subtitle_background_color">צבע הרקע</string>
@@ -566,18 +491,15 @@
     <string name="past_week">בשבוע האחרון</string>
     <string name="scheduled_in_next_24_hours">מתוכנן ב-24 השעות הקרובות</string>
     <string name="past_24_hours">24 שעות אחרונות</string>
-    <string name="pref_mediasegment_actions">פעולות בהגעה למקטעי מדיה</string>
     <string name="segment_action_skip">דלג</string>
     <string name="default_video_zoom">מצב זום ברירת מחדל</string>
     <string name="segment_action_ask_to_skip">הצע לדלג</string>
-    <string name="preference_enable_trickplay">הפעלת Trickplay בנגן הוידאו</string>
     <string name="skip_forward_length">אורך דילוג קדימה</string>
     <string name="runtime_hours_minutes">%1$d שע\' %2$d דק\'</string>
     <string name="runtime_minutes">%1$d דק\'</string>
     <string name="pref_report_device_profile_summary">העלה מסמך דיווח שגיאות לשרת Jellyfin עם מידע על יכולות נגן</string>
     <string name="fast_forward">הרץ קדימה</string>
     <string name="rewind">החזר אחורה</string>
-    <string name="pref_subtitles_background_opacity">שקיפות רקע כתוביות</string>
     <string name="pref_troubleshooting">פתרון בעיות</string>
     <string name="pref_report_device_profile_title">דווח על יכולות ניגון לשרת</string>
     <string name="pref_report_device_profile_success">מסמך נשלח כ-%1$s</string>
@@ -587,10 +509,8 @@
     <string name="speech_error_unavailable">זיהוי דיבור אינו זמין במכשיר זה.</string>
     <string name="speech_error_no_permission">אין הרשאה להשתמש במיקרופון. אנא אפשר זאת בהגדרות המערכת.</string>
     <string name="speech_error_unknown">שגיאה בלתי צפויה התרחשה במהלך זיהוי הדיבור.</string>
-    <string name="pref_subtitles_bold">טקסט מודגש</string>
     <string name="preference_enable_pgs">נגן ישירות כתוביות מסוג PSG</string>
     <string name="lbl_exit">יציאה</string>
-    <string name="pref_still_watching_behavior_title">הצג הודעה קופצת לאחר חוסר שימוש ממושך</string>
     <string name="lbl_still_watching_default">3 פרקים או 90 דקות</string>
     <string name="lbl_still_watching_short">2 פרקים או 60 דקות</string>
     <string name="lbl_still_watching_long">5 פרקים או 150 דקות</string>

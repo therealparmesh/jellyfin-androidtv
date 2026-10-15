@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_latest">അടുത്തിടെ ചേർത്തത്</string>
     <string name="msg_not_implemented">" നടപ്പിലാക്കാത്ത"</string>
@@ -11,7 +12,6 @@
     <string name="lbl_continue_watching">കാണുന്നത് തുടരുക</string>
     <string name="lbl_settings">ക്രമീകരണങ്ങൾ</string>
     <string name="chapters">അധ്യായങ്ങൾ</string>
-    <string name="pref_authentication_cat">പ്രാമാണീകരണം</string>
     <string name="settings_title">മുൻഗണനകൾ</string>
     <string name="pref_max_bitrate_title">ഉയർന്ന സ്ട്രീമിംഗ് ബിറ്റ് റേറ്റ്</string>
     <string name="pref_playback">പ്ലേബാക്ക്</string>
@@ -21,10 +21,8 @@
     <string name="video_error_unknown_error">വീഡിയോ ലോഡുചെയ്യുന്നതിൽ പരാജയപ്പെട്ടു</string>
     <string name="server_connection_failed">സെർവറിലേക്ക് കണക്റ്റുചെയ്യാനായില്ല</string>
     <string name="lbl_playback_control_ends">%1$s ൽ അവസാനിക്കുന്നു</string>
-    <string name="audio_error">%1$s ഓഡിയോ പ്ലേ ചെയ്യാൻ കഴിയില്ല</string>
     <string name="msg_live_tv_prev">മുമ്പത്തെ %1$d മണിക്കൂർ ലോഡുചെയ്യണോ?</string>
     <string name="msg_live_tv_next">അടുത്ത %1$d മണിക്കൂർ ലോഡുചെയ്യണോ?</string>
-    <string name="lbl_unknown_key">അജ്ഞാതം (%1s)</string>
     <string name="lbl_tv_filter_status">അടുത്മ %1$d ണിക്കൂർ</string>
     <string name="lbl_tv_channel_status">%1$d ഡി %2$d ചാനലുകൾ</string>
     <string name="lbl_resume_from">%1$s ൽ നിന്ന് ആരംഭിക്കുക</string>
@@ -61,8 +59,6 @@
     <string name="connect_manually_by_address">സെർവർ വിലാസം നൽകുക</string>
     <string name="discovered_servers_empty">പ്രാദേശിക നെറ്റ്‌വർക്കിൽ സെർവറുകളൊന്നും കണ്ടെത്തിയില്ല.</string>
     <string name="discovered_servers_title">കണ്ടെത്തിയ സെർവറുകൾ</string>
-    <string name="lbl_hidden">മറച്ചിരിക്കുന്നു</string>
-    <string name="pref_developer_link_description">നൂതനവും പരീക്ഷണാത്മകവുമായ സവിശേഷതകൾ</string>
     <string name="pref_developer_link">ഡവലപ്പർ ഓപ്ഷനുകൾ</string>
     <string name="image_size_large">വലുത്</string>
     <string name="image_size_medium">ഇടത്തരം</string>
@@ -86,12 +82,9 @@
     <string name="pref_clock_display_browsing">ബ്രൗസുചെയ്യുമ്പോൾ</string>
     <string name="lbl_always">എല്ലായ്പ്പോഴും</string>
     <string name="pref_clock_display">ക്ലോക്ക് കാണിക്കുക</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_sign_in">സൈൻ ഇൻ ചെയ്യുക</string>
     <string name="just_one">ഇത് മാത്രം</string>
-    <string name="turn_off">ഈ ഓപ്‌ഷൻ ഓഫാക്കുക</string>
     <string name="msg_no_items">കളിക്കാൻ ഇനങ്ങളൊന്നുമില്ല</string>
-    <string name="subtitle_error">ഉപശീർഷകം തിരഞ്ഞെടുക്കാനായില്ല</string>
     <string name="too_many_errors">വളരെയധികം പിശകുകൾ. ഉപേക്ഷിക്കുന്നു</string>
     <string name="seek_error">അന്വേഷിക്കാൻ കഴിയുന്നില്ല</string>
     <string name="lbl_load_guide_data">ഗൈഡ് ഡാറ്റ ലോഡുചെയ്യുക</string>
@@ -99,13 +92,6 @@
     <string name="episode_missing_message">ഈ എപ്പിസോഡ് നിങ്ങളുടെ ലൈബ്രറിയിൽ കാണുന്നില്ല. ഇത് ഒഴിവാക്കി അടുത്തതിലേക്ക് തുടരാൻ നിങ്ങൾ ആഗ്രഹിക്കുന്നുണ്ടോ\?</string>
     <string name="episode_missing">എപ്പിസോഡ് കാണുന്നില്ല</string>
     <string name="no_player_message">നിങ്ങൾക്ക് വീഡിയോ ശേഷിയുള്ള അപ്ലിക്കേഷൻ ഇൻസ്റ്റാളുചെയ്‌തതായി തോന്നുന്നില്ല. വീഡിയോ ഉള്ളടക്കം പ്ലേ ചെയ്യുന്നതിനായി ഒരു മൂന്നാം കക്ഷി ആപ്ലിക്കേഷൻ ഇൻസ്റ്റാൾ ചെയ്യാൻ ഈ ഓപ്ഷന് ആവശ്യമാണ്.</string>
-    <string name="no_player">പ്ലെയർ ഇല്ല</string>
-    <string name="mark_watched_message">ഇനത്തിന്റെ ദൈർഘ്യം ഉള്ളിടത്തോളം പ്ലേ ചെയ്യുന്നതായി തോന്നുന്നില്ല. മാർക്ക് കണ്ടോ\?</string>
-    <string name="mark_watched">മാർക്ക് കണ്ടു</string>
-    <string name="lbl_Reset">പുന et സജ്ജമാക്കുക</string>
-    <string name="pref_button_remapping_description">അത് നൽകാൻ ടിവി റിമോട്ടിലെ ഏതെങ്കിലും ബട്ടൺ അമർത്തുക</string>
-    <string name="pref_subtitle_track_button">സബ്‌ടൈറ്റിൽ ട്രാക്ക് ബട്ടൺ</string>
-    <string name="pref_audio_track_button">ഓഡിയോ ട്രാക്ക് ബട്ടൺ</string>
     <string name="grid_direction_horizontal">തിരശ്ചീന</string>
     <string name="pref_device_model">ഉപകരണ മോഡൽ</string>
     <string name="pref_app_theme">അപ്ലിക്കേഷൻ തീം</string>
@@ -155,8 +141,6 @@
     <string name="msg_record_entire_series">മുഴുവൻ സീരീസും റെക്കോർഡുചെയ്യണോ\?</string>
     <string name="lbl_just_this_once">ഇത് ഒരിക്കൽ മാത്രം</string>
     <string name="lbl_select_date">തീയതി തിരഞ്ഞെടുക്കുക</string>
-    <string name="desc_premieres">നിങ്ങൾ കാണുന്ന ഏത് സീരീസിനും പുതിയ എപ്പിസോഡ് പൈലറ്റുമാരുടെ ഒരു വരി കാണിക്കുക</string>
-    <string name="lbl_show_premieres">ബ്രൗസുചെയ്യുമ്പോൾ സീസൺ പ്രീമിയറുകൾ കാണിക്കുക</string>
     <string name="lbl_refresh_switching">നിരക്ക് മാറുന്നത് പുതുക്കുക</string>
     <string name="lbl_show_backdrop">ബ്രൗസുചെയ്യുമ്പോൾ ബാക്ക്‌ട്രോപ്പ് കാണിക്കുക</string>
     <string name="lbl_open">തുറക്കുക</string>
@@ -166,11 +150,8 @@
     <string name="lbl_subtitle_track">സബ്ടൈറ്റിൽ ട്രാക്ക് തിരഞ്ഞെടുക്കുക</string>
     <string name="lbl_audio_track">ഓഡിയോ ട്രാക്ക് തിരഞ്ഞെടുക്കുക</string>
     <string name="lbl_zoom">സൂം ചെയ്യുക</string>
-    <string name="desc_bitstream_ac3">കഴിവുള്ള ഹാർഡ്‌വെയർ ആവശ്യമാണ്</string>
     <string name="lbl_bitstream_ac3">ബിറ്റ്സ്ട്രീം ഡോൾബി ഡിജിറ്റൽ ഓഡിയോ</string>
-    <string name="lbl_new_premieres">പുതിയ പ്രീമിയറുകൾ</string>
     <string name="desc_automatic_fav_songs">പ്രിയപ്പെട്ടതും ഇഷ്ടപ്പെട്ടതുമായ ഗാനങ്ങളുടെ യാന്ത്രിക പ്ലേലിസ്റ്റ്</string>
-    <string name="msg_item_added">" ഇനം ചേർത്തു"</string>
     <string name="lbl_delete">ഇല്ലാതാക്കുക</string>
     <string name="lbl_instant_mix">തൽക്ഷണ മിക്സ്</string>
     <string name="lbl_goto_now_playing">ഇപ്പോൾ കാണുന്നതിലേക്ക് പോകുക</string>
@@ -182,25 +163,18 @@
     <string name="lbl_open_album">ആൽബം തുറക്കുക</string>
     <string name="lbl_open_artist">ഓപ്പൺ ആർട്ടിസ്റ്റ്</string>
     <string name="lbl_add_to_queue">ക്യൂവിലേക്ക് ചേർക്കുക</string>
-    <string name="msg_items_added">" ഇനങ്ങൾ ചേർത്തു"</string>
     <string name="lbl_playlists">പ്ലേലിസ്റ്റുകൾ</string>
-    <string name="sum_enable_cinema_mode">ഒരു സിനിമ ആരംഭിക്കുന്നതിന് മുമ്പ് ലഭ്യമായ ആമുഖങ്ങളും പ്രിവ്യൂകളും പ്ലേ ചെയ്യുക</string>
-    <string name="lbl_enable_cinema_mode">സിനിമാ മോഡ്</string>
     <string name="lbl_episodes">എപ്പിസോഡുകൾ</string>
-    <string name="lbl_album">ആൽബം</string>
     <string name="lbl_songs">ഗാനങ്ങൾ</string>
-    <string name="lbl_song">ഗാനം</string>
     <string name="lbl_artists">കലാകാരന്മാർ</string>
     <string name="lbl_programs">പ്രോഗ്രാമുകൾ</string>
     <string name="lbl_direct_stream_live">ഡയറക്ട് സ്ട്രീം ലൈവ് ടിവി</string>
     <string name="lbl_recorded_tv">റെക്കോർഡുചെയ്‌ത ടിവി</string>
     <string name="lbl_live_tv_guide">തത്സമയ ടിവി ഗൈഡ്</string>
     <string name="lbl_no_recordings">റെക്കോർഡിംഗുകളൊന്നും ലഭ്യമല്ല</string>
-    <string name="msg_unable_load_subs">സബ്‌ടൈറ്റിൽ ലോഡുചെയ്യാനായില്ല</string>
     <string name="lbl_filters">തത്സമയ ടി വി ഫിൽട്ടറുകൾ</string>
     <string name="lbl_ended">അവസാനിച്ചു</string>
     <string name="lbl__continuing">തുടരുന്നു</string>
-    <string name="lbl_display_preferences">പ്രദർശന മുൻ‌ഗണനകൾ</string>
     <string name="lbl_starting_with">പേര് ആരംഭിക്കുന്നവരുടെ ആരംഭം</string>
     <string name="lbl_rating">റേറ്റിംഗ്</string>
     <string name="lbl_critic_rating">ക്രിട്ടിക് റേറ്റിംഗ്</string>
@@ -232,7 +206,6 @@
     <string name="lbl_season_number">S%1$d</string>
     <string name="no_user_warning">ഞങ്ങൾക്ക് ഒരു ഉപയോക്താക്കളെയും കണ്ടെത്താൻ കഴിഞ്ഞില്ല!
 \n\"ഉപയോക്താവ് ചേർക്കുക\" ബട്ടൺ അമർത്തി ഒരു പുതിയ ഉപയോക്താവിനെ ചേർക്കുക.</string>
-    <string name="lbl_user_server">%2$s ന് %1$s</string>
     <string name="lbl_user_last_used">%2$s ന് %1$s ൽ അവസാനമായി ഉപയോഗിച്ചു</string>
     <string name="lbl_similar_items_library">നിങ്ങളുടെ ലൈബ്രറിയിലെ സമാന ഇനങ്ങൾ</string>
     <string name="lbl_end_padding">പാഡിംഗ് അവസാനിപ്പിക്കുക</string>
@@ -252,8 +225,6 @@
     <string name="lbl_mark_played">കാണിച്ചതായി അടയാളപ്പെടുത്തുക</string>
     <string name="lbl_mark_unplayed">പ്ലേ ചെയ്‌തില്ലെന്ന് അടയാളപ്പെടുത്തുക</string>
     <string name="lbl_play_first_unwatched">ആദ്യം കാണാതെ കാണിക്കുക</string>
-    <string name="lbl_search_hint">വാചകം തിരയുക (കീബോർഡിനായി തിരഞ്ഞെടുക്കുക)</string>
-    <string name="lbl_tv_queuing">അടുത്ത എപ്പിസോഡ് സ്വയമേവ പ്ലേ ചെയ്യുക</string>
     <string name="lbl_empty">ശൂന്യമാണ്</string>
     <string name="lbl_no_items">ഇനങ്ങളൊന്നുമില്ല</string>
     <string name="msg_cannot_play">ഈ ഇനം പ്ലേ ചെയ്യാൻ കഴിയില്ല</string>
@@ -262,13 +233,11 @@
     <string name="msg_playback_incompatible">ഈ വീഡിയോ ഫോർമാറ്റ് പ്ലേ ചെയ്യാൻ കഴിയില്ല</string>
     <string name="msg_playback_restricted">അഡ്‌മിനിസ്‌ട്രേറ്റർ ഇപ്പോൾ ഈ ഇനത്തിന്റെ പ്ലേബാക്ക് നിയന്ത്രിച്ചിരിക്കുന്നു</string>
     <string name="msg_playback_not_allowed">ഇപ്പോൾ പ്ലേബാക്ക് അനുവദനീയമല്ല</string>
-    <string name="lbl_born">"ജനനം "</string>
     <string name="lbl_ok">ശരി</string>
     <string name="lbl_valid_server_address">സെർവർ വിലാസം നൽകുക (IP അല്ലെങ്കിൽ ഡൊമെയ്ൻ / മെഷീൻ നാമം)</string>
     <string name="lbl_enter_server_address">സെർവർ വിലാസം നൽകുക</string>
     <string name="lbl_yes">അതെ</string>
     <string name="lbl_no">ഇല്ല</string>
-    <string name="lbl_trailer">"ട്രെയിലർ "</string>
     <string name="lbl_bracket_unknown">അജ്ഞാതം</string>
     <string name="msg_video_playback_error">"വീഡിയോ പ്ലേബാക്ക് പിശക് - "</string>
     <string name="lbl_none">ഒന്നുമില്ല</string>
@@ -285,8 +254,6 @@
     <string name="lbl_upcoming">വരാനിരിക്കുന്ന</string>
     <string name="lbl_seasons">ഋതുക്കൾ</string>
     <string name="lbl_series">സീരീസ്</string>
-    <string name="lbl_item">ഇനം</string>
-    <string name="lbl_items">ഇനങ്ങൾ</string>
     <string name="lbl_specials">പ്രത്യേകതകൾ</string>
     <string name="lbl_chapters">അധ്യായങ്ങൾ</string>
     <string name="lbl_cast_crew">കാസ്റ്റ് / ക്രൂ</string>
@@ -323,7 +290,6 @@
     <string name="always_authenticate">എപ്പോഴും ക്രെഡൻഷ്യലുകൾ ചോദിക്കുക</string>
     <string name="lbl_community_rating">സാമൂഹിക വിലയിരുത്തൽ</string>
     <string name="continue_listening">കേൾക്കുന്നത് തുടരുക</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_genres">വിഭാഗങ്ങൾ</string>
     <string name="lbl_home">വീട്</string>
     <string name="state_disabled">വികലാംഗം</string>
@@ -336,7 +302,6 @@
     <string name="lbl_now_playing_track">%1$s of %2$s</string>
     <string name="pref_audio_direct">നേരിട്ട്</string>
     <string name="lbl_videos">വീഡിയോകൾ</string>
-    <string name="msg_burn_sub_warning">സബ്ടൈറ്റിലുകൾ ലോഡ് ചെയ്യുന്നു. ഇതിന് കുറച്ച് നിമിഷങ്ങൾ എടുത്തേക്കാം…</string>
     <string name="lbl_albums">ആൽബങ്ങൾ</string>
     <string name="lbl_play_trailers">ട്രെയിലർ(കൾ) പ്ലേ ചെയ്യുക</string>
     <string name="lbl_exit">പുറത്തു പോകുക</string>
@@ -344,7 +309,6 @@
     <string name="msg_error_live_stream">തത്സമയ ടി വി സ്ട്രീമിംഗ് ചെയ്യുന്നതിൽ പിശക് വീണ്ടും ശ്രമിക്കും…</string>
     <string name="lbl_runtime">റൺടൈം</string>
     <string name="pref_live_tv_cat">തത്സമയ ടി വി</string>
-    <string name="msg_subtitles_loading">സബ്ടൈറ്റിലുകൾ ലോഡ് ചെയ്യുന്നു…</string>
     <string name="because_you_watched">കാരണം നിങ്ങൾ %1$s കണ്ടു</string>
     <string name="lbl_shuffle_queue">മാറ്റി കലർത്തുക</string>
 </resources>

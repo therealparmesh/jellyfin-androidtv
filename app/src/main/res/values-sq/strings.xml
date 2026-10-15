@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_home">Faqja Kryesore</string>
     <string name="lbl_continue_watching">Vazhdo të shikosh</string>
@@ -15,7 +16,6 @@
     <string name="pref_playback">Shfaq</string>
     <string name="pref_max_bitrate_title">Shpejtësia maksimale e transmetimit në bit</string>
     <string name="settings_title">Preferenca</string>
-    <string name="pref_authentication_cat">Autentikim</string>
     <string name="chapters">Kapitujt</string>
     <string name="lbl_settings">Preferenca</string>
     <string name="lbl_views">Pamje</string>
@@ -45,8 +45,6 @@
     <string name="lbl_specials">Speciale</string>
     <string name="lbl_series">Seri</string>
     <string name="lbl_trailers">Trailers</string>
-    <string name="lbl_items">Artikuj</string>
-    <string name="lbl_item">Artikull</string>
     <string name="lbl_seasons">Sezonet</string>
     <string name="lbl_latest_in">Shtuar së fundi në %1$s</string>
     <string name="lbl_by_name">Sipas emrit</string>
@@ -65,11 +63,9 @@
     <string name="lbl_rating">Vlerësimi</string>
     <string name="lbl_yes">Po</string>
     <string name="lbl_enter_server_address">Vendos adresën e serverit</string>
-    <string name="lbl_born">"Lindur "</string>
     <string name="lbl_valid_server_address">Ju lutem vendosni adresën e serverit (IP ose domain/emrin e pajisjes)</string>
     <string name="msg_playback_not_allowed">Luajtja nuk lejohet në këtë moment</string>
     <string name="msg_cannot_play_time">Nuk mund të luaj këtë tani</string>
-    <string name="lbl_tv_queuing">Luaj episodin tjetër automatikisht</string>
     <string name="lbl_play_first_unwatched">Luaj si fillim të pa parët</string>
     <string name="lbl_record_any_time">Rregjistro në çdo kohë</string>
     <string name="lbl_tomorrow">Nesër</string>
@@ -99,7 +95,6 @@
     <string name="msg_playback_restricted">Administratori ka ndaluar luajtjen e këtij objekti tani</string>
     <string name="lbl_mark_unplayed">Shëno si i paparë</string>
     <string name="lbl_mark_played">Shëno si i parë</string>
-    <string name="lbl_search_hint">kërko tekst (zgjidh për tastier)</string>
     <string name="lbl_unwatched">Të paparat</string>
     <string name="lbl_similar_items_library">Objekt i ngjashëm në librarin tuaj</string>
     <string name="lbl_record_any_channel">Rregjistro në çdo kanal</string>
@@ -108,15 +103,11 @@
     <string name="lbl_all_items">Të gjitha sendet</string>
     <string name="lbl_from">nga</string>
     <string name="lbl_community_rating">Vlerësimi i komunitetit</string>
-    <string name="lbl_display_preferences">Shfaq preferencat</string>
-    <string name="msg_subtitles_loading">Titrat duke u ngarkuar…</string>
-    <string name="msg_unable_load_subs">E pamundur të ngarkohen titrat</string>
     <string name="lbl_name">Emri</string>
     <string name="lbl_starting_with">fillo me ato që emri u fillon me</string>
     <string name="lbl_ended">MBAROJ</string>
     <string name="lbl_bracket_unknown">E panjohur</string>
     <string name="lbl_videos">Video</string>
-    <string name="lbl_trailer">"Trailer "</string>
     <string name="lbl_recordings">Rregjistrime</string>
     <string name="lbl_none">Asnjë</string>
     <string name="lbl_play_trailers">Luaj trailer(at)</string>
@@ -132,12 +123,10 @@
     <string name="btn_got_it">E kuptova</string>
     <string name="runtime_hours_minutes">%1$dh %2$dm</string>
     <string name="runtime_minutes">%1$dm</string>
-    <string name="lbl_song">Kënga</string>
     <string name="lbl_watched">I shikuar</string>
     <string name="lbl_sd">SD</string>
     <string name="lbl_runs">Luhet</string>
     <string name="lbl_ends">Mbaron</string>
-    <string name="sum_enable_cinema_mode">Luaj introt dhe parapamjet e disponueshme përpara se të fillosh një film</string>
     <string name="lbl_directed_by">Drejtuar nga</string>
     <string name="lbl_last_played">"Hera e fundit që është luajtur "</string>
     <string name="lbl_other_options">Opsione të tjera</string>
@@ -146,19 +135,15 @@
     <string name="lbl_now_playing">Tani po luhet</string>
     <string name="lbl_remove_from_queue">Hiq nga rradha</string>
     <string name="lbl_goto_now_playing">Shko tek ajo që po luhet tani</string>
-    <string name="lbl_new_premieres">Premiera të reja</string>
     <string name="lbl_playback_speed">Shpejtësia e luajtjes</string>
     <string name="lbl_clear_queue">Fshij radhën</string>
-    <string name="desc_bitstream_ac3">Kërkon pajisje të aftë</string>
     <string name="lbl_fit">Normal</string>
     <string name="lbl_runtime">Zgjat</string>
     <string name="lbl_end_padding">Ndalo mbushjen</string>
     <string name="pref_live_tv_cat">TV</string>
     <string name="lbl_direct_stream_live">Transmeto drejtpërdrejt TV live</string>
     <string name="lbl_artists">Artistët</string>
-    <string name="lbl_album">Album</string>
     <string name="lbl_episodes">Episodi</string>
-    <string name="msg_items_added">" zëra te shtuar"</string>
     <string name="lbl_add_to_queue">Shto në rradhë</string>
     <string name="lbl_next_item">Artikulli tjeter</string>
     <string name="lbl_prev_item">Artikulli paraardhës</string>
@@ -170,15 +155,11 @@
     <string name="lbl_subtitle_track">Zgjidh titrat</string>
     <string name="lbl_enable_debug">Opsionet e diagnostikimit</string>
     <string name="desc_debug">Ofro informacion shtesë për diagnostikim</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_songs">Këngët</string>
-    <string name="msg_item_added">" artikulli u shtua"</string>
     <string name="lbl_bitstream_ac3">Audio Bitstream Dolby Digital</string>
-    <string name="desc_audio_night_mode">Nivelon automatikisht volumin e zërit</string>
     <string name="lbl_stretch">Shtrije</string>
     <string name="lbl_audio_track">Zgjidh audio</string>
     <string name="lbl_show_backdrop">Shfaq sfondet</string>
-    <string name="msg_burn_sub_warning">Duke integruar titrat. Kjo mund të zgjasë disa sekonda…</string>
     <string name="lbl_recorded_tv">TV i rregjistruar</string>
     <string name="lbl_open_artist">Hap të dhënat e artistit</string>
     <string name="msg_video_playback_error">"Gabim ne luajtjen e videos "</string>
@@ -191,7 +172,6 @@
     <string name="lbl_play_next_up">Luaj artikullin pasardhës</string>
     <string name="lbl_no_recordings">Asnjë rregjistrim i disponueshëm</string>
     <string name="lbl_programs">Programet</string>
-    <string name="lbl_enable_cinema_mode">Modaliteti kinema</string>
     <string name="lbl_exit">Dil</string>
     <string name="lbl_date_show_added">Data kur u shtua shfaqja</string>
     <string name="lbl_date_episode_added">Data e shtimit të episodit</string>
@@ -224,8 +204,6 @@
     <string name="playback_info_channels">Kanalet: %1$d</string>
     <string name="playback_info_video_range">Gama e videos: %1$s</string>
     <string name="playback_info_transcoding_note">Serveri po e transkodon këtë file</string>
-    <string name="lbl_show_premieres">Shfaq premierat e sezonit</string>
-    <string name="desc_premieres">Shfaq një rresht me episode pilot të reja për çdo serial që ndjek</string>
     <string name="lbl_in_x_days">Në %d ditë</string>
     <string name="lbl_select_date">Zgjidh datën</string>
     <string name="lbl_just_this_once">Vetëm këtë herë</string>
@@ -266,7 +244,6 @@
     <string name="lbl_tv_filter_status">për %1$d orët e ardhshme</string>
     <string name="lbl_news">Lajme</string>
     <string name="lbl_new_only">Vetëm të reja</string>
-    <string name="lbl_subtitle_delay">Vonesa e titrave</string>
     <string name="lbl_new_episodes">Episode të reja</string>
     <string name="lbl_premieres">Premierat</string>
     <string name="lbl_repeat_episodes">Episode në përsëritje</string>
@@ -280,28 +257,18 @@
     <string name="pref_theme_dark">E errët (E paracaktuar)</string>
     <string name="pref_theme_emerald">Emerald klasik</string>
     <string name="pref_about_title">Rreth nesh</string>
-    <string name="pref_external_player">Përdor player të jashtëm</string>
     <string name="pref_next_up_timeout_summary">Sa gjatë të pritet para se të luhet elementi tjetër</string>
     <string name="pref_next_up_timeout_title">Kohëzgjatja e kohëmatësit \"Në radhë\"</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="watch_now">Shiko tani</string>
     <string name="pref_next_up_behavior_title">Shfaq informacionin e videos tjetër</string>
-    <string name="pref_still_watching_behavior_title">Shfaq dritaren e kohës së skadimit të pasivitetit</string>
     <string name="pref_app_theme">Tema e aplikacionit</string>
     <string name="pref_device_model">Modeli i pajisjes</string>
     <string name="grid_direction">Drejtimi i rrjetit</string>
     <string name="grid_direction_horizontal">Horizontal</string>
     <string name="grid_direction_vertical">Vertikal</string>
-    <string name="lbl_unknown_key">E panjohur (%1s)</string>
-    <string name="pref_audio_track_button">Butoni i audio</string>
-    <string name="pref_subtitle_track_button">Butoni i titrave</string>
-    <string name="pref_button_remapping_description">Shtypni çfarëdo butoni në telekomandën e televizorit për ta caktuar atë</string>
-    <string name="lbl_Reset">Rivendos</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/s</string>
-    <string name="mark_watched">Shëno si të shikuar</string>
-    <string name="mark_watched_message">Artikulli nuk dukej se u luajt për gjithë kohëzgjatjen e tij. Te shënohet si të shikuar?</string>
-    <string name="no_player">Asnjë player</string>
     <string name="no_player_message">Nuk duket se keni të instaluar ndonjë aplikacion që mbështet videon. Ky opsion kërkon instalimin e një aplikacioni të palës së tretë për të luajtur përmbajtje video.</string>
     <string name="episode_missing">Episodi mungon</string>
     <string name="episode_missing_message">Ky episod mungon në librarinë tuaj. Dëshironi ta kapërceni dhe të vazhdoni me tjetrin?</string>
@@ -312,14 +279,10 @@
     <string name="seek_error">Në pamundësi për të kërkuar</string>
     <string name="player_error">Ndodhi një gabim në player. Do të provohet sërish…</string>
     <string name="too_many_errors">Shumë gabime. Po heq dorë</string>
-    <string name="subtitle_error">Nuk mund të zgjidhen titrat</string>
     <string name="msg_no_items">Nuk ka artikuj për të luajtur</string>
-    <string name="audio_error">Nuk mund të luhet audio %1$s</string>
-    <string name="turn_off">Çaktivizo këtë opsion</string>
     <string name="just_one">Vetëm këtë</string>
     <string name="lbl_sign_in">Ju lutemi, identifikohuni</string>
     <string name="lbl_playback_control_ends">Përfundon më %1$s</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="pref_clock_display">Shfaq orën</string>
     <string name="lbl_always">Gjithmonë</string>
     <string name="pref_clock_display_browsing">Gjatë shfletimit</string>
@@ -338,7 +301,6 @@
     <string name="lbl_sign_out_content">Kërkon login në përdorimin e radhës</string>
     <string name="lbl_remove_server">Hiq serverin</string>
     <string name="lbl_user_last_used">Përdorur për herë të fundit më %1$s në orën %2$s</string>
-    <string name="lbl_user_server">%1$s në %2$s</string>
     <string name="lbl_server">Server</string>
     <string name="lbl_remove">Hiq</string>
     <string name="lbl_sign_out">Çkyçu</string>
@@ -353,7 +315,5 @@
     <string name="image_size_large">I madh</string>
     <string name="image_size_xlarge">Shumë i madh</string>
     <string name="pref_developer_link">Opsionet e zhvilluesit</string>
-    <string name="pref_developer_link_description">Veçori të avancuara dhe eksperimentale</string>
-    <string name="lbl_hidden">E fshehur</string>
     <string name="discovered_servers_title">Serverat e zbuluar</string>
 </resources>

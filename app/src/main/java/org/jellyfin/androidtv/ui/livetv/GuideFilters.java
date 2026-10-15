@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.ui.livetv;
 
 import static org.koin.java.KoinJavaComponent.inject;
@@ -78,54 +79,36 @@ public class GuideFilters {
 
     private String getSeparator(String original) {return !original.isEmpty() ? ", " : "";}
 
-    public boolean isMovies() {
-        return movies;
-    }
 
     public void setMovies(boolean movies) {
         this.movies = movies;
         systemPreferences.getValue().set(SystemPreferences.Companion.getLiveTvGuideFilterMovies(), movies);
     }
 
-    public boolean isNews() {
-        return news;
-    }
 
     public void setNews(boolean news) {
         this.news = news;
         systemPreferences.getValue().set(SystemPreferences.Companion.getLiveTvGuideFilterNews(), news);
     }
 
-    public boolean isSeries() {
-        return series;
-    }
 
     public void setSeries(boolean series) {
         this.series = series;
         systemPreferences.getValue().set(SystemPreferences.Companion.getLiveTvGuideFilterSeries(), series);
     }
 
-    public boolean isKids() {
-        return kids;
-    }
 
     public void setKids(boolean kids) {
         this.kids = kids;
         systemPreferences.getValue().set(SystemPreferences.Companion.getLiveTvGuideFilterKids(), kids);
     }
 
-    public boolean isSports() {
-        return sports;
-    }
 
     public void setSports(boolean sports) {
         this.sports = sports;
         systemPreferences.getValue().set(SystemPreferences.Companion.getLiveTvGuideFilterSports(), sports);
     }
 
-    public boolean isPremiere() {
-        return premiere;
-    }
 
     public void setPremiere(boolean premiere) {
         this.premiere = premiere;

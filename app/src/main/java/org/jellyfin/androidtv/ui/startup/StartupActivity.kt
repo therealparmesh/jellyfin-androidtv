@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.startup
 
 import android.Manifest
@@ -26,6 +27,7 @@ import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.jellyfin.androidtv.preference.PreferencesRepository
 import org.jellyfin.androidtv.R
 import org.jellyfin.androidtv.auth.repository.SessionRepository
 import org.jellyfin.androidtv.auth.repository.SessionRepositoryState
@@ -60,6 +62,7 @@ class StartupActivity : FragmentActivity() {
 		const val EXTRA_HIDE_SPLASH = "HideSplash"
 	}
 
+	private val preferencesRepository by inject<PreferencesRepository>()
 	private val startupViewModel: StartupViewModel by viewModel()
 	private val api: ApiClient by inject()
 	private val mediaManager: MediaManager by inject()
@@ -169,6 +172,7 @@ class StartupActivity : FragmentActivity() {
 				val item = withContext(Dispatchers.IO) {
 					api.userLibraryApi.getItem(itemId = itemId).content
 				}
+				preferencesRepository.loadLibraryPreferences(item.displayPreferencesId ?: item.id.toString())
 				itemLauncher.getUserViewDestination(item)
 			}.onFailure { throwable ->
 				Timber.w(throwable, "Failed to retrieve item $itemId from server.")

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="byletter_letters">అఆఇఈఉఊఎఏఐఒఓఔఅఅంఅఃకఖగఘఙచఛజఝఞటఠడఢణతథదధనపఫబభమయరలవశషసహళక్షఱ</string>
     <string name="lbl_continue_watching">చూడటం కొనసాగించు</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_by_name">పేరు ప్రకారం</string>
     <string name="video_error_unknown_error">వీడియోను లోడ్ చేయడంలో విఫలమైంది</string>
     <string name="loading">లోడింగ్…</string>
@@ -10,7 +10,6 @@
     <string name="pref_playback">ప్లేబ్యాక్</string>
     <string name="pref_max_bitrate_title">గరిష్ట స్ట్రీమింగ్ బిట్‌రేట్</string>
     <string name="settings_title">ప్రాధాన్యతలు</string>
-    <string name="pref_authentication_cat">ప్రమాణీకరణ</string>
     <string name="chapters">అధ్యాయాలు</string>
     <string name="state_disabled">నిలిపివేయబడింది</string>
     <string name="lbl_settings">ప్రాధాన్యతలు</string>

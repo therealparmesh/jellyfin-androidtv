@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback;
 
 import static org.koin.java.KoinJavaComponent.get;
@@ -32,7 +33,6 @@ import org.jellyfin.androidtv.util.apiclient.Response;
 import org.jellyfin.androidtv.util.profile.DeviceProfileKt;
 import org.jellyfin.androidtv.util.sdk.compat.JavaCompat;
 import org.jellyfin.sdk.api.client.ApiClient;
-import org.jellyfin.sdk.model.ServerVersion;
 import org.jellyfin.sdk.model.api.BaseItemDto;
 import org.jellyfin.sdk.model.api.BaseItemKind;
 import org.jellyfin.sdk.model.api.DeviceProfile;
@@ -409,8 +409,8 @@ public class PlaybackController implements PlaybackControllerNotifiable {
         String forcedAudioLanguage = videoQueueManager.getValue().getLastPlayedAudioLanguageIsoCode();
         Timber.i("Play called from state: %s with pos: %d, sub index: %d and forced audio: %s", mPlaybackState, position, forcedSubtitleIndex, forcedAudioLanguage);
 
-        if (mFragment == null) {
-            Timber.w("mFragment is null, returning");
+        if (mFragment == null || mFragment.getView() == null) {
+            Timber.w("Player view is unavailable, returning");
             return;
         }
 
@@ -530,7 +530,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
             internalOptions.setSubtitleStreamIndex(forcedSubtitleIndex);
         }
         MediaSourceInfo currentMediaSource = getCurrentMediaSource();
-        if (forcedAudioLanguage != null) {
+        if (forcedAudioLanguage != null && currentMediaSource != null && currentMediaSource.getMediaStreams() != null) {
             // find the first audio stream with the requested language
             for (MediaStream stream : currentMediaSource.getMediaStreams()) {
                 if (stream.getType() == MediaStreamType.AUDIO && forcedAudioLanguage.equals(stream.getLanguage())) {
@@ -544,8 +544,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
         }
         DeviceProfile internalProfile = DeviceProfileKt.createDeviceProfile(
                 mFragment.getContext(),
-                userPreferences.getValue(),
-                get(ServerVersion.class)
+                userPreferences.getValue()
         );
         internalOptions.setProfile(internalProfile);
         return internalOptions;
@@ -557,7 +556,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
             TvManager.setLastLiveTvChannel(item.getId());
             //internal/exo player
             Timber.i("Using internal player for Live TV");
-            playbackManager.getValue().getVideoStreamInfo(mFragment, internalOptions, position * 10000, new Response<StreamInfo>(mFragment.getLifecycle()) {
+            playbackManager.getValue().getVideoStreamInfo(mFragment.getViewLifecycleOwner(), internalOptions, position * 10000, new Response<StreamInfo>(mFragment.getViewLifecycleOwner().getLifecycle()) {
                 @Override
                 public void onResponse(StreamInfo response) {
                     if (!isActive()) return;
@@ -574,7 +573,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
                 }
             });
         } else {
-            playbackManager.getValue().getVideoStreamInfo(mFragment, internalOptions, position * 10000, new Response<StreamInfo>(mFragment.getLifecycle()) {
+            playbackManager.getValue().getVideoStreamInfo(mFragment.getViewLifecycleOwner(), internalOptions, position * 10000, new Response<StreamInfo>(mFragment.getViewLifecycleOwner().getLifecycle()) {
                 @Override
                 public void onResponse(StreamInfo internalResponse) {
                     if (!isActive()) return;
@@ -589,9 +588,8 @@ public class PlaybackController implements PlaybackControllerNotifiable {
                 @Override
                 public void onError(Exception exception) {
                     if (!isActive()) return;
-                    Timber.e(exception, "Unable to get stream info for internal player");
-                    if (mVideoManager == null)
-                        return;
+                    if (mVideoManager == null) return;
+                    handlePlaybackInfoError(exception);
                 }
             });
         }
@@ -792,14 +790,11 @@ public class PlaybackController implements PlaybackControllerNotifiable {
             return;
 
         MediaSourceInfo currentMediaSource = getCurrentMediaSource();
-        if (currentMediaSource == null
-                || currentMediaSource.getMediaStreams() == null
-                || index >= currentMediaSource.getMediaStreams().size()) {
-            return;
-        }
+        MediaStream requestedStream = StreamInfo.findMediaStream(currentMediaSource, index, MediaStreamType.AUDIO);
+        if (requestedStream == null) return;
 
         String lastAudioIsoCode = videoQueueManager.getValue().getLastPlayedAudioLanguageIsoCode();
-        String currentAudioIsoCode = currentMediaSource.getMediaStreams().get(index).getLanguage();
+        String currentAudioIsoCode = requestedStream.getLanguage();
 
         if (currentAudioIsoCode != null
                 && (lastAudioIsoCode == null || !lastAudioIsoCode.equals(currentAudioIsoCode))) {
@@ -1008,7 +1003,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
             mVideoManager.stopPlayback();
             mPlaybackState = PlaybackState.BUFFERING;
 
-            playbackManager.getValue().changeVideoStream(mFragment, mCurrentStreamInfo, mCurrentOptions, pos * 10000, new Response<StreamInfo>(mFragment.getLifecycle()) {
+            playbackManager.getValue().changeVideoStream(mFragment.getViewLifecycleOwner(), mCurrentStreamInfo, mCurrentOptions, pos * 10000, new Response<StreamInfo>(mFragment.getViewLifecycleOwner().getLifecycle()) {
                 @Override
                 public void onResponse(StreamInfo response) {
                     if (!isActive()) return;
@@ -1222,6 +1217,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
 
     @Override
     public void onPrepared() {
+        if (mCurrentStreamInfo == null || mFragment == null) return;
         if (mPlaybackState == PlaybackState.BUFFERING) {
             if (mFragment != null) {
                 mFragment.setFadingEnabled(true);
@@ -1281,6 +1277,7 @@ public class PlaybackController implements PlaybackControllerNotifiable {
 
     @Override
     public void onCompletion() {
+        if (mCurrentStreamInfo == null || mFragment == null) return;
         Timber.i("On Completion fired");
         itemComplete();
     }

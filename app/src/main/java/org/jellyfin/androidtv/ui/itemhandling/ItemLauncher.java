@@ -1,8 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.itemhandling;
 
 import android.content.Context;
 
 import androidx.annotation.Nullable;
+import androidx.lifecycle.ProcessLifecycleOwner;
+import kotlinx.coroutines.Job;
 
 import org.jellyfin.androidtv.constant.LiveTvOption;
 import org.jellyfin.androidtv.constant.QueryType;
@@ -32,6 +35,7 @@ import kotlin.Lazy;
 import timber.log.Timber;
 
 public class ItemLauncher {
+    private Job libraryLaunchJob;
     private final Lazy<NavigationRepository> navigationRepository = KoinJavaComponent.<NavigationRepository>inject(NavigationRepository.class);
     private final Lazy<PreferencesRepository> preferencesRepository = KoinJavaComponent.<PreferencesRepository>inject(org.jellyfin.androidtv.preference.PreferencesRepository .class);
     private final Lazy<MediaManager> mediaManager = KoinJavaComponent.<MediaManager>inject(MediaManager.class);
@@ -39,11 +43,22 @@ public class ItemLauncher {
     private final Lazy<PlaybackHelper> playbackHelper = KoinJavaComponent.<PlaybackHelper>inject(PlaybackHelper.class);
 
     public void launchUserView(@Nullable final BaseItemDto baseItem) {
+        if (baseItem == null) return;
         Timber.d("**** Collection type: %s", baseItem.getCollectionType());
 
-        Destination destination = getUserViewDestination(baseItem);
-
-        navigationRepository.getValue().navigate(destination);
+        if (libraryLaunchJob != null) libraryLaunchJob.cancel(null);
+        CollectionType type = baseItem.getCollectionType();
+        if (type == CollectionType.MOVIES || type == CollectionType.TVSHOWS) {
+            String preferencesId = baseItem.getDisplayPreferencesId();
+            if (preferencesId == null) preferencesId = baseItem.getId().toString();
+            libraryLaunchJob = preferencesRepository.getValue().loadLibraryPreferencesAsync(preferencesId,
+                    ProcessLifecycleOwner.get(), preferences -> {
+                        navigationRepository.getValue().navigate(getUserViewDestination(baseItem));
+                        return null;
+                    });
+        } else {
+            navigationRepository.getValue().navigate(getUserViewDestination(baseItem));
+        }
     }
 
     public Destination.Fragment getUserViewDestination(@Nullable final BaseItemDto baseItem) {
@@ -53,7 +68,7 @@ public class ItemLauncher {
         switch (collectionType) {
             case MOVIES:
             case TVSHOWS:
-                LibraryPreferences displayPreferences = preferencesRepository.getValue().getLibraryPreferences(baseItem.getDisplayPreferencesId());
+                LibraryPreferences displayPreferences = preferencesRepository.getValue().getLibraryPreferences(baseItem.getDisplayPreferencesId() != null ? baseItem.getDisplayPreferencesId() : baseItem.getId().toString());
                 boolean enableSmartScreen = displayPreferences.get(LibraryPreferences.Companion.getEnableSmartScreen());
 
                 if (!enableSmartScreen) return Destinations.INSTANCE.libraryBrowser(baseItem, null);

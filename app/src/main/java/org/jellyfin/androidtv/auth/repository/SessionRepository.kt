@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.auth.repository
 
 import kotlinx.coroutines.Dispatchers
@@ -89,7 +90,7 @@ class SessionRepositoryImpl(
 
 	override suspend fun switchCurrentSession(serverId: UUID, userId: UUID): Boolean {
 		// No change in user - don't switch
-		if (currentSession.value?.userId == userId) {
+		if (currentSession.value?.let { it.userId == userId && it.serverId == serverId } == true) {
 			Timber.d("Current session user is the same as the requested user")
 			return false
 		}
@@ -123,7 +124,7 @@ class SessionRepositoryImpl(
 
 		if (session != null) {
 			// No change in session - don't switch
-			if (currentSession.value?.userId == session.userId) return true
+			if (currentSession.value?.let { it.userId == session.userId && it.serverId == session.serverId } == true) return true
 
 			// Update last active user
 			authenticationPreferences[AuthenticationPreferences.lastServerId] = session.serverId.toString()

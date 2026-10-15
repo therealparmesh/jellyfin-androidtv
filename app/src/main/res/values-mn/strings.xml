@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="video_error_unknown_error">Бичлэг алдаатай</string>
     <string name="loading">Ачааллаж байна…</string>
@@ -7,7 +8,6 @@
     <string name="pref_playback">Тоглуулах</string>
     <string name="pref_max_bitrate_title">Дамжуулалтын дээд битрэйт</string>
     <string name="settings_title">Тохиргоо</string>
-    <string name="pref_authentication_cat">Гэрчлэлт</string>
     <string name="chapters">Тэмдэгтүүд</string>
     <string name="lbl_settings">Тохиргоо</string>
     <string name="lbl_continue_watching">Үргэлжлүүлэн үзэх</string>
@@ -43,7 +43,6 @@
     <string name="msg_unable_to_cancel">Бичлэгийг цуцлах боломжгүй байна</string>
     <string name="lbl_chapters">Тэмдэгтүүд</string>
     <string name="lbl_specials">Онцгой</string>
-    <string name="lbl_item">Нэгж</string>
     <string name="lbl_series">Цуврал</string>
     <string name="lbl_seasons">Үе</string>
     <string name="lbl_upcoming">Удахгүй болох гэж байна</string>
@@ -60,13 +59,11 @@
     <string name="lbl_none">Аль нь ч биш</string>
     <string name="msg_video_playback_error">"Видео дахин тоглуулахад алдаатай - "</string>
     <string name="lbl_bracket_unknown">Тодорхойгүй</string>
-    <string name="lbl_trailer">"Трейлер "</string>
     <string name="lbl_play_trailers">Трейлер үзэх</string>
     <string name="lbl_no">Үгүй</string>
     <string name="lbl_yes">Тийм</string>
     <string name="lbl_enter_server_address">Серверийн хаяг оруулна уу</string>
     <string name="lbl_valid_server_address">Серверийн хаягийг оруулна уу (IP эсвэл домэйн / нэр)</string>
-    <string name="lbl_born">"Эхэлсэн "</string>
     <string name="lbl_loading_elipses">Дуудаж байна…</string>
     <string name="msg_playback_not_allowed">Яг одоогоор тоглуулах боломжгүй байна</string>
     <string name="msg_playback_restricted">Админ одоогоор энэ зүйлийг дахин тоглуулахыг хязгаарласан байна</string>
@@ -76,8 +73,6 @@
     <string name="msg_cannot_play">Энэ зүйлийг тоглуулж чадахгүй байна</string>
     <string name="lbl_no_items">Хоосон байна</string>
     <string name="lbl_empty">Хоосон</string>
-    <string name="lbl_tv_queuing">Дараагийн анги автоматаар тоглуулах</string>
-    <string name="lbl_search_hint">Текст хайх (гарнаас сонгох)</string>
     <string name="lbl_play_first_unwatched">Эхлээд тоглогдоогүйг тоглуул</string>
     <string name="lbl_mark_unplayed">Тоглогдоогүй гэж тэмдэглэ</string>
     <string name="lbl_mark_played">Тоглосон гэж тэмдэглэ</string>
@@ -112,12 +107,9 @@
     <string name="lbl_critic_rating">Шүүмжлэгчийн үнэлгээ</string>
     <string name="lbl_rating">Зэрэглэл</string>
     <string name="lbl_starting_with">нэр нь …-аар эхэлснээр эхлэх</string>
-    <string name="lbl_display_preferences">Харуулах тохиргоо</string>
     <string name="lbl__continuing">ХОЛБООТОЙ</string>
     <string name="lbl_ended">ДУУССАН</string>
     <string name="lbl_filters">Шууд ТВ шүүлтүүрүүд</string>
-    <string name="msg_subtitles_loading">Хадмалуудыг ачаалж байна…</string>
-    <string name="msg_unable_load_subs">Хадмал орчуулгыг ачаалах боломжгүй байна</string>
     <string name="lbl_no_recordings">Ямар ч бичлэг байхгүй</string>
     <string name="lbl_live_tv_guide">Хөтөлбөр</string>
     <string name="lbl_recorded_tv">Бичигдсэн ТВ</string>
@@ -125,13 +117,9 @@
     <string name="lbl_direct_stream_live">Шууд урсгалын шууд ТВ</string>
     <string name="lbl_albums">Цомгууд</string>
     <string name="lbl_artists">Зураачуд</string>
-    <string name="lbl_song">Дуу</string>
     <string name="lbl_songs">Дуунууд</string>
-    <string name="lbl_album">Цомог</string>
     <string name="lbl_episodes">Бүлгүүд</string>
-    <string name="sum_enable_cinema_mode">Кино эхлэхээс өмнө боломжит танилцуулга болон урьдчилсан үзүүлэлтүүдийг тоглуулах</string>
     <string name="lbl_playlists">Тоглуулах жагсаалт</string>
-    <string name="msg_items_added">" зүйлийг нэмсэн"</string>
     <string name="lbl_add_to_queue">Дараалалд нэмэх</string>
     <string name="lbl_open_artist">Уран бүтээлчийг нээх</string>
     <string name="lbl_open_album">Цомог нээх</string>
@@ -143,9 +131,7 @@
     <string name="lbl_goto_now_playing">Одоо тоглож буй дээр очих</string>
     <string name="lbl_instant_mix">Шуурхай холих</string>
     <string name="login_authenticating">Гэрчлэлт…</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_sd">SD</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="state_disabled">Идэвхгүй</string>
     <string name="lbl_home">Нүүр</string>
     <string name="continue_listening">Үргэлжлүүлэн сонсох</string>
@@ -156,7 +142,6 @@
     <string name="lbl_cast_crew">Жүжигчид ба баг</string>
     <string name="lbl_additional_parts">Нэмэлт хэсгүүд</string>
     <string name="lbl_trailers">Трейлерууд</string>
-    <string name="lbl_items">Зүйлс</string>
     <string name="runtime_hours_minutes">%1$d цаг %2$d минут</string>
     <string name="runtime_minutes">%1$d минут</string>
     <string name="lbl_runtime">Үргэлжлэх хугацаа</string>
@@ -170,12 +155,9 @@
     <string name="pref_audio_night_mode">Аудио шөнийн горим (туршилтын)</string>
     <string name="lbl_premier_date">Гарах огноо</string>
     <string name="lbl_community_rating">Олон нийтийн үнэлгээ</string>
-    <string name="msg_burn_sub_warning">Хадмалын дүрсэнд хадаж байна. Энэнд хугацаа шаардлагатай…</string>
     <string name="pref_live_tv_cat">Шууд ТВ</string>
     <string name="lbl_programs">Хөтөлбөрүүд</string>
-    <string name="lbl_enable_cinema_mode">Cinema горим</string>
     <string name="lbl_shuffle_queue">Санамсаргүйгээр тоглуулахыг унтраах/идэвхжүүлэх</string>
     <string name="lbl_delete">Устгах</string>
-    <string name="msg_item_added">" нэмэгдлээ"</string>
     <string name="desc_automatic_fav_songs">Дуртай дуунуудыг автоматаар тоглуулах жагсаалт</string>
 </resources>

@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.util.profile
 
 import android.media.MediaCodecList
@@ -52,6 +53,8 @@ class MediaCodecCapabilitiesTest(
 	fun getHevcMain10Level(): Int = hevc.getMain10Level()
 
 	fun supportsVc1(): Boolean = codecQuery.hasCodecForMime(MimeTypes.VIDEO_VC1)
+
+	fun hasAudioDecoder(mime: String): Boolean = codecQuery.hasCodecForMime(mime)
 
 	fun getMaxResolution(mime: String): Size = codecQuery.getMaxResolution(mime)
 }

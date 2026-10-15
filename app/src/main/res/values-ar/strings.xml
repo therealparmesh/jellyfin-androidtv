@@ -1,20 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_add_to_queue">إضافة إلى قائمة الانتظار</string>
-    <string name="msg_items_added">" عناصر تمت إضافتها"</string>
     <string name="lbl_playlists">قوائم التشغيل</string>
-    <string name="sum_enable_cinema_mode">تشغيل المقدمات والمعاينات المتاحة قبل بدء الفيلم</string>
-    <string name="lbl_enable_cinema_mode">وضع السينما</string>
     <string name="lbl_episodes">الحلقات</string>
-    <string name="lbl_album">ألبوم</string>
     <string name="lbl_songs">الأغاني</string>
-    <string name="lbl_song">أغنية</string>
     <string name="lbl_artists">الفنانون</string>
     <string name="lbl_no_recordings">لا توجد تسجيلات متاحة</string>
-    <string name="msg_unable_load_subs">تعذر تحميل الترجمة</string>
     <string name="lbl_filters">فلاتر التلفاز المباشر</string>
     <string name="lbl_ended">انتهى</string>
-    <string name="lbl_display_preferences">تفضيلات العرض</string>
     <string name="lbl_starting_with">بدءًا بتلك التي يبدأ اسمها بـ</string>
     <string name="lbl_rating">التقييم</string>
     <string name="lbl_critic_rating">تقييم النقاد</string>
@@ -50,8 +44,6 @@
     <string name="lbl_mark_played">تعليم كمشاهد</string>
     <string name="lbl_mark_unplayed">تعليم كغير مشاهد</string>
     <string name="lbl_play_first_unwatched">تشغيل أول عنصر غير مشاهد</string>
-    <string name="lbl_search_hint">نص البحث (اختر للوحة المفاتيح)</string>
-    <string name="lbl_tv_queuing">تشغيل الحلقة التالية تلقائيًا</string>
     <string name="lbl_empty">فارغ</string>
     <string name="lbl_no_items">لا توجد عناصر</string>
     <string name="msg_cannot_play">لا يمكن تشغيل هذا العنصر</string>
@@ -60,13 +52,11 @@
     <string name="msg_playback_incompatible">لا يمكن تشغيل تنسيق الفيديو هذا</string>
     <string name="msg_playback_restricted">لقد قيد المسؤول تشغيل هذا العنصر في هذا الوقت</string>
     <string name="msg_playback_not_allowed">التشغيل غير مسموح به في هذا الوقت</string>
-    <string name="lbl_born">"وُلد في "</string>
     <string name="lbl_ok">حسنًا</string>
     <string name="lbl_valid_server_address">يرجى إدخال عنوان الخادم (IP أو اسم النطاق/الجهاز)</string>
     <string name="lbl_enter_server_address">أدخل عنوان الخادم</string>
     <string name="lbl_yes">نعم</string>
     <string name="lbl_no">لا</string>
-    <string name="lbl_trailer">"إعلان ترويجي "</string>
     <string name="lbl_bracket_unknown">غير معروف</string>
     <string name="msg_video_playback_error">"خطأ في تشغيل الفيديو - "</string>
     <string name="lbl_none">لا شيء</string>
@@ -83,8 +73,6 @@
     <string name="lbl_upcoming">القادم</string>
     <string name="lbl_seasons">مواسم</string>
     <string name="lbl_series">المسلسلات</string>
-    <string name="lbl_item">عنصر</string>
-    <string name="lbl_items">عناصر</string>
     <string name="lbl_specials">خاص</string>
     <string name="lbl_chapters">الفصول</string>
     <string name="lbl_cast_crew">طاقم العمل</string>
@@ -128,7 +116,6 @@
     <string name="btn_cancel">إلغاء</string>
     <string name="loading">جارٍ التحميل…</string>
     <string name="video_error_unknown_error">فشل تحميل الفيديو</string>
-    <string name="msg_item_added">" عنصر تمت إضافته"</string>
     <string name="lbl_delete">حذف</string>
     <string name="lbl_goto_now_playing">الذهاب إلى ما يُشغّل الآن</string>
     <string name="lbl_remove_from_queue">إزالة من قائمة الانتظار</string>
@@ -138,9 +125,7 @@
     <string name="lbl_next_item">العنصر التالي</string>
     <string name="lbl_open_album">فتح الألبوم</string>
     <string name="lbl_open_artist">فتح الفنان</string>
-    <string name="audio_error">تعذر تشغيل الصوت %1$s</string>
     <string name="msg_no_items">لا توجد عناصر لتشغيلها</string>
-    <string name="subtitle_error">تعذر تحديد الترجمة</string>
     <string name="too_many_errors">أخطاء كثيرة. تم الإلغاء</string>
     <string name="seek_error">تعذر التنقل</string>
     <string name="msg_live_tv_prev">تحميل الـ %1$d ساعات السابقة؟</string>
@@ -150,14 +135,6 @@
     <string name="episode_missing_message">هذه الحلقة مفقودة من مكتبتك. هل ترغب في تخطيها والمتابعة إلى الحلقة التالية؟</string>
     <string name="episode_missing">حلقة مفقودة</string>
     <string name="no_player_message">لا يبدو أن لديك تطبيقًا قادرًا على تشغيل الفيديو مثبتًا. يتطلب هذا الخيار تثبيت تطبيق جهة خارجية لتشغيل محتوى الفيديو.</string>
-    <string name="no_player">لا يوجد مشغل</string>
-    <string name="mark_watched_message">يبدو أن العنصر لم يتم تشغيله طوال مدته. هل تريد تعليمه كمشاهد؟</string>
-    <string name="mark_watched">تعليم كمشاهد</string>
-    <string name="lbl_Reset">إعادة تعيين</string>
-    <string name="pref_button_remapping_description">اضغط على أي زر في جهاز التحكم الخاص بالتلفاز لتعيينه</string>
-    <string name="pref_subtitle_track_button">زر مسار الترجمة</string>
-    <string name="pref_audio_track_button">زر مسار الصوت</string>
-    <string name="lbl_unknown_key">غير معروف (%1s)</string>
     <string name="grid_direction_horizontal">أفقي</string>
     <string name="pref_device_model">طراز الجهاز</string>
     <string name="pref_app_theme">سمة التطبيق</string>
@@ -210,7 +187,6 @@
     <string name="lbl_just_this_once">هذه المرة فقط</string>
     <string name="lbl_select_date">تحديد التاريخ</string>
     <string name="lbl_in_x_days">خلال %d أيام</string>
-    <string name="lbl_show_premieres">عرض العروض الأولى للمواسم</string>
     <string name="lbl_refresh_switching">تبديل معدل التحديث</string>
     <string name="lbl_show_backdrop">إظهار الخلفيات</string>
     <string name="lbl_open">فتح</string>
@@ -220,9 +196,7 @@
     <string name="lbl_subtitle_track">تحديد مسار الترجمة</string>
     <string name="lbl_audio_track">تحديد مسار الصوت</string>
     <string name="lbl_zoom">تكبير</string>
-    <string name="desc_bitstream_ac3">يتطلب أجهزة قادرة على ذلك</string>
     <string name="lbl_bitstream_ac3">تمرير صوت Dolby Digital</string>
-    <string name="lbl_new_premieres">عروض أولى جديدة</string>
     <string name="desc_automatic_fav_songs">قائمة تشغيل تلقائية للأغاني المفضلة</string>
     <string name="lbl_instant_mix">مزيج فوري</string>
     <string name="lbl_programs">البرامج</string>
@@ -234,7 +208,6 @@
     <string name="lbl_end_padding">وقت إضافي بعد الانتهاء</string>
     <string name="lbl_begin_padding">وقت إضافي قبل البدء</string>
     <string name="lbl_tune_to_channel">ضبط على القناة</string>
-    <string name="pref_authentication_cat">المصادقة</string>
     <string name="lbl_name_date">%1$s (%2$s)</string>
     <string name="lbl_episode_range">ح%1$d–%2$d</string>
     <string name="lbl_episode_number">ح%1$d</string>
@@ -258,8 +231,6 @@
     <string name="login_help_description">يتطلب Jellyfin خادمًا للاتصال به. قم بزيارة وثائقنا على docs.jellyfin.org أو امسح رمز الاستجابة السريعة للبدء مع Jellyfin.</string>
     <string name="pref_developer_link">خيارات المطور</string>
     <string name="lbl_manage_servers">إدارة الخوادم</string>
-    <string name="watch_count_overflow">+99</string>
-    <string name="desc_premieres">عرض صف من الحلقات التجريبية الجديدة لأي مسلسل تشاهده</string>
     <string name="advanced_settings">متقدم</string>
     <string name="always_authenticate_description">تمكين هذه الوظيفة يعطل تسجيل الدخول التلقائي</string>
     <string name="alphabetical">أبجدي</string>
@@ -288,8 +259,6 @@
     <string name="connect_manually_by_address">أدخل عنوان الخادم</string>
     <string name="discovered_servers_empty">لم يتم العثور على خوادم على الشبكة المحلية.</string>
     <string name="discovered_servers_title">الخوادم المكتشفة</string>
-    <string name="lbl_hidden">مخفي</string>
-    <string name="pref_developer_link_description">ميزات متقدمة وتجريبية</string>
     <string name="image_size_large">كبير</string>
     <string name="image_size_medium">متوسط</string>
     <string name="image_size_small">صغير</string>
@@ -298,7 +267,6 @@
     <string name="lbl_sign_out">تسجيل الخروج</string>
     <string name="lbl_remove">إزالة</string>
     <string name="lbl_server">الخادم</string>
-    <string name="lbl_user_server">%1$s على %2$s</string>
     <string name="lbl_user_last_used">آخر استخدام في %1$s الساعة %2$s</string>
     <string name="lbl_remove_server">إزالة الخادم</string>
     <string name="lbl_sign_out_content">يتطلب تسجيل الدخول عند الاستخدام التالي</string>
@@ -316,7 +284,6 @@
     <string name="lbl_playback_control_ends">ينتهي عند %1$s</string>
     <string name="lbl_sign_in">يرجى تسجيل الدخول</string>
     <string name="just_one">هذه المرة فقط</string>
-    <string name="turn_off">إيقاف تشغيل هذا الخيار</string>
     <string name="lbl_colored_backgrounds">خلفيات ملونة</string>
     <string name="lbl_fit">عادي</string>
     <string name="lbl_stretch">تمديد</string>
@@ -325,7 +292,6 @@
     <string name="license_author">المؤلف</string>
     <string name="license_website">الموقع الإلكتروني</string>
     <string name="license_description">الوصف</string>
-    <string name="licenses_link_description">عرض تراخيص المكتبات التي يستخدمها تطبيق Jellyfin</string>
     <string name="licenses_link">التراخيص</string>
     <string name="player_error">حدث خطأ في المشغل. ستتم إعادة المحاولة…</string>
     <string name="bitrate_kbit">%1$,.0f كيلوبت/ث</string>
@@ -338,8 +304,6 @@
     <string name="lbl_albums">الألبومات</string>
     <string name="msg_error_live_stream">خطأ في بث التلفاز المباشر. ستتم إعادة المحاولة…</string>
     <string name="pref_live_tv_cat">البث التلفزيوني المباشر</string>
-    <string name="msg_burn_sub_warning">جارٍ حرق الترجمات. قد يستغرق هذا بضع ثوانٍ…</string>
-    <string name="msg_subtitles_loading">جارٍ تحميل الترجمات…</string>
     <string name="pref_audio_direct">مباشر</string>
     <string name="lbl_now_playing_track">%1$s من %2$s</string>
     <string name="lbl_loading_elipses">جارٍ التحميل…</string>
@@ -347,19 +311,15 @@
     <string name="lbl_videos">فيديوهات</string>
     <string name="lbl_trailers">إعلانات ترويجية</string>
     <string name="lbl_genres">الأنواع</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="license_version">الإصدار</string>
     <string name="select_version">الإصدار</string>
     <string name="image_type_thumbnail">صورة مصغرة</string>
     <string name="login_authenticating">جارٍ المصادقة…</string>
     <string name="server_connecting">الاتصال بـ %1$s</string>
     <string name="pref_subtitles_size">حجم النص</string>
-    <string name="pref_subtitles_background_summary">عرض خلفية سوداء خلف الترجمات</string>
-    <string name="pref_subtitles_background_title">تمكين الخلفية</string>
     <string name="searchable_settings_description">الوسائط</string>
     <string name="searchable_hint">البحث في Jellyfin</string>
     <string name="home_section_i">القسم الرئيسي %1$d</string>
-    <string name="home_sections">أقسام الرئيسية</string>
     <string name="home_section_none">لا شيء</string>
     <string name="home_section_livetv">البث التلفزيوني المباشر</string>
     <string name="home_section_next_up">التالي</string>
@@ -372,21 +332,12 @@
     <string name="home_prefs">الرئيسية</string>
     <string name="license_repository">المستودع</string>
     <string name="license_artifact">المكون</string>
-    <string name="pref_direct_stream_live_on">تحويل الترميز معطل</string>
-    <string name="pref_direct_stream_live_off">يتم استخدام تحويل الترميز عند الضرورة</string>
     <string name="pref_audio">الصوت</string>
     <string name="pref_subtitles">الترجمات</string>
     <string name="pref_video">فيديو</string>
-    <string name="pref_playback_description">الفيديو، الترجمات، البث المباشر، التالي</string>
-    <string name="pref_customization_description">السمة، الرئيسية، إعادة التعيين</string>
-    <string name="pref_login_description">الخوادم، الحسابات، تسجيل الدخول التلقائي</string>
     <string name="pref_login">تسجيل الدخول</string>
-    <string name="pref_libraries_description">تغيير كيفية عرض المكتبات</string>
     <string name="pref_libraries">المكتبات</string>
-    <string name="pref_home_description">تكوين الأقسام المعروضة</string>
-    <string name="pref_theme">السمة</string>
     <string name="pref_browsing">التصفح</string>
-    <string name="pref_behavior">السلوك</string>
     <string name="pref_accounts">الحسابات</string>
     <string name="sort_accounts_by">ترتيب الحسابات حسب</string>
     <string name="pref_customization">التخصيص</string>
@@ -400,32 +351,23 @@
     <string name="server_connection_failed_candidates">تعذر الاتصال بالخادم، تمت تجربة العناوين التالية: %1$s</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="lbl_playback_speed">سرعة التشغيل</string>
-    <string name="color_white">أبيض</string>
-    <string name="color_darkgrey">رمادي داكن</string>
     <string name="pref_crash_reports_disabled">لن يتم إرسال تقارير الانهيار</string>
     <string name="pref_crash_report_logs_disabled">لن يتم تضمين السجلات في تقارير الانهيار</string>
     <string name="action_login">تسجيل الدخول</string>
-    <string name="color_black">أسود</string>
     <string name="color_green">أخضر</string>
     <string name="color_red">أحمر</string>
-    <string name="color_yellow">أصفر</string>
     <string name="color_blue">أزرق</string>
-    <string name="color_cyan">سماوي</string>
     <string name="action_use_quickconnect">استخدام Quick Connect</string>
     <string name="login_quickconnect_step_3">3. أدخل الرمز التالي:</string>
     <string name="pref_telemetry_category">الإبلاغ عن الانهيارات</string>
-    <string name="pref_telemetry_description">إرسال تقارير الانهيار، وتضمين السجلات</string>
     <string name="state_disabled">معطّل</string>
     <string name="lbl_additional_parts">أجزاء إضافية</string>
     <string name="pref_audio_night_mode">الوضع الليلي للصوت (تجريبي)</string>
     <string name="lbl_shuffle_queue">تبديل التشغيل العشوائي</string>
-    <string name="desc_audio_night_mode">يسوي مستوى الصوت تلقائيًا</string>
     <string name="lbl_quality_profile">ملف تعريف الجودة</string>
-    <string name="lbl_subtitle_delay">تأخير الترجمة</string>
     <string name="image_type_poster">ملصق</string>
     <string name="image_size_smallest">الأصغر</string>
     <string name="image_size_xlarge">كبير جدًا</string>
-    <string name="color_pink">وردي</string>
     <string name="home_section_resume_book">متابعة القراءة</string>
     <string name="action_use_password">استخدام كلمة مرور</string>
     <string name="login_connect_to">الاتصال بـ %1$s</string>
@@ -433,7 +375,6 @@
     <string name="login_quickconnect_step_1">1. افتح تطبيق Jellyfin على هاتفك أو متصفح الويب، وسجل الدخول بحسابك</string>
     <string name="login_quickconnect_step_2">2. افتح قائمة المستخدم وانتقل إلى صفحة Quick Connect</string>
     <string name="action_connect">اتصال</string>
-    <string name="live_tv_preferences">خيارات التلفاز المباشر</string>
     <string name="app_notification_uimode_invalid">تم تحسين هذا التطبيق لأجهزة التلفاز. نوصي باستخدام تطبيق الأجهزة المحمولة الخاص بنا على الأجهزة الأخرى.</string>
     <string name="server_unsupported_notification">يستخدم هذا الخادم إصدار Jellyfin %1$s وهو غير مدعوم. يرجى التحديث إلى Jellyfin %2$s أو أحدث لمواصلة استخدام التطبيق.</string>
     <string name="pref_crash_reports">إرسال تقارير الانهيار إلى الخادم</string>
@@ -489,8 +430,6 @@
         <item quantity="other">%1$s حلقة</item>
     </plurals>
     <string name="lbl_latest_in">أُضيف حديثًا في %1$s</string>
-    <string name="pref_enable_media_management">تمكين إدارة الوسائط</string>
-    <string name="pref_enable_media_management_description">إظهار خيار إدارة الوسائط أثناء التصفح</string>
     <plurals name="tracks">
         <item quantity="zero">%1$s مسار</item>
         <item quantity="one">%1$s مسار</item>
@@ -499,20 +438,16 @@
         <item quantity="many">%1$s مسارًا</item>
         <item quantity="other">%1$s مسار</item>
     </plurals>
-    <string name="enable_reactive_homepage">تمكين الصفحة الرئيسية التفاعلية</string>
     <string name="lbl_album_artists">فنانو الألبوم</string>
     <string name="disable_ui_mode_warning">تعطيل تحذير نوع الجهاز</string>
-    <string name="not_set">غير معين</string>
     <string name="because_you_watched">لأنك شاهدت %1$s</string>
     <string name="lbl_hide_watched_checkmark">عندما تكون هناك حلقات متبقية</string>
     <string name="channels">القنوات</string>
     <string name="photo_albums">ألبومات الصور</string>
     <string name="photos">الصور</string>
     <string name="all_channels">كل القنوات</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">عرض جميع العناصر</string>
     <string name="lbl_runtime">مدة التشغيل</string>
     <string name="app_notification_update_soon">قم بتحديث خادمك من %1$s إلى %2$s على الأقل لمواصلة استخدام التطبيق بعد التحديث القادم.</string>
-    <string name="pref_external_player">استخدام مشغل خارجي</string>
     <string name="unreleased">لم يُصدر بعد</string>
     <string name="lbl_home">الرئيسية</string>
     <string name="indicator_subtitles">CC</string>
@@ -551,13 +486,11 @@
     </plurals>
     <string name="lbl_subtitle_text_stroke_color">لون الحافة</string>
     <string name="lbl_from_beginning">تشغيل من البداية</string>
-    <string name="pref_still_watching_behavior_title">إظهار مطالبة مهلة عدم النشاط</string>
     <string name="lbl_still_watching_default">3 حلقات أو 90 دقيقة</string>
     <string name="lbl_still_watching_short">حلقتان أو 60 دقيقة</string>
     <string name="lbl_still_watching_long">5 حلقات أو 150 دقيقة</string>
     <string name="lbl_still_watching_very_long">8 حلقات أو 240 دقيقة</string>
     <string name="pref_subtitles_position">الإزاحة من الأسفل</string>
-    <string name="pref_subtitles_bold">نص غامق</string>
     <string name="past_week">الأسبوع الماضي</string>
     <string name="scheduled_in_next_24_hours">مجدول في الـ 24 ساعة القادمة</string>
     <string name="past_24_hours">الـ 24 ساعة الماضية</string>
@@ -565,7 +498,6 @@
     <string name="prefer_exoplayer_ffmpeg_content">استخدم FFmpeg لفك تشفير الصوت، حتى إذا كانت ترميزات المنصة متاحة.</string>
     <string name="default_video_zoom">وضع التكبير الافتراضي</string>
     <string name="video_start_delay">تأخير بدء الفيديو</string>
-    <string name="pref_mediasegment_actions">إجراءات مقاطع الوسائط</string>
     <string name="segment_action_ask_to_skip">السؤال قبل التخطي</string>
     <string name="segment_action_nothing">لا تفعل شيئًا</string>
     <string name="segment_action_skip">تخطي</string>
@@ -576,8 +508,6 @@
     <string name="segment_type_recap">ملخصات</string>
     <string name="segment_type_unknown">مقاطع غير معروفة</string>
     <string name="skip_forward_length">مدة التخطي للأمام</string>
-    <string name="preference_enable_trickplay">تمكين معاينات التنقل (trickplay) في مشغل الفيديو</string>
-    <string name="pref_subtitles_background_opacity">عتامة خلفية الترجمة</string>
     <string name="pref_troubleshooting">استكشاف الأخطاء وإصلاحها</string>
     <string name="pref_report_device_profile_title">الإبلاغ عن إمكانيات التشغيل للخادم</string>
     <string name="pref_report_device_profile_summary">قم برفع مستند استكشاف الأخطاء وإصلاحها إلى خادم Jellyfin مع معلومات حول إمكانيات التشغيل</string>
@@ -589,14 +519,6 @@
     <string name="speech_error_unavailable">التعرف على الكلام غير متوفر على جهازك.</string>
     <string name="speech_error_unknown">حدث خطأ غير متوقع أثناء التعرف على الكلام.</string>
     <string name="still_watching_label">هل ما زلت تشاهد؟</string>
-    <plurals name="movies">
-        <item quantity="zero">%1$s فيلم</item>
-        <item quantity="one">%1$s فيلم</item>
-        <item quantity="two">%1$s فيلم</item>
-        <item quantity="few">%1$s أفلام</item>
-        <item quantity="many">%1$s فيلمًا</item>
-        <item quantity="other">%1$s فيلم</item>
-    </plurals>
     <plurals name="songs">
         <item quantity="zero">%1$s أغنية</item>
         <item quantity="one">%1$s أغنية</item>
@@ -604,14 +526,6 @@
         <item quantity="few">%1$s أغانٍ</item>
         <item quantity="many">%1$s أغنية</item>
         <item quantity="other">%1$s أغنية</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="zero">%1$s مسلسل تلفزيوني</item>
-        <item quantity="one">%1$s مسلسل تلفزيوني</item>
-        <item quantity="two">%1$s مسلسل تلفزيوني</item>
-        <item quantity="few">%1$s مسلسلات تلفزيونية</item>
-        <item quantity="many">%1$s مسلسلًا تلفزيونيًا</item>
-        <item quantity="other">%1$s مسلسل تلفزيوني</item>
     </plurals>
     <string name="indicator_subtitles_hearing_impaired">SDH</string>
     <string name="preference_enable_pgs">تشغيل مباشر لترجمات PGS</string>

@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_live">Suora</string>
     <string name="lbl_instant_mix">Pikasekoitus</string>
@@ -36,8 +37,6 @@
     <string name="lbl_remove_from_queue">Poista jonosta</string>
     <string name="lbl_recorded_tv">Televisiotallenteet</string>
     <string name="lbl_no_recordings">Tallenteita ei ole</string>
-    <string name="msg_unable_load_subs">Tekstitystä ei voitu ladata</string>
-    <string name="msg_subtitles_loading">Tekstityksiä ladataan…</string>
     <string name="pref_audio_direct">Muuntamaton</string>
     <string name="lbl_only_new_episodes">Vain uudet jaksot</string>
     <string name="lbl_program_ended">Ohjelma päättyi</string>
@@ -54,13 +53,11 @@
     <string name="lbl_no_items">Ei kohteita</string>
     <string name="lbl_never">Ei koskaan</string>
     <string name="lbl_loading_elipses">Ladataan…</string>
-    <string name="lbl_born">"Syntyi "</string>
     <string name="lbl_ok">Ok</string>
     <string name="lbl_enter_server_address">Syötä palvelimen osoite</string>
     <string name="lbl_yes">Kyllä</string>
     <string name="lbl_no">Ei</string>
     <string name="lbl_play_trailers">Toista traileri(t)</string>
-    <string name="lbl_trailer">"Traileri "</string>
     <string name="lbl_bracket_unknown">&lt;tuntematon&gt;</string>
     <string name="lbl_none">Ei mitään</string>
     <string name="lbl_recordings">Tallenteet</string>
@@ -74,8 +71,6 @@
     <string name="lbl_upcoming">Tulossa</string>
     <string name="lbl_seasons">Kaudet</string>
     <string name="lbl_series">Sarjat</string>
-    <string name="lbl_item">Kohde</string>
-    <string name="lbl_items">Kohteet</string>
     <string name="lbl_trailers">Trailerit</string>
     <string name="lbl_specials">Erikoisjaksot</string>
     <string name="lbl_chapters">Kappaleet</string>
@@ -108,11 +103,8 @@
     <string name="lbl_open_album">Avaa albumi</string>
     <string name="lbl_open_artist">Avaa esittäjä</string>
     <string name="lbl_playlists">Soittolistat</string>
-    <string name="lbl_enable_cinema_mode">Teatteritila</string>
     <string name="lbl_episodes">Jaksot</string>
-    <string name="lbl_album">Albumi</string>
     <string name="lbl_songs">Kappaleet</string>
-    <string name="lbl_song">Kappale</string>
     <string name="lbl_artists">Esittäjät</string>
     <string name="lbl_albums">Albumit</string>
     <string name="lbl_programs">Ohjelmat</string>
@@ -143,17 +135,13 @@
     <string name="lbl_directed_by">Ohjannut</string>
     <string name="lbl_watched">Katsottu</string>
     <string name="lbl_cast_crew">Näyttelijät ja henkilöstö</string>
-    <string name="lbl_status">%1$s/%2$s</string>
     <string name="lbl_suggested">Ehdotukset</string>
     <string name="lbl_by_letter">Aakkosellisesti</string>
     <string name="lbl_views">Näkymät</string>
     <string name="lbl_on_now">Lähetetään nyt</string>
-    <string name="pref_authentication_cat">Todennus</string>
     <string name="pref_max_bitrate_title">Suoratoiston enimmäisbittinopeus</string>
     <string name="video_error_unknown_error">Videon lataus epäonnistui</string>
     <string name="lbl_play_first_unwatched">Toista ensimmäinen katsomaton</string>
-    <string name="lbl_search_hint">Hakuteksti</string>
-    <string name="lbl_tv_queuing">Toista seuraava jakso automaattisesti</string>
     <string name="msg_cannot_play">Tätä kohdetta ei voida toistaa</string>
     <string name="msg_cannot_play_time">Tätä kohdetta ei voida toistaa</string>
     <string name="msg_playback_incompatible">Tätä videomuotoa ei voida toistaa</string>
@@ -189,8 +177,6 @@
     <string name="lbl_recent_recordings">Uusimmat tallenteet</string>
     <string name="lbl_repeat">Toista</string>
     <string name="lbl_in_x_days">%d päivän kuluttua</string>
-    <string name="desc_premieres">Näytä rivi kaikkien katsomiesi sarjojen uusista pilottijaksoista</string>
-    <string name="lbl_show_premieres">Sarjojen kausien ensimmäiset jaksot</string>
     <string name="lbl_refresh_switching">Virkistystaajuuden vaihto</string>
     <string name="lbl_subtitle_track">Valitse tekstitysraita</string>
     <string name="lbl_playback_speed">Toistonopeus</string>
@@ -198,26 +184,19 @@
     <string name="lbl_fit">Tavallinen</string>
     <string name="lbl_stretch">Venytys</string>
     <string name="lbl_auto_crop">Automaattinen leikkaus</string>
-    <string name="desc_bitstream_ac3">Vaatii laitteistotuen</string>
     <string name="lbl_zoom">Zoomaus</string>
     <string name="lbl_bitstream_ac3">Välitä Dolby Digital -ääni vahvistimelle</string>
-    <string name="lbl_new_premieres">Uudet ensiesitykset</string>
     <string name="desc_automatic_fav_songs">Automaattinen soittolista suosikkikappaleista</string>
-    <string name="msg_item_added">" kohde lisättiin"</string>
     <string name="lbl_goto_now_playing">Avaa toistonäkymä</string>
     <string name="lbl_play_from_here">Toista tästä</string>
     <string name="lbl_now_playing">Toistetaan parhaillaan</string>
     <string name="lbl_prev_item">Edellinen kohde</string>
     <string name="lbl_next_item">Seuraava kohde</string>
     <string name="lbl_add_to_queue">Lisää jonoon</string>
-    <string name="msg_items_added">" kohdetta lisättiin"</string>
-    <string name="sum_enable_cinema_mode">Toista introja ja trailereita ennen elokuvaa</string>
     <string name="lbl_direct_stream_live">Toista televisiolähetys muuntamattomasti</string>
     <string name="msg_error_live_stream">Virhe televisiolähetyksen suoratoistossa. Yritetään uudelleen…</string>
-    <string name="msg_burn_sub_warning">Tekstityksiä poltetaan. Tämä saattaa kestää muutamia sekunteja…</string>
     <string name="lbl_ended">PÄÄTTYNYT</string>
     <string name="lbl__continuing">JATKUU</string>
-    <string name="lbl_display_preferences">Näyttöasetukset</string>
     <string name="lbl_community_rating">Yhteisön arvio</string>
     <string name="desc_debug">Toimita lisätietoja vianselvitystä varten</string>
     <string name="lbl_now_playing_album">albumilta %1$s</string>
@@ -227,18 +206,10 @@
     <string name="image_type_thumbnail">Pienoiskuva</string>
     <string name="lbl_on">Kanavalla</string>
     <string name="home_section_resume_book">Jatka lukemista</string>
-    <string name="pref_direct_stream_live_on">Transkoodaus ei ole käytössä</string>
-    <string name="pref_direct_stream_live_off">Transkoodausta käytetään tarvittaessa</string>
     <string name="pref_audio">Ääni</string>
     <string name="pref_subtitles">Tekstitykset</string>
-    <string name="pref_playback_description">Video, tekstitykset, televisiolähetykset ja seuraava toisto</string>
-    <string name="pref_customization_description">Teema, päävalikko ja painikemääritykset</string>
-    <string name="pref_login_description">Palvelimet, tilit ja automaattinen kirjautuminen</string>
     <string name="pref_login">Kirjautuminen</string>
-    <string name="pref_libraries_description">Määritä, miten kirjastot näytetään</string>
     <string name="pref_libraries">Kirjastot</string>
-    <string name="pref_home_description">Määritä näytettävät osiot</string>
-    <string name="pref_theme">Teema</string>
     <string name="pref_browsing">Selaus</string>
     <string name="pref_accounts">Tilit</string>
     <string name="pref_customization">Mukautus</string>
@@ -250,7 +221,6 @@
     <string name="server_issue_invalid_product">Palvelinohjelmisto ei ole yhteensopiva</string>
     <string name="server_issue_unable_to_connect">Yhdistäminen epäonnistui</string>
     <string name="pref_subtitles_size">Tekstin koko</string>
-    <string name="pref_subtitles_background_summary">Näytä tekstitysten tausta</string>
     <string name="searchable_hint">Etsi Jellyfinistä</string>
     <string name="home_section_i">Päävalikko %1$d</string>
     <string name="home_section_none">Ei mitään</string>
@@ -258,7 +228,6 @@
     <string name="home_section_active_recordings">Aktiiviset tallennukset</string>
     <string name="home_section_resume">Jatka katselua</string>
     <string name="home_section_latest_media">Viimeksi lisätty media</string>
-    <string name="home_sections">Päävalikon osiot</string>
     <string name="home_prefs">Päävalikko</string>
     <string name="license_license">Lisenssi</string>
     <string name="license_author">Kehittäjä</string>
@@ -282,8 +251,6 @@
     <string name="lbl_use_series_thumbnails">Suosi sarjojen thumbnail-kuvia</string>
     <string name="pref_watched_indicator">Näytä katsontatilan merkit</string>
     <string name="discovered_servers_title">Havaitut palvelimet</string>
-    <string name="lbl_hidden">Piilotettu</string>
-    <string name="pref_developer_link_description">Edistyneitä ja kokeellisia ominaisuuksia</string>
     <string name="pref_developer_link">Kehittäjäasetukset</string>
     <string name="image_size_large">Suuri</string>
     <string name="image_size_medium">Keskikokoinen</string>
@@ -314,9 +281,7 @@
     <string name="lbl_playback_control_ends">Päättyy %1$s</string>
     <string name="lbl_sign_in">Kirjaudu sisään</string>
     <string name="just_one">Vain tämä kappale</string>
-    <string name="turn_off">Poista valinta käytöstä</string>
     <string name="msg_no_items">Ei toistettavia kohteita</string>
-    <string name="subtitle_error">Tekstitystä ei voida valita</string>
     <string name="too_many_errors">Liian monta virhettä. Luovutetaan</string>
     <string name="player_error">Soittimessa tapahtui virhe. Yritetään uudelleen…</string>
     <string name="msg_live_tv_prev">Ladataanko edelliset %1$d tuntia?</string>
@@ -326,15 +291,7 @@
     <string name="episode_missing_message_2">Jaksoa ei ole kirjastossa. Toisto pysäytetään.</string>
     <string name="episode_missing">Jakso puuttuu</string>
     <string name="no_player_message">Videotoistoon kykenevää sovellusta ei näytä olevan asennettuna. Tämä valinta tarvitsee ulkopuolisen videoiden toistosovelluksen.</string>
-    <string name="no_player">Ei soitinta</string>
-    <string name="mark_watched_message">Kohdetta ei ilmeisesti toistettu kokonaan. Merkitäänkö se katsotuksi\?</string>
-    <string name="mark_watched">Merkitse katsotuksi</string>
     <string name="bitrate_kbit">%1$,.0f kbit/s</string>
-    <string name="lbl_Reset">Palauta</string>
-    <string name="pref_button_remapping_description">Määritä jokin television kauko-ohjaimen painike painamalla sitä</string>
-    <string name="pref_subtitle_track_button">Tekstitysraita-painike</string>
-    <string name="pref_audio_track_button">Ääniraita-painike</string>
-    <string name="lbl_unknown_key">Tuntematon (%1s)</string>
     <string name="grid_direction_vertical">Pystysuuntainen</string>
     <string name="grid_direction_horizontal">Vaaka</string>
     <string name="grid_direction">Ruudukon suunta</string>
@@ -345,7 +302,6 @@
     <string name="pref_next_up_timeout_summary">Odotusaika ennen seuraavan kohteen toistoa</string>
     <string name="pref_theme_emerald">Klassinen smaragdi</string>
     <string name="lbl_start_favorites">Sijoita suosikit alkuun</string>
-    <string name="pref_behavior">Käytettävyys</string>
     <string name="searchable_settings_description">Media</string>
     <string name="lbl_time_range">%1$s–%2$s</string>
     <string name="lbl_name_date">%1$s (%2$s)</string>
@@ -354,21 +310,16 @@
     <string name="lbl_starting_early_ending_after">Aloitetaan %1$s etuajassa ja lopetetaan %2$s viiveellä</string>
     <string name="lbl_episode_range">J%1$d–%2$d</string>
     <string name="image_type_banner">Banneri</string>
-    <string name="lbl_user_server">%1$s palvelimella \'%2$s\'</string>
-    <string name="watch_count_overflow">99+</string>
-    <string name="audio_error">Ääntä %1$s ei voitu toistaa</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="lbl_resume_preroll">Toistoa jatkettaessa takaisin palattava aika</string>
     <string name="lbl_showing">Näytetään</string>
     <string name="lbl_runs">Kesto</string>
-    <string name="pref_subtitles_background_title">Käytä taustaa</string>
     <string name="home_section_livetv">Televisio</string>
     <string name="home_section_resume_audio">Jatka kuuntelua</string>
     <string name="license_repository">Ohjelmavarasto</string>
     <string name="license_website">Verkkosivusto</string>
     <string name="license_description">Kuvaus</string>
-    <string name="licenses_link_description">Tutki Jellyfin-sovelluksen hyödyntämien kirjastojen lisenssejä</string>
     <string name="licenses_link">Lisenssit</string>
     <string name="advanced_settings">Lisäasetukset</string>
     <string name="always_authenticate_description">Tämän valitseminen poistaa automaattisen sisäänkirjautumisen käytöstä</string>
@@ -416,8 +367,6 @@
     <string name="lbl_tv_filter_status">seuraavat %1$d tuntia</string>
     <string name="lbl_starting_with">alkaen niillä, joiden nimi alkaa</string>
     <string name="state_disabled">Poistettu käytöstä</string>
-    <string name="lbl_subtitle_delay">Tekstitysviive</string>
-    <string name="live_tv_preferences">Television asetukset</string>
     <string name="lbl_from">kansiosta</string>
     <string name="app_notification_uimode_invalid">Sovellus on optimoitu televisioille. Muille laitteille suosittelemme mobiilisovellustamme.</string>
     <string name="image_size_xlarge">Erittäin suuri</string>
@@ -432,27 +381,17 @@
     <string name="pref_crash_reports_enabled">Kaatumisilmoitukset lähetetään viimeksi käyttämällesi palvelimelle</string>
     <string name="pref_crash_reports">Lähetä palvelimelle kaatumisilmoituksia</string>
     <string name="pref_telemetry_category">Kaatumisilmoitukset</string>
-    <string name="pref_telemetry_description">Lähetä kaatumisilmoituksia ja sisällytä lokitiedot</string>
     <string name="server_unsupported_notification">Palvelin käyttää Jellyfin versiota %1$s jota ei tueta. Jatka käyttöä päivittämällä Jellyfin vähintään versioon %2$s.</string>
     <string name="server_setup_incomplete">Tämän palvelimen määritys on kesken. Ennen kirjautumista, avaa Jellyfin verkkoselaimessa ja viimeistele määritys.</string>
     <string name="episode_name_special">erikoisjakso</string>
     <string name="lbl_quality_profile">Laatuprofiili</string>
-    <string name="desc_audio_night_mode">Tasoittaa äänenvoimakkuuden eroja automaattisesti</string>
     <string name="pref_audio_night_mode">Äänen yötila (kokeellinen)</string>
-    <string name="color_white">Valkoinen</string>
-    <string name="color_black">Musta</string>
-    <string name="color_darkgrey">Tummanharmaa</string>
     <string name="color_red">Punainen</string>
     <string name="color_green">Vihreä</string>
     <string name="color_blue">Sininen</string>
-    <string name="color_yellow">Keltainen</string>
-    <string name="color_pink">Pinkki</string>
-    <string name="color_cyan">Syaani</string>
     <string name="app_notification_beta">Sovellus päivitettiin versioon %1$s\nKiitos osallistumisesta Jellyfinin betatestaukseen.</string>
     <string name="item_deleted">%1$s poistettiin</string>
     <string name="item_deletion_failed">Kohdetta %1$s ei voitu poistaa</string>
-    <string name="pref_enable_media_management">Ota median hallinta käyttöön</string>
-    <string name="pref_enable_media_management_description">Näytä selattaessa median hallintavalinta</string>
     <string name="item_delete_confirm_title">Poista kohde</string>
     <string name="item_delete_confirm_message">Haluatko varmasti poistaa kohteen palvelimelta? Toimintoa ei voi perua.</string>
     <string name="pref_screensaver">Näytönsäästäjä</string>
@@ -480,9 +419,7 @@
         <item quantity="one">%1$s jakso</item>
         <item quantity="other">%1$s jaksoa</item>
     </plurals>
-    <string name="enable_reactive_homepage">Käytä reaktiivista aloitussivua</string>
     <string name="lbl_album_artists">Albumin esittäjät</string>
-    <string name="not_set">Ei määritetty</string>
     <string name="disable_ui_mode_warning">Älä varoita laitteen tyypistä</string>
     <string name="because_you_watched">Koska katselit: %1$s</string>
     <string name="channels">Kanavat</string>
@@ -506,7 +443,6 @@
     <string name="prefer_exoplayer_ffmpeg">Suosi äänen toistamiseen FFmpeg</string>
     <string name="video_start_delay">Toiston aloituksen viive</string>
     <string name="lbl_hide_watched_checkmark">Kun jaksoja on jäljellä</string>
-    <string name="pref_external_player">Käytä ulkoista soitinta</string>
     <string name="dolby_atmos">Dolby Atmos</string>
     <string name="pref_screensaver_ageratingmax_unlimited">Poista yläraja käytöstä</string>
     <string name="pref_screensaver_ageratingrequired_title">Vaadi ikäraja</string>
@@ -516,7 +452,6 @@
     <string name="lbl_runtime">Toistoaika</string>
     <string name="indicator_subtitles">Tekstitys</string>
     <string name="clear_image_cache_content">Käytetty: %1$s</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Näytetään kaikki nimikkeet</string>
     <string name="current_queue">Nykyinen jono</string>
     <string name="pref_screensaver_ageratingmax_zero">Kaikki iät</string>
     <string name="pref_screensaver_ageratingmax_entry">Enintään %1$d vuotta</string>
@@ -529,7 +464,6 @@
     <string name="segment_type_preview">Esikatselut</string>
     <string name="segment_type_recap">Kertaukset</string>
     <string name="segment_type_unknown">Tuntemattomat osiot</string>
-    <string name="preference_enable_trickplay">Ota trickplay käyttöön</string>
     <plurals name="items">
         <item quantity="one">%1$s kohde</item>
         <item quantity="other">%1$s kohdetta</item>
@@ -537,10 +471,6 @@
     <plurals name="albums">
         <item quantity="one">%1$s albumi</item>
         <item quantity="other">%1$s albumia</item>
-    </plurals>
-    <plurals name="movies">
-        <item quantity="one">%1$s elokuva</item>
-        <item quantity="other">%1$s elokuvaa</item>
     </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s kappale</item>
@@ -551,23 +481,15 @@
     <string name="skip_forward_length">Eteenpäin hyppäyksen pituus</string>
     <string name="segment_action_nothing">Älä tee mitään</string>
     <string name="segment_action_skip">Ohita</string>
-    <string name="pref_mediasegment_actions">Toimintatapa osioissa</string>
     <string name="dca">DTS</string>
     <string name="eac3">DD+</string>
     <string name="ac3">DD</string>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s Sarja</item>
-        <item quantity="other">%1$s Sarjat</item>
-    </plurals>
     <string name="runtime_hours_minutes">%1$dt %2$dm</string>
     <string name="runtime_minutes">%1$dm</string>
     <string name="pref_troubleshooting">Vianetsintä</string>
     <string name="pref_report_device_profile_title">Ilmoita laitteen tukemat toistomuodot palvelimelle</string>
-    <string name="pref_subtitles_background_opacity">Tekstityksen taustan läpinäkyvyys</string>
     <string name="fast_forward">Pikakelaa</string>
-    <string name="pref_still_watching_behavior_title">Näytä käyttämättömyyden varoitusikkuna</string>
     <string name="pref_report_device_profile_summary">Lataa vianmääritysdokumentti Jellyfin-palvelimelle videon toistokykytietojen kanssa</string>
-    <string name="pref_subtitles_bold">Lihavoitu teksti</string>
     <string name="lbl_from_beginning">Aloita toisto alusta</string>
     <string name="speech_error_no_permission">Ei käyttöoikeuksia mikrofonin käyttöön. Ota mikrofoni käyttöön järjestelmän asetuksista.</string>
     <string name="indicator_subtitles_hearing_impaired">SDH</string>

@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-15. See FORK.md.
 package org.jellyfin.androidtv.preference.store
 
 import kotlinx.coroutines.Dispatchers
@@ -21,9 +22,10 @@ abstract class DisplayPreferencesStore(
 	private val api: ApiClient,
 ) : AsyncPreferenceStore<Unit, Unit>() {
 	private var displayPreferencesDto: DisplayPreferencesDto? = null
+	private var loadedSuccessfully = false
 	private var cachedPreferences: MutableMap<String, String?> = mutableMapOf()
 	override val shouldUpdate: Boolean
-		get() = displayPreferencesDto == null
+		get() = !loadedSuccessfully
 
 	override suspend fun commit(): Boolean {
 		if (displayPreferencesDto == null) return false
@@ -44,18 +46,6 @@ abstract class DisplayPreferencesStore(
 		return true
 	}
 
-	/**
-	 * Clear local copy of display preferences and require an update for new modifications.
-	 */
-	fun clearCache(): Boolean {
-		if (displayPreferencesDto == null) return false
-
-		displayPreferencesDto = null
-		cachedPreferences.clear()
-
-		return true
-	}
-
 	override suspend fun update(): Boolean {
 		try {
 			val result = withContext(Dispatchers.IO) {
@@ -66,6 +56,7 @@ abstract class DisplayPreferencesStore(
 			}
 			displayPreferencesDto = result
 			cachedPreferences = result.customPrefs.toMutableMap()
+			loadedSuccessfully = true
 
 			return true
 		} catch (err: ApiClientException) {

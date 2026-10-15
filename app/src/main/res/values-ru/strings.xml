@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
     <string name="loading">Загружается…</string>
     <string name="video_error_unknown_error">Не удалось загрузить видео</string>
@@ -44,8 +45,6 @@
     <string name="lbl_chapters">Разделы</string>
     <string name="lbl_specials">Доп. материалы</string>
     <string name="lbl_trailers">Трейлеры</string>
-    <string name="lbl_items">Элементы</string>
-    <string name="lbl_item">Элемент</string>
     <string name="lbl_seasons">Сезоны</string>
     <string name="lbl_upcoming">Ожидаемое</string>
     <string name="lbl_sd">SD</string>
@@ -60,14 +59,12 @@
     <string name="lbl_none">Ничего</string>
     <string name="msg_video_playback_error">"Ошибка воспроизведения видео - "</string>
     <string name="lbl_bracket_unknown">Неизвестно</string>
-    <string name="lbl_trailer">"Трейлер "</string>
     <string name="lbl_play_trailers">Воспроизвести трейлеры</string>
     <string name="lbl_no">Нет</string>
     <string name="lbl_yes">Да</string>
     <string name="lbl_enter_server_address">Ввести адрес сервера</string>
     <string name="lbl_valid_server_address">Введите адрес сервера (IP или домен/имя_машины)</string>
     <string name="lbl_ok">ОК</string>
-    <string name="lbl_born">"Рождение "</string>
     <string name="lbl_loading_elipses">Загружается…</string>
     <string name="msg_playback_not_allowed">Воспроизведение в данное время не разрешено</string>
     <string name="msg_playback_restricted">Администратор ограничил воспроизведение данного элемента в настоящее время</string>
@@ -77,8 +74,6 @@
     <string name="msg_cannot_play">Этот элемент невозможно воспроизвести</string>
     <string name="lbl_no_items">Нет элементов</string>
     <string name="lbl_empty">Пусто</string>
-    <string name="lbl_tv_queuing">Автоматическии включить следующий эпизод</string>
-    <string name="lbl_search_hint">Искомый текст (выбор для клавиатуры)</string>
     <string name="lbl_play_first_unwatched">Воспроизвести первое непросмотренное</string>
     <string name="lbl_mark_unplayed">Отметить как не воспроизведённое</string>
     <string name="lbl_mark_played">Отметить как воспроизведённое</string>
@@ -118,13 +113,9 @@
     <string name="lbl_critic_rating">Оценка критиков</string>
     <string name="lbl_rating">Возрастная категория</string>
     <string name="lbl_starting_with">"начиная с тех, чьё имя начинается с"</string>
-    <string name="lbl_display_preferences">Предпочтения отображения</string>
     <string name="lbl__continuing">ПРОДОЛЖАЕТСЯ</string>
     <string name="lbl_ended">ЗАВЕРШИЛСЯ</string>
     <string name="lbl_filters">Фильтры эфирного ТВ</string>
-    <string name="msg_subtitles_loading">Субтитры загружаются…</string>
-    <string name="msg_unable_load_subs">Невозможно загрузить субтитры</string>
-    <string name="msg_burn_sub_warning">Субтитры прошиваются. Это может занять несколько секунд…</string>
     <string name="lbl_no_recordings">Записи отсутствуют</string>
     <string name="lbl_live_tv_guide">Телегид</string>
     <string name="lbl_recorded_tv">Записанное ТВ</string>
@@ -134,14 +125,9 @@
     <string name="lbl_programs">Передачи</string>
     <string name="lbl_albums">Альбомы</string>
     <string name="lbl_artists">Исполнители</string>
-    <string name="lbl_song">Композиция</string>
     <string name="lbl_songs">Композиции</string>
-    <string name="lbl_album">Альбом</string>
     <string name="lbl_episodes">Эпизоды</string>
-    <string name="lbl_enable_cinema_mode">Режим кинозала</string>
-    <string name="sum_enable_cinema_mode">Воспроизведение доступных заставок и анонсов перед началом фильма</string>
     <string name="lbl_playlists">Плей-листы</string>
-    <string name="msg_items_added">" элементов добавлено"</string>
     <string name="lbl_add_to_queue">Добавить в очередь</string>
     <string name="lbl_open_artist">Открыть исполнителя</string>
     <string name="lbl_open_album">Открыть альбом</string>
@@ -153,11 +139,8 @@
     <string name="lbl_goto_now_playing">Перейти к воспроизводящемуся</string>
     <string name="lbl_instant_mix">Автомикс</string>
     <string name="lbl_delete">Удалить</string>
-    <string name="msg_item_added">" элемент добавлен"</string>
     <string name="desc_automatic_fav_songs">Автоматический плей-лист избранных и нравящихся композиций</string>
-    <string name="lbl_new_premieres">Новые премьеры</string>
     <string name="lbl_bitstream_ac3">Транслировать аудио Dolby Digital</string>
-    <string name="desc_bitstream_ac3">Требуется поддерживающее оборудование</string>
     <string name="lbl_zoom">Масштабированный</string>
     <string name="btn_got_it">Понятно</string>
     <string name="lbl_clear_queue">Очистить очередь</string>
@@ -165,8 +148,6 @@
     <string name="lbl_open">Открыть</string>
     <string name="lbl_show_backdrop">Показывать задники</string>
     <string name="lbl_refresh_switching">Переключение частоты обновления</string>
-    <string name="lbl_show_premieres">Показывать премьеры сезона</string>
-    <string name="desc_premieres">Показывать ряд пилотных эпизодов для любого просматривемого сериала</string>
     <string name="lbl_favorite">В избранном</string>
     <string name="lbl_song_title">Название композиции</string>
     <string name="lbl_album_name">Название альбома</string>
@@ -196,7 +177,6 @@
     <string name="lbl_now_playing_track">%1$s из %2$s</string>
     <string name="lbl_watched">Просмотренное</string>
     <string name="lbl_series">Серия</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_more_like_this">Ещё подобное</string>
     <string name="lbl_resume_preroll">Откат для возобновления</string>
     <string name="lbl_guide_option_played">Последнее воспроизведение</string>
@@ -205,7 +185,6 @@
     <string name="lbl_schedule">Расписание</string>
     <string name="no_program_data">Программа не доступна</string>
     <string name="lbl_just_this_once">Только на этот раз</string>
-    <string name="pref_authentication_cat">Аутентификация</string>
     <string name="lbl_image_size">Размер изображения</string>
     <string name="lbl_image_type">Тип изображения</string>
     <string name="lbl_start_favorites">Разместить избранные в начале</string>
@@ -229,17 +208,10 @@
     <string name="grid_direction_horizontal">Горизонтальное</string>
     <string name="grid_direction">Направление сетки</string>
     <string name="pref_device_model">Модель устройства</string>
-    <string name="lbl_Reset">Сбросить</string>
-    <string name="pref_button_remapping_description">Нажмите любую кнопку на пульте, чтобы её переназначить</string>
-    <string name="pref_subtitle_track_button">Кнопка дорожки субтитров</string>
-    <string name="pref_audio_track_button">Кнопка аудио дорожки</string>
-    <string name="lbl_unknown_key">Неизвестно (%1s)</string>
     <string name="bitrate_kbit">%1$,.0f Кбит/с</string>
     <string name="bitrate_mbit">%1$,.0f Мбит/с</string>
     <string name="just_one">Только этот один</string>
-    <string name="turn_off">Отключить эту опцию</string>
     <string name="msg_no_items">Нет элементов для воспроизведения</string>
-    <string name="subtitle_error">Невозможно выбрать субтитры</string>
     <string name="too_many_errors">Слишком много ошибок. Отказ от попыток</string>
     <string name="player_error">Произошла ошибка проигрывателя. Повторная попытка…</string>
     <string name="seek_error">Невозможно искать</string>
@@ -250,16 +222,11 @@
     <string name="episode_missing_message_2">Этот эпизод отсутствует в медиатеке. Воспроизведение будет остановлено.</string>
     <string name="episode_missing">Эпизод отсутствует</string>
     <string name="no_player_message">Не найдено приложение поддерживающее видео. Эта опция требует установки стороннего проигрывателя видео.</string>
-    <string name="mark_watched">Отметить как просмотренное</string>
     <string name="lbl_tv_filter_status">на следующие %1$d часов</string>
     <string name="lbl_tv_channel_status">%1$d из %2$d каналов</string>
-    <string name="mark_watched_message">Элемент не воспроизведён до конца. Пометить как воспроизведённое\?</string>
-    <string name="audio_error">Невозможно воспроизвести аудио %1$s</string>
-    <string name="no_player">Нет проигрывателя</string>
     <string name="lbl_subtitle_track">Выбрать дорожку субтитров</string>
     <string name="lbl_audio_track">Выбрать аудио дорожку</string>
     <string name="lbl_pause">Пауза</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_playback_control_ends">Конец в %1$s</string>
     <string name="lbl_sign_in">Выполнить вход</string>
     <string name="pref_clock_display_playback">При воспроизведении</string>
@@ -277,7 +244,6 @@
     <string name="lbl_sign_out">Выйти</string>
     <string name="lbl_remove">Удалить</string>
     <string name="lbl_server">Сервер</string>
-    <string name="lbl_user_server">%1$s на %2$s</string>
     <string name="lbl_user_last_used">Последнее использование ̶ %1$s в %2$s</string>
     <string name="lbl_remove_server">Удалить сервер</string>
     <string name="lbl_sign_out_content">Требуется вход при следующем обращении</string>
@@ -290,8 +256,6 @@
     <string name="connect_manually_by_address">Ввод адреса сервера</string>
     <string name="discovered_servers_empty">В локальной сети серверов не найдено.</string>
     <string name="discovered_servers_title">Обнаруженные серверы</string>
-    <string name="lbl_hidden">Скрытый</string>
-    <string name="pref_developer_link_description">Расширенные и экспериментальные функции</string>
     <string name="pref_developer_link">Опции разработчика</string>
     <string name="image_size_large">Крупный</string>
     <string name="image_size_medium">Средний</string>
@@ -347,7 +311,6 @@
     <string name="always_authenticate">Всегда запрашивать учётные данные</string>
     <string name="lbl_community_rating">Общественная оценка</string>
     <string name="select_version">Версия</string>
-    <string name="licenses_link_description">Просмотр лицензий библиотек, используемых приложением Jellyfin</string>
     <string name="license_license">Лицензия</string>
     <string name="license_author">Автор</string>
     <string name="license_repository">Репозиторий</string>
@@ -357,7 +320,6 @@
     <string name="license_description">Описание</string>
     <string name="licenses_link">Лицензии</string>
     <string name="home_section_i">Главное - раздел %1$d</string>
-    <string name="home_sections">Главное - разделы</string>
     <string name="home_section_none">Ничего</string>
     <string name="home_section_livetv">Эфир</string>
     <string name="home_section_next_up">Очередное</string>
@@ -371,8 +333,6 @@
     <string name="searchable_settings_description">Медиаданные</string>
     <string name="searchable_hint">Поиск Jellyfin</string>
     <string name="pref_subtitles_size">Размер текста</string>
-    <string name="pref_subtitles_background_summary">Показывать чёрный фон за субтитрами</string>
-    <string name="pref_subtitles_background_title">Включить фон</string>
     <string name="pref_next_up_timeout_disabled">∞</string>
     <string name="server_issue_ssl_handshake">Ошибка подтверждения SSL</string>
     <string name="server_issue_timeout">Время соединения истекло</string>
@@ -384,22 +344,13 @@
     <string name="server_connection_failed_candidates">Не удалось подключиться к серверу, пробуем следующие адреса: %1$s</string>
     <string name="lbl_playback_speed">Скорость воспроизведения</string>
     <string name="pref_customization">Настройка</string>
-    <string name="pref_direct_stream_live_on">Перекодирование выключено</string>
-    <string name="pref_direct_stream_live_off">Перекодирование используется при необходимости</string>
-    <string name="pref_libraries_description">Изменение способа отображения медиатек</string>
-    <string name="pref_home_description">Настройка отображения разделов</string>
     <string name="sort_accounts_by">Сортировка учётных записей по</string>
     <string name="pref_audio">Аудио</string>
     <string name="pref_subtitles">Субтитры</string>
     <string name="pref_video">Видео</string>
-    <string name="pref_playback_description">Видео, субтитры, эфир, очередное</string>
-    <string name="pref_customization_description">Тема, главная, переназначение</string>
-    <string name="pref_login_description">Сервера, учётные записи, автовход</string>
     <string name="pref_login">Вход</string>
     <string name="pref_libraries">Медиатеки</string>
-    <string name="pref_theme">Тема</string>
     <string name="pref_browsing">Навигация</string>
-    <string name="pref_behavior">Поведение</string>
     <string name="pref_accounts">Учётные записи</string>
     <string name="home_section_resume_book">Продолжение чтения</string>
     <string name="lbl_shuffle_queue">Переключить перемешивание</string>
@@ -417,8 +368,6 @@
     <string name="pref_refresh_rate_scale_on_tv">Масштабирование на телевизоре</string>
     <string name="state_disabled">Отключено</string>
     <string name="action_connect">Соединение</string>
-    <string name="lbl_subtitle_delay">Задержка субтитров</string>
-    <string name="live_tv_preferences">Опции эфирного ТВ</string>
     <string name="app_notification_uimode_invalid">Это приложение оптимизировано для телевизоров. Мы рекомендуем использовать наше мобильное приложение на других устройствах.</string>
     <string name="server_unsupported_notification">Этот сервер использует версию Jellyfin %1$s, которая не поддерживается. Обновитесь до Jellyfin %2$s или более новой, чтобы продолжить использовать приложение.</string>
     <string name="image_size_xlarge">Самый крупный</string>
@@ -426,7 +375,6 @@
     <string name="image_type_poster">Постер</string>
     <string name="lbl_additional_parts">Дополнительные части</string>
     <string name="pref_crash_reports_enabled">Отчеты о сбоях будут отправлены на последний использованный сервер</string>
-    <string name="pref_telemetry_description">Отправлять отчеты о сбоях, включая журналы</string>
     <string name="crash_report_toast">Что-то пошло не так, был отправлен отчет о сбое на Jellyfin-сервер.</string>
     <string name="pref_crash_report_logs_disabled">Журналы не будут включены в отчёты о сбоях</string>
     <string name="pref_crash_report_logs_enabled">Журналы будут включены в отчёты о сбоях</string>
@@ -437,30 +385,19 @@
     <string name="server_setup_incomplete">Настройка этого сервера не завершена. Откройте Jellyfin в веб-браузере, чтобы завершить настройку перед входом в систему.</string>
     <string name="episode_name_special">спецэпизод</string>
     <string name="lbl_quality_profile">Профиль качества</string>
-    <string name="desc_audio_night_mode">Автоматически выравнивает громкость звука</string>
     <string name="pref_audio_night_mode">Ночной аудиорежим (экспериментальный)</string>
-    <string name="color_yellow">Жёлтый</string>
     <string name="app_notification_beta">Приложение обновлено до версии %1$s
 \nСпасибо вам за участие в бета-тестировании Jellyfin.</string>
-    <string name="color_white">Белый</string>
-    <string name="color_black">Чёрный</string>
-    <string name="color_darkgrey">Тёмно-серый</string>
     <string name="color_red">Красный</string>
     <string name="color_green">Зелёный</string>
     <string name="color_blue">Синий</string>
-    <string name="color_pink">Розовый</string>
-    <string name="color_cyan">Циановый</string>
     <string name="item_deleted">%1$sУдалено</string>
     <string name="item_deletion_failed">Неудалось удалить %1$s</string>
-    <string name="pref_enable_media_management">Разрешить управление медиа</string>
     <string name="item_delete_confirm_title">Удалить</string>
     <string name="item_delete_confirm_message">Вы уверенны, что хотите удалить это с сервера\? Это действие невозможно отменить.</string>
-    <string name="pref_enable_media_management_description">Показывать возможности управления медиа во время навигации</string>
     <string name="lbl_latest_in">Недавно добавлено в %1$s</string>
     <string name="pref_screensaver_inapp_enabled_description">Показывать заставку Jellyfin при открытом приложении</string>
     <string name="lbl_album_artists">Исполнители альбома</string>
-    <string name="enable_reactive_homepage">Включить реактивную домашнюю страницу</string>
-    <string name="not_set">Не задано</string>
     <string name="pref_screensaver">Заставка</string>
     <string name="pref_screensaver_inapp_enabled">Использовать заставку приложения</string>
     <plurals name="hours">
@@ -503,7 +440,6 @@
     <string name="lbl_home">Главная</string>
     <string name="pref_playback_advanced">Дополнительные параметры воспроизведения</string>
     <string name="current_queue">Текущая очередь</string>
-    <string name="pref_external_player">Используйте внешний проигрыватель</string>
     <string name="continue_listening">Продолжить прослушивание</string>
     <string name="random">Случайный</string>
     <string name="app_notification_update_soon">Обновите свой сервер с %1$s по крайней мере до %2$s, чтобы продолжить работу с приложением после следующего обновления.</string>
@@ -517,17 +453,10 @@
     <string name="pref_screensaver_ageratingmax_entry">До %1$d лет</string>
     <string name="pref_screensaver_ageratingrequired_title">Требуется возрастной рейтинг</string>
     <string name="pref_screensaver_ageratingrequired_enabled">Показывать только товары с установленным возрастным рейтингом</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Показать все товары</string>
     <string name="lbl_runtime">Среда выполнения</string>
     <string name="lbl_subtitle_background_color">Цвет фона</string>
     <string name="lbl_subtitle_text_color">Цвет текста</string>
     <string name="default_video_zoom">Режим масштабирования по умолчанию</string>
-    <plurals name="movies">
-        <item quantity="one">%1$s фильм</item>
-        <item quantity="few">%1$s фильма</item>
-        <item quantity="many">%1$s фильмов</item>
-        <item quantity="other">%1$s фильмов</item>
-    </plurals>
     <string name="dolby_vision">Dolby Vision</string>
     <string name="ac3">DD</string>
     <string name="dts_hd">DTS-HD</string>
@@ -537,17 +466,10 @@
     <string name="prefer_exoplayer_ffmpeg_content">Использовать FFmpeg для декодирования аудио, даже если доступны кодеки системы.</string>
     <string name="video_start_delay">Задержка запуска видео</string>
     <string name="segment_type_recap">В предыдущих сериях</string>
-    <string name="pref_mediasegment_actions">Действия с медиасегментами</string>
     <string name="segment_action_ask_to_skip">Спрашивать прежде чем пропускать</string>
     <string name="segment_action_skip">Пропустить</string>
     <string name="segment_type_commercial">Реклама</string>
     <string name="segment_type_unknown">Неизвестные сегменты</string>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s сериал</item>
-        <item quantity="few">%1$s сериала</item>
-        <item quantity="many">%1$s сериалов</item>
-        <item quantity="other">%1$s сериалов</item>
-    </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s песня</item>
         <item quantity="few">%1$s песни</item>
@@ -578,11 +500,9 @@
     <string name="segment_type_intro">Интро</string>
     <string name="past_24_hours">Последние 24 часа</string>
     <string name="clear_image_cache">Очистить кэш изображений</string>
-    <string name="preference_enable_trickplay">Включить trickplay в плеере</string>
     <string name="skip_forward_length">Длина перемотки вперед</string>
     <string name="runtime_hours_minutes">%1$dч %2$dмин</string>
     <string name="runtime_minutes">%1$dмин</string>
-    <string name="pref_subtitles_background_opacity">Непрозрачность фона субтитров</string>
     <string name="pref_troubleshooting">Устранение неполадок</string>
     <string name="pref_report_device_profile_title">Отправлять поддерживаемые функции воспроизведения на сервер</string>
     <string name="pref_report_device_profile_failure">Не удалось загрузить данные. Возможно, ваш сервер Jellyfin не принимает клиентские логи.</string>
@@ -596,9 +516,7 @@
     <string name="lbl_from_beginning">Воспроизвести с начала</string>
     <string name="speech_error_unknown">Во время распознавания речи произошла неожиданная ошибка.</string>
     <string name="preference_enable_pgs">Воспроизводить напрямую субтитры типа PGS</string>
-    <string name="pref_subtitles_bold">Жирный шрифт</string>
     <string name="lbl_exit">Выйти</string>
-    <string name="pref_still_watching_behavior_title">Показывать всплывающее окно о неактивности</string>
     <string name="lbl_still_watching_very_long">8 эпизодов или 240 минут</string>
     <string name="lbl_still_watching_long">5 эпизодов или 150 минут</string>
     <string name="lbl_still_watching_short">2 эпизода или 60 минут</string>

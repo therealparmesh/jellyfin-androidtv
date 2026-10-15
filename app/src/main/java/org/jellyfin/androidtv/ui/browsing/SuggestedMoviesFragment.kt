@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import androidx.lifecycle.lifecycleScope
@@ -23,7 +24,7 @@ class SuggestedMoviesFragment : EnhancedBrowseFragment() {
 	}
 
 	override fun setupQueries(rowLoader: RowLoader) {
-		lifecycleScope.launch {
+		viewLifecycleOwner.lifecycleScope.launch {
 			val response = withContext(Dispatchers.IO) {
 				api.itemsApi.getItems(
 					parentId = mFolder.id,

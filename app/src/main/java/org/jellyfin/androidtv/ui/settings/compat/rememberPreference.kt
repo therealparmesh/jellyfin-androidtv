@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.settings.compat
 
 import androidx.compose.runtime.Composable
@@ -15,8 +16,8 @@ import org.jellyfin.preference.store.PreferenceStore
  */
 @Composable
 fun <ME, MV, T : Any> rememberPreference(store: PreferenceStore<ME, MV>, preference: Preference<T>): MutableState<T> {
-	val mutableState = remember { mutableStateOf(store[preference]) }
-	LaunchedEffect(mutableState.value) {
+	val mutableState = remember(store, preference) { mutableStateOf(store[preference]) }
+	LaunchedEffect(store, preference, mutableState.value) {
 		if (store[preference] != mutableState.value) {
 			store[preference] = mutableState.value
 			if (store is AsyncPreferenceStore) store.commit()
@@ -31,8 +32,8 @@ fun <ME, MV, T : Enum<T>> rememberPreference(
 	store: PreferenceStore<ME, MV>,
 	preference: Preference<T>
 ): MutableState<T> {
-	val mutableState = remember { mutableStateOf(store[preference]) }
-	LaunchedEffect(mutableState.value) {
+	val mutableState = remember(store, preference) { mutableStateOf(store[preference]) }
+	LaunchedEffect(store, preference, mutableState.value) {
 		if (store[preference] != mutableState.value) {
 			store[preference] = mutableState.value
 			if (store is AsyncPreferenceStore) store.commit()

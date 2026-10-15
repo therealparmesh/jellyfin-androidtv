@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.androidtv.util.sdk
 
 import android.content.Context
@@ -286,6 +287,7 @@ class SdkPlaybackHelper(
 	}
 
 	override fun retrieveAndPlay(itemIds: List<UUID>, shuffle: Boolean, position: Long?, index: Int?, context: Context) {
+		if (itemIds.isEmpty()) return
 		getScope(context).launch {
 			val resumeSubtractDuration =
 				userPreferences[UserPreferences.resumeSubtractDuration].toIntOrNull()?.seconds
@@ -296,6 +298,10 @@ class SdkPlaybackHelper(
 					ids = itemIds,
 				)
 				response.items
+			}
+			if (items.isEmpty()) {
+				Toast.makeText(context, R.string.msg_no_playable_items, Toast.LENGTH_LONG).show()
+				return@launch
 			}
 
 			val pos = position?.ticks ?: items[0].userData?.playbackPositionTicks?.ticks?.minus(

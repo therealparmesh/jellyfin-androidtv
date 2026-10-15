@@ -1,8 +1,11 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.browsing
 
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import org.jellyfin.androidtv.data.repository.ItemRepository
@@ -24,24 +27,29 @@ fun EnhancedBrowseFragment.getLiveTvRecordingsAndTimers(
 ) {
 	val api by inject<ApiClient>()
 
-	lifecycleScope.launch {
+	viewLifecycleOwner.lifecycleScope.launch {
 		runCatching {
-			val recordings = async(Dispatchers.IO) {
-				api.liveTvApi.getRecordings(
-					fields = ItemRepository.itemFields,
-					enableImages = true,
-					limit = 40,
-				).content
-			}
+			coroutineScope {
+				val recordings = async(Dispatchers.IO) {
+					api.liveTvApi.getRecordings(
+						fields = ItemRepository.itemFields,
+						enableImages = true,
+						limit = 40,
+					).content
+				}
 
-			val timers = async(Dispatchers.IO) {
-				api.liveTvApi.getTimers().content
-			}
+				val timers = async(Dispatchers.IO) {
+					api.liveTvApi.getTimers().content
+				}
 
-			recordings.await() to timers.await()
+				recordings.await() to timers.await()
+			}
 		}.fold(
 			onSuccess = { (recordings, timers) -> callback(recordings, timers) },
-			onFailure = { exception -> errorCallback(exception) }
+			onFailure = { exception ->
+				if (exception is CancellationException) throw exception
+				errorCallback(exception)
+			}
 		)
 	}
 }
@@ -52,14 +60,17 @@ fun EnhancedBrowseFragment.getLiveTvTimers(
 ) {
 	val api by inject<ApiClient>()
 
-	lifecycleScope.launch {
+	viewLifecycleOwner.lifecycleScope.launch {
 		runCatching {
 			withContext(Dispatchers.IO) {
 				api.liveTvApi.getTimers().content
 			}
 		}.fold(
 			onSuccess = { timers -> callback(timers) },
-			onFailure = { exception -> errorCallback(exception) }
+			onFailure = { exception ->
+				if (exception is CancellationException) throw exception
+				errorCallback(exception)
+			}
 		)
 	}
 }

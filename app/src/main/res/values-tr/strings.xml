@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Modified for the Parmesh fork on 2026-10-12. See FORK.md. -->
 <resources>
     <string name="lbl_episode_not_record">Bu gösteri KAYDEDİLMEYECEK</string>
     <string name="lbl_schedule">Planlama</string>
@@ -13,8 +14,6 @@
     <string name="lbl_just_this_once">Sadece bu kez</string>
     <string name="lbl_select_date">Tarih seç</string>
     <string name="lbl_in_x_days">%d günde</string>
-    <string name="desc_premieres">İzlediğiniz herhangi bir seri için, bir sıra yeni bölüm pilot bölümleri göster</string>
-    <string name="lbl_show_premieres">Sezon prömiyerlerini göster</string>
     <string name="lbl_refresh_switching">Yenileme hızı değiştirme</string>
     <string name="lbl_show_backdrop">Arka planı göster</string>
     <string name="lbl_open">Aç</string>
@@ -24,11 +23,8 @@
     <string name="lbl_subtitle_track">Altyazı parçası seç</string>
     <string name="lbl_audio_track">Ses parçası seçin</string>
     <string name="lbl_zoom">Yakınlaşma</string>
-    <string name="desc_bitstream_ac3">Uyumlu donanım gerektirir</string>
     <string name="lbl_bitstream_ac3">Bitstream Dolby Digital ses</string>
-    <string name="lbl_new_premieres">Yeni prömiyerler</string>
     <string name="desc_automatic_fav_songs">Favori şarkılardan oluşan otomatik çalma listesi</string>
-    <string name="msg_item_added">" öğe eklendi"</string>
     <string name="lbl_delete">Sil</string>
     <string name="lbl_instant_mix">Anlık mix</string>
     <string name="lbl_goto_now_playing">Şimdi oynatılana git</string>
@@ -40,14 +36,9 @@
     <string name="lbl_open_album">Albümü aç</string>
     <string name="lbl_open_artist">Sanatçıyı aç</string>
     <string name="lbl_add_to_queue">Kuyruğa ekle</string>
-    <string name="msg_items_added">" öğe eklendi"</string>
     <string name="lbl_playlists">Oynatma Listeleri</string>
-    <string name="sum_enable_cinema_mode">Bir filmi başlatmadan önce mevcut introları ve önizlemeleri oynatın</string>
-    <string name="lbl_enable_cinema_mode">Sinema modu</string>
     <string name="lbl_episodes">Bölümler</string>
-    <string name="lbl_album">Albüm</string>
     <string name="lbl_songs">Şarkılar</string>
-    <string name="lbl_song">Şarkı</string>
     <string name="lbl_artists">Sanatçılar</string>
     <string name="lbl_albums">Albümler</string>
     <string name="lbl_programs">Programlar</string>
@@ -57,13 +48,9 @@
     <string name="lbl_recorded_tv">Kaydedilmiş TV</string>
     <string name="lbl_live_tv_guide">Canlı TV Rehberi</string>
     <string name="lbl_no_recordings">Mevcut kayıt yok</string>
-    <string name="msg_burn_sub_warning">Altyazılar gömülüyor. Bu işlem birkaç saniye sürebilir…</string>
-    <string name="msg_unable_load_subs">Altyazı yüklenemedi</string>
-    <string name="msg_subtitles_loading">Altyazılar yükleniyor…</string>
     <string name="lbl_filters">Canlı TV filtreleri</string>
     <string name="lbl_ended">BİTTİ</string>
     <string name="lbl__continuing">DEVAM EDİYOR</string>
-    <string name="lbl_display_preferences">Görüntüleme tercihleri</string>
     <string name="lbl_starting_with">adı şununla başlayanlardan başlayarak</string>
     <string name="lbl_rating">Puan</string>
     <string name="lbl_critic_rating">Eleştirmen puanı</string>
@@ -104,8 +91,6 @@
     <string name="lbl_mark_played">Oynatıldı olarak işaretle</string>
     <string name="lbl_mark_unplayed">Oynatılmadı olarak işaretle</string>
     <string name="lbl_play_first_unwatched">İlk izlenmeyeni oynat</string>
-    <string name="lbl_search_hint">Arama metni (klavye için seçin)</string>
-    <string name="lbl_tv_queuing">Sonraki bölümü otomatik olarak oynat</string>
     <string name="lbl_empty">Boş</string>
     <string name="lbl_no_items">Öge yok</string>
     <string name="msg_cannot_play">Bu öğe oynatılamaz</string>
@@ -115,14 +100,12 @@
     <string name="msg_playback_restricted">Yönetici şu anda bu öğenin oynatılmasını kısıtladı</string>
     <string name="msg_playback_not_allowed">Oynatmaya şuan izin verilmiyor</string>
     <string name="lbl_loading_elipses">Yükleniyor…</string>
-    <string name="lbl_born">"Doğum "</string>
     <string name="lbl_ok">Tamam</string>
     <string name="lbl_valid_server_address">Lütfen sunucu adresi girin (IP yada alan/makine adı)</string>
     <string name="lbl_enter_server_address">Sunucu adresi girin</string>
     <string name="lbl_yes">Evet</string>
     <string name="lbl_no">Hayır</string>
     <string name="lbl_play_trailers">Fragmanları oynat</string>
-    <string name="lbl_trailer">"Fragman "</string>
     <string name="lbl_bracket_unknown">Bilinmiyor</string>
     <string name="msg_video_playback_error">"Video oynatma hatası - "</string>
     <string name="lbl_none">Hiçbiri</string>
@@ -140,8 +123,6 @@
     <string name="lbl_upcoming">Yakında</string>
     <string name="lbl_seasons">Sezonlar</string>
     <string name="lbl_series">Diziler</string>
-    <string name="lbl_item">Öğe</string>
-    <string name="lbl_items">Öğeler</string>
     <string name="lbl_trailers">Fragmanlar</string>
     <string name="lbl_specials">Özel Bölümler</string>
     <string name="lbl_chapters">Bölümler</string>
@@ -172,7 +153,6 @@
     <string name="msg_not_implemented">" uygulanmadı"</string>
     <string name="lbl_search">Ara</string>
     <string name="lbl_genres">Türler</string>
-    <string name="lbl_status">%1$s / %2$s</string>
     <string name="lbl_suggested">Önerilen</string>
     <string name="lbl_by_letter">Harfe göre</string>
     <string name="lbl_views">Görüntüleme</string>
@@ -181,7 +161,6 @@
     <string name="lbl_continue_watching">İzlemeye devam et</string>
     <string name="lbl_settings">Tercihler</string>
     <string name="chapters">Bölümler</string>
-    <string name="pref_authentication_cat">Doğrulama</string>
     <string name="settings_title">Tercihler</string>
     <string name="pref_max_bitrate_title">Maksimum akış bit hızı</string>
     <string name="pref_playback">Oynatma</string>
@@ -192,15 +171,11 @@
     <string name="lbl_series_settings">Dizi tercihleri</string>
     <string name="bitrate_kbit">%1$,.0f Kbit/s</string>
     <string name="bitrate_mbit">%1$,.0f Mbit/s</string>
-    <string name="watch_count_overflow">99+</string>
     <string name="lbl_from">,</string>
     <string name="lbl_playback_control_ends">Bitiş zamanı %1$s</string>
     <string name="lbl_sign_in">Lütfen oturum açın</string>
     <string name="just_one">Sadece bu</string>
-    <string name="turn_off">Bu seçeneği kapat</string>
-    <string name="audio_error">Ses oynatılamıyor %1$s</string>
     <string name="msg_no_items">Oynatıclacak öğe bulunmuyor</string>
-    <string name="subtitle_error">Altyazı seçilemedi</string>
     <string name="too_many_errors">Çok fazla hata. Bırakılıyor</string>
     <string name="player_error">Oynatıcı hatasıyla karşılaşıldı. Yeniden denenecek…</string>
     <string name="seek_error">Gezinilemiyor</string>
@@ -211,14 +186,6 @@
     <string name="episode_missing_message">Bu bölüm kütüphanenizde eksik. Bunu atlayıp bir sonrakine geçmek ister misiniz?</string>
     <string name="episode_missing">Bölüm eksik</string>
     <string name="no_player_message">Video oynatma özellikli bir uygulamanız olmadığı görülüyor. Bu seçenek, video içeriğini oynatmak için 3. taraf bir uygulama yüklemenizi gerektirir.</string>
-    <string name="no_player">Oynatıcı yok</string>
-    <string name="mark_watched_message">Öge süresi kadar oynamış görünmüyor. İzlendi olarak işaretlensin mi\?</string>
-    <string name="mark_watched">İzlendi olarak işaretle</string>
-    <string name="lbl_Reset">Sıfırla</string>
-    <string name="pref_button_remapping_description">Atamak için TV uzaktan kumandasındaki herhangi bir düğmeye basın</string>
-    <string name="pref_subtitle_track_button">Altyazı parçası düğmesi</string>
-    <string name="pref_audio_track_button">Ses parçası düğmesi</string>
-    <string name="lbl_unknown_key">Bilinmeyen (%1s)</string>
     <string name="grid_direction_vertical">Dikey</string>
     <string name="grid_direction_horizontal">Yatay</string>
     <string name="grid_direction">Tablo yönü</string>
@@ -281,7 +248,6 @@
     <string name="lbl_season_number">S%1$d</string>
     <string name="lbl_episode_number">E%1$d</string>
     <string name="pref_theme_muted_purple">Soluk mor</string>
-    <string name="lbl_user_server">%2$s\'da %1$s</string>
     <string name="searchable_settings_description">Medya</string>
     <string name="searchable_hint">Jellyfin\'de ara</string>
     <string name="home_section_i">Ana Ekran bölümü %1$d</string>
@@ -294,7 +260,6 @@
     <string name="home_section_library_small">Benim medyam (küçük)</string>
     <string name="home_section_library">Benim medyam</string>
     <string name="home_section_latest_media">Son eklenen medya</string>
-    <string name="home_sections">Ana ekran bölümleri</string>
     <string name="home_prefs">Ana Ekran</string>
     <string name="license_license">Lisans</string>
     <string name="license_author">Yazar</string>
@@ -302,7 +267,6 @@
     <string name="license_website">Web sitesi</string>
     <string name="license_version">Sürüm</string>
     <string name="license_description">Açıklama</string>
-    <string name="licenses_link_description">Jellyfin uygulamasının kullandığı kütüphanelerin lisans bilgilerini görüntüle</string>
     <string name="licenses_link">Lisanslar</string>
     <string name="select_version">Sürüm</string>
     <string name="advanced_settings">Gelişmiş</string>
@@ -343,8 +307,6 @@
     <string name="connect_manually_by_address">Sunucu adresini girin</string>
     <string name="discovered_servers_empty">Yerel ağda sunucu bulunamadı.</string>
     <string name="discovered_servers_title">Keşfedilen sunucular</string>
-    <string name="lbl_hidden">Gizli</string>
-    <string name="pref_developer_link_description">Gelişmiş ve deneysel özellikler</string>
     <string name="pref_developer_link">Geliştirici seçenekleri</string>
     <string name="image_size_large">Büyük</string>
     <string name="image_size_medium">Orta</string>
@@ -370,20 +332,13 @@
     <string name="lbl_stretch">Esnet</string>
     <string name="lbl_auto_crop">Otomatik kırp</string>
     <string name="lbl_community_rating">Topluluk puanı</string>
-    <string name="lbl_subtitle_delay">Altyazı gecikmesi</string>
     <string name="server_connection_failed_candidates">Sunucuya bağlanılamıyor, şu adresler denendi: %1$s</string>
     <string name="image_type_poster">Afiş</string>
-    <string name="pref_subtitles_background_summary">Altyazıların arkasında siyah bir arka plan göster</string>
-    <string name="color_black">Siyah</string>
     <string name="color_red">Kırmızı</string>
     <string name="server_issue_invalid_product">Sunucu yazılımı uyumlu değil</string>
     <string name="pref_subtitles_size">Metin boyutu</string>
     <string name="server_issue_unable_to_connect">Bağlanılamıyor</string>
-    <string name="color_white">Beyaz</string>
-    <string name="color_yellow">Sarı</string>
-    <string name="color_pink">Pembe</string>
     <string name="lbl_shuffle_queue">Karışık oynatmayı aç/kapat</string>
-    <string name="color_darkgrey">Koyu Gri</string>
     <string name="color_green">Yeşil</string>
     <string name="color_blue">Mavi</string>
     <string name="lbl_playback_speed">Oynatma hızı</string>
@@ -392,14 +347,10 @@
     <string name="state_disabled">Devre dışı</string>
     <string name="lbl_latest_in">%1$s kütüphanesine son eklenenler</string>
     <string name="pref_accounts">Hesaplar</string>
-    <string name="color_cyan">Cam göbeği</string>
     <string name="server_issue_timeout">Bağlantı zaman aşımına uğradı</string>
-    <string name="pref_theme">Tema</string>
     <string name="pref_customization">Özelleştirme</string>
-    <string name="pref_subtitles_background_title">Arka planı etkinleştir</string>
     <string name="server_issue_missing_version">Sunucu sürümü algılanamadı</string>
     <string name="server_issue_outdated_version">Sunucu desteklenmeyen %1$s sürümünü kullanıyor. Lütfen %2$s veya daha yeni bir sürüme güncelleyin</string>
-    <string name="pref_behavior">Davranış</string>
     <string name="server_issue_unsupported_version">Sunucu desteklenmeyen %1$s sürümünü kullanıyor</string>
     <string name="action_use_password">Bir parola kullanın</string>
     <string name="input_password">Parola</string>
@@ -410,8 +361,6 @@
     <string name="lbl_quality_profile">Kalite profili</string>
     <string name="server_issue_ssl_handshake">SSL el sıkışması başarısız oldu</string>
     <string name="image_size_smallest">En Küçük</string>
-    <string name="pref_home_description">Gösterilen bölümleri yapılandırın</string>
-    <string name="pref_customization_description">Tema, ana ekran, yeniden eşleştirme</string>
     <string name="pref_video">Video</string>
     <string name="action_use_quickconnect">Hızlı Bağlan\'ı Kullan</string>
     <string name="app_notification_uimode_invalid">Bu uygulama televizyonlar için optimize edilmiştir. Diğer cihazlarda mobil uygulamamızı kullanmanızı öneririz.</string>
@@ -420,16 +369,13 @@
     <string name="pref_crash_report_logs_disabled">Günlükler çökme raporlarına dahil edilmeyecektir</string>
     <string name="app_notification_beta">Uygulama %1$s sürümüne güncellendi
 \nJellyfin beta programına katıldığınız için teşekkür ederiz.</string>
-    <string name="pref_enable_media_management_description">Göz atarken medyayı yönetme seçeneğini göster</string>
     <string name="pref_screensaver">Ekran Koruyucu</string>
     <string name="pref_screensaver_inapp_enabled">Uygulama içi ekran koruyucuyu kullanın</string>
-    <string name="not_set">Ayarlanmadı</string>
     <string name="lbl_album_artists">Albüm sanatçıları</string>
     <plurals name="minutes">
         <item quantity="one">%1$s dakika</item>
         <item quantity="other">%1$s dakika</item>
     </plurals>
-    <string name="pref_playback_description">Video, altyazılar, canlı tv, sıradaki bölüm</string>
     <string name="disable_ui_mode_warning">Cihaz türü uyarısını devre dışı bırak</string>
     <string name="pref_browsing">Gözatma</string>
     <string name="pref_crash_reports">Sunucuya çökme raporlarını gönder</string>
@@ -437,22 +383,15 @@
         <item quantity="one">%1$s parça</item>
         <item quantity="other">%1$s parça</item>
     </plurals>
-    <string name="enable_reactive_homepage">Reaktif ana ekranı etkinleştirin</string>
     <plurals name="episodes">
         <item quantity="one">%1$s bölüm</item>
         <item quantity="other">%1$s bölüm</item>
     </plurals>
-    <string name="desc_audio_night_mode">Ses seviyesini otomatik olarak dengeler</string>
     <string name="pref_audio">Ses</string>
     <string name="pref_refresh_rate_scale_on_device">Cihaz üzerinde ölçeklendir</string>
-    <string name="live_tv_preferences">Canlı TV seçenekleri</string>
     <string name="pref_libraries">Kütüphaneler</string>
-    <string name="pref_libraries_description">Kütüphanelerin görüntülenme şeklini değiştirin</string>
     <string name="pref_login">Oturum aç</string>
-    <string name="pref_login_description">Sunucular, hesaplar, otomatik oturum açma</string>
     <string name="pref_subtitles">Altyazılar</string>
-    <string name="pref_direct_stream_live_on">Kod dönüştürme devre dışı bırakıldı</string>
-    <string name="pref_direct_stream_live_off">Gerektiğinde kod dönüştürme kullanılır</string>
     <string name="home_section_resume_book">Okumaya devam et</string>
     <string name="action_login">Oturum aç</string>
     <string name="input_username">Kullanıcı adı</string>
@@ -474,11 +413,9 @@
         <item quantity="one">%1$s saniye</item>
         <item quantity="other">%1$s saniye</item>
     </plurals>
-    <string name="pref_telemetry_description">Çökme raporlarını gönderin, günlükleri ekleyin</string>
     <string name="pref_crash_reports_enabled">Çökme raporları son kullandığınız sunucuya gönderilecektir</string>
     <string name="item_deleted">%1$s silindi</string>
     <string name="pref_crash_report_logs_enabled">Günlükler çökme raporlarına dahil edilecektir</string>
-    <string name="pref_enable_media_management">Medya yönetimini etkinleştirin</string>
     <string name="pref_refresh_rate_scale_on_tv">TV üzerinde ölçeklendir</string>
     <plurals name="hours">
         <item quantity="one">%1$s saat</item>
@@ -504,14 +441,6 @@
         <item quantity="one">%1$s öge</item>
         <item quantity="other">%1$s öge</item>
     </plurals>
-    <plurals name="movies">
-        <item quantity="one">%1$s film</item>
-        <item quantity="other">%1$s film</item>
-    </plurals>
-    <plurals name="tv_series">
-        <item quantity="one">%1$s dizi</item>
-        <item quantity="other">%1$s dizi</item>
-    </plurals>
     <plurals name="songs">
         <item quantity="one">%1$s şarkı</item>
         <item quantity="other">%1$s şarkı</item>
@@ -531,12 +460,10 @@
     <string name="pref_screensaver_ageratingmax_unlimited">En yüksek yaşı devre dışı bırak</string>
     <string name="pref_screensaver_ageratingrequired_title">Yaş derecelendirmesi gerektir</string>
     <string name="pref_screensaver_ageratingrequired_enabled">Yalnızca yaş derecelendirmesi ayarlanmış ögeleri göster</string>
-    <string name="pref_screensaver_ageratingrequired_disabled">Tüm ögeler gösteriliyor</string>
     <string name="lbl_home">Ana Ekran</string>
     <string name="app_notification_update_soon">Bir sonraki güncellemeden sonra uygulamayı kullanmaya devam etmek için sunucunuzu %1$s sürümünden en az %2$s sürümüne güncelleyin.</string>
     <string name="all_channels">Tüm kanallar</string>
     <string name="current_queue">Geçerli kuyruk</string>
-    <string name="pref_external_player">Harici oynatıcı kullan</string>
     <string name="continue_listening">Dinlemeye devam et</string>
     <string name="past_week">Geçen hafta</string>
     <string name="scheduled_in_next_24_hours">Önümüzdeki 24 saat için planlandı</string>
@@ -554,13 +481,10 @@
     <string name="segment_type_unknown">Bilinmeyen segmentler</string>
     <string name="segment_action_nothing">Hiçbir şey yapma</string>
     <string name="segment_action_skip">Atla</string>
-    <string name="pref_mediasegment_actions">Medya segmenti eylemleri</string>
     <string name="segment_type_commercial">Reklamlar</string>
     <string name="segment_type_intro">İntrolar</string>
     <string name="segment_type_outro">Kapanış jeneriği</string>
-    <string name="preference_enable_trickplay">Video oynatıcıda hızlı önizleme özelliğini etkinleştir</string>
     <string name="skip_forward_length">İleri atlama uzunluğu</string>
-    <string name="pref_subtitles_background_opacity">Altyazı arka plan opaklığı</string>
     <string name="pref_troubleshooting">Sorun Giderme</string>
     <string name="pref_report_device_profile_title">Oynatma yeteneklerini sunucuya rapor et</string>
     <string name="pref_report_device_profile_success">Belge %1$s olarak gönderildi</string>
@@ -575,10 +499,8 @@
     <string name="speech_error_unknown">Ses tanıma sırasında beklenmeyen bir hata oluştu.</string>
     <string name="lbl_from_beginning">Baştan oynat</string>
     <string name="speech_error_unavailable">Ses tanıma özelliği cihazınızda kullanılamıyor.</string>
-    <string name="pref_subtitles_bold">Kalın metin</string>
     <string name="preference_enable_pgs">Doğrudan oynatma PGS altyazıları</string>
     <string name="lbl_exit">Çıkış</string>
-    <string name="pref_still_watching_behavior_title">Hareketsizlik zaman aşımı açılır penceresini göster</string>
     <string name="lbl_still_watching_default">3 bölüm veya 90 dakika</string>
     <string name="lbl_still_watching_short">2 bölüm veya 60 dakika</string>
     <string name="lbl_still_watching_long">5 bölüm veya 150 dakika</string>

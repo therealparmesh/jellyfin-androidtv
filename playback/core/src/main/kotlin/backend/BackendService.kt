@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-13. See FORK.md.
 package org.jellyfin.playback.core.backend
 
 import androidx.core.view.doOnDetach
@@ -74,9 +75,6 @@ class BackendService {
 		listeners.add(listener)
 	}
 
-	fun removeListener(listener: PlayerBackendEventListener) {
-		listeners.remove(listener)
-	}
 
 	inner class BackendEventListener : PlayerBackendEventListener() {
 		private fun <T> callListeners(

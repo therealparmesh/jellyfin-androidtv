@@ -1,3 +1,4 @@
+// Modified for the Parmesh fork on 2026-10-12. See FORK.md.
 package org.jellyfin.androidtv.ui.playback.overlay.action
 
 import android.content.Context
@@ -29,7 +30,8 @@ class ClosedCaptionsAction(
 		context: Context,
 		view: View,
 	) {
-		if (playbackController.currentStreamInfo == null) {
+		val mediaSource = playbackController.currentMediaSource
+		if (playbackController.currentStreamInfo == null || mediaSource == null) {
 			Timber.w("StreamInfo null trying to obtain subtitles")
 			Toast.makeText(context, "Unable to obtain subtitle info", Toast.LENGTH_LONG).show()
 			return
@@ -44,7 +46,7 @@ class ClosedCaptionsAction(
 					isChecked = playbackController.subtitleStreamIndex == -1
 				}
 
-				for (sub in playbackController.currentMediaSource.mediaStreams.orEmpty()) {
+				for (sub in mediaSource.mediaStreams.orEmpty()) {
 					if (sub.type != MediaStreamType.SUBTITLE) continue
 
 					add(0, sub.index, order++, sub.displayTitle).apply {
